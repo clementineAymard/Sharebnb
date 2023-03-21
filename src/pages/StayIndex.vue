@@ -1,22 +1,22 @@
 <template>
   <div class="container home">
-    <ul class="stay-list">
-      <li v-for="stay in stays" :key="stay._id">
+    <!-- <ul class="stay-list">
+      <li v-for="stay in stays" :key="stay._id"> -->
         <!-- <pre>{{ stay }}</pre> -->
-        <p>
+        <!-- <p>
           {{stay.name}}
         </p>
         <p>
           ${{stay.price?.toLocaleString()}}
-        </p>
-        <button @click="removeStay(stay._id)">x</button>
+        </p> -->
+        <!-- <button @click="removeStay(stay._id)">x</button>
         <button @click="updateStay(stay)">Update</button>
-        <hr />
+        <hr /> -->
         <!-- <button @click="addStayMsg(stay._id)">Add stay msg</button>
         <button @click="printStayToConsole(stay)">Print msgs to console</button> -->
-
-      </li>
-    </ul>
+<StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
+  <!-- </li>
+    </ul> -->
     <hr />
     <form @submit.prevent="addStay()">
       <h2>Add stay</h2>
@@ -30,6 +30,8 @@
 import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
 import {stayService} from '../services/stay.service.local'
 import { getActionRemoveStay, getActionUpdateStay, getActionAddStayMsg } from '../store/stay.store'
+import StayList from '../cmps/StayList.vue'
+
 export default {
   data() {
     return {
@@ -92,6 +94,9 @@ export default {
     // printStayToConsole(stay) {
     //   console.log('Stay msgs:', stay.msgs)
     // }
+  },
+  components:{
+    StayList
   }
 
   
