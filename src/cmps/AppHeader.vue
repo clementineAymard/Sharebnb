@@ -1,22 +1,30 @@
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/">
-        <span role="img" aria-label="logo">🙏</span>
-      </RouterLink>
+  <header class="header">
 
-      <RouterLink to="/stay">Stays</RouterLink>
-      <RouterLink to="/review">Reviews</RouterLink>
-      <RouterLink to="/chat">Chat</RouterLink>
-      <RouterLink to="/login">Login / Signup</RouterLink>
-    </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
-      <RouterLink :to="`/user/${loggedInUser._id}`">
-        {{ loggedInUser.fullname }}
-      </RouterLink>
-      <span>{{ loggedInUser.score.toLocaleString() }}</span>
-      <img :src="loggedInUser.imgUrl" />
+    <RouterLink to="/">
+      <img class="logo" src="../../public/favicon.png">
+    </RouterLink>
+
+    <section class="search">
+      <span class="little-search"></span>
+      <button>Anywhere</button>
+      <span class="a"></span>
+      <button>Any week</button>
+      <span class="b"></span>
+      <div class="flex align-center justify-between">
+        <button class="g">Add guests</button>
+        <div></div>
+      </div>
+
     </section>
+
+    <nav>
+      <RouterLink to="/stay">Airbnb your home</RouterLink>
+
+      <!-- <div class="loggedin-user" v-if="loggedInUser"> -->
+        <RouterLink >Login</RouterLink>
+      <!-- </div> -->
+    </nav>
   </header>
 </template>
 <script>

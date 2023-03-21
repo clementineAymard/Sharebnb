@@ -1,8 +1,53 @@
-header {
-    background-color: $clr5;
-    padding: 10px;
+.header {
+    width: 100vw;
+    max-width: 2520px;
+    height: em(80px);
+    border-bottom: solid 1px $clr4;
+
+    @include for-mobile-layout {
+        padding-inline: em(24px);
+    }
+
+    @include for-narrow-layout {
+        padding-inline: em(40px);
+    }
+
+    @include for-wide-layout {
+        padding-inline: em(80px);
+    }
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        object-fit: contain;
+        height: em(32px);
+    }
+
+    .search {
+        display: flex;
+        height: 3rem;
+        width: fit-content;
+        border-radius: 50px;
+        box-shadow: 0px 0px 2px 1px $clr4;
+       button {
+        background-color: transparent;
+        color:$clr2;
+        font-family: Circular;
+        font-size: 14px;
+        padding-inline: 1rem;
+        border-right: solid 1px $clr4;
+
+        &.g {
+            color:$clr3;
+            // font-family: CircularLight;
+            font-weight: 200;
+            border-right: none;
+        }
+       } 
+       
+    }
 
     .loggedin-user {
         background-color: $clr1;
@@ -10,29 +55,33 @@ header {
         border-radius: 1em;
         align-self: flex-end;
         color: whitesmoke;
-        span{
+
+        span {
             background-color: $clr2;
             padding: 4px;
             margin: 10px;
             border-radius: 50%;
         }
+
         img {
             width: 2em;
             height: 2em;
             border-radius: 50%;
         }
     }
+
     nav {
-        background-color: $clr4;
         padding: 5px 0;
+
+        a:not(:first-child) {
+            border-top: 1px solid $clr1;
+            padding: 0 5px;
+            margin: 10px;
+        }
+
+        .active {
+            color: $clr1;
+        }
     }
-    nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-        margin: 10px;
-    }
-    nav .active {
-        color: $clr1;
-    }
-    
+
 }
