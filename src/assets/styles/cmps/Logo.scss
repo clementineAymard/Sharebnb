@@ -1,0 +1,21 @@
+.logo {
+    gap: 5px;
+    margin: -5px;
+    flex: 1 0 100px;
+
+    img {
+        object-fit: contain;
+        height: em(32px);
+    }
+
+    span {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 0.9;
+        color: $clr1
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}

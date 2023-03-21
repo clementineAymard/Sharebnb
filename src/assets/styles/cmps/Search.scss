@@ -1,0 +1,57 @@
+.search {
+    display: flex;
+    height: 3rem;
+    width: fit-content;
+    border-radius: 50px;
+    border: solid 1px $clr4;
+    box-shadow: 0px 1px 2px 0px $clr4;
+    margin: -1px 24px;
+    padding-inline-start: 10px;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow ease-in-out 250ms;
+
+    &:hover {
+        box-shadow: 0px 1px 3px 1px $clr4;
+    }
+
+    button {
+        background-color: transparent;
+        color: $clr2;
+        font-family: Circular;
+
+        div {
+            border-right: solid 1px $clr4;
+
+            &.closed {
+                padding-inline: 1rem;
+                font-size: 14px;
+            }
+
+        }
+
+        &:last-child {
+            color: $clr3;
+
+            div {
+                border-right: none;
+            }
+        }
+    }
+
+    .glass {
+        background-color: $clr1;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        padding: 10px;
+        display: flex;
+        margin-inline-end: 10px;
+
+        img {
+            // width:22px;
+            object-fit: contain;
+        }
+    }
+
+}
