@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import Home from './views/Home.vue'
-import Chat from './views/Chat.vue'
-import StayIndex from './views/StayIndex.vue'
-import ReviewIndex from './views/ReviewIndex.vue'
-import LoginSignup from './views/LoginSignup.vue'
-import UserDetails from './views/UserDetails.vue'
+import Home from './pages/Home.vue'
+import Chat from './pages/Chat.vue'
+import StayIndex from './pages/StayIndex.vue'
+import ReviewIndex from './pages/ReviewIndex.vue'
+import LoginSignup from './pages/LoginSignup.vue'
+import UserDetails from './pages/UserDetails.vue'
 
 const routes = [
   {
