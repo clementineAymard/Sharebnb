@@ -1,4 +1,5 @@
 <template>
+  <div v-if="isSearchOpen" class="backdrop" @click="onClose"></div>
   <header class="header flex align-center justify-between">
 
     <RouterLink to="/" class="logo flex align-center">
@@ -7,30 +8,29 @@
 
     <section class="search">
       <span class="a"></span>
-      <button>
-        <span v-if="isSearchOpen" :class="isSearchOpenClass">Location</span>
+      <button @click="onSearch('location')">
+        <div v-if="isSearchOpen" :class="isSearchOpenClass">Location</div>
         <div v-else :class="isSearchOpenClass">Anywhere</div>
       </button>
 
       <span class="b"></span>
-      <button>
-        <span v-if="isSearchOpen" :class="isSearchOpenClass">Check in / Check out</span>
+      <button @click="onSearch('date')">
+        <div v-if="isSearchOpen" :class="isSearchOpenClass">Check in / Check out</div>
         <div v-else :class="isSearchOpenClass">Any week</div>
       </button>
 
       <span class="c"></span>
-      <button class="flex align-center">
-        <span v-if="isSearchOpen" :class="isSearchOpenClass">Guests</span>
+      <button class="flex align-center" @click="onSearch('guests')">
+        <div v-if="isSearchOpen" :class="isSearchOpenClass">Guests</div>
         <div v-else :class="isSearchOpenClass">Add guests</div>
         <div class="glass"><img src="/search.png"></div>
       </button>
       <!-- <div class="flex align-center justify-between"> -->
       <!-- </div> -->
-
     </section>
 
     <nav class="flex align-center">
-      
+
       <div class="links flex align-center">
         <RouterLink class="link-add-stay" to="/stay">Airbnb your home</RouterLink>
 
@@ -64,8 +64,16 @@ export default {
     },
     isSearchOpenClass() {
       return this.isSearchOpen ? 'open' : 'closed'
-    }
+    },
 
+  },
+  methods: {
+    onSearch(type) {
+      this.isSearchOpen = true
+    },
+    onClose() {
+      this.isSearchOpen = false
+    }
   }
 }
 </script>
