@@ -6,18 +6,16 @@
     grid-auto-rows: 4, minmax(min-content, max-content);
     grid-gap: 40px 24px;
     grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 40px;
 
-    li {
-        background-color: $clr2;
-        color: $clr6;
-        padding: 5px;
-        margin: 5px;
-        background-image: url('/src/assets/imgs/1.jpg');
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        border-radius: 20px;
-        height: 200px;
-    }
+    
+    // .stay-img{
+    //     background-image: url('/src/assets/imgs/1.jpg');
+    //     background-repeat: no-repeat;
+    //     background-size: 100% 100%;
+    //     border-radius: 20px;
+    // }
     a {
         color: $clr1;
         padding: 10px;
