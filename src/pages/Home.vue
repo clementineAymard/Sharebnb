@@ -2,7 +2,7 @@
   <section class="container home text-center">
     <h1>Home Page</h1>
     <h5 class="text-center">
-      Powered up Frontend q
+      Powered up Frontend 
     </h5>
     <img alt="Vue logo" src="../assets/logo.png">
   </section>
