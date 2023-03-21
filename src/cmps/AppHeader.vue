@@ -21,9 +21,11 @@
     <nav>
       <RouterLink to="/stay">Airbnb your home</RouterLink>
 
-      <!-- <div class="loggedin-user" v-if="loggedInUser"> -->
-        <RouterLink >Login</RouterLink>
-      <!-- </div> -->
+      <div class="loggedin-user" v-if="loggedInUser">
+        <RouterLink to="/login">
+          Login
+        </RouterLink>
+      </div>
     </nav>
   </header>
 </template>
