@@ -1,5 +1,6 @@
 <template>
   <div class="container home">
+    <FilterNav></FilterNav>
     <!-- <ul class="stay-list">
       <li v-for="stay in stays" :key="stay._id"> -->
         <!-- <pre>{{ stay }}</pre> -->
@@ -31,6 +32,7 @@ import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
 import {stayService} from '../services/stay.service.local'
 import { getActionRemoveStay, getActionUpdateStay, getActionAddStayMsg } from '../store/stay.store'
 import StayList from '../cmps/StayList.vue'
+import FilterNav from '../cmps/FilterNav.vue'
 
 export default {
   data() {
@@ -96,7 +98,8 @@ export default {
     // }
   },
   components:{
-    StayList
+    StayList,
+    FilterNav
   }
 
   
