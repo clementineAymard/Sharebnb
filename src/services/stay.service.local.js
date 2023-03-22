@@ -77,10 +77,10 @@ const stays = [
     "_id": "101",
     "name": "Duplex",
     "type": "House",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
-      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-      "capacity": 8,
+    "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg", "otherImg.jpg"],
+      "price": 160.00,
+      "summary": "A house is a single-unit residential building.It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems.",
+      "capacity": 6,
       "amenities": [
         "TV",
         "Wifi",
@@ -101,9 +101,9 @@ const stays = [
         "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
       },
       "loc": {
-        "country": "Portugal",
+        "country": "Brazil",
         "countryCode": "PT",
-        "city": "Porto",
+        "city": "Rio de Janeiro",
         "address": "17 Kombo st",
         "lat": -8.61308,
         "lng": 41.1413
@@ -124,9 +124,9 @@ const stays = [
     },
     {
       "_id": "102",
-      "name": "Nice Duplex",
+      "name": "Panoramic View Villa in OliveGroves",
       "type": "House",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+      "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475458/single-family-new-construction-home-in-suburb-neighborhood-in-the-south_qlwj6z.jpg", "otherImg.jpg"],
         "price": 80.00,
         "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
         "capacity": 8,
@@ -150,9 +150,9 @@ const stays = [
           "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
         },
         "loc": {
-          "country": "Portugal",
+          "country": "Italy",
           "countryCode": "PT",
-          "city": "Porto",
+          "city": "Rome",
           "address": "17 Kombo st",
           "lat": -8.61308,
           "lng": 41.1413
@@ -175,10 +175,10 @@ const stays = [
       "_id": "103",
       "name": "Charming House",
       "type": "House",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475458/maxresdefault_euzz8v.jpg", "otherImg.jpg"],
+      "price": 140.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-      "capacity": 8,
+      "capacity": 3,
       "amenities": [
         "TV",
         "Wifi",
@@ -199,9 +199,9 @@ const stays = [
         "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
       },
       "loc": {
-        "country": "Portugal",
+        "country": "France",
         "countryCode": "PT",
-        "city": "Porto",
+        "city": "Lyon",
         "address": "17 Kombo st",
         "lat": -8.61308,
         "lng": 41.1413
@@ -224,10 +224,10 @@ const stays = [
       "_id": "104",
       "name": "Beautiful Cottage",
       "type": "House",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-      "price": 80.00,
+      "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475457/dream-home-luxury-house-success_bsgev2.jpg", "otherImg.jpg"],
+      "price": 110.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-      "capacity": 8,
+      "capacity": 4,
       "amenities": [
         "TV",
         "Wifi",
@@ -248,9 +248,9 @@ const stays = [
         "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
       },
       "loc": {
-        "country": "Portugal",
+        "country": "Spain",
         "countryCode": "PT",
-        "city": "Porto",
+        "city": "Madrid",
         "address": "17 Kombo st",
         "lat": -8.61308,
         "lng": 41.1413
@@ -273,10 +273,10 @@ const stays = [
       "_id": "105",
       "name": "Ribeira Charming Duplex",
       "type": "House",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+      "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475457/Wyoming_20-_20Courtesy_20of_20Trulia_x6h8ev.jpg", "otherImg.jpg"],
       "price": 80.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-      "capacity": 8,
+      "capacity": 2,
       "amenities": [
         "TV",
         "Wifi",
@@ -297,9 +297,9 @@ const stays = [
         "imgUrl": "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
       },
       "loc": {
-        "country": "Portugal",
+        "country": "Italy",
         "countryCode": "PT",
-        "city": "Porto",
+        "city": "Venice",
         "address": "17 Kombo st",
         "lat": -8.61308,
         "lng": 41.1413
@@ -320,12 +320,12 @@ const stays = [
     },
     {
       "_id": "106",
-      "name": "Nice Duplex",
+      "name": "Cozy bungalow with amazing seaview, secret garden",
       "type": "House",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-34444025/original/cae4b265-0ab6-4993-9eef-0274b187b116.jpeg?im_w=960", "otherImg.jpg"],
-        "price": 80.00,
+      "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475457/image_sjcfbw.jpg", "otherImg.jpg"],
+        "price": 180.00,
         "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-        "capacity": 8,
+        "capacity": 4,
         "amenities": [
           "TV",
           "Wifi",
@@ -346,9 +346,9 @@ const stays = [
           "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
         },
         "loc": {
-          "country": "Portugal",
+          "country": "Brazil",
           "countryCode": "PT",
-          "city": "Porto",
+          "city": "São Paulo",
           "address": "17 Kombo st",
           "lat": -8.61308,
           "lng": 41.1413
@@ -367,14 +367,14 @@ const stays = [
         ],
         "likedByUsers": ['mini-user'] // for user-wishlist : use $in
     },
-    {
+    { 
         "_id": "107",
-        "name": "Nice Duplex",
+        "name": "New and modern apartment",
         "type": "House",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small", "otherImg.jpg"],
-          "price": 80.00,
+        "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475398/1_udeiwg.jpg", "otherImg.jpg"],
+          "price": 160.00,
           "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-          "capacity": 8,
+          "capacity": 4,
           "amenities": [
             "TV",
             "Wifi",
@@ -395,9 +395,9 @@ const stays = [
             "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
           },
           "loc": {
-            "country": "Portugal",
+            "country": "France",
             "countryCode": "PT",
-            "city": "Porto",
+            "city": "Paris",
             "address": "17 Kombo st",
             "lat": -8.61308,
             "lng": 41.1413
@@ -418,12 +418,12 @@ const stays = [
     },
     {
           "_id": "108",
-          "name": "Nice Duplex",
+          "name": "The Garden Room",
           "type": "House",
-          "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-            "price": 80.00,
+          "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475457/kiawah_island-realtor_psnkc9.jpg", "otherImg.jpg"],
+            "price": 140.00,
             "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-            "capacity": 8,
+            "capacity": 3,
             "amenities": [
               "TV",
               "Wifi",
@@ -444,9 +444,9 @@ const stays = [
               "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
             },
             "loc": {
-              "country": "Portugal",
+              "country": "Italy",
               "countryCode": "PT",
-              "city": "Porto",
+              "city": "Naples",
               "address": "17 Kombo st",
               "lat": -8.61308,
               "lng": 41.1413
@@ -465,14 +465,14 @@ const stays = [
             ],
             "likedByUsers": ['mini-user'] // for user-wishlist : use $in
     },
-    {
+    { 
             "_id": "109",
-            "name": "Nice Duplex",
+            "name": "Entire vacation home hosted by Simon & Nina",
             "type": "House",
-            "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-34444025/original/cae4b265-0ab6-4993-9eef-0274b187b116.jpeg?im_w=960", "otherImg.jpg"],
-              "price": 80.00,
+            "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475783/946121_873a_oo6b5j.jpg", "otherImg.jpg"],
+              "price": 150.00,
               "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-              "capacity": 8,
+              "capacity": 4,
               "amenities": [
                 "TV",
                 "Wifi",
@@ -493,9 +493,9 @@ const stays = [
                 "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
               },
               "loc": {
-                "country": "Portugal",
+                "country": "Spain",
                 "countryCode": "PT",
-                "city": "Porto",
+                "city": "Barcelona",
                 "address": "17 Kombo st",
                 "lat": -8.61308,
                 "lng": 41.1413
@@ -516,9 +516,9 @@ const stays = [
     },
     {
               "_id": "110",
-              "name": "Nice Duplex",
+              "name": "Entire bungalow",
               "type": "House",
-              "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+              "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475783/99988ab9-ea42-4f60-b796-9c994a6a7fe9-falcon-nest_lpcjdx.jpg", "otherImg.jpg"],
                 "price": 80.00,
                 "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
                 "capacity": 8,
@@ -565,12 +565,12 @@ const stays = [
     },
     {
                 "_id": "111",
-                "name": "Nice Duplex",
+                "name": "Windows On The Bay",
                 "type": "House",
-                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-                  "price": 80.00,
+                "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475783/c881fa97-90fc-4679-a251-8db9b4698fe3-floating-home-exterior_awgevt.jpg", "otherImg.jpg"],
+                  "price": 70.00,
                   "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-                  "capacity": 8,
+                  "capacity": 3,
                   "amenities": [
                     "TV",
                     "Wifi",
@@ -591,9 +591,9 @@ const stays = [
                     "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                   },
                   "loc": {
-                    "country": "Portugal",
+                    "country": "Netherlands",
                     "countryCode": "PT",
-                    "city": "Porto",
+                    "city": "Amsterdam",
                     "address": "17 Kombo st",
                     "lat": -8.61308,
                     "lng": 41.1413
@@ -614,12 +614,12 @@ const stays = [
     },
     {
                   "_id": "112",
-                  "name": "Nice Duplex",
+                  "name": "Peaceful Getaway",
                   "type": "House",
-                  "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-                    "price": 80.00,
+                  "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475784/eb_qjbemy.jpg", "otherImg.jpg"],
+                    "price": 180.00,
                     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-                    "capacity": 8,
+                    "capacity": 4,
                     "amenities": [
                       "TV",
                       "Wifi",
@@ -640,9 +640,9 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "Portugal",
+                      "country": "Florida",
                       "countryCode": "PT",
-                      "city": "Porto",
+                      "city": "Miami",
                       "address": "17 Kombo st",
                       "lat": -8.61308,
                       "lng": 41.1413
@@ -663,12 +663,12 @@ const stays = [
     },
     {
                   "_id": "113",
-                  "name": "Nice Duplex",
+                  "name": "Apartment overlooking the sea and the mountains",
                   "type": "House",
-                  "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-34444025/original/cae4b265-0ab6-4993-9eef-0274b187b116.jpeg?im_w=960", "otherImg.jpg"],
-                    "price": 80.00,
+                  "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475784/bb4cf8ea4bd97c02cdd8198f1195b6b5_eaof7i.jpg", "otherImg.jpg"],
+                    "price": 180.00,
                     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-                    "capacity": 8,
+                    "capacity": 6,
                     "amenities": [
                       "TV",
                       "Wifi",
@@ -689,9 +689,9 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "Portugal",
+                      "country": "France",
                       "countryCode": "PT",
-                      "city": "Porto",
+                      "city": "Paris",
                       "address": "17 Kombo st",
                       "lat": -8.61308,
                       "lng": 41.1413
@@ -714,10 +714,10 @@ const stays = [
                   "_id": "114",
                   "name": "Nice Duplex",
                   "type": "House",
-                  "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-                    "price": 80.00,
+                  "imgUrls": ["https://res.cloudinary.com/deayegq6w/image/upload/v1679475784/AM-Biance-1-1_zipc0o.jpg", "otherImg.jpg"],
+                    "price": 180.00,
                     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-                    "capacity": 8,
+                    "capacity": 4,
                     "amenities": [
                       "TV",
                       "Wifi",
@@ -738,9 +738,9 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "Portugal",
+                      "country": "New York",
                       "countryCode": "PT",
-                      "city": "Porto",
+                      "city": "New York",
                       "address": "17 Kombo st",
                       "lat": -8.61308,
                       "lng": 41.1413

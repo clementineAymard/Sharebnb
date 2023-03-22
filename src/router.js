@@ -20,6 +20,11 @@ const routes = [
     component: StayIndex
   },
   {
+    path: '/stay/:stayId',
+    name: 'StayDetails',
+    component: StayDetails
+  },
+  {
     path: '/review',
     name: 'ReviewIndex',
     component: ReviewIndex
@@ -28,11 +33,6 @@ const routes = [
     path: '/chat',
     name: 'Chat',
     component: Chat
-  },
-  {
-    path: '/stay/details',
-    name: 'StayDetails',
-    component: StayDetails
   },
   {
     path: '/login',

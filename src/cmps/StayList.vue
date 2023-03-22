@@ -6,7 +6,7 @@
         :key="stay._id" 
         :stay="stay" 
         @removeStay="$emit('removeStay',stay._id)"
-        @updateStay="$emit('updateStay',stay)"></StayPreview>
+        @updateStay="$emit('updateStay',stay)" @click=" this.$router.push(`/stay/${stay._id}`)"></StayPreview>
     <!-- </ul> -->
 
 </section>
