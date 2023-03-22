@@ -4,18 +4,35 @@
     font-size: 1rem;
     font-weight: 300;
     margin-inline-end: 55px;
+
+    a {
+        padding: 5px;
+
+        &:after {
+            display: block;
+            content: '';
+            border-bottom: solid 2px $clr3;
+            transform: scaleX(0);
+            transition: transform 250ms ease-in-out;
+        }
+
+        &:hover {
+            color: $clr3;
+
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+    }
 }
 
 .search-container.expanded {
-
-    background-color: $clr6;
     width: 100vw;
     height: em(70px);
     position: absolute;
     top: em(70px);
     margin-inline-start: -100px;
-    // z-index: 2;
-    border-bottom: solid 1px $clr4;
+    z-index: 4;
 
     .search {
         background-color: lighten($clr4, 8%);
@@ -24,13 +41,15 @@
 
 .search {
     display: flex;
-    height: 3rem;
+    padding:7px;
+    // height: 3rem;
     width: fit-content;
     border-radius: 50px;
     border: solid 1px $clr4;
     box-shadow: 0px 1px 2px 0px $clr4;
     margin: -1px 24px;
     padding-inline-start: 10px;
+
     position: absolute;
     left: 48vw;
     translate: -50%;
@@ -39,6 +58,11 @@
 
     &:hover {
         box-shadow: 0px 1px 3px 1px $clr4;
+    }
+
+    &.expanded {
+        // height: 4rem;
+        padding:14px;
     }
 
     button {
@@ -50,7 +74,7 @@
             border-right: solid 1px $clr4;
             padding-inline: 1rem;
             font-size: 14px;
-            margin: auto;   
+            margin: auto;
 
             &.open {
                 align-items: flex-start;

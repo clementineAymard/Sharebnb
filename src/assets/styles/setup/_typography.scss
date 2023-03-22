@@ -1,12 +1,12 @@
 @font-face {
-    font-family: Circular;
-    src: url('src/assets/fonts/CircularStd-Medium.ttf');
+    font-family: montserrat;
+    src: url('src/assets/fonts/Montserrat-Regular.ttf');
 }
 @font-face {
-    font-family: CircularLight;
-    src: url('src/assets/fonts/CircularStd-Book.ttf');
+    font-family: montserrat_medium;
+    src: url('src/assets/fonts/Montserrat-Medium.ttf');
 }
-// @font-face {
-    // font-family: montserrat;
-    // src: url(../../fonts/Montserrat/Montserrat-Regular.ttf);
-// }
+@font-face {
+    font-family: montserrat_bold;
+    src: url('src/assets/fonts/Montserrat-Bold.ttf');
+}
