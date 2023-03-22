@@ -1,5 +1,7 @@
 nav {
     justify-content: end;
+    position: relative;
+    z-index: 3;
 
     .links {
         margin-inline-end: 10px;

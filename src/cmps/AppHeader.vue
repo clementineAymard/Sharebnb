@@ -1,33 +1,54 @@
 <template>
   <div v-if="isSearchOpen" class="backdrop" @click="onClose"></div>
-  <header class="header flex align-center justify-between">
+  <header class="header flex align-center justify-between" :class="isSearchOpenClass">
 
     <RouterLink to="/" class="logo flex align-center">
       <img src="../../public/favicon.png"><span>airbnb</span>
     </RouterLink>
 
-    <section class="search">
-      <span class="a"></span>
-      <button @click="onSearch('location')">
-        <div v-if="isSearchOpen" :class="isSearchOpenClass">Location</div>
-        <div v-else :class="isSearchOpenClass">Anywhere</div>
-      </button>
+    <div v-if="isSearchOpen" class="sub-search flex align-center ">
+      <span class="a">Stays</span>
+      <span class="b">Experiences</span>
+      <span class="c">Online Experiences</span>
+    </div>
+    <div class="search-container flex align-center" :class="isExpandedClass">
+      <section class="search"  :class="isExpandedClass">
 
-      <span class="b"></span>
-      <button @click="onSearch('date')">
-        <div v-if="isSearchOpen" :class="isSearchOpenClass">Check in / Check out</div>
-        <div v-else :class="isSearchOpenClass">Any week</div>
-      </button>
+        <button @click="onSearch('location')">
+          <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+            <div>Where</div>
+            <div class="sub-title">Search destinations</div>
+          </div>
+          <div v-else :class="isSearchOpenClass">Anywhere</div>
+        </button>
 
-      <span class="c"></span>
-      <button class="flex align-center" @click="onSearch('guests')">
-        <div v-if="isSearchOpen" :class="isSearchOpenClass">Guests</div>
-        <div v-else :class="isSearchOpenClass">Add guests</div>
-        <div class="glass"><img src="/search.png"></div>
-      </button>
-      <!-- <div class="flex align-center justify-between"> -->
-      <!-- </div> -->
-    </section>
+        <button @click="onSearch('date')" class="flex ">
+          <!-- <div v-if="isSearchOpen" :class="isSearchOpenClass">Check in / Check out</div> -->
+          <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+            <div>Check in</div>
+            <div class="sub-title">Add dates</div>
+          </div>
+          <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+            <div>Check out</div>
+            <div class="sub-title">Add dates</div>
+          </div>
+          <div v-else :class="isSearchOpenClass">Any week</div>
+        </button>
+
+
+
+        <button class="flex align-center" @click="onSearch('guests')">
+          <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+            <div>Who</div>
+            <div class="sub-title">Add guests</div>
+          </div>
+          <div v-else :class="isSearchOpenClass">Add guests</div>
+          <div class="glass"><img src="/search.png"></div>
+        </button>
+        <!-- <div class="flex align-center justify-between"> -->
+        <!-- </div> -->
+      </section>
+    </div>
 
     <nav class="flex align-center">
 
@@ -46,7 +67,7 @@
         </RouterLink>
       </div>
     </nav>
-
+    <!-- <div v-if="isSearchOpen" class="banniere"></div> -->
   </header>
 </template>
 
@@ -65,6 +86,9 @@ export default {
     isSearchOpenClass() {
       return this.isSearchOpen ? 'open' : 'closed'
     },
+    isExpandedClass() {
+      return this.isSearchOpen ? 'expanded' : 'closed'
+    }
 
   },
   methods: {
