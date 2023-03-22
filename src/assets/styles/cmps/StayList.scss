@@ -1,15 +1,15 @@
 .stay-list {
     list-style: none;
+    padding: 0px 40px;
+    margin: 16px 0px 40px;
     display: grid;
-    grid-auto-flow: row dense;
-    grid-auto-rows: 5;
+    // grid-auto-flow: row dense;
+    // grid-auto-rows: 5;
     grid-auto-rows: 4, minmax(min-content, max-content);
-    grid-gap: 40px 24px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 40px;
-
-    
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-left: 10px;
     // .stay-img{
     //     background-image: url('/src/assets/imgs/1.jpg');
     //     background-repeat: no-repeat;

@@ -1,33 +1,28 @@
 <template>
-    <ul>
         <li class="stay-preview">
             <!-- <pre> -->
             <!-- {{ stay.imgUrls[0] }} -->
             <!-- </pre>   -->
             <p class="img-container">
+            <i class="fa-regular fa-heart"></i>
+            <img class="stay-img" :src="imgUrl" alt="">
+            </p>
+            <div class="preview-txt">
 
-                <button @click="removeStay(stay._id)">x</button>
-                <button @click="updateStay(stay)">Update</button>
-                <button @click="goToDetail(stay)">Details</button>
-                <hr />
-                <i class="fa-regular fa-heart"></i>
-                <img class="stay-img" :src="imgUrl" alt="">
-
-            </p>
-            <hr>
-            <p>
-                {{ stay.name }} , {{ stay.loc.country }}
-            </p>
-            <p class="regular-font">Viewed <span>{{ randomViwes }}</span> times last week</p>
-            <p>
-                ${{ stay.price?.toLocaleString() }} <span class="regular-font">night</span>
-            </p>
+                <p>
+                    {{ stay.name }} , {{ stay.loc.country }}
+                </p>
+                <p class="regular-font">Viewed <span>{{ randomViwes }}</span> times last week</p>
+                <p>
+                    ${{ stay.price?.toLocaleString() }} <span class="regular-font">night</span>
+                </p>
+            </div>
 
             <!-- <button @click="removeStay(stay._id)">x</button>
             <button @click="updateStay(stay)">Update</button> -->
             <!-- <hr /> -->
         </li>
-    </ul>
+   
 </template>
 
 <script>
@@ -39,7 +34,7 @@ export default {
     data() {
         return {
             imgUrl: `${this.stay.imgUrls[0]}`,
-            randomViwes: utilService.getRandomIntInclusive(6000, 25000)
+            randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString()
         }
     },
     methods: {
