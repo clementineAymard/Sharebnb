@@ -16,7 +16,7 @@
         </div>
 
         <div class="preview-txt">
-            <p>
+            <p class="medium-font">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             </p>
             <p class="regular-font">
@@ -24,8 +24,8 @@
             </p>
             <p class="regular-font beds"> {{ stay.capacity }} beds , {{ rooms }} rooms</p>
             <!-- <p class="regular-font">Viewed <span>{{ randomViwes }}</span> times last week</p> -->
-            <p>
-                ${{ stay.price?.toLocaleString() }} <span class="regular-font">/ night</span>
+            <p class="medium-font">
+                ${{ randomPrice.toLocaleString() }} <span class="regular-font">/ night</span>
             </p>
         </div>
 
@@ -45,6 +45,7 @@ export default {
     data() {
         return {
             // imgUrl: `${this.stay.imgUrls}`,
+            randomPrice: utilService.getRandomIntInclusive(350, 2500).toLocaleString(),
             randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             rooms: Math.floor(this.stay.capacity / 2)
         }
