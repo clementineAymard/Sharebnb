@@ -1,7 +1,13 @@
-.filter-nav{
+.filter-nav {
 
-.nav-img{
-    width: 20px;
-    height: 20px;
-}
+    img {
+        height: 24px;
+        width: 24px;
+       
+        margin-left: 50px;
+    }
+    .nav-item{
+        display: grid;
+        font-size: 12px;
+    }
 }
