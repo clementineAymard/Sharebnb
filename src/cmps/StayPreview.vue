@@ -44,6 +44,10 @@ export default {
         updateStay(stay) {
             this.$emit('updateStay', stay)
         },
+
+        goToDetail() {
+            this.$router.push(`/stay/${this.stay._id}`)
+        },
     },
     computed: {
 
