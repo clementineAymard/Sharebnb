@@ -32,23 +32,23 @@
         
         <section class="cards-container">
           <div class="card1" @click="toggleSidebar">
-            <img class="stay-img" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+            <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
           </div>
           
           <div class="card2">
-            <img class="stay-img" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+            <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
           </div>
           
           <div class="card3">
-            <img class="stay-img" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+            <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
           </div>
           
           <div class="card4">
-      <img class="stay-img" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+      <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
     </div>
       
     <div class="card5">
-      <img class="stay-img" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+      <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
     </div>
   </section>
       </div>
