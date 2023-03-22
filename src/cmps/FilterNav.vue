@@ -1,19 +1,46 @@
 <template>
-    <section class="filter-nav">
-        <img src="../assets/amenities/carbon.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/air.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/cooking.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/dedicated.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/dryer.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/elevator.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/essentials.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/free.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/garden.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/hair.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/heating.svg" alt="" width="50" height="40">
-        <img src="../assets/amenities/iron.svg" alt="" width="50" height="40">
-        <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fa0.muscache.com%2Fpictures%2F3726d94b-534a-42b8-bca0-a0304d912260.jpg" alt="" width="50" height="40">
-       
+    <section >
+        <div class="filter-nav">
+        <button class="nav-item">
+            <img src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg" class="nav-img"
+                alt="trending">
+                <br/> <span>Trending</span>
+        </button>
+        <button class="nav-item">
+            <img src="https://a0.muscache.com/pictures/1b6a8b70-a3b6-48b5-88e1-2243d9172c06.jpg" alt="castles">
+            <br/>  <span>Castles</span>
+        </button>
+        <button class="nav-item">
+            <img src="https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg" alt="beachfront">
+            <br/> <span>Beachfront</span>
+        </button>
+        <button class="nav-item">
+            <img src="https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg" alt="surfing">
+            <br/>    <span>Surfing</span>
+        </button>
+        <button class="nav-item">
+            <img src="https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg" alt="iconic cities">
+            <br/>      <span>Iconic cities</span>
+        </button>
+        <button class="nav-item">
+            <img src="https://a0.muscache.com/pictures/78ba8486-6ba6-4a43-a56d-f556189193da.jpg" alt="mansions">
+            <br/>   <span>Mansions</span>
+        </button>
+        <button class="nav-item">
+        <img src="https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg" alt="lakefront">
+        <br/> <span>Lakefront</span>
+    </button>
+        <button class="nav-item">
+             <img src="https://a0.muscache.com/pictures/c8e2ed05-c666-47b6-99fc-4cb6edcde6b4.jpg" alt="luxe">
+            
+            <br/>
+             <span>Luxe</span>
+            </button>
+            <button class="nav-item">
+                <img src="https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg" alt="omg">
+                <br/> <span>Omg!</span>
+            </button>
+        </div>
     </section>
 </template>
 
