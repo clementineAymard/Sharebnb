@@ -1,11 +1,13 @@
 <template>
  <section className="stay-list">
-<StayPreview 
-v-for="stay in stays" 
-:key="stay._id" 
-:stay="stay" 
-@removeStay="$emit('removeStay',stay._id)"
-@updateStay="$emit('updateStay',stay)"></StayPreview>
+    <!-- <ul> -->
+        <StayPreview 
+        v-for="stay in stays" 
+        :key="stay._id" 
+        :stay="stay" 
+        @removeStay="$emit('removeStay',stay._id)"
+        @updateStay="$emit('updateStay',stay)"></StayPreview>
+    <!-- </ul> -->
 
 </section>
 </template>
