@@ -1,38 +1,50 @@
-header {
-    background-color: $clr5;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
+.header {
+    background-color: $clr6;
+    width: 100vw;
+    max-width: 2520px;
+    height: em(70px);
+    border-bottom: solid 1px $clr4;
+    position: relative;
+    z-index: 2;
 
-    .loggedin-user {
-        background-color: $clr1;
-        padding: 2px 8px;
-        border-radius: 1em;
-        align-self: flex-end;
-        color: whitesmoke;
-        span{
-            background-color: $clr2;
-            padding: 4px;
-            margin: 10px;
-            border-radius: 50%;
-        }
-        img {
-            width: 2em;
-            height: 2em;
-            border-radius: 50%;
-        }
+    @include for-mobile-layout {
+        padding-inline: em(24px);
     }
-    nav {
-        background-color: $clr4;
-        padding: 5px 0;
+
+    @include for-narrow-layout {
+        padding-inline: em(40px);
     }
-    nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-        margin: 10px;
+
+    @include for-normal-layout {
+        padding-inline: em(80px);
     }
-    nav .active {
-        color: $clr1;
+
+    @include for-wide-layout {
+        padding-inline: em(80px);
     }
-    
+
+    &.open {
+        border-bottom: none;
+
+        // & .banniere {
+        //     background-color: $clr6;
+        //     width: 100%;
+        //     height: em(70px);
+        //     position: absolute;
+        //     top:em(70px);
+        //     margin-inline-start: -100px;
+        //     z-index: 2;
+        //     border-bottom: solid 1px $clr4;
+        // }
+    }
+}
+
+.backdrop {
+    background-color: rgba($clr3, 0.5);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
 }

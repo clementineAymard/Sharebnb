@@ -24,11 +24,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
 
-
-section, main, footer {
-    padding: 5px;
-}
-
 // img {
 //     width: 100%;
 // }
@@ -40,8 +35,9 @@ p {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
-a:hover {
-    text-decoration: underline;
-}
+// a:hover {
+    // text-decoration: underline;
+// }
 
