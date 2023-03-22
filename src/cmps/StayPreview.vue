@@ -12,6 +12,7 @@
 
             <button @click="removeStay(stay._id)">x</button>
             <button @click="updateStay(stay)">Update</button>
+            <button @click="goToDetail(stay)">Details</button>
             <hr />
         </li>
     </ul>
@@ -32,6 +33,9 @@ methods: {
     },
     updateStay(stay) {
         this.$emit('updateStay', stay)
+    },
+    goToDetail() {
+      this.$router.push(`/stay/${this.stay._id}`)
     },
 },
 computed: {

@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Home from './pages/Home.vue'
 import Chat from './pages/Chat.vue'
+import StayDetails from './pages/StayDetails.vue'
 import StayIndex from './pages/StayIndex.vue'
 import ReviewIndex from './pages/ReviewIndex.vue'
 import LoginSignup from './pages/LoginSignup.vue'
@@ -27,6 +28,11 @@ const routes = [
     path: '/chat',
     name: 'Chat',
     component: Chat
+  },
+  {
+    path: '/stay/details',
+    name: 'StayDetails',
+    component: StayDetails
   },
   {
     path: '/login',

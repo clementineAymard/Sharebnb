@@ -8,6 +8,7 @@
       <RouterLink to="/stay">Stays</RouterLink>
       <RouterLink to="/review">Reviews</RouterLink>
       <RouterLink to="/chat">Chat</RouterLink>
+      <!-- <RouterLink to="/detalis">Details</RouterLink> -->
       <RouterLink to="/login">Login / Signup</RouterLink>
     </nav>
     <section class="loggedin-user" v-if="loggedInUser">
