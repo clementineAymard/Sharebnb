@@ -1,28 +1,30 @@
 <template>
-        <li class="stay-preview">
-            <!-- <pre> -->
-            <!-- {{ stay.imgUrls[0] }} -->
-            <!-- </pre>   -->
-            <p class="img-container">
+    <li class="stay-preview flex column">
+        <!-- <pre> -->
+        <!-- {{ stay.imgUrls[0] }} -->
+        <!-- </pre>   -->
+        <div class="img-container">
             <i class="fa-regular fa-heart"></i>
             <img class="stay-img" :src="imgUrl" alt="">
+        </div>
+
+        <div class="preview-txt">
+            <p>
+                {{ stay.loc.city }} , {{ stay.loc.country }}
             </p>
-            <div class="preview-txt">
+            <p>
+                {{ stay.name }} 
+            </p>
+            <!-- <p class="regular-font">Viewed <span>{{ randomViwes }}</span> times last week</p> -->
+            <p>
+                ${{ stay.price?.toLocaleString() }} <span class="regular-font">/ night</span>
+            </p>
+        </div>
 
-                <p>
-                    {{ stay.name }} , {{ stay.loc.country }}
-                </p>
-                <p class="regular-font">Viewed <span>{{ randomViwes }}</span> times last week</p>
-                <p>
-                    ${{ stay.price?.toLocaleString() }} <span class="regular-font">night</span>
-                </p>
-            </div>
-
-            <button @click="removeStay(stay._id)">x</button>
-            <button @click="updateStay(stay)">Update</button>
-            <!-- <hr /> -->
-        </li>
-   
+        <!-- <button @click="removeStay(stay._id)">x</button>
+            <button @click="updateStay(stay)">Update</button> -->
+        <!-- <hr /> -->
+    </li>
 </template>
 
 <script>
