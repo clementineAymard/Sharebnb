@@ -18,8 +18,8 @@
                 </p>
             </div>
 
-            <!-- <button @click="removeStay(stay._id)">x</button>
-            <button @click="updateStay(stay)">Update</button> -->
+            <button @click="removeStay(stay._id)">x</button>
+            <button @click="updateStay(stay)">Update</button>
             <!-- <hr /> -->
         </li>
    

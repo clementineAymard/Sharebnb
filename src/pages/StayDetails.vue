@@ -32,11 +32,12 @@ components: {
 <template>
     <section v-if="stay" class="stay-details flex flex-col items-center gap-2">
       <article>
+        <!-- <pre>{{stay}}</pre> -->
         <p><span class="fw-bold">Name:</span> {{ stay.name }}</p>
         <p><span class="fw-bold">Price:</span> ${{ stay.price }}</p>
         <p><span class="fw-bold">Created at:</span> {{ formattedDate }}</p>
       </article>
-      <button @click="goBack" class="btn btn-primary">go back</button>
+      <!-- <button @click="goBack" class="btn btn-primary">go back</button> -->
   
   
     </section>
@@ -49,14 +50,15 @@ components: {
     name: 'stay-detail',
     data() {
       return {
-        stay: {name:'home', price:'70'},
+        stay: null,
       }
     },
-    created() {
-    //   const { id } = this.$route.params
-    //   stayService.getById(id).then((stay) => {
-    //     this.stay = stay
-    //   })
+    async created() {
+      const { stayId } = this.$route.params
+      const stay = await stayService.getById(stayId)
+      // console.log('stay',stay)
+        this.stay = stay
+      
     },
     methods: { 
       goBack() {

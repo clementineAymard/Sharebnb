@@ -769,7 +769,7 @@ const stays = [
   //     await storageService.post(STORAGE_KEY, stays[3])
   //     await storageService.post(STORAGE_KEY, stays[4])
   //     await storageService.post(STORAGE_KEY, stays[5])
-  //     await storageService.post(STORAGE_KEY, stays[6])
+  //     // await storageService.post(STORAGE_KEY, stays[6])
   //     await storageService.post(STORAGE_KEY, stays[7])
   //     await storageService.post(STORAGE_KEY, stays[8])
   //     await storageService.post(STORAGE_KEY, stays[9])
