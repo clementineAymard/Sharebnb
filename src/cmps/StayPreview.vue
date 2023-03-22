@@ -12,9 +12,10 @@
             <p>
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             </p>
-            <p>
+            <p class="regular-font">
                 {{ stay.name }} 
             </p>
+            <p class="regular-font beds"> {{ stay.capacity }} beds</p>
             <!-- <p class="regular-font">Viewed <span>{{ randomViwes }}</span> times last week</p> -->
             <p>
                 ${{ stay.price?.toLocaleString() }} <span class="regular-font">/ night</span>
