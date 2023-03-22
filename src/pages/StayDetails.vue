@@ -35,8 +35,6 @@ components: {
         <p><span class="fw-bold">Name:</span> {{ stay.name }}</p>
         <p><span class="fw-bold">Price:</span> ${{ stay.price }}</p>
         <p><span class="fw-bold">Created at:</span> {{ formattedDate }}</p>
-        <p><span class="fw-bold">Labels:</span> {{ getLabels }}</p>
-        <p><span class="fw-bold">In stock:</span> {{ stay.inStock }}</p>
       </article>
       <button @click="goBack" class="btn btn-primary">go back</button>
   
@@ -45,20 +43,20 @@ components: {
   </template>
   
   <script>
-  import { stayService } from '../services/stay.service.js'
+  import { stayService } from '../services/stay.service.local.js'
   
   export default {
     name: 'stay-detail',
     data() {
       return {
-        stay: null,
+        stay: {name:'home', price:'70'},
       }
     },
     created() {
-      const { id } = this.$route.params
-      stayService.getById(id).then((stay) => {
-        this.stay = stay
-      })
+    //   const { id } = this.$route.params
+    //   stayService.getById(id).then((stay) => {
+    //     this.stay = stay
+    //   })
     },
     methods: { 
       goBack() {
@@ -69,9 +67,9 @@ components: {
       formattedDate() {
         return new Date(this.stay.createdAt).toLocaleDateString()
       },
-      getLabels(){
-        return this.stay?.labels.join(', ')
-      }
+      // getLabels(){
+      //   return this.stay?.labels.join(', ')
+      // }
     },
   }
   </script>
