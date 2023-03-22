@@ -2,11 +2,6 @@
   <div v-if="isSearchOpen" class="backdrop" @click="onClose"></div>
   <header class="header flex align-center justify-between" :class="isSearchOpenClass">
 
-      <RouterLink to="/stay">Stays</RouterLink>
-      <RouterLink to="/review">Reviews</RouterLink>
-      <RouterLink to="/chat">Chat</RouterLink>
-      <!-- <RouterLink to="/detalis">Details</RouterLink> -->
-      <RouterLink to="/login">Login / Signup</RouterLink>
     <RouterLink to="/" class="logo flex align-center">
       <img src="../../public/favicon.png"><span>airbnb</span>
     </RouterLink>
