@@ -44,15 +44,16 @@
                     <div v-else :class="isSearchOpenClass">Add guests</div>
 
                 </button>
+                
                 <button class="glass flex align-center justify-between"
-                    :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn">
+                    :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn" @click="onSearch('location')">
                     <img src="/search.png">
                     <span v-if="isSearchOpen">Search</span>
                 </button>
-                <!-- <div class="flex align-center justify-between"> -->
-                <!-- </div> -->
+                
             </section>
         </div>
+        <div></div>
 
         <nav class="flex align-center">
 
