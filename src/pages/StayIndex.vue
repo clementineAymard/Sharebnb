@@ -1,6 +1,6 @@
 <template>
   <div class="container-home">
-    <FilterNav></FilterNav>
+    <FilterList></FilterList>
 
     <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
 
@@ -14,7 +14,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'
 import { getActionRemoveStay, getActionUpdateStay, getActionAddStayMsg } from '../store/stay.store'
 import StayList from '../cmps/StayList.vue'
-import FilterNav from '../cmps/FilterNav.vue'
+import FilterList from '../cmps/FilterList.vue'
 
 export default {
   data() {
@@ -81,7 +81,7 @@ export default {
   },
   components: {
     StayList,
-    FilterNav
+    FilterList
   }
 
 
