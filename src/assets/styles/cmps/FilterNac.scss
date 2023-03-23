@@ -1,26 +1,27 @@
 .filter-nav {
-  padding: 0px 40px;
+    padding: 0px 40px;
     display: flex;
-    gap: 32px ;
-    // grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
-    // row-gap: 32px;
-    // column-gap: 10px;
+    gap: 50px;
     margin-top: 20px;
+
     img {
         height: 24px;
         width: 24px;
-        // margin-left: 30px;
+
     }
+
     .nav-item {
         text-align: center;
-        // height: ;
+
         width: fit-content;
-        &:hover{
+
+        &:hover {
 
             box-shadow: 0px -2px 0px 0px inset $clr3;
         }
     }
-    span{
+
+    span {
         font-family: montserrat_bold;
         font-size: 11px;
     }
