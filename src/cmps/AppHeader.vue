@@ -1,11 +1,12 @@
 <template>
     <section class="main-header">
-        <div v-if="isSearchOpen" class="backdrop" @click="onClose"></div>
-        <div class="header-wrapper" :class="isSearchOpenClass"></div>
-        <header class="header flex align-center justify-between" :class="isSearchOpenClass">
+        <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
+        <div class="header-background" :class="isSearchOpenClass"></div>
+        <header class="header flex align-center justify-between">
 
             <RouterLink to="/" class="logo flex align-center">
-                <img src="../../public/favicon.png"><span>airbnb</span>
+                <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/favicon_a0jwly.png">
+                <span>airbnb</span>
             </RouterLink>
 
             <div v-if="isSearchOpen" class="sub-search flex align-center ">
@@ -14,8 +15,8 @@
                 <a class="c">Online Experiences</a>
             </div>
 
-            <div class="search-container flex align-center" :class="isExpandedClass">
-                <section class="search" :class="isExpandedClass">
+            <div class="search-container flex align-center" :class="isSearchOpenClass">
+                <section class="search">
 
                     <button @click="onSearch('locations')">
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
@@ -24,7 +25,7 @@
                                 placeholder="Search destinations">
                             <div class="locations flex column " v-if="isLocationShown">
                                 <span>Search by region</span>
-                                <div class="locations-inputs">
+                                <div class="locations-options">
                                     <label for="flexible">
                                         <input type="radio" value="" id="flexible" hidden>
                                         <img
@@ -32,16 +33,16 @@
                                         <span>I'm flexible</span>
                                     </label>
                                     <label v-for="region in regions" :for="region.title">
-                                        <input type="radio"  :value="region.title" :id="region.title" hidden>
+                                        <input type="radio" :value="region.title" :id="region.title" hidden>
                                         <img :src="region.url">
-                                        <span>{{region.title}}</span>
+                                        <span>{{ region.title }}</span>
                                     </label>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        <div v-else :class="isSearchOpenClass">Anywhere</div>
+                        <div v-else>Anywhere</div>
                     </button>
 
                     <button @click="onSearch('dates')" class="flex ">
@@ -68,7 +69,7 @@
                     <button class="glass flex align-center justify-between"
                         :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
                         @click="onSearch('location')">
-                        <img src="/search.png">
+                        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
                         <span v-if="isSearchOpen">Search</span>
                     </button>
 
@@ -77,47 +78,50 @@
 
 
             <nav class="flex align-center">
-
                 <div class="links flex align-center">
-                    <RouterLink class="link-add-stay" to="/stay">Airbnb your home</RouterLink>
+                    <RouterLink class="link-add-stay" to="/edit">Airbnb your home</RouterLink>
 
                     <div class="i18n-container flex align-center">
-                        <button class="i18n"><img src="/globe.png"></button>
+                        <button class="i18n">
+                            <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/globe_uzkbnn.png">
+                        </button>
                     </div>
                 </div>
 
-                <div class=""> <!--v-if="loggedInUser"-->
-                    <RouterLink to="/login" class="loggedin-user flex justify-between align-center">
-                        <img src="/hamburger.png" class="ham">
-                        <img src="/user.png" class="user">
-                    </RouterLink>
-                </div>
+                <RouterLink to="/login" class="loggedin-user flex justify-between align-center">
+                    <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/globe_uzkbnn.png" class="ham">
+                    <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
+                </RouterLink>
             </nav>
-            <!-- <div v-if="isSearchOpen" class="banniere"></div> -->
         </header>
     </section>
 </template>
 
 <script>
 
+import { eventBus } from "../services/event-bus.service.js"
+
 export default {
+    created() {
+        eventBus.on('closeHeader', () => {
+            this.isSearchOpen = false
+        })
+    },
     data() {
         return {
             isSearchOpen: false,
-            isLocationShown: false,
-            isDatesShown: false,
-            isGuestsShown: false,
+            selectedFilterKey: 'locations',
             offset: {
                 x: 0,
                 y: 0
             },
             filterBy: {
-                destination: 'Anywhere',
+                destination: '',
                 date: {
                     from: '',
                     to: ''
-                }, // 'Add guests'
-                guests: 'Add guests'
+                },
+                guests: ''// 'Add guests'
             },
             regions: [
                 {
@@ -150,28 +154,17 @@ export default {
         isSearchOpenClass() {
             return this.isSearchOpen ? 'open' : 'closed'
         },
-        isSearchOpenClassAnim() {
-            return this.isSearchOpen ? 'animate__animated animate__slideInDown' : 'animate__animated animate__slideInUp'
-        },
         isExpandedClass() {
             return this.isSearchOpen ? 'expanded' : 'closed'
         },
 
     },
     methods: {
-        onSearch(type) {
+        onSearch(filterKey) {
             this.isSearchOpen = true
-            this.isLocationShown = type === 'locations'
-                ? true
-                : type === 'dates'
-                    ? true
-                    : type === 'guests'
-                        ? true
-                        : false
-            // this.isDatesShown = type === 'dates' ? true : false
-            // this.isGuestsShown = 
+            this.selectedFilterKey = filterKey
         },
-        onClose() {
+        onCloseHeader() {
             this.isSearchOpen = false
         },
         onHoverSearchBtn(event) {

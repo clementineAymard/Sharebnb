@@ -1,6 +1,6 @@
-.header-wrapper {
+.header-background {
     background-color: $clr6;
-    border: none;
+    border-bottom: solid 1px $clr4;
     height: em(70px);
     width: 100%;
     max-width: 2520px;
@@ -11,37 +11,33 @@
 
     &.open {
         transform: scaleY(3);
-        border-bottom: solid 1px $clr4;
     }
 }
 
 .header {
-
     width: 100%;
     max-width: 2520px;
     height: em(70px);
-    border-bottom: solid 1px $clr4;
     position: relative;
     z-index: 4;
 
     @include for-mobile-layout {
-        padding-inline: em(24px);
+        padding-inline: rem(24px);
     }
 
     @include for-narrow-layout {
-        padding-inline: em(40px);
+        padding-inline: rem(40px);
     }
 
     @include for-normal-layout {
-        padding-inline: em(80px);
+        padding-inline: rem(40px);
+    }
+    @include for-medium-layout {
+        padding-inline: rem(80px);
     }
 
     @include for-wide-layout {
-        padding-inline: em(40px);
-    }
-
-    &.open {
-        border-bottom: none;
+        padding-inline: rem(40px);
     }
 }
 
