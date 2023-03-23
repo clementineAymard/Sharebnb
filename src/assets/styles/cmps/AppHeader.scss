@@ -2,7 +2,7 @@
     background-color: $clr6;
     border: none;
     height: em(70px);
-    width: 100vw;
+    width: 100%;
     max-width: 2520px;
     position: absolute;
     z-index: 4;
@@ -17,7 +17,7 @@
 
 .header {
 
-    width: 100vw;
+    width: 100%;
     max-width: 2520px;
     height: em(70px);
     border-bottom: solid 1px $clr4;
