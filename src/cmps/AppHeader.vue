@@ -24,12 +24,21 @@
                                 placeholder="Search destinations">
                             <div class="locations flex column " v-if="isLocationShown">
                                 <span>Search by region</span>
-                                <ul class="locations">
-                                    <li label="I'm flexible" value=""><img src="/flexible.jpg"></li>
-                                    <li v-for="region in regions" :label="region.title" :value="region.title">
+                                <div class="locations-inputs">
+                                    <label for="flexible">
+                                        <input type="radio" value="" id="flexible" hidden>
+                                        <img
+                                            src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/flexible_rtciou.jpg">
+                                        <span>I'm flexible</span>
+                                    </label>
+                                    <label v-for="region in regions" :for="region.title">
+                                        <input type="radio"  :value="region.title" :id="region.title" hidden>
                                         <img :src="region.url">
-                                    </li>
-                                </ul>
+                                        <span>{{region.title}}</span>
+                                    </label>
+
+                                    
+                                </div>
                             </div>
                         </div>
                         <div v-else :class="isSearchOpenClass">Anywhere</div>
@@ -112,24 +121,24 @@ export default {
             },
             regions: [
                 {
-                    title: 'middleeast',
-                    url: 'public/middleeast.webp'
+                    title: 'middle east',
+                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/middleeast_n7gnuf.webp'
                 },
                 {
                     title: 'italy',
-                    url: 'public/italy.webp'
+                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/italy_c1ttid.webp'
                 },
                 {
-                    title: 'southamerica',
-                    url: 'public/southamerica.webp'
+                    title: 'south america',
+                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/southamerica_mw5nl5.webp'
                 },
                 {
                     title: 'france',
-                    url: 'public/france.webp'
+                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/france_g942b3.webp'
                 },
                 {
-                    title: 'usa',
-                    url: 'public/usa.webp'
+                    title: 'united states',
+                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/usa_msbaoz.webp'
                 },
             ]
         }
