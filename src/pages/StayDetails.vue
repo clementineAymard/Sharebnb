@@ -22,12 +22,16 @@
       </div>
       <div class="share-save">
         <div class="share">
-          <span>📤</span>
-          <span>Share</span>
+          <button>
+            <span>📤</span>
+            <span>Share</span>
+          </button>
         </div>
         <div class="save">
-          <span>❤️</span>
-          <span>Save</span>
+          <button>
+            <span>❤️</span>
+            <span>Save</span>
+          </button>
         </div>
 
         <section class="cards-container">
@@ -86,7 +90,7 @@ export default {
   },
   async created() {
     const { id } = this.$route.params
-   await stayService.getById(id).then((stay) => {
+    await stayService.getById(id).then((stay) => {
       this.stay = stay
     })
   },
