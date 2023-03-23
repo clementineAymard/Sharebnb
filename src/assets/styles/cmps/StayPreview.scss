@@ -39,17 +39,32 @@
         font-size: 21px;
         color: $clr4;
         z-index: 1;
-        &:hover{
 
-        }
+        &:hover {}
     }
 }
 
 .preview-txt {
+
     // margin-top: 15px;
     p {
         margin: 0;
         padding: 0;
         font-size: 15px;
     }
+
+}
+
+.el-carousel__button {
+    width: 4px ;
+    height: 3px;
+    border-radius: 50%;
+    color: aqua;
+}
+
+.el-carousel__indicator {
+    // width: 4px;
+    // border-radius: 50px;
+    // color:aqua;
+    // margin: 5px;
 }
