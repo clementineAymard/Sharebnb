@@ -1,9 +1,9 @@
 <template>
     <li class="stay-preview flex column">
-    
+
         <div class="img-container">
             <i class="fa-regular fa-heart"></i>
-            <el-carousel trigger="click" arrow="hover" :interval="Number('0')">
+            <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
                     <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
                 </el-carousel-item>
@@ -16,6 +16,7 @@
             </p>
             <p class="regular-font">
                 {{ stay.name }}
+                <!-- {{ stayName }} -->
             </p>
             <p class="regular-font beds"> {{ stay.capacity }} beds , {{ rooms }} rooms</p>
             <p class="medium-font">
@@ -23,7 +24,7 @@
             </p>
         </div>
 
- 
+
     </li>
 </template>
 
@@ -36,11 +37,12 @@ export default {
     props: { stay: Object },
     data() {
         return {
-      
+
             randomPrice: utilService.getRandomIntInclusive(350, 2500).toLocaleString(),
             randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             rooms: Math.floor(this.stay.capacity / 2),
-            intervalNum: parseInt(0)
+            intervalNum: parseInt(0),
+
         }
     },
     methods: {
@@ -50,7 +52,12 @@ export default {
         updateStay(stay) {
             this.$emit('updateStay', stay)
         },
+        stayName() {
+            if (this.stay.name.length > 30){
 
+                this.stay.name.slice(0, 30) + '...'
+            }
+        },
         goToDetail() {
             this.$router.push(`/stay/${this.stay._id}`)
         },
