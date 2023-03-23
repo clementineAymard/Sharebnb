@@ -861,23 +861,23 @@ const stays = [
   ]
   
   // TEST DATA
-  // ;(async ()=>{
-  //     await storageService.post(STORAGE_KEY, stays[0])
-  //     await storageService.post(STORAGE_KEY, stays[1])
-  //     await storageService.post(STORAGE_KEY, stays[2])
-  //     await storageService.post(STORAGE_KEY, stays[3])
-  //     await storageService.post(STORAGE_KEY, stays[4])
-  //     await storageService.post(STORAGE_KEY, stays[5])
-  //     await storageService.post(STORAGE_KEY, stays[6])
-  //     await storageService.post(STORAGE_KEY, stays[7])
-  //     await storageService.post(STORAGE_KEY, stays[8])
-  //     await storageService.post(STORAGE_KEY, stays[9])
-  //     await storageService.post(STORAGE_KEY, stays[10])
-  //     await storageService.post(STORAGE_KEY, stays[11])
-  //     await storageService.post(STORAGE_KEY, stays[12])
-  //     await storageService.post(STORAGE_KEY, stays[13])
-  //     await storageService.post(STORAGE_KEY, stays[14])
-  // })()
+//   ;(async ()=>{
+//       await storageService.post(STORAGE_KEY, stays[0])
+//       await storageService.post(STORAGE_KEY, stays[1])
+//       await storageService.post(STORAGE_KEY, stays[2])
+//       await storageService.post(STORAGE_KEY, stays[3])
+//       await storageService.post(STORAGE_KEY, stays[4])
+//       await storageService.post(STORAGE_KEY, stays[5])
+//       await storageService.post(STORAGE_KEY, stays[6])
+//       await storageService.post(STORAGE_KEY, stays[7])
+//       await storageService.post(STORAGE_KEY, stays[8])
+//       await storageService.post(STORAGE_KEY, stays[9])
+//       await storageService.post(STORAGE_KEY, stays[10])
+//       await storageService.post(STORAGE_KEY, stays[11])
+//       await storageService.post(STORAGE_KEY, stays[12])
+//       await storageService.post(STORAGE_KEY, stays[13])
+//       await storageService.post(STORAGE_KEY, stays[14])
+//   })()
   
   // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
   // Renders a <StayList> with <StayPreview> with Link to <StayDetails>   url: /stay/123
