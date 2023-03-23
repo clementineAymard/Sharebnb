@@ -1,22 +1,17 @@
 <template>
   <div class="container-home">
     <FilterNav></FilterNav>
-   
-<StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
-  <!-- </li>
-    </ul> -->
+
+    <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
+
     <hr />
-    <!-- <form @submit.prevent="addStay()">
-      <h2>Add stay</h2>
-      <input type="text" v-model="stayToAdd.name" />
-      <button>Save</button>
-    </form> -->
+
   </div>
 </template>
 
 <script>
-import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
-import {stayService} from '../services/stay.service.local'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { stayService } from '../services/stay.service.local'
 import { getActionRemoveStay, getActionUpdateStay, getActionAddStayMsg } from '../store/stay.store'
 import StayList from '../cmps/StayList.vue'
 import FilterNav from '../cmps/FilterNav.vue'
@@ -36,15 +31,15 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch({type: 'loadStays'})
+    this.$store.dispatch({ type: 'loadStays' })
   },
   methods: {
     async addStay() {
       try {
-        await this.$store.dispatch({type: 'addStay', stay: this.stayToAdd})
+        await this.$store.dispatch({ type: 'addStay', stay: this.stayToAdd })
         showSuccessMsg('Stay added')
         this.stayToAdd = stayService.getEmptyStay()
-      } catch(err) {
+      } catch (err) {
         console.log(err)
         showErrorMsg('Cannot add stay')
       }
@@ -54,19 +49,19 @@ export default {
         await this.$store.dispatch(getActionRemoveStay(stayId))
         showSuccessMsg('Stay removed')
 
-      } catch(err) {
+      } catch (err) {
         console.log(err)
         showErrorMsg('Cannot remove stay')
       }
     },
     async updateStay(stay) {
       try {
-        stay = {...stay}
+        stay = { ...stay }
         stay.price = +prompt('New price?', stay.price)
         await this.$store.dispatch(getActionUpdateStay(stay))
         showSuccessMsg('Stay updated')
 
-      } catch(err) {
+      } catch (err) {
         console.log(err)
         showErrorMsg('Cannot update stay')
       }
@@ -84,11 +79,11 @@ export default {
     //   console.log('Stay msgs:', stay.msgs)
     // }
   },
-  components:{
+  components: {
     StayList,
     FilterNav
   }
 
-  
+
 }
 </script>
