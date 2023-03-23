@@ -1,29 +1,16 @@
 <template>
-  <div class="container home">
+  <div class="container-home">
     <FilterNav></FilterNav>
-    <!-- <ul class="stay-list">
-      <li v-for="stay in stays" :key="stay._id"> -->
-        <!-- <pre>{{ stay }}</pre> -->
-        <!-- <p>
-          {{stay.name}}
-        </p>
-        <p>
-          ${{stay.price?.toLocaleString()}}
-        </p> -->
-        <!-- <button @click="removeStay(stay._id)">x</button>
-        <button @click="updateStay(stay)">Update</button>
-        <hr /> -->
-        <!-- <button @click="addStayMsg(stay._id)">Add stay msg</button>
-        <button @click="printStayToConsole(stay)">Print msgs to console</button> -->
+   
 <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
   <!-- </li>
     </ul> -->
     <hr />
-    <form @submit.prevent="addStay()">
+    <!-- <form @submit.prevent="addStay()">
       <h2>Add stay</h2>
       <input type="text" v-model="stayToAdd.name" />
       <button>Save</button>
-    </form>
+    </form> -->
   </div>
 </template>
 
