@@ -1,6 +1,6 @@
 
 <template>
-    <section class="main-stay-details">
+    <section>
         <div>
             <h1>BALIAN TREEHOUSE w beautiful pool</h1>
             <div class="stay-details1">
@@ -20,12 +20,16 @@
             </div>
             <div class="share-save">
                 <div class="share">
-                    <span>📤</span>
-                    <span>Share</span>
+                    <button>
+                        <span>📤</span>
+                        <span>Share</span>
+                    </button>
                 </div>
                 <div class="save">
-                    <span>❤️</span>
-                    <span>Save</span>
+                    <button>
+                        <span>❤️</span>
+                        <span>Save</span>
+                    </button>
                 </div>
 
                 <section class="cards-container">
@@ -65,7 +69,7 @@
 
     <section v-if="stay" class="stay-details flex flex-col items-center gap-2">
         <article>
-
+            <pre>{{ stay }}</pre>
             <!-- <h2 class="stay-details__title">{{ stay.name }}</h2> -->
             <!-- <p><span class="fw-bold">Name:</span> {{ stay.name }}</p> -->
             <!-- <p><span class="fw-bold">Price:</span> ${{ stay.price }}</p> -->
@@ -84,14 +88,13 @@ export default {
     name: 'stay-detail',
     data() {
         return {
-            stay: { name: 'home', price: '70' },
+            stay: null,
         }
     },
-    created() {
-        // const { id } = this.$route.params
-        // stayService.getById(id).then((stay) => {
-        //   this.stay = stay
-        // })
+    async created() {
+        const { stayId } = this.$route.params
+        const stay = await stayService.getById(stayId)
+        this.stay = stay
     },
     methods: {
         goBack() {

@@ -1,9 +1,9 @@
 .sub-search {
-    gap: 30px;
+    gap: 22px;
     font-family: cereal;
     font-size: 1rem;
     font-weight: 300;
-    margin-inline-end: 55px;
+    margin-inline-end: 74px;
 
     a {
         padding: 5px;
@@ -26,168 +26,168 @@
     }
 }
 
-.search-container.expanded {
-    width: 100%;
-    height: em(70px);
-    position: absolute;
-    top: em(70px);
-    margin-inline-start: -100px;
-    z-index: 4;
+.search-container {
 
     .search {
-        background-color: lighten($clr4, 8%);
-    }
-}
+        display: flex;
+        width: fit-content;
+        margin: -1px 18 px;
+        padding-inline-start: 10px;
+        padding-block: 7px;
 
-.search {
-    display: flex;
-    width: fit-content;
-    margin: -1px 24px;
-    padding-inline-start: 10px;
-    padding-block: 7px;
+        border-radius: 50px;
+        border: solid 1px $clr4;
+        box-shadow: 0px 1px 2px 0px $clr4;
 
-    border-radius: 50px;
-    border: solid 1px $clr4;
-    box-shadow: 0px 1px 2px 0px $clr4;
+        position: absolute;
+        left: 48vw;
+        translate: -50%;
+        z-index: 3;
+        transition: box-shadow ease-in-out 250ms;
 
-    position: absolute;
-    left: 48vw;
-    translate: -50%;
-    z-index: 3;
-    transition: box-shadow ease-in-out 250ms;
-
-    &:hover {
-        box-shadow: 0px 1px 3px 1px $clr4;
-    }
-
-    &.expanded {
-        padding-block: 0px;
+        &:hover {
+            box-shadow: 0px 1px 3px 1px $clr4;
+        }
 
         button {
-            padding-block: 14px;
+            background-color: transparent;
+            color: $clr2;
+
+            >div {
+                border-right: solid 1px $clr4;
+                padding-inline: 1rem;
+                font-size: 14px;
+                font-family: airbnb_medium;
+                margin: auto;
+
+                &.open {
+                    align-items: flex-start;
+                    border-right: solid 1px $clr4;
+                    padding-inline: 1rem;
+                }
+
+                label {
+                    font-size: 12px;
+                    font-family: airbnb_bold;
+                }
+
+                input {
+                    background-color: transparent;
+                    border: none;
+                    font-family: cereal;
+                    font-size: 14px;
+                    width: 100px;
+                }
+            }
 
             &:first-child {
-                padding-inline-start: 24px;
+                // padding-inline-start: 24px;
+
+                input {
+                    width: 150px;
+                }
+
+                div {
+                    border-right: none;
+                }
             }
 
             &:nth-child(2) {
-                padding-inline: 24px;
+
+                // padding-inline: 24px;
+                div:first-child {
+                    border-left: solid 1px $clr4;
+                }
             }
 
             &:nth-child(3) {
-                padding-inline: 0;
+
+                div {
+                    border-right: none;
+                    padding-inline-start: 1rem;
+                    color: $clr3;
+                    font-family: cereal;
+
+                    label {
+                        color: $clr2;
+                        font-family: cereal;
+                    }
+                }
             }
         }
 
         .glass {
-            background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-            padding: 24px 16px;
-            width: fit-content;
-            border-radius: 30px;
-            color: $clr6;
-            font-size: 16px;
-
-            &:hover {
-                background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-                --mouse-x: 1.87891;
-                --mouse-y: 85.4167;
-            }
+            background-color: $clr1;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            padding: 10px;
+            display: flex;
+            margin: auto auto;
+            margin-inline-end: 10px;
 
             img {
-                width: 16px;
-            }
-
-            span {
-                padding-inline: 8px 4px;
+                width: 12px;
+                object-fit: contain;
+                position: relative;
             }
         }
+
     }
 
-    button {
-        background-color: transparent;
-        color: $clr2;
-        font-family: cereal;
-        font-weight: 700;
+    &.expanded {
+        width: 100%;
+        height: em(70px);
+        position: absolute;
+        top: em(70px);
+        margin-inline-start: -100px;
+        z-index: 4;
 
+        .search.expanded {
+            background-color: lighten($clr4, 8%);
+            margin-block-end: 12px;
+            padding-block: 0px;
+            left: 55.4vw;
 
-        >div {
-            border-right: solid 1px $clr4;
-            padding-inline: 1rem;
-            font-size: 14px;
-            margin: auto;
+            button {
+                padding-block: 14px;
 
-            &.open {
-                align-items: flex-start;
-                border-right: solid 1px $clr4;
-                padding-inline: 1rem;
-            }
+                &:first-child {
+                    padding-inline-start: 24px;
+                }
 
-            label {
-                font-size: 12px;
-                font-weight: 700;
-            }
+                &:nth-child(2) {
+                    padding-inline: 24px;
+                }
 
-            input {
-                background-color: transparent;
-                border: none;
-                font-family: cereal;
-                font-size: 14px;
-                width: 100px;
-            }
-        }
-
-        &:first-child {
-            // padding-inline-start: 24px;
-
-            input {
-                width: 150px;
-            }
-
-            div {
-                border-right: none;
-            }
-        }
-
-        &:nth-child(2) {
-
-            // padding-inline: 24px;
-            div:first-child {
-                border-left: solid 1px $clr4;
-            }
-        }
-
-        &:nth-child(3) {
-            color: $clr3;
-            font-family: cereal;
-            font-weight: 400;
-            // padding-inline: 1rem;
-
-            div {
-                border-right: none;
-                padding-inline-start: 1rem;
-
-                label {
-                    color: $clr2;
-                    font-family: cereal;
+                &:nth-child(3) {
+                    padding-inline: 0;
                 }
             }
-        }
-    }
 
-    .glass {
-        background-color: $clr1;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        padding: 10px;
-        display: flex;
-        margin: auto auto;
-        margin-inline-end: 10px;
+            .glass {
+                background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+                padding: 24px 16px;
+                width: fit-content;
+                border-radius: 30px;
+                color: $clr6;
+                font-size: 16px;
 
-        img {
-            width: 12px;
-            object-fit: contain;
-            position: relative;
+                &:hover {
+                    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+                    --mouse-x: 1.87891;
+                    --mouse-y: 85.4167;
+                }
+
+                img {
+                    width: 16px;
+                }
+
+                span {
+                    padding-inline: 8px 4px;
+                }
+            }
+
         }
     }
 
