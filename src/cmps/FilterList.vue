@@ -1,7 +1,11 @@
 <template>
     <section>
-        <div class="filter-nav">
-            <button class="nav-item" @click="setFilterBy('trending')">
+        <div class="filter-list">
+            <button v-for="(img, idx) in imgs" class="nav-item" @click="setFilterBy(img.key)">
+                <img :src=img.url :alt=img.key>
+                <br /> <span>{{img.key}}</span>
+            </button>
+            <!-- <button class="nav-item" @click="setFilterBy('trending')">
                 <img src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg" alt="trending">
                 <br /> <span>Trending</span>
             </button>
@@ -31,7 +35,6 @@
             </button>
             <button class="nav-item" @click="setFilterBy('luxe')">
                 <img src="https://a0.muscache.com/pictures/c8e2ed05-c666-47b6-99fc-4cb6edcde6b4.jpg" alt="luxe">
-
                 <br />
                 <span>Luxe</span>
             </button>
@@ -58,17 +61,19 @@
             <button class="nav-item" @click="setFilterBy('amazing pools')">
                 <img src="https://a0.muscache.com/pictures/3fb523a0-b622-4368-8142-b5e03df7549b.jpg" alt="amazing pools">
                 <br /> <span>Amazing pools</span>
-            </button>
+            </button> -->
         </div>
     </section>
 </template>
 
 <script>
+import { stayService } from '../services/stay.service.local';
+
 export default {
     name: 'filter-nav',
     data() {
         return {
-
+            imgs: stayService.getLabels()
         }
     },
     methods: {

@@ -11,6 +11,7 @@ export const stayService = {
     save,
     remove,
     getEmptyStay,
+    getLabels
     // addStayMsg
 }
 window.cs = stayService
@@ -71,7 +72,7 @@ function getEmptyStay() {
     }
 }
 
-function labels() {
+function getLabels() {
   return [
       {
           key: 'Trending',
