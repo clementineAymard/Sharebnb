@@ -1,39 +1,60 @@
+
 <template>
   <section>
     <div>
       <div class="stay-list">
-      <h1>BALIAN TREEHOUSE w beautiful pool</h1>
-    </div>
-    <div class="stay-details1">
-      <span class="first-span">
-        <span class="star">⭐</span>
-        <span class="rate"> 4.84 .</span>
-        <span class="reviews"> 281 reviews</span>
-      </span>
-      <span> . </span>
-      <span class="second-span">
-        <span class="host"> Superhost </span>
+        <h1>BALIAN TREEHOUSE w beautiful pool</h1>
+      </div>
+      <div class="stay-details1">
+        <span class="first-span">
+          <span class="star">⭐</span>
+          <span class="rate"> 4.84 .</span>
+          <span class="reviews"> 281 reviews</span>
+        </span>
         <span> . </span>
-      </span>
-      <span class="third-span">
-        <span> Balian Beach, Bali, Indonesia</span>
-      </span>
+        <span class="second-span">
+          <span class="host"> Superhost </span>
+          <span> . </span>
+        </span>
+        <span class="third-span">
+          <span> Balian Beach, Bali, Indonesia</span>
+        </span>
+      </div>
+      <div class="share-save">
+        <div class="share">
+          <span>📤</span>
+          <span>Share</span>
+        </div>
+        <div class="save">
+          <span>❤️</span>
+          <span>Save</span>
+        </div>
+        
+        <section class="cards-container">
+          <div class="card1" @click="toggleSidebar">
+            <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+          </div>
+          
+          <div class="card2">
+            <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+          </div>
+          
+          <div class="card3">
+            <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
+          </div>
+          
+          <div class="card4">
+      <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
     </div>
-    <div class="share-save">
-      <div class="share">
-        <span>📤</span>
-        <span>Share</span>
-      </div>
-      <div class="save">
-        <span>❤️</span>
-        <span>Save</span>
-      </div>
       
+    <div class="card5">
+      <img class="stay-img-details" src="https://res.cloudinary.com/deayegq6w/image/upload/v1679475459/12d767dc.c10_vifdof.jpg" alt="">
     </div>
-    
-  </div>
-</section>
-  
+  </section>
+      </div>
+    </div>
+  </section>
+
   <section v-if="stay" class="stay-details flex flex-col items-center gap-2">
     <article>
 

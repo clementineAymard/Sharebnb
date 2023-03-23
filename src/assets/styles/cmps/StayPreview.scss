@@ -6,12 +6,8 @@
     color: $clr2;
     // padding: 5px;
     // margin: 5px;
-    // background-image: url('/src/assets/imgs/1.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     height: 500px;
     width: 200;
-    border-radius: 20px;
 }
 
 .img-container {
@@ -33,24 +29,24 @@
 
     .fa-heart {
         position: absolute;
-        top: 52px;
-        right: 26px;
-        font-size: 30px;
+        height: 21px;
+        margin: -2px 0px 0px;
+        padding: 2px 0px 0px;
+        background-color: transparent;
+        transition: transform 0.25s ease;
+        top: 12px;
+        right: 12px;
+        font-size: 21px;
         color: $clr4;
         z-index: 1;
     }
 }
 
 .preview-txt {
-    margin-top: 15px;
-
+    // margin-top: 15px;
     p {
         margin: 0;
         padding: 0;
+        font-size: 15px;
     }
-}
-
-.first-line {
-    color: aqua;
-    margin-top: 30px;
 }
