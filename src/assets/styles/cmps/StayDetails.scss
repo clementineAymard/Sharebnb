@@ -1,8 +1,28 @@
+.main-stay-details {
+    // padding-inline  DEPENDS ON SCREEN WIDTH, SEE MEDIA QUERY IN _MIXINS:
+
+    @include for-mobile-layout {
+        padding-inline: em(24px);
+    }
+
+    @include for-narrow-layout {
+        padding-inline: em(40px);
+    }
+
+    @include for-normal-layout {
+        padding-inline: em(80px);
+    }
+
+    @include for-wide-layout {
+        padding-inline: em(80px);
+    }
+}
+
 .stay-img-details {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin: 50px;
+    // margin: 50px;
 }
 
 .cards-container {
