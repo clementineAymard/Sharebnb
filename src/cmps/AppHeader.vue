@@ -42,9 +42,13 @@
                         <input type="text" class="sub-title" placeholder="Add guests">
                     </div>
                     <div v-else :class="isSearchOpenClass">Add guests</div>
-                    
+
                 </button>
-                <div class="glass"><img src="/search.png"></div>
+                <button class="glass flex align-center justify-between"
+                    :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn">
+                    <img src="/search.png">
+                    <span v-if="isSearchOpen">Search</span>
+                </button>
                 <!-- <div class="flex align-center justify-between"> -->
                 <!-- </div> -->
             </section>
@@ -77,6 +81,15 @@ export default {
     data() {
         return {
             isSearchOpen: false,
+            offset: {
+                x: 0,
+                y: 0
+            },
+            filterBy: {
+                destination:'Anywhere',
+                date:'Any Week',
+                guests:'Add guests'
+            }
         }
     },
     computed: {
@@ -100,6 +113,11 @@ export default {
         },
         onClose() {
             this.isSearchOpen = false
+        },
+        onHoverSearchBtn(event) {
+            this.offset.x = event.offsetX
+            this.offset.y = event.offsetY
+
         }
     }
 }

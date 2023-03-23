@@ -65,22 +65,41 @@
 
         button {
             padding-block: 14px;
+
             &:first-child {
                 padding-inline-start: 24px;
             }
+
             &:nth-child(2) {
                 padding-inline: 24px;
             }
+
             &:nth-child(3) {
                 padding-inline: 0;
             }
         }
 
-        .glass img::before {
-            content: 'Search';
+        .glass {
+            background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+            padding: 24px 16px;
+            width: fit-content;
+            border-radius: 30px;
             color: $clr6;
-            font-size: 1rem;
-            position: absolute;
+            font-size: 16px;
+
+            &:hover {
+                background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+                --mouse-x: 1.87891;
+                --mouse-y: 85.4167;
+            }
+
+            img {
+                width: 16px;
+            }
+
+            span {
+                padding-inline: 8px 4px;
+            }
         }
     }
 
@@ -130,6 +149,7 @@
         }
 
         &:nth-child(2) {
+
             // padding-inline: 24px;
             div:first-child {
                 border-left: solid 1px $clr4;
@@ -161,11 +181,11 @@
         height: 2rem;
         padding: 10px;
         display: flex;
-        margin:auto auto;
+        margin: auto auto;
         margin-inline-end: 10px;
 
         img {
-            // width:22px;
+            width: 12px;
             object-fit: contain;
             position: relative;
         }
