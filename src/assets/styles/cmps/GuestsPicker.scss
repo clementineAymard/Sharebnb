@@ -1,0 +1,21 @@
+.guests-picker {
+    position: absolute;
+    left: 0;
+    top: 112%;
+    z-index: 5;
+    background-color: $clr5;
+    border-radius: 32px;
+    border: solid 1px $clr4;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem 1rem;
+
+    >div {
+        padding-block: 1.5rem;
+
+        >div .title {
+            border: none;
+        }
+    }
+}

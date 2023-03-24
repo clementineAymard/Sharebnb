@@ -147,6 +147,9 @@ export default {
             this.selectedFilterKey = 'locations'
         }
     },
+    watch: {
+
+    },
     components: {
         BrandLogo,
         LocationPicker,
