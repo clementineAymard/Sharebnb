@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import Chat from './pages/Chat.vue'
 import StayDetails from './pages/StayDetails.vue'
+import StayEdit from './pages/StayEdit.vue'
 import StayIndex from './pages/StayIndex.vue'
 import ReviewIndex from './pages/ReviewIndex.vue'
 import LoginSignup from './pages/LoginSignup.vue'
@@ -23,6 +24,11 @@ const routes = [
     path: '/stay/:stayId',
     name: 'StayDetails',
     component: StayDetails
+  },
+  {
+    path: '/stay/edit/:stayId?',
+    name: 'StayEdit',
+    component: StayEdit
   },
   {
     path: '/review',

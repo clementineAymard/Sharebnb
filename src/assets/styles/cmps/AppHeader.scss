@@ -29,15 +29,17 @@
         padding-inline: rem(40px);
     }
 
-    @include for-normal-layout {
+    @include for-medium-layout {
         padding-inline: rem(40px);
     }
-    @include for-medium-layout {
+
+    @include for-normal-layout {
         padding-inline: rem(80px);
     }
 
     @include for-wide-layout {
         padding-inline: rem(40px);
+        padding-inline-end: rem(45px);
     }
 }
 

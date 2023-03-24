@@ -4,15 +4,12 @@
         <div class="header-background" :class="isSearchOpenClass"></div>
         <header class="header flex align-center justify-between">
 
-            <RouterLink to="/" class="logo flex align-center">
-                <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/favicon_a0jwly.png">
-                <span>airbnb</span>
-            </RouterLink>
+            <BrandLogo />
 
             <div v-if="isSearchOpen" class="sub-search flex align-center ">
-                <a class="a">Stays</a>
-                <a class="b">Experiences</a>
-                <a class="c">Online Experiences</a>
+                <a class="stays">Stays</a>
+                <a class="experiences">Experiences</a>
+                <a class="online-experiences">Online Experiences</a>
             </div>
 
             <div class="search-container flex align-center" :class="isSearchOpenClass">
@@ -23,7 +20,7 @@
                             <label>Where</label>
                             <input v-model="filterBy.destination" type="text" class="sub-title"
                                 placeholder="Search destinations">
-                            <div class="locations flex column " v-if="isLocationShown">
+                            <div class="locations flex column " v-if="selectedFilterKey === 'locations'">
                                 <span>Search by region</span>
                                 <div class="locations-options">
                                     <label for="flexible">
@@ -46,27 +43,38 @@
                     </button>
 
                     <button @click="onSearch('dates')" class="flex ">
+
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
                             <label>Check in</label>
-                            <input v-model="filterBy.date.from" type="text" class="sub-title" placeholder="Add dates">
+                            <div class="sub-title">Add dates</div>
                         </div>
+                        <div v-if="selectedFilterKey === 'dates'"></div>
+
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
                             <label>Check out</label>
-                            <input v-model="filterBy.date.to" type="text" class="sub-title" placeholder="Add dates">
+                            <div class="sub-title">Add dates</div>
                         </div>
-                        <div v-else :class="isSearchOpenClass">Any week</div>
+                        <!-- <DatePicker  v-if="selectedFilterKey === 'dates'"/> -->
+                        
+                        <div v-if="!isSearchOpen" :class="isSearchOpenClass">Any week</div>
+
+
                     </button>
 
                     <button class="flex align-center" @click="onSearch('guests')">
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
                             <label>Who</label>
                             <input v-model="filterBy.guests" type="text" class="sub-title" placeholder="Add guests">
+
+                            <div v-if="selectedFilterKey === 'dates'"></div>///////////////////////////////////////////////
+                            CHOOSE GUESTS //////////
+
                         </div>
                         <div v-else :class="isSearchOpenClass">Add guests</div>
 
                     </button>
 
-                    <button class="glass flex align-center justify-between"
+                    <button class="glass  flex align-center justify-between"
                         :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
                         @click="onSearch('location')">
                         <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
@@ -76,23 +84,7 @@
                 </section>
             </div>
 
-
-            <nav class="flex align-center">
-                <div class="links flex align-center">
-                    <RouterLink class="link-add-stay" to="/edit">Airbnb your home</RouterLink>
-
-                    <div class="i18n-container flex align-center">
-                        <button class="i18n">
-                            <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/globe_uzkbnn.png">
-                        </button>
-                    </div>
-                </div>
-
-                <RouterLink to="/login" class="loggedin-user flex justify-between align-center">
-                    <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/globe_uzkbnn.png" class="ham">
-                    <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
-                </RouterLink>
-            </nav>
+            <NavBar />
         </header>
     </section>
 </template>
@@ -100,6 +92,9 @@
 <script>
 
 import { eventBus } from "../services/event-bus.service.js"
+import BrandLogo from './BrandLogo.vue'
+import DatePicker from './DatePicker.vue'
+import NavBar from './NavBar.vue'
 
 export default {
     created() {
@@ -121,7 +116,7 @@ export default {
                     from: '',
                     to: ''
                 },
-                guests: ''// 'Add guests'
+                guests: ''
             },
             regions: [
                 {
@@ -171,7 +166,15 @@ export default {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
 
+        },
+        onSetFilter() {
+            this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
         }
+    },
+    components: {
+        BrandLogo,
+        DatePicker,
+        NavBar
     }
 }
 </script>

@@ -1,0 +1,37 @@
+.date-picker {
+    // position: absolute;
+    top:0;
+
+    display: flex;
+    background-color: red;
+    width: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+    z-index: 5;
+
+    // .block {
+
+
+        el-popper {
+            border-radius: 32px;
+            border: red solid 1px;
+        }
+    // }
+}
+.date-picker .block {
+    padding: 30px 0;
+    text-align: center;
+    border-right: solid 1px $clr4;
+    flex: 1;
+}
+
+.date-picker .block:last-child {
+    border-right: none;
+}
+
+.date-picker .demonstration {
+    display: block;
+    color: var(--el-text-color-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
