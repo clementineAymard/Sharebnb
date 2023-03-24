@@ -1,7 +1,7 @@
 <template>
-    <!-- <section class="footer">
-        Footer
-    </section> -->
+    <section class="footer">
+        © 2023 Airbnb, Inc.·TermsSitemapPrivacyYour Privacy Choices
+    </section>
 </template>
 
 <script>

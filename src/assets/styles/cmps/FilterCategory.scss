@@ -1,0 +1,52 @@
+ .filter-category {
+     padding: 0px 80px;
+     width: 100%;
+     margin-top: 10px;
+
+     button {
+         background-color: transparent;
+         cursor: pointer;
+         border: 1px solid $clr3;
+         border-radius: 50%;
+         color: $clr2;
+         margin: 6px 80px;
+         font-size: 16px;
+        
+
+         &:hover {
+             color: $clr2;
+             box-shadow: 1px 3px 10px $clr3
+         }
+     }
+
+     .carousel__track {
+         display: flex;
+         margin-top: 20px;
+
+         img {
+             height: 24px;
+             width: 24px;
+         }
+
+         .nav-item {
+             text-align: center;
+             width: fit-content;
+             cursor: pointer;
+
+             &:hover {
+                 box-shadow: 0px -2px 0px 0px inset $clr3;
+             }
+         }
+
+         p {
+             font-family: montserrat_bold;
+             font-size: 11px;
+         }
+     }
+
+     ol {
+         list-style-type: none;
+         //   padding: 0px 80px;
+         height: 65px;
+     }
+ }

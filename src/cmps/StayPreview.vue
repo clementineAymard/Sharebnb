@@ -11,8 +11,11 @@
         </div>
 
         <div class="preview-txt">
-            <p class="medium-font">
+            <p class="bold-font">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
+                 <p class="rating regular-font">
+                    <i class="fa-sharp fa-solid fa-star"></i>
+                    {{ getRate }} ({{ stay.reviews.length }})</p>
             </p>
             <p class="regular-font">
                 {{ stay.name }}
@@ -20,7 +23,7 @@
             </p>
             <p class="regular-font beds"> {{ stay.capacity }} beds , {{ rooms }} rooms</p>
             <p class="medium-font">
-                ${{ randomPrice.toLocaleString() }} <span class="regular-font">/ night</span>
+                ${{ randomPrice.toLocaleString() }} <span class="regular-font"> night</span>
             </p>
         </div>
 
@@ -42,6 +45,7 @@ export default {
             randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             rooms: Math.floor(this.stay.capacity / 2),
             intervalNum: parseInt(0),
+            getRate: (Math.random() + 4).toFixed(2)
 
         }
     },
@@ -61,6 +65,7 @@ export default {
         goToDetail() {
             this.$router.push(`/stay/${this.stay._id}`)
         },
+      
     },
     computed: {
 

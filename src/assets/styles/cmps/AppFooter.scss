@@ -1,0 +1,11 @@
+.footer{
+    flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $clr4;
+  padding-bottom: 14px;
+  padding-top: 13px;
+  align-items: center;
+  font-size: 14px;
+}
