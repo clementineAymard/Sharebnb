@@ -1,14 +1,16 @@
 .stay-preview {
     align-content: center;
     justify-items: start;
+    margin-left: -10px;
     color: $clr2;
     height: 100%;
     width: 100%;
     cursor: pointer;
+    margin-bottom: -10px;
 }
 
 .img-container {
-    margin-top: 30px;
+    margin-top: 26px;
     position: relative;
     margin-bottom: 12px;
 
@@ -42,15 +44,16 @@
 }
 .rating{
     float: right;
-   
 }
 
 .preview-txt {
-
     p {
         margin: 0;
         padding: 0;
         font-size: 15px;
+    }
+.fa-star{
+font-size: 11px;
     }
 
 }
