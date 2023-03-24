@@ -40,6 +40,12 @@ const routes = [
     component: LoginSignup
   },
   {
+    path: '/edit',
+    name: 'edit',
+    component: LoginSignup
+  },
+
+  {
     path: '/user/:id',
     name: 'UserDetails',
     component: UserDetails

@@ -1,6 +1,6 @@
 <template>
   <div class="container-home">
-    <FilterList></FilterList>
+    <FilterCategory @filter-by="handleFilterBy"></FilterCategory>
 
     <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
 
@@ -14,7 +14,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'
 import { getActionRemoveStay, getActionUpdateStay, getActionAddStayMsg } from '../store/stay.store'
 import StayList from '../cmps/StayList.vue'
-import FilterList from '../cmps/FilterList.vue'
+import FilterCategory from '../cmps/FilterCategory.vue'
 
 export default {
   data() {
@@ -34,6 +34,9 @@ export default {
     this.$store.dispatch({ type: 'loadStays' })
   },
   methods: {
+    handleFilterBy(filterBy) {
+      console.log('Selected category:', filterBy)
+    },
     async addStay() {
       try {
         await this.$store.dispatch({ type: 'addStay', stay: this.stayToAdd })
@@ -81,7 +84,7 @@ export default {
   },
   components: {
     StayList,
-    FilterList
+    FilterCategory
   }
 
 
