@@ -1,14 +1,8 @@
 <template>
     <div class="date-picker flex ">
-
-        <div class="block">
-            <span class="demonstration">daterange</span>
-            <el-date-picker v-model="dates" type="daterange" 
-            start-placeholder="Start Date" end-placeholder="End Date"
-                :default-value="[new Date(2010, 9, 1), new Date(2010, 10, 1)]" />
-        </div>
-
-    </div>
+        <!-- <v-date-picker v-model="dates" range reactive></v-date-picker> -->
+        <el-date-picker ref="calendar" v-model="dates" type="daterange"/>
+    </div> 
 </template>
 
 <script>
@@ -19,7 +13,7 @@ export default {
     name: '',
     data() {
         return {
-            dates:''
+            dates: []
         }
     },
     methods: {
@@ -29,7 +23,8 @@ export default {
 
     },
     created() {
-
+        
+        // this.$refs.calendar.handleOpen()
     },
     components: {
 

@@ -1,37 +1,116 @@
 .date-picker {
-    // position: absolute;
-    top:0;
+    position: absolute;
+    left: 0;
+    top: 112%;
 
     display: flex;
-    background-color: red;
+    // display: none;
     width: 100%;
     padding: 0;
+
     flex-wrap: wrap;
     z-index: 5;
 
-    // .block {
+    border: none;
+}
 
+#el-popper-container-4362 {
+    visibility: visible;
+}
 
-        el-popper {
-            border-radius: 32px;
-            border: red solid 1px;
+.el-picker__popper.el-popper[data-popper-placement^=bottom] .el-popper__arrow::before {
+    display: none;
+}
+
+.el-popper.is-pure {
+    padding: 20px;
+    border-radius: em(32px);
+    transform: translateY(-10%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.el-date-range-picker__content .el-date-range-picker__header div {
+    color: $clr2;
+    font-family: airbnb_medium;
+    font-size: 1rem;
+}
+
+.el-date-table td.today .el-date-table-cell__text {
+    color: $clr5;
+}
+
+.el-date-table__row {
+    height: fit-content;
+    margin-block: 2px;
+}
+
+.el-date-table td {
+    border-radius: 50%;
+
+    &:hover {
+        border: solid 2px $clr2;
+    }
+
+    &.today {
+        background-color: $clr2;
+    }
+
+    div.el-date-table-cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 41px;
+        // color: $clr2;
+
+        &:hover {
+            color: $clr2;
         }
-    // }
-}
-.date-picker .block {
-    padding: 30px 0;
-    text-align: center;
-    border-right: solid 1px $clr4;
-    flex: 1;
+
+        .el-date-table-cell__text {
+            font-family: airbnb_medium;
+            font-size: 14px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            // margin: 3px;
+        }
+    }
+
 }
 
-.date-picker .block:last-child {
-    border-right: none;
+.el-date-table td.end-date .el-date-table-cell__text,
+.el-date-table td.start-date .el-date-table-cell__text {
+    background-color: $clr2;
+    color: $clr5;
 }
 
-.date-picker .demonstration {
-    display: block;
-    color: var(--el-text-color-secondary);
-    font-size: 14px;
-    margin-bottom: 20px;
+.el-date-table td.in-range .el-date-table-cell {
+    background-color: $clr4;
+    border-radius: 50%;
+    width: 41px;
+    height: 41px;
+}
+
+.el-date-range-picker .el-picker-panel__content {
+    width: 390px;
+    height: 390px;
+}
+
+.el-date-range-picker {
+    padding: 20px;
+}
+
+.el-date-range-picker__content.is-left {
+    border: none;
+}
+
+.el-picker-panel {
+    padding: 20px;
+    border-radius: 32px;
+    width: fit-content;
+    height: fit-content;
+}
+
+:root {
+    --el-datepicker-hover-text-color: $clr2;
 }

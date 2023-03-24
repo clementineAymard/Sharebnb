@@ -58,15 +58,14 @@
             color: $clr2;
 
             >div {
-                border-right: solid 1px $clr4;
                 padding-inline: 1rem;
                 font-size: 14px;
                 font-family: airbnb_medium;
                 margin: auto;
 
                 &.open {
-                    align-items: flex-start;
-                    border-right: solid 1px $clr4;
+                    align-items: start;
+                    // border-right: solid 1px $clr4;
                     padding-inline: 1rem;
                 }
 
@@ -75,7 +74,8 @@
                     font-family: airbnb_bold;
                 }
 
-                input {
+                input,
+                .sub-title {
                     background-color: transparent;
                     border: none;
                     font-family: cereal;
@@ -87,32 +87,27 @@
                         outline: none;
                     }
                 }
-            }
 
-            &:first-child {
-                // padding-inline-start: 24px;
-
-                input {
-                    width: 150px;
-                }
-
-                div {
-                    border-right: none;
+                .sub-title {
+                    color: $clr3;
+                    text-align: start;
                 }
             }
 
-            &:nth-child(2) {
+            &.location input {
+                width: 150px;
+            }
 
-                // padding-inline: 24px;
-                div:first-child {
+            &.dates div:first-child {
+                border-left: solid 1px $clr4;
+            }
+
+            &.guests {
+                .title {
                     border-left: solid 1px $clr4;
                 }
-            }
-
-            &:nth-child(3) {
 
                 div {
-                    border-right: none;
                     padding-inline-start: 1rem;
                     color: $clr3;
                     font-family: cereal;
@@ -150,31 +145,41 @@
         height: em(70px);
         position: absolute;
         top: em(70px);
-        margin-inline-start: -100px;
+        right: 0;
+        // margin-inline-start: -100px;
         z-index: 4;
+        display: flex;
+        justify-content: center;
 
         .search {
             background-color: lighten($clr4, 8%);
             margin-block-end: 12px;
             padding-block: 0px;
-            left: 55.4vw;
-            position: absolute;
-            translate: -50%;
             z-index: 3;
+            position: relative;
 
             button {
                 padding-block: 14px;
 
-                &:first-child {
+                &.location {
                     padding-inline-start: 24px;
                 }
 
-                &:nth-child(2) {
+                &.dates {
                     padding-inline: 24px;
+                    position: relative;
+
+                    .to {
+                        border-left: solid 1px $clr4;
+                    }
                 }
 
-                &:nth-child(3) {
+                &.guests {
                     padding-inline: 0;
+
+                    .who {
+                        border-left: solid 1px $clr4;
+                    }
                 }
             }
 
@@ -204,73 +209,4 @@
         }
     }
 
-}
-
-.locations {
-    position: absolute;
-    left: 0;
-    top: 112%;
-    background-color: $clr5;
-    border-radius: 32px;
-    border: solid 1px $clr4;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
-    width: fit-content;
-    height: fit-content;
-    padding-inline: 60px 40px;
-    padding-block-end: 46px;
-    cursor: default;
-
-    >span {
-        font-family: airbnb_medium;
-        font-size: 14px;
-        padding-block: 40px;
-        align-self: flex-start;
-    }
-
-    .locations-options {
-        display: grid;
-        grid-template-columns: repeat(3, 122px);
-        column-gap: 15px;
-        row-gap: 32px;
-
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        list-style: none;
-
-        position: relative;
-        inset: 0;
-
-        margin: 0;
-        margin-block-start: -7px;
-        padding: 0;
-
-        label {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            gap: 9px;
-
-            img {
-                border: solid 1px $clr4;
-                border-radius: 14px;
-                width: 100%;
-                object-fit: contain;
-                cursor: pointer;
-
-                &:hover {
-                    border: solid 1px $clr2;
-                }
-            }
-
-            &:not(:first-child) span {
-                text-transform: capitalize;
-            }
-
-            span {
-                font-family: cereal;
-                font-size: 14px;
-            }
-        }
-    }
 }

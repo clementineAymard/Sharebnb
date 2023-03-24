@@ -1,0 +1,68 @@
+.locations {
+    position: absolute;
+    left: 0;
+    top: 112%;
+    background-color: $clr5;
+    border-radius: 32px;
+    border: solid 1px $clr4;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
+    width: fit-content;
+    height: fit-content;
+    padding-inline: 60px 40px;
+    padding-block-end: 46px;
+    cursor: default;
+
+    >span {
+        font-family: airbnb_medium;
+        font-size: 14px;
+        padding-block: 40px;
+        align-self: flex-start;
+    }
+
+    .locations-options {
+        display: grid;
+        grid-template-columns: repeat(3, 122px);
+        column-gap: 15px;
+        row-gap: 32px;
+
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        list-style: none;
+
+        position: relative;
+        inset: 0;
+
+        margin: 0;
+        margin-block-start: -7px;
+        padding: 0;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 9px;
+
+            img {
+                border: solid 1px $clr4;
+                border-radius: 14px;
+                width: 100%;
+                object-fit: contain;
+                cursor: pointer;
+
+                &:hover {
+                    border: solid 1px $clr2;
+                }
+            }
+
+            &:not(:first-child) span {
+                text-transform: capitalize;
+            }
+
+            span {
+                font-family: cereal;
+                font-size: 14px;
+            }
+        }
+    }
+}

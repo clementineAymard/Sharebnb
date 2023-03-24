@@ -15,68 +15,47 @@
             <div class="search-container flex align-center" :class="isSearchOpenClass">
                 <section class="search">
 
-                    <button @click="onSearch('locations')">
+                    <button class="location" @click="onSearch('locations')">
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
                             <label>Where</label>
-                            <input v-model="filterBy.destination" type="text" class="sub-title"
-                                placeholder="Search destinations">
-                            <div class="locations flex column " v-if="selectedFilterKey === 'locations'">
-                                <span>Search by region</span>
-                                <div class="locations-options">
-                                    <label for="flexible">
-                                        <input type="radio" value="" id="flexible" hidden>
-                                        <img
-                                            src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/flexible_rtciou.jpg">
-                                        <span>I'm flexible</span>
-                                    </label>
-                                    <label v-for="region in regions" :for="region.title">
-                                        <input type="radio" :value="region.title" :id="region.title" hidden>
-                                        <img :src="region.url">
-                                        <span>{{ region.title }}</span>
-                                    </label>
-
-
-                                </div>
-                            </div>
+                            <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations">
+                            <LocationPicker v-if="selectedFilterKey === 'locations'" @setLoc="onSetLoc($event)" />
                         </div>
                         <div v-else>Anywhere</div>
                     </button>
 
-                    <button @click="onSearch('dates')" class="flex ">
+                    <button @click="onSearch('dates')" class="dates flex ">
 
-                        <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+                        <div v-if="isSearchOpen" class="from flex column" :class="isSearchOpenClass">
                             <label>Check in</label>
                             <div class="sub-title">Add dates</div>
+                            <DatePicker v-if="selectedFilterKey === 'dates'" />
                         </div>
-                        <div v-if="selectedFilterKey === 'dates'"></div>
 
-                        <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+                        <div v-if="isSearchOpen" class="to flex column" :class="isSearchOpenClass">
                             <label>Check out</label>
                             <div class="sub-title">Add dates</div>
                         </div>
-                        <!-- <DatePicker  v-if="selectedFilterKey === 'dates'"/> -->
-                        
+
                         <div v-if="!isSearchOpen" :class="isSearchOpenClass">Any week</div>
 
 
                     </button>
 
-                    <button class="flex align-center" @click="onSearch('guests')">
-                        <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+                    <button class="guests flex align-center" @click="onSearch('guests')">
+                        <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
                             <input v-model="filterBy.guests" type="text" class="sub-title" placeholder="Add guests">
-
-                            <div v-if="selectedFilterKey === 'dates'"></div>///////////////////////////////////////////////
-                            CHOOSE GUESTS //////////
-
                         </div>
-                        <div v-else :class="isSearchOpenClass">Add guests</div>
+                        <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests($event)" />
+
+                        <div v-if="!isSearchOpen" class="title">Add guests</div>
 
                     </button>
 
                     <button class="glass  flex align-center justify-between"
                         :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
-                        @click="onSearch('location')">
+                        @click="onSetFilter">
                         <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
                         <span v-if="isSearchOpen">Search</span>
                     </button>
@@ -93,7 +72,9 @@
 
 import { eventBus } from "../services/event-bus.service.js"
 import BrandLogo from './BrandLogo.vue'
+import LocationPicker from './LocationPicker.vue'
 import DatePicker from './DatePicker.vue'
+import GuestsPicker from './GuestsPicker.vue'
 import NavBar from './NavBar.vue'
 
 export default {
@@ -111,35 +92,13 @@ export default {
                 y: 0
             },
             filterBy: {
-                destination: '',
+                loc: '',
                 date: {
                     from: '',
                     to: ''
                 },
                 guests: ''
             },
-            regions: [
-                {
-                    title: 'middle east',
-                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/middleeast_n7gnuf.webp'
-                },
-                {
-                    title: 'italy',
-                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/italy_c1ttid.webp'
-                },
-                {
-                    title: 'south america',
-                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/southamerica_mw5nl5.webp'
-                },
-                {
-                    title: 'france',
-                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/france_g942b3.webp'
-                },
-                {
-                    title: 'united states',
-                    url: 'https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/usa_msbaoz.webp'
-                },
-            ]
         }
     },
     computed: {
@@ -162,18 +121,37 @@ export default {
         onCloseHeader() {
             this.isSearchOpen = false
         },
+        onSetLoc(selectedLoc) {
+            this.filterBy.loc = selectedLoc
+            this.selectedFilterKey = 'dates'
+        },
+        onSetDates(selectedDates) {
+            this.filterBy.date.to = selectedDates[0]
+            this.filterBy.date.from = selectedDates[1]
+            this.selectedFilterKey = 'guests'
+        },
+        onSetGuests(selectedGuests) {
+            this.filterBy.guests = selectedGuests
+        },
         onHoverSearchBtn(event) {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
-
         },
         onSetFilter() {
-            this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
+            if (this.isSearchOpen)
+                this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
+            this.clearBooleans()
+        },
+        clearBooleans() {
+            this.isSearchOpen = false
+            this.selectedFilterKey = 'locations'
         }
     },
     components: {
         BrandLogo,
+        LocationPicker,
         DatePicker,
+        GuestsPicker,
         NavBar
     }
 }
