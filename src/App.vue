@@ -1,7 +1,7 @@
 <template>
     <section class="main">
         <AppHeader />
-        <RouterView @scroll="onCloseHeader" />
+        <RouterView  /> <!--@wheel="onCloseHeader"-->
         <AppFooter />
         <UserMsg />
     </section>

@@ -1,12 +1,10 @@
 nav {
     justify-content: end;
+    flex-grow: 0.7;
     position: relative;
     z-index: 3;
-    // padding: 0px 80px;
 
     .links {
-        // margin-inline-end: 10px;
-        width: 346px;
         justify-content: end;
 
         .link-add-stay {
@@ -15,7 +13,8 @@ nav {
             font-family: airbnb_medium;
             padding: 12px 15px;
             border-radius: 28px;
-
+            width: max-content;
+            
             &:hover {
                 background-color: $clr5;
             }

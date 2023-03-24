@@ -1,9 +1,11 @@
 .logo {
     gap: 5px;
-    margin: -5px;
-    flex: 0.6;
+    flex: 0.39;
     position: relative;
     z-index: 3;
+    @include for-medium-layout {
+        flex: 1 0 140px;
+    }
 
     img {
         object-fit: contain;
@@ -20,9 +22,10 @@
             display: none;
         }
 
-        @include for-normal-layout {
-            display: none;
+        @include for-wide-layout {
+            display: block;
         }
+
     }
 
     &:hover {

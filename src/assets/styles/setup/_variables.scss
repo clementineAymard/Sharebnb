@@ -7,7 +7,12 @@ $clr5: #f7f7f7;
 $clr6: #fff;
 
 // Breakpoints
-$mobile-breakpoint: 460px;
-$narrow-breakpoint: 710px;
+$mobile-breakpoint: 735px;
+$narrow-breakpoint: 950px;
 $medium-breakpoint: 1128px;
 $normal-breakpoint: 1400px;
+
+//Paddings
+$small_padding-inline: 24px;
+$medium_padding-inline: 40px;
+$large_padding-inline: 80px;
