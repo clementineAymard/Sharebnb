@@ -46,10 +46,10 @@
                         <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
                             <input v-model="filterBy.guests" type="text" class="sub-title" placeholder="Add guests">
+                            <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests($event)" />
                         </div>
-                        <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests($event)" />
 
-                        <div v-if="!isSearchOpen" class="title">Add guests</div>
+                        <div v-else class="title">Add guests</div>
 
                     </button>
 

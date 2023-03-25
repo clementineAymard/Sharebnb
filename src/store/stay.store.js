@@ -1,5 +1,6 @@
 // import { stayService } from '../services/stay.service.local'
 import { stayService } from '../services/stay.service.local'
+import { utilService } from '../services/util.service'
 
 export function getActionRemoveStay(stayId) {
     return {
@@ -32,7 +33,7 @@ export const stayStore = {
         stays: []
     },
     getters: {
-        stays({stays}) { return stays },
+        stays({ stays }) { return stays },
     },
     mutations: {
         setStays(state, { stays }) {
@@ -75,7 +76,9 @@ export const stayStore = {
                 throw err
             }
         },
-        async loadStays(context) {
+        async loadStays(context, { filterBy }) {
+            utilService.setQueryParams(filterBy)
+            
             try {
                 const stays = await stayService.query()
                 context.commit({ type: 'setStays', stays })

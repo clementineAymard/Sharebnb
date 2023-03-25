@@ -18,6 +18,7 @@
         background-color: $clr4;
         color: $clr2;
     }
+
     .stay-img {
         border-radius: 10px;
         width: 100%;
@@ -37,12 +38,16 @@
         top: 12px;
         right: 12px;
         font-size: 21px;
-        color: $clr4;
+        opacity: 0.6;
+        -webkit-text-fill-color: $clr3;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $clr4;
         z-index: 1;
 
     }
 }
-.rating{
+
+.rating {
     float: right;
 }
 
@@ -52,11 +57,13 @@
         padding: 0;
         font-size: 15px;
     }
-.fa-star{
-font-size: 11px;
+
+    .fa-star {
+        font-size: 11px;
     }
 
 }
+
 .el-carousel__button {
     width: 6px;
     height: 6px;

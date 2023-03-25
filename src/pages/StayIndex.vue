@@ -1,6 +1,6 @@
 <template>
   <div class="container-home">
-    <FilterCategory @filter-by="handleFilterBy"></FilterCategory>
+    <FilterCategory @filterBy="filterBy"></FilterCategory>
 
     <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
 
@@ -34,8 +34,9 @@ export default {
     this.$store.dispatch({ type: 'loadStays' })
   },
   methods: {
-    handleFilterBy(filterBy) {
+    filterBy(filterBy) {
       console.log('Selected category:', filterBy)
+      this.$store.dispatch({type: 'loadStays', filterBy})
     },
     async addStay() {
       try {

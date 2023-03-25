@@ -8,10 +8,9 @@
         </Slide>
         <template #addons>
             <!-- :nextLabel="'>'" :prevLabel="'<'" -->
-            <Navigation/>
+            <Navigation />
         </template>
     </Carousel>
-    
 </template>
 
 <script>
@@ -25,6 +24,9 @@ export default defineComponent({
     name: 'FilterNav',
     data() {
         return {
+            filterBy: {
+                category: ''
+            },
             imgs: stayService.getLabels(),
             settings: {
                 itemsToShow: 1,
@@ -48,7 +50,8 @@ export default defineComponent({
     },
     methods: {
         setFilterBy(filterBy) {
-            this.$emit('filter-by', filterBy);
+            this.filterBy.category = filterBy
+            this.$emit('filter-by', this.filterBy);
         }
     },
     components: {

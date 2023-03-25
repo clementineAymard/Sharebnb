@@ -2,7 +2,7 @@
     <li class="stay-preview flex column">
 
         <div class="img-container">
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
                     <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
