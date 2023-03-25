@@ -5,11 +5,7 @@
                 <div class="type">Adults</div>
                 <div class="description">Ages 13 or above</div>
             </div>
-            <div class="selector">
-                <button @click="dec">-</button>
-                <span><input type="number" v-model="adultsCount"></span>
-                <button @click="inc">+</button>
-            </div>
+            <CounterIncDec/>
         </div>
 
         <div class="children flex align-center justify-between">
@@ -17,7 +13,7 @@
                 <div class="type">Children</div>
                 <div class="description">Ages 2-12</div>
             </div>
-            <div class="selector"></div>
+            <CounterIncDec/>        
         </div>
 
         <div class="infants flex align-center justify-between">
@@ -25,12 +21,14 @@
                 <div class="type">Infants</div>
                 <div class="description">Under 2</div>
             </div>
-            <div class="selector"></div>
+            <CounterIncDec/>
         </div>
     </section>
 </template>
 
 <script>
+
+import CounterIncDec from './CounterIncDec.vue'
 
 export default {
     name: '',
@@ -51,7 +49,7 @@ export default {
 
     },
     components: {
-
+        CounterIncDec
     },
 }
 </script>

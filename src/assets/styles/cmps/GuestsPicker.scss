@@ -11,35 +11,28 @@
     height: fit-content;
     padding: 1rem 2rem;
 
-    .adults, .children, .infants {
+    .adults,
+    .children,
+    .infants {
         text-align: start;
         padding-block: 1.5rem;
-        height:fit-content;
+        height: fit-content;
         width: 326px;
         // display: flex;
         // flex-direction: column;
 
         >div:first-child {
             border: none;
+
             .type {
                 font-size: 1rem;
                 font-family: airbnb_medium;
-                color:$clr2;
+                color: $clr2;
 
             }
 
             .description {
                 font-size: rem(14px);
-            }
-        }
-        .selector{
-            height: fit-content;
-            button{
-                border: solid 2px $clr4;
-                border-radius: 50%;
-            }
-            >span>input{
-                width: fit-content;
             }
         }
     }
