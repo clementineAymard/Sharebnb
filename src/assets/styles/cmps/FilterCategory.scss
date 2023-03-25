@@ -11,15 +11,12 @@
          color: $clr2;
          margin: 6px 80px;
          font-size: 16px;
-
          &.carousel__next {
-             box-shadow: -20px -1px 30px 20px rgb(235, 232, 232);
+             box-shadow: -20px -1px 30px 20px rgb(255, 255, 255);
          }
-
          &.carousel__prev {
-             box-shadow: 16px 0px 30px 20px rgb(235, 232, 232);
+             box-shadow: 20px  -1px 30px 20px rgb(255, 255, 255);
          }
-
          &:hover {
              color: $clr2;
              box-shadow: 1px 3px 10px $clr3
