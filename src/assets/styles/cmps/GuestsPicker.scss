@@ -9,13 +9,38 @@
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
     width: fit-content;
     height: fit-content;
-    padding: 2rem 1rem;
+    padding: 1rem 2rem;
 
-    >div {
+    .adults, .children, .infants {
+        text-align: start;
         padding-block: 1.5rem;
+        height:fit-content;
+        width: 326px;
+        // display: flex;
+        // flex-direction: column;
 
-        >div .title {
+        >div:first-child {
             border: none;
+            .type {
+                font-size: 1rem;
+                font-family: airbnb_medium;
+                color:$clr2;
+
+            }
+
+            .description {
+                font-size: rem(14px);
+            }
+        }
+        .selector{
+            height: fit-content;
+            button{
+                border: solid 2px $clr4;
+                border-radius: 50%;
+            }
+            >span>input{
+                width: fit-content;
+            }
         }
     }
 }

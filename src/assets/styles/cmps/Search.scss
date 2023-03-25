@@ -65,7 +65,6 @@
 
                 &.open {
                     align-items: start;
-                    // border-right: solid 1px $clr4;
                     padding-inline: 1rem;
                 }
 
@@ -107,7 +106,7 @@
                     border-left: solid 1px $clr4;
                 }
 
-                div {
+                >div {
                     padding-inline-start: 1rem;
                     color: $clr3;
                     font-family: cereal;
