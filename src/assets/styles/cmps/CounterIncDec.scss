@@ -1,0 +1,14 @@
+.counter-inc-dec {
+    height: 2rem;
+    justify-content: space-evenly;
+
+    button {
+        width: 2rem;
+        border: solid 2px $clr4;
+        border-radius: 50%;
+    }
+    
+    >span>input {
+        width: 2rem;
+    }
+}
