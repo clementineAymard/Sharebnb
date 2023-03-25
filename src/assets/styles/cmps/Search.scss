@@ -53,7 +53,7 @@
             box-shadow: 0px 1px 3px 1px $clr4;
         }
 
-        button {
+        >button {
             background-color: transparent;
             color: $clr2;
 
@@ -73,7 +73,7 @@
                     font-family: airbnb_bold;
                 }
 
-                input,
+                >input,
                 .sub-title {
                     background-color: transparent;
                     border: none;
@@ -90,6 +90,13 @@
                 .sub-title {
                     color: $clr3;
                     text-align: start;
+                    height: em(20px);
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    ::-webkit-scrollbar {
+                        width:0px;
+                    }
                 }
             }
 

@@ -45,8 +45,8 @@
                     <button class="guests flex align-center" @click="onSearch('guests')">
                         <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
-                            <input v-model="filterBy.guests" type="text" class="sub-title" placeholder="Add guests">
-                            <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests($event)" />
+                            <div class="sub-title">{{ guestsForDisplay }}</div>
+                            <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests" />
                         </div>
 
                         <div v-else class="title">Add guests</div>
@@ -111,7 +111,10 @@ export default {
         isExpandedClass() {
             return this.isSearchOpen ? 'expanded' : 'closed'
         },
-
+        guestsForDisplay() {
+            if (this.filterBy.guests) return `${this.filterBy.guests.adults} adults, ${this.filterBy.guests.chidren} chidren, ${this.filterBy.guests.infants} infants`
+            else return 'Add guests'
+        }
     },
     methods: {
         onSearch(filterKey) {
@@ -148,7 +151,9 @@ export default {
         }
     },
     watch: {
+        guestsForDisplay(){
 
+        }
     },
     components: {
         BrandLogo,

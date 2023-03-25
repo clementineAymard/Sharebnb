@@ -18,26 +18,36 @@ window.cs = stayService
 
 
 async function query() { // filterBy = { txt: '', price: 0 }
-  const filterBy = { 
-    loc: '',
-    dates: {
-      from: '',
-      to:''
-    },
-    guests: '',
-    category: ''
-  }
-  for (var key in filterBy){
-    filterBy[key] = utilService.getValFromParam(key)
-  }
+    const filterBy = { 
+        loc: '',
+        dates: {
+            from: '',
+            to:''
+            },
+        adults:'',
+        children: '',
+        infants: '',
+        category: ''
+    }
+    
+    for (var key in filterBy){
+      filterBy[key] = utilService.getValFromParam(key)
+    }
+  
     var stays = await storageService.query(STORAGE_KEY)
     if (filterBy.loc) {
         const regex = new RegExp(filterBy.loc, 'i')
         stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
     }
-    // if (filterBy.guests) {
-    //     stays = stays.filter(stay => stay.capacity === filterBy.guests)
-    // }
+    if (filterBy.adults && filterBy.children) {
+        stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
+    }
+    else if (filterBy.adults && !filterBy.children) {
+        stays = stays.filter(stay => stay.capacity >= filterBy.adults)
+    }
+    else if (!filterBy.adults && filterBy.children) {
+        stays = stays.filter(stay => stay.capacity >= filterBy.children)
+    }
     if (filterBy.category) {
         stays = stays.filter(stay => stay.labels.includes(filterBy.category))
     }

@@ -77,6 +77,13 @@ export const stayStore = {
             }
         },
         async loadStays(context, { filterBy }) {
+            
+            if (filterBy.guests){
+                filterBy.adults = filterBy.guests.adults
+                filterBy.children = filterBy.guests.children
+                filterBy.infants = filterBy.guests.infants
+                delete filterBy.guests
+            }
             utilService.setQueryParams(filterBy)
             
             try {

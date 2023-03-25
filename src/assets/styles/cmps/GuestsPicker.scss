@@ -18,8 +18,7 @@
         padding-block: 1.5rem;
         height: fit-content;
         width: 326px;
-        // display: flex;
-        // flex-direction: column;
+        border-block-end: solid 1px $clr4;
 
         >div:first-child {
             border: none;
@@ -35,5 +34,9 @@
                 font-size: rem(14px);
             }
         }
+    }
+
+    .infants {
+        border: none;
     }
 }
