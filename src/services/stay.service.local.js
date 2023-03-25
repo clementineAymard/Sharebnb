@@ -29,9 +29,10 @@ async function query() { // filterBy = { txt: '', price: 0 }
         infants: '',
         category: ''
     }
-    
+    // console.log(filterBy)
     for (var key in filterBy){
-      filterBy[key] = utilService.getValFromParam(key)
+    //   if (utilService.getValFromParam(key))
+        filterBy[key] = utilService.getValFromParam(key) 
     }
   
     var stays = await storageService.query(STORAGE_KEY)
@@ -765,7 +766,7 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "Florida",
+                      "country": "Unites States",
                       "countryCode": "PT",
                       "city": "Miami",
                       "address": "17 Kombo st",
@@ -863,8 +864,8 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "New York",
-                      "countryCode": "PT",
+                      "country": "United States",
+                      "countryCode": "USA",
                       "city": "New York",
                       "address": "17 Kombo st",
                       "lat": -8.61308,

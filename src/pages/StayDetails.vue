@@ -147,6 +147,7 @@ export default {
     const { stayId } = this.$route.params
     const stay = await stayService.getById(stayId)
     this.stay = stay
+    // console.log(stay)
   },
   methods: {
     goBack() {

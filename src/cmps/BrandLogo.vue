@@ -17,7 +17,9 @@ export default {
             const url = new URL(window.location.href)
             url.search = ''
             window.history.pushState({ path: url.href }, '', url.href)
-            this.$store.dispatch({ type: 'loadStays', filterBy: {} })
+            this.$store.dispatch({
+                type: 'loadStays', filterBy: {}
+            })
         }
     },
     computed: {},

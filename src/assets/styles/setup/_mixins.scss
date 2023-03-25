@@ -64,3 +64,29 @@
         }
     }
 }
+
+@mixin width-padding-mqs {
+    width: 100%;
+    max-width: 2520px;
+
+    @include for-mobile-layout {
+        padding-inline: rem(24px);
+    }
+
+    @include for-narrow-layout {
+        padding-inline: rem(40px);
+    }
+
+    @include for-medium-layout {
+        padding-inline: rem(40px);
+    }
+
+    @include for-normal-layout {
+        padding-inline: rem(80px);
+    }
+
+    @include for-wide-layout {
+        padding-inline: rem(40px);
+        padding-inline-end: rem(45px);
+    }
+}
