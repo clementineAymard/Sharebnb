@@ -80,7 +80,7 @@ export const stayStore = {
             utilService.setQueryParams(filterBy)
             
             try {
-                const stays = await stayService.query(filterBy)
+                const stays = await stayService.query()
                 context.commit({ type: 'setStays', stays })
             } catch (err) {
                 console.log('stayStore: Error in loadStays', err)
