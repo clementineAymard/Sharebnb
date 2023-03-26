@@ -2,7 +2,7 @@
     <section className="stay-list"> <!-- @scroll="onCloseHeader"-->
 
         <StayPreview v-for="stay in stays" :key="stay._id" :stay="stay" @removeStay="$emit('removeStay', stay._id)"
-            @updateStay="$emit('updateStay', stay)" @openStayDetails="openStayDetails"></StayPreview>
+            @updateStay="$emit('updateStay', stay)" @click="this.$router.push(`/stay/${stay._id}`)"></StayPreview>
 
     </section>
 </template>
@@ -23,15 +23,6 @@ export default {
         }
     },
     methods: {
-        openStayDetails(stayId) {
-            this.resetStringParams()
-            this.$router.push(`/stay/${stayId}`)
-        },
-        resetStringParams() {
-            const url = new URL(window.location.href)
-            url.search = ''
-            window.history.pushState({ path: url.href }, '', url.href)
-        },
         removeStay(stayId) {
             this.$emit('removeStay', stayId)
         },

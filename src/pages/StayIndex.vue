@@ -3,9 +3,6 @@
     <FilterCategory @filterBy="filterBy"></FilterCategory>
 
     <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
-
-    <hr />
-
   </div>
 </template>
 

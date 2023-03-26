@@ -1,16 +1,10 @@
 <template>
-    <section class="main-header">
+    <section class="main-header full main-container">
         <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
         <div class="header-background" :class="isSearchOpenClass"></div>
-        <header class="header flex align-center justify-between" :class="isDetailsClass">
+        <header class="header  flex align-center justify-between" :class="isDetailsClass">
 
             <BrandLogo @resetFields="onResetFields" />
-
-            <div v-if="isSearchOpen" class="sub-search flex align-center ">
-                <a class="stays">Stays</a>
-                <a class="experiences">Experiences</a>
-                <a class="online-experiences">Online Experiences</a>
-            </div>
 
             <div class="search-container flex align-center" :class="isSearchOpenClass">
                 <section class="search" v-if="!isDetails">
@@ -100,6 +94,7 @@ export default {
         // this.filterBy.guests.adults = utilService.getValFromParam('adults')
         // this.filterBy.guests.children = utilService.getValFromParam('children')
         // this.filterBy.guests.infants = utilService.getValFromParam('infants')
+        // console.log(this.filterBy.guests)
         // this.guestsForDisplayTitle = this.guestsForDisplay
     },
     data() {

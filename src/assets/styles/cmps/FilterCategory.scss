@@ -2,20 +2,22 @@
     //  padding: 0px 80px;
      width: 100%;
      margin-top: 10px;
-     @include  width-padding-mqs;
+    //  @include  width-padding-mqs;
 
      button {
-         background-color: transparent;
          cursor: pointer;
          border: 1px solid $clr3;
          border-radius: 50%;
          color: $clr2;
          margin: 6px 80px;
          font-size: 16px;
+         
          &.carousel__next {
+             background-color: $clr6;
              box-shadow: -20px -1px 30px 20px rgb(255, 255, 255);
-         }
-         &.carousel__prev {
+            }
+            &.carousel__prev {
+             background-color: $clr6;
              box-shadow: 20px  -1px 30px 20px rgb(255, 255, 255);
          }
          &:hover {
