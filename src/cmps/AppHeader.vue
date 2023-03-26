@@ -40,14 +40,17 @@
                         <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
                             <div class="sub-title">
-                                <span v-if="filterBy.guests > 0">{{ guestsForDisplayTitle }} guest<span
-                                        v-if="filterBy.guests > 1">s</span></span><span v-else>Add guests</span>
+                                <span v-if="guestsForDisplayTitle > 0">{{ guestsForDisplayTitle }} guest<span
+                                        v-if="guestsForDisplayTitle > 1">s</span></span><span v-else>Add guests</span>
                             </div>
                             <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests" />
                         </div>
 
-                        <div v-else class="title"><span v-if="filterBy.guests > 0">{{ guestsForDisplayTitle }} guest<span
-                                    v-if="filterBy.guests > 1">s</span></span><span v-else>Add guests</span></div>
+                        <div v-else class="title">
+                            <span v-if="guestsForDisplayTitle > 0" class="medium-font black">{{ guestsForDisplayTitle }} guest<span
+                                    v-if="guestsForDisplayTitle > 1">s</span></span>
+                            <span v-else>Add guests</span>
+                        </div>
 
                     </button>
 
@@ -95,6 +98,7 @@ export default {
     },
     mounted() {
         this.setLocFromParams()
+        this.setGuestsFromParams()
     },
     data() {
         return {
@@ -114,7 +118,7 @@ export default {
                 guests: 0
             },
             locForDisplayTitle: this.$route.query.loc || 'Anywhere',
-            guestsForDisplayTitle: this.$route.query.guests || 'Add guests'
+            guestsForDisplayTitle: this.$route.query.adults || 'Add guests'
         }
     },
     computed: {
@@ -150,6 +154,7 @@ export default {
         },
         onSetGuests(selectedGuests) {
             this.filterBy.guests = selectedGuests
+            console.log('this.filterBy.guests', this.filterBy.guests)
         },
         onHoverSearchBtn(event) {
             this.offset.x = event.offsetX
@@ -189,7 +194,14 @@ export default {
         },
         setGuestsFromParams() {
             setTimeout(() => {
-                this.guestsForDisplayTitle = this.$route.query.guests || 'Add Guests'
+                if (this.$route.query.children)
+                    this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
+                else
+                    this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
+
+                console.log('this.guestsForDisplayTitle',this.guestsForDisplayTitle)
+                console.log('this.$route.query.adults', this.$route.query.adults)
+
             }, 1)
         },
         onResetFields() {
@@ -202,7 +214,10 @@ export default {
         },
         routeQuery() {
             this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
-            this.guestsForDisplayTitle = this.$route.query.guests || 'Add guests'
+            if (this.$route.query.children)
+                this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
+            else
+                this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
         }
     },
     components: {

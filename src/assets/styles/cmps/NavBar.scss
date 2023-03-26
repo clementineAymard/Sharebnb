@@ -5,7 +5,9 @@ nav {
     z-index: 3;
 
     @include for-mobile-layout {
-        display: none;
+        width: 0;
+        height: 0;
+        opacity: 0;
     }
 
     .links {
@@ -68,6 +70,7 @@ nav {
             color: $clr2;
             padding-block: 5px;
         }
+
         .bold {
             font-family: airbnb_bold;
         }

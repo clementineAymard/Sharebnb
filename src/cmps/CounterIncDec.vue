@@ -1,7 +1,7 @@
 <template>
     <div class="counter-inc-dec flex align-center">
         <button @click="changeCount(-1)">
-           <svg style="display: block; fill: none; height: 27px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible; flex-grow: 1; scale: 0.4;"
+           <svg style="display: block; fill: none; height: 27px; width: 27px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible; flex-grow: 1; scale: 0.4;"
            viewBOx="0 0 32 32" xmins="http://www.w3.org/200©/svg" aria-hidden="true" role="presentation" focusable="false">
                 <path d="m2 16h28"></path>
             </svg>
