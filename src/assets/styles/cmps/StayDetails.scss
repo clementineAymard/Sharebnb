@@ -539,6 +539,76 @@ button {
     top: 150px;
 }
 
+.stay-details1 .reviews-and-map {
+    margin: 0;
+}
+
+.stay-details1 .reviews-and-map>*:not(.divider) {
+    padding: 48px 0;
+}
+
+.stay-details1 .reviews h1 {
+    margin-bottom: 32px;
+}
+
+.stay-details1 .reviews h1 .rating-review {
+    font-size: 1.375rem;
+}
+
+.stay-details1 .reviews h1 .rating-review .rev-count {
+    text-decoration: none;
+}
+
+.reviews-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px 1px;
+}
+
+.reviews-list li {
+    max-width: 80%;
+}
+
+.stay-details1 .reviews .reviews-container .reviews-list .title {
+    margin-bottom: 13px;
+}
+
+.reviews-list li .title {
+    gap: 10px;
+    align-items: center;
+}
+
+.reviews-list li img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.flex.column, .stay-header .column.carousel-flex {
+    flex-direction: column;
+}
+
+.fs14 {
+    font-size: .875rem;
+}
+
+.stay-details1 .reviews .reviews-container .reviews-list .txt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 // section, main, footer {

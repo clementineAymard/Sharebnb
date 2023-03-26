@@ -125,7 +125,52 @@
           </div>
         </div>
         <div class="divider"></div>
+        <div class="reviews-and-map">
+          <div class="reviews">
+            <h1 class="flex subheading">
+              <div class="rating-review flex">
+                <span class="avg-rating flex font-md">
+                  <section class="icon-svg">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
+                  </section>
+                  3.73
+                </span>
+                <span>•</span>
+                <span class="rev-count link font-md">{{ stay.reviews.length }} review</span>
+              </div>
+            </h1>
+            <div class="reviews-cpntainer">
+              <div class="reviews-list">
+                <li>
+                  <div class="title flex">
+                    <img src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg">
+                    <div class="flex column">
+                      <span class="name font-md">Rafaela</span>
+                      <span class="subtitle fs14">jul 2016</span>
+                    </div>
+                  </div>
+                  <div class="txt">
+                    Host: Marian gave us a warm welcome and treated us kindly from the very beginning. She offered us help, told us what to visit and even put water, milk and orange juice in the fridge! We could have breakfast at her place which was perfect because she has a little sweet balcony! 
+Location: calmly situated in a side street, very near to the Placa Catalunya, the Rambla and the gothic area of Barcelona (very beautiful:)) so you have the old cultural center as well as all the restaurants and bars just nearby.
+House/Room: the appartment is not a huge, but I think you have everything you need (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment with Marian so pay attention and don't be too loud in the evening!!
+disadvantage: the heat is terrible in summer and there is no air-condition..
+
+I would overall recommend it to everybody!! But if you want to party and stay up late, take a hostel or another appartment.
+                  </div>
+                </li>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+        </div>
       </div>
+
+
+
+
+
+
+
 
     </section>
   </section>
