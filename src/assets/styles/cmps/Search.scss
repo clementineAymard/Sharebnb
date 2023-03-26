@@ -100,7 +100,8 @@
                         width: 0px;
                     }
                 }
-                &.title{
+
+                &.title {
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
@@ -177,7 +178,9 @@
             position: relative;
 
             >button {
-                padding-block: 14px;
+                :not(:last-of-type) {
+                    padding-block: 14px;
+                }
 
                 &.location {
                     padding-inline-start: 24px;
