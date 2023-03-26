@@ -100,6 +100,7 @@ export default {
         // this.filterBy.guests.adults = utilService.getValFromParam('adults')
         // this.filterBy.guests.children = utilService.getValFromParam('children')
         // this.filterBy.guests.infants = utilService.getValFromParam('infants')
+        // console.log(this.filterBy.guests)
         // this.guestsForDisplayTitle = this.guestsForDisplay
     },
     data() {
