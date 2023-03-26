@@ -20,6 +20,7 @@ export default {
             this.$store.dispatch({
                 type: 'loadStays', filterBy: {}
             })
+            this.$emit('resetFields')
         }
     },
     computed: {},

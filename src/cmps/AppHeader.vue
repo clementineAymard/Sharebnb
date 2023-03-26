@@ -4,7 +4,7 @@
         <div class="header-background" :class="isSearchOpenClass"></div>
         <header class="header flex align-center justify-between" :class="isDetailsClass">
 
-            <BrandLogo />
+            <BrandLogo @resetFields="onResetFields" />
 
             <div v-if="isSearchOpen" class="sub-search flex align-center ">
                 <a class="stays">Stays</a>
@@ -49,7 +49,7 @@
                             <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests" />
                         </div>
 
-                        <div v-else class="title">Add guests</div>
+                        <div v-else class="title">{{ guestsForDisplayTitle }}</div>
 
                     </button>
 
@@ -94,7 +94,13 @@ export default {
             this.isSearchOpen = false
         })
         if (this.$route.params.stayId) this.isDetails = true
-        // else this.isDetails = false
+
+        this.locForDisplayTitle = utilService.getValFromParam('loc') || 'Anywhere'
+        // this.filterBy.guests = {}
+        // this.filterBy.guests.adults = utilService.getValFromParam('adults')
+        // this.filterBy.guests.children = utilService.getValFromParam('children')
+        // this.filterBy.guests.infants = utilService.getValFromParam('infants')
+        // this.guestsForDisplayTitle = this.guestsForDisplay
     },
     data() {
         return {
@@ -128,13 +134,14 @@ export default {
             return this.isSearchOpen ? 'expanded' : 'closed'
         },
         guestsForDisplay() {
+            // console.log('guests display ', this.filterBy.guests)
             if (this.filterBy.guests) return `${this.filterBy.guests.adults} adults, ${this.filterBy.guests.chidren} chidren, ${this.filterBy.guests.infants} infants`
             else return 'Add guests'
         },
         stayId() {
             return this.$route.params.stayId
         },
-        isDetailsClass(){
+        isDetailsClass() {
             return this.isDetails ? 'margin-details-page' : 'no-margin'
         }
     },
@@ -167,13 +174,18 @@ export default {
                 this.$store.dispatch({ type: 'loadStays', filterBy: JSON.parse(JSON.stringify(this.filterBy)) })
             // console.log(this.filterBy)
             this.clearBooleans()
-            this.locForDisplayTitle = utilService.getValFromParam('loc')
+            this.locForDisplayTitle = utilService.getValFromParam('loc') || 'Anywhere'
             this.guestsForDisplayTitle = this.guestsForDisplay
         },
         clearBooleans() {
             this.isSearchOpen = false
             this.selectedFilterKey = 'locations'
             this.isDetails = false
+        },
+        onResetFields() {
+            this.locForDisplayTitle = 'Anywhere'
+            this.guestsForDisplayTitle = 'Add guests'
+            this.clearBooleans()
         }
     },
     watch: {
