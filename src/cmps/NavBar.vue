@@ -11,7 +11,7 @@
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
 
             <RouterLink to="/login" class="bold flex justify-between"><span>My Profile</span><span
-                    @click="isMiniMenuOpen = false">X</span></RouterLink>
+                    @click.prevent="isMiniMenuOpen = false">X</span></RouterLink>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
     </nav>

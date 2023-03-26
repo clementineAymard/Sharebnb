@@ -52,6 +52,9 @@ async function query() { // filterBy = { txt: '', price: 0 }
     if (filterBy.category) {
         stays = stays.filter(stay => stay.labels.includes(filterBy.category))
     }
+
+    // stays = stays.sort((s1,s2) => s1 average rate - s2 average rate)
+    // TODO : SORT BY RATE
     return stays
 }
 

@@ -28,6 +28,7 @@
 
      .carousel__track {
          display: flex;
+         gap: em(10px);
          margin-top: 20px;
 
          img {
@@ -39,6 +40,7 @@
              text-align: center;
              width: fit-content;
              cursor: pointer;
+             flex:default;
 
              &:hover {
                  box-shadow: 0px -2px 0px 0px inset $clr3;

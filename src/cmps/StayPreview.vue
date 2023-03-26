@@ -12,7 +12,7 @@
         </div>
 
         <div class="preview-txt">
-            <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button>
+            <!-- <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button> -->
             <p class="bold-font">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             <p class="rating regular-font">

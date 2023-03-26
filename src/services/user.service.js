@@ -47,7 +47,7 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({_id, score}) {
+async function update({ _id, score }) {
     const user = await storageService.get('user', _id)
     // let user = getById(_id)
     // user.score = score
@@ -94,7 +94,7 @@ async function logout() {
 
 function saveLocalUser(user) {
     console.log('saving logged in user')
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, isAdmin: user.isAdmin}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, isAdmin: user.isAdmin }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -103,10 +103,28 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
+const users = [
+    {
+        "_id": "u101",
+        "fullname": "User 1",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+        "username": "user1",
+        "password": "secret"
+    },
+    {
+        "_id": "u102",
+        "fullname": "User 2",
+        "imgUrl": "/imgs/userfemale.png",
+        "username": "user2",
+        "password": "secret",
+        // "isOwner" : true // OPTIONAL
+    }
+]
 
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Demo user 1', username: 'demouser1', password:'123', isAdmin: false})
-//     await userService.signup({fullname: 'Demo user 2 Admin', username: 'admin', password:'123',  isAdmin: true})
+// ; (async () => {
+//     for (var i = 0; i < users.length; i++) {
+//         await userService.signup(users[i])
+//     }
 // })()
 
 
@@ -136,21 +154,3 @@ function getLoggedinUser() {
 //       "status": "pending" // pending, approved
 //     }
 //   ]
-  
-  const users = [
-    {
-      "_id": "u101",
-      "fullname": "User 1",
-      "imgUrl": "/img/img1.jpg",
-      "username": "user1",
-      "password": "secret"
-    },
-    {
-      "_id": "u102",
-      "fullname": "User 2",
-      "imgUrl": "/img/img2.jpg",
-      "username": "user2",
-      "password": "secret",
-      // "isOwner" : true // OPTIONAL
-    }
-  ]

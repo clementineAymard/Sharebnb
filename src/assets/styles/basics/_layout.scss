@@ -5,9 +5,8 @@
 
 .main-container {
     display: grid;
-    grid-template-columns: 24px 1fr 24px;
 
-    > * {
+    >* {
         grid-column: 2;
 
         &.full {
@@ -15,30 +14,55 @@
         }
     }
 
+    @include for-mobile-layout {
+        grid-template-columns:
+            ($small_padding-inline) 1fr ($small_padding-inline);
+        // minmax($small_padding-inline, 1fr)
+        // minmax(auto, calc($narrow-breakpoint - 2 * $small_padding-inline))
+        // minmax($small_padding-inline, 1fr);
+    }
+
     @include for-narrow-layout {
-        grid-template-columns: 
-            minmax(40px, 1fr)
-            minmax(auto, $mobile-breakpoint)
-            minmax(40px, 1fr);
+        grid-template-columns:
+            minmax($medium_padding-inline, 1fr) 
+            minmax(auto, $mobile-breakpoint) // - 2 * $medium_padding-inline
+            minmax($medium_padding-inline, 1fr);
     }
+
     @include for-medium-layout {
-        grid-template-columns: 
-            minmax(40px, 1fr)
-            minmax(auto, $narrow-breakpoint)
-            // 1fr
-            minmax(40px, 1fr);
+        grid-template-columns:
+            minmax($medium_padding-inline, 1fr) 
+            minmax(auto, calc($narrow-breakpoint - 2 * $medium_padding-inline)) 
+            minmax($medium_padding-inline, 1fr);
     }
+
+    @include for-normal-layout {
+        grid-template-columns:
+            minmax($medium_padding-inline, 1fr) 
+            minmax(auto, calc($medium-breakpoint - 2 * $medium_padding-inline)) 
+            minmax($medium_padding-inline, 1fr);
+    }
+
     @include for-wide-layout {
-        grid-template-columns: 
-            minmax(80px, 1fr)
-            minmax(auto, $normal-breakpoint)
-            // 1fr
-            minmax(80px, 1fr);
+        grid-template-columns:
+            minmax($large_padding-inline, 1fr) 
+            minmax(auto, calc($normal-breakpoint - 2 * $large_padding-inline)) // 1fr
+            minmax($large_padding-inline, 1fr);
     }
+
+    @include for-extra-wide-layout {
+        grid-template-columns:
+            minmax($large_padding-inline, 1fr) 
+            minmax(auto, $max-width-breakpoint) // calc($max-width-breakpoint - 2 * $large_padding-inline))
+            // 1fr
+            minmax($large_padding-inline, 1fr);
+    }
+
 }
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(285px, 330px));
     grid-gap: 20px;
 }

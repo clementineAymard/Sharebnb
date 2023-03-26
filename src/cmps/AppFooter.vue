@@ -1,5 +1,5 @@
 <template>
-    <section class="footer flex align-center">
+    <section class="footer flex align-center" v-if="isOpen">
         <span>© 2023 Airbnb, Inc.</span>
         <span>·</span>
         <span>Terms</span>
@@ -24,7 +24,9 @@ export default {
 
     },
     computed: {
-
+        isOpen(){
+            return !this.$route.params.stayId
+        }
     },
     created() {
 

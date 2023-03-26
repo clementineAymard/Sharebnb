@@ -1,8 +1,8 @@
 <template>
     <section class="main-header full main-container">
         <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
-        <div class="header-background" :class="isSearchOpenClass"></div>
-        <header class="header  flex align-center justify-between" :class="isDetailsClass">
+        <div class="header-background full" :class="isSearchOpenClass"></div>
+        <header class="header flex align-center justify-between" :class="isDetailsClass">
 
             <BrandLogo @resetFields="onResetFields" />
 
@@ -39,11 +39,15 @@
                     <button class="guests flex align-center" @click="onSearch('guests')">
                         <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
-                            <div class="sub-title">{{ guestsForDisplay }}</div>
+                            <div class="sub-title">
+                                <span v-if="filterBy.guests > 0">{{ guestsForDisplayTitle }} guest<span
+                                        v-if="filterBy.guests > 1">s</span></span><span v-else>Add guests</span>
+                            </div>
                             <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests" />
                         </div>
 
-                        <div v-else class="title">{{ guestsForDisplayTitle }}</div>
+                        <div v-else class="title"><span v-if="filterBy.guests > 0">{{ guestsForDisplayTitle }} guest<span
+                                    v-if="filterBy.guests > 1">s</span></span><span v-else>Add guests</span></div>
 
                     </button>
 
@@ -88,14 +92,9 @@ export default {
             this.isSearchOpen = false
         })
         if (this.$route.params.stayId) this.isDetails = true
-
-        this.locForDisplayTitle = utilService.getValFromParam('loc') || 'Anywhere'
-        // this.filterBy.guests = {}
-        // this.filterBy.guests.adults = utilService.getValFromParam('adults')
-        // this.filterBy.guests.children = utilService.getValFromParam('children')
-        // this.filterBy.guests.infants = utilService.getValFromParam('infants')
-        // console.log(this.filterBy.guests)
-        // this.guestsForDisplayTitle = this.guestsForDisplay
+    },
+    mounted() {
+        this.setLocFromParams()
     },
     data() {
         return {
@@ -112,32 +111,24 @@ export default {
                     from: '',
                     to: ''
                 },
-                guests: ''
+                guests: 0
             },
-            locForDisplayTitle: 'Anywhere',
-            guestsForDisplayTitle: 'Add guests'
+            locForDisplayTitle: this.$route.query.loc || 'Anywhere',
+            guestsForDisplayTitle: this.$route.query.guests || 'Add guests'
         }
     },
     computed: {
-        loggedInUser() {
-            return this.$store.getters.loggedinUser
+        stayId() {
+            return this.$route.params.stayId
         },
         isSearchOpenClass() {
             return this.isSearchOpen ? 'open' : 'closed'
         },
-        isExpandedClass() {
-            return this.isSearchOpen ? 'expanded' : 'closed'
-        },
-        guestsForDisplay() {
-            // console.log('guests display ', this.filterBy.guests)
-            if (this.filterBy.guests) return `${this.filterBy.guests.adults} adults, ${this.filterBy.guests.chidren} chidren, ${this.filterBy.guests.infants} infants`
-            else return 'Add guests'
-        },
-        stayId() {
-            return this.$route.params.stayId
-        },
         isDetailsClass() {
             return this.isDetails ? 'margin-details-page' : 'no-margin'
+        },
+        routeQuery() {
+            return this.$route.query
         }
     },
     methods: {
@@ -165,27 +156,53 @@ export default {
             this.offset.y = event.offsetY
         },
         onSetFilter() {
+            let filterToSend = this.filterBy
+            if (this.filterBy.guests) {
+                filterToSend.adults = this.filterBy.guests.adults
+                filterToSend.children = this.filterBy.guests.children
+                filterToSend.infants = this.filterBy.guests.infants
+                delete filterToSend.guests
+            }
+            delete filterToSend.date
+
+            this.$router.push({
+                name: 'Home',
+                query: filterToSend,
+            })
+
+            this.setLocFromParams()
+            this.setGuestsFromParams()
             if (this.isSearchOpen)
                 this.$store.dispatch({ type: 'loadStays', filterBy: JSON.parse(JSON.stringify(this.filterBy)) })
             // console.log(this.filterBy)
             this.clearBooleans()
-            this.locForDisplayTitle = utilService.getValFromParam('loc') || 'Anywhere'
-            this.guestsForDisplayTitle = this.guestsForDisplay
         },
         clearBooleans() {
             this.isSearchOpen = false
             this.selectedFilterKey = 'locations'
             this.isDetails = false
         },
+        setLocFromParams() {
+            setTimeout(() => {
+                this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
+            }, 1)
+        },
+        setGuestsFromParams() {
+            setTimeout(() => {
+                this.guestsForDisplayTitle = this.$route.query.guests || 'Add Guests'
+            }, 1)
+        },
         onResetFields() {
-            this.locForDisplayTitle = 'Anywhere'
-            this.guestsForDisplayTitle = 'Add guests'
             this.clearBooleans()
         }
     },
     watch: {
         stayId() {
             this.isDetails = this.$route.params.stayId ? true : false
+        },
+        routeQuery() {
+            this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
+            this.guestsForDisplayTitle = this.$route.query.guests || 'Add guests'
         }
     },
     components: {
