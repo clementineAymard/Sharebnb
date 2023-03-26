@@ -27,6 +27,19 @@
         z-index: -1;
         object-fit: cover;
     }
+    .remove-stay{
+        position: absolute;
+        color: $clr2;
+        height: 30px;
+        margin: 3px ;
+        padding: 3px;
+        top: 15px;
+        left: 15px;
+        border: 1px solid $clr2;
+        font-size: 21px;
+        opacity: 1.5;
+        z-index: 1;
+    }
 
     .fa-heart {
         position: absolute;

@@ -3,9 +3,11 @@
 
         <div class="img-container">
             <i class="fa-solid fa-heart"></i>
+            <button v-if="user&&user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
                     <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
+                  
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -13,9 +15,10 @@
         <div class="preview-txt">
             <p class="bold-font">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
-                 <p class="rating regular-font">
-                    <i class="fa-sharp fa-solid fa-star"></i>
-                    {{ getRate }} ({{ stay.reviews.length }})</p>
+            <p class="rating regular-font">
+                <i class="fa-sharp fa-solid fa-star"></i>
+                {{ getRate }} ({{ stay.reviews.length }})
+            </p>
             </p>
             <p class="regular-font">
                 {{ stay.name }}
@@ -44,7 +47,8 @@ export default {
             randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             rooms: Math.floor(this.stay.capacity / 2),
             intervalNum: parseInt(0),
-            getRate: (Math.random() + 4).toFixed(2)
+            getRate: (Math.random() + 4).toFixed(2),
+            user: this.$store.getters.loggedinUser
 
         }
     },
@@ -56,17 +60,19 @@ export default {
             this.$emit('updateStay', stay)
         },
         stayName() {
-            if (this.stay.name.length > 30){
+            if (this.stay.name.length > 30) {
 
                 this.stay.name.slice(0, 30) + '...'
             }
         },
-        handleViews(){
+        handleViews() {
             this.randomViwes++
         }
     },
     computed: {
-
+user(){
+    return this.$store.getters.loggedinUser
+}
     },
     created() {
 
