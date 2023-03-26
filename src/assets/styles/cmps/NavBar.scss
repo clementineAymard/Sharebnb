@@ -14,7 +14,7 @@ nav {
             padding: 12px 15px;
             border-radius: 28px;
             width: max-content;
-            
+
             &:hover {
                 background-color: $clr5;
             }
@@ -63,5 +63,29 @@ nav {
             width: 2rem;
             object-fit: contain;
         }
+    }
+
+    .mini-menu {
+        position: absolute;
+        top: 0;
+        transform: translateY(60%);
+
+        width: 200px;
+        padding: 1rem;
+
+        background-color: $clr6;
+        border-radius: em(10px);
+        box-shadow: 0px 0px 7px 1px $clr4;
+
+        >a {
+            font-size: rem(14px);
+            font-family: airbnb_book;
+            color: $clr2;
+            padding-block: 5px;
+        }
+        .bold {
+            font-family: airbnb_bold;
+        }
+
     }
 }

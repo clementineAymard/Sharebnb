@@ -1,6 +1,6 @@
 .stay-list {
     list-style: none;
-    padding: 0px 80px;
+    // padding: 0px 80px;
     margin: 0px 0px 20px;
     display: grid;
     gap: 25px;
@@ -18,4 +18,5 @@
         // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
     }
    
+    @include width-padding-mqs;
 }

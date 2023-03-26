@@ -82,11 +82,11 @@
     }
 
     @include for-normal-layout {
-        padding-inline: rem(80px);
+        padding-inline: rem(40px);
     }
 
     @include for-wide-layout {
-        padding-inline: rem(40px);
-        padding-inline-end: rem(45px);
+        padding-inline: rem(80px);
+        padding-inline-end: rem(85px);
     }
 }

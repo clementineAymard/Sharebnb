@@ -1,0 +1,54 @@
+.login-page {
+    >form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            width: fit-content;
+        }
+
+        >select>option,
+        input {
+            width: 400px;
+            padding: em(8px);
+            border: solid 1px $clr4;
+            border-radius: 7px;
+            font-size: 1rem;
+        }
+
+        >select {
+            width: 400px;
+        }
+
+        input {
+            margin-block: -1px;
+
+            &:first-of-type {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            
+            &:nth-of-type(2) {
+                border-radius: 0;
+            }
+            
+            &:last-of-type {
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 7px;
+                border-bottom-right-radius: 7px;
+            }
+        }
+
+        >button {
+            width: 400px;
+            font-size: 1rem;
+            // color: $clr2;
+            font-family: airbnb_medium;
+            background-color: $clr1;
+            border-radius: 7px;
+            padding: em(8px);
+        }
+    }
+}

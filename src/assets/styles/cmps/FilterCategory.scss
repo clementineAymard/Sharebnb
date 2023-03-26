@@ -1,7 +1,8 @@
  .filter-category {
-     padding: 0px 80px;
+    //  padding: 0px 80px;
      width: 100%;
      margin-top: 10px;
+     @include  width-padding-mqs;
 
      button {
          background-color: transparent;
@@ -22,7 +23,7 @@
 
          &:hover {
              color: $clr2;
-             box-shadow: 1px 3px 10px $clr3
+             box-shadow: 1px 3px 10px $clr3;
          }
      }
 
@@ -56,4 +57,5 @@
          //   padding: 0px 80px;
          height: 65px;
      }
+     
  }

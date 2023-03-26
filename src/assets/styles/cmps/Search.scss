@@ -7,6 +7,7 @@
 
     a {
         padding: 5px;
+        cursor: default;
 
         &:after {
             display: block;
@@ -94,8 +95,9 @@
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+
                     ::-webkit-scrollbar {
-                        width:0px;
+                        width: 0px;
                     }
                 }
             }
@@ -136,14 +138,14 @@
             margin: auto auto;
             margin-inline-end: 10px;
             font-family: airbnb_medium;
-    
+
             img {
                 width: 12px;
                 object-fit: contain;
                 position: relative;
             }
         }
-        
+
     }
 
 
@@ -191,8 +193,9 @@
                 }
             }
 
-            
+
         }
+
         .glass {
             background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
             padding: 24px 16px;
@@ -216,9 +219,9 @@
             }
         }
     }
-    
 
-    .search-details-page{
+
+    .search-details-page {
         width: 300px;
         margin: -1px 18px;
         padding-inline-start: 10px;
@@ -245,6 +248,7 @@
             color: $clr2;
             margin-inline-start: 10px;
         }
+
         .glass {
             background-color: $clr1;
             border-radius: 50%;
@@ -255,7 +259,7 @@
             margin: auto auto;
             margin-inline-end: 10px;
             font-family: airbnb_medium;
-    
+
             img {
                 width: 12px;
                 object-fit: contain;
