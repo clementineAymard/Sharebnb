@@ -3,7 +3,7 @@
   <section class="main-layout smaller-layout">
 
     <section class="stay-details1">
-      <h1 class="name-title">Habitación centro de Barcelona</h1>
+      <h1 class="name-title">{{ stay.loc.city }} , {{ stay.loc.country }}</h1>
       <div class="flex justify-between">
         <div class="name-subtitle flex">
           <div class="rating-review flex">
@@ -19,10 +19,10 @@
                3.73
             </span>
             <span>•</span>
-            <span class="rev-count link font-md">2 reviews</span>
+            <span class="rev-count link font-md"> {{ stay.reviews.length }} review</span>
           </div>
           <span>•</span>
-          <span class="address link font-md">Barcelona, Catalunya, spain
+          <span class="address link font-md">{{ stay.loc.city }} , {{ stay.loc.country }}
           </span>
         </div>
         <div class="save-stay flex btn">
@@ -49,7 +49,7 @@
         <div class="more-details">
           <div class="heading flex justify-between">
             <div class="txt column flex justify-between">
-              <h2 class="title subheading">Private room hosted by Marián</h2>
+              <h2 class="title subheading">{{ stay.host.fullname }}</h2>
               <div class="flex capacity-details">
                 <div class="capacity-subtitle">2 guests</div>
                 <span>•</span>
@@ -98,13 +98,15 @@
           </div>
           <div class="divider"></div>
           <div class="summary">
-            Mi piso está en el centro de Barcelona. Cerca del metro, las ramblas, los museos, el Portal del Ángel, Plaza Cataluña. Mi alojamiento es bueno para turistas, aventureros, y viajeros de negocios....y tiene ascensor.
+           {{ stay.summary }} 
           </div>
           <div class="divider"></div>
           <div class="amenities">
             <h4 class="subheading">What this place offers
+            
             </h4>
             <div class="amenities-container"></div>
+            <!-- <li>{{ stay.amenities }}</li>  -->
             <li><section class="amenity flex"><section class="icon-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="m15.9999 20.33323c2.0250459 0 3.66667 1.6416241 3.66667 3.66667s-1.6416241 3.66667-3.66667 3.66667-3.66667-1.6416241-3.66667-3.66667 1.6416241-3.66667 3.66667-3.66667zm0 2c-.9204764 0-1.66667.7461936-1.66667 1.66667s.7461936 1.66667 1.66667 1.66667 1.66667-.7461936 1.66667-1.66667-.7461936-1.66667-1.66667-1.66667zm.0001-7.33323c3.5168171 0 6.5625093 2.0171251 8.0432368 4.9575354l-1.5143264 1.5127043c-1.0142061-2.615688-3.5549814-4.4702397-6.5289104-4.4702397s-5.5147043 1.8545517-6.52891042 4.4702397l-1.51382132-1.5137072c1.48091492-2.939866 4.52631444-4.9565325 8.04273174-4.9565325zm.0001-5.3332c4.9804693 0 9.3676401 2.540213 11.9365919 6.3957185l-1.4470949 1.4473863c-2.1746764-3.5072732-6.0593053-5.8431048-10.489497-5.8431048s-8.31482064 2.3358316-10.48949703 5.8431048l-1.44709488-1.4473863c2.56895177-3.8555055 6.95612261-6.3957185 11.93659191-6.3957185zm-.0002-5.3336c6.4510616 0 12.1766693 3.10603731 15.7629187 7.9042075l-1.4304978 1.4309874c-3.2086497-4.44342277-8.4328305-7.3351949-14.3324209-7.3351949-5.8991465 0-11.12298511 2.89133703-14.33169668 7.334192l-1.43047422-1.4309849c3.58629751-4.79760153 9.31155768-7.9032071 15.7621709-7.9032071z"></path></svg></section><span>Wifi</span></section></li>
             <li><section class="amenity flex"><section class="icon-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="M26 1a5 5 0 0 1 5 5c0 6.389-1.592 13.187-4 14.693V31h-2V20.694c-2.364-1.478-3.942-8.062-3.998-14.349L21 6l.005-.217A5 5 0 0 1 26 1zm-9 0v18.118c2.317.557 4 3.01 4 5.882 0 3.27-2.183 6-5 6s-5-2.73-5-6c0-2.872 1.683-5.326 4-5.882V1zM2 1h1c4.47 0 6.934 6.365 6.999 18.505L10 21H3.999L4 31H2zm14 20c-1.602 0-3 1.748-3 4s1.398 4 3 4 3-1.748 3-4-1.398-4-3-4zM4 3.239V19h3.995l-.017-.964-.027-.949C7.673 9.157 6.235 4.623 4.224 3.364l-.12-.07zm19.005 2.585L23 6l.002.31c.045 4.321 1.031 9.133 1.999 11.39V3.17a3.002 3.002 0 0 0-1.996 2.654zm3.996-2.653v14.526C27.99 15.387 29 10.4 29 6a3.001 3.001 0 0 0-2-2.829z"></path></svg></section><span>Kitchen</span></section></li>
             <li><section class="amenity flex"><section class="icon-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="M21 3a2 2 0 0 1 1.995 1.85L23 5v7a6.996 6.996 0 0 1-2.226 5.12l-.2.181-.023.018.28.108a13.014 13.014 0 0 1 8.083 10.574h-2.016c-.634-4.631-4.16-8.401-8.789-9.298l-.109-.02.001-2.1a5.003 5.003 0 0 0 2.978-4.128l.016-.227L21 12l-.001-3h-10L11 12a5 5 0 0 0 3 4.583v2.098a10.922 10.922 0 0 0-3.001 1.017L11 28H9v-6.987a11.009 11.009 0 0 0-3.898 6.988L3.086 28a13.018 13.018 0 0 1 7.795-10.455l.288-.119.279-.109-.232-.206a6.995 6.995 0 0 1-2.193-4.543l-.018-.296L9 12V5a2 2 0 0 1 1.85-1.995L11 3zm-3 23a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm4-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7-17H11l-.001 2h10z"></path></svg></section><span>Doorman</span></section></li>
@@ -119,45 +121,11 @@
       <div class="reservation-section">
         <div class="reservation flex">
           <div class="reservation-container font-thin">
-            <div><div class="reservation-form-header"><p><span class="cost font-md">$40</span> night </p><div class="rating-review flex"><span class="avg-rating flex font-md"><section class="icon-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg></section> 3.73</span><span>•</span><span class="rev-count link font-md">2 reviews</span></div></div><div class="reservation-data"><div class="date-picker"><div class="date-input"><label>CHECK-IN</label><input class="subtitle" fdprocessedid="b60swf"></div><div class="date-input"><label>CHECKOUT</label><input class="subtitle" fdprocessedid="l3c0t"></div></div><div class="guest-input"><label>GUESTS</label><input class="font-thin" placeholder="1 Adult" fdprocessedid="xr56ac"><svg viewBox="0 0 320 512" width="100" title="angle-down"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div></div><div class="branded-btn"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="content"><button class="action-btn" fdprocessedid="mx0lay"><div>Check availabilty</div></button></div></div></div>
+            <div><div class="reservation-form-header"><p><span class="cost font-md">${{ stay.price }}</span> night </p><div class="rating-review flex"><span class="avg-rating flex font-md"><section class="icon-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg></section> 3.73</span><span>•</span><span class="rev-count link font-md">{{ stay.reviews.length }} review</span></div></div><div class="reservation-data"><div class="date-picker"><div class="date-input"><label>CHECK-IN</label><input class="subtitle" fdprocessedid="b60swf"></div><div class="date-input"><label>CHECKOUT</label><input class="subtitle" fdprocessedid="l3c0t"></div></div><div class="guest-input"><label>GUESTS</label><input class="font-thin" placeholder="1 Adult" fdprocessedid="xr56ac"><svg viewBox="0 0 320 512" width="100" title="angle-down"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div></div><div class="branded-btn"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="content"><button class="action-btn" fdprocessedid="mx0lay"><div>Check availabilty</div></button></div></div></div>
           </div>
         </div>
         <div class="divider"></div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </section>
   </section>
@@ -179,6 +147,7 @@ export default {
     const { stayId } = this.$route.params
     const stay = await stayService.getById(stayId)
     this.stay = stay
+    // console.log(stay)
   },
   methods: {
     goBack() {

@@ -77,8 +77,18 @@ export const stayStore = {
             }
         },
         async loadStays(context, { filterBy }) {
-            utilService.setQueryParams(filterBy)
-            
+            if (filterBy) {
+                if (filterBy.guests) {
+                    filterBy.adults = filterBy.guests.adults
+                    filterBy.children = filterBy.guests.children
+                    filterBy.infants = filterBy.guests.infants
+                    // delete filterBy.guests
+                }
+                utilService.setQueryParams(JSON.parse(JSON.stringify(filterBy)))
+                utilService.deleteQueryParam('guests')
+                utilService.deleteQueryParam('date')
+            }
+
             try {
                 const stays = await stayService.query()
                 context.commit({ type: 'setStays', stays })

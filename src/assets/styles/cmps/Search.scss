@@ -53,7 +53,7 @@
             box-shadow: 0px 1px 3px 1px $clr4;
         }
 
-        button {
+        >button {
             background-color: transparent;
             color: $clr2;
 
@@ -73,7 +73,7 @@
                     font-family: airbnb_bold;
                 }
 
-                input,
+                >input,
                 .sub-title {
                     background-color: transparent;
                     border: none;
@@ -90,6 +90,13 @@
                 .sub-title {
                     color: $clr3;
                     text-align: start;
+                    height: em(20px);
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    ::-webkit-scrollbar {
+                        width:0px;
+                    }
                 }
             }
 
@@ -129,15 +136,16 @@
             margin: auto auto;
             margin-inline-end: 10px;
             font-family: airbnb_medium;
-
+    
             img {
                 width: 12px;
                 object-fit: contain;
                 position: relative;
             }
         }
-
+        
     }
+
 
     &.open {
         width: 100%;
@@ -183,30 +191,76 @@
                 }
             }
 
-            .glass {
-                background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-                padding: 24px 16px;
-                width: fit-content;
-                border-radius: 30px;
-                color: $clr6;
-                font-size: 16px;
+            
+        }
+        .glass {
+            background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+            padding: 24px 16px;
+            width: fit-content;
+            border-radius: 30px;
+            color: $clr6;
+            font-size: 16px;
 
-                &:hover {
-                    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-                    --mouse-x: 1.87891;
-                    --mouse-y: 85.4167;
-                }
-
-                img {
-                    width: 16px;
-                }
-
-                span {
-                    padding-inline: 8px 4px;
-                }
+            &:hover {
+                background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+                --mouse-x: 1.87891;
+                --mouse-y: 85.4167;
             }
 
+            img {
+                width: 16px;
+            }
+
+            span {
+                padding-inline: 8px 4px;
+            }
         }
     }
+    
 
+    .search-details-page{
+        width: 300px;
+        margin: -1px 18px;
+        padding-inline-start: 10px;
+        padding-block: 7px;
+
+        border-radius: 50px;
+        border: solid 1px $clr4;
+        box-shadow: 0px 1px 2px 0px $clr4;
+        transition: box-shadow ease-in-out 250ms;
+
+        @include for-medium-layout {
+            margin-inline: rem(20px);
+        }
+
+        &:hover {
+            box-shadow: 0px 1px 3px 1px $clr4;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            font-size: em(14px);
+            font-family: airbnb_bold;
+            color: $clr2;
+            margin-inline-start: 10px;
+        }
+        .glass {
+            background-color: $clr1;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            padding: 10px;
+            display: flex;
+            margin: auto auto;
+            margin-inline-end: 10px;
+            font-family: airbnb_medium;
+    
+            img {
+                width: 12px;
+                object-fit: contain;
+                position: relative;
+            }
+        }
+    }
 }

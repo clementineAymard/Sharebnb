@@ -18,26 +18,37 @@ window.cs = stayService
 
 
 async function query() { // filterBy = { txt: '', price: 0 }
-  const filterBy = { 
-    loc: '',
-    dates: {
-      from: '',
-      to:''
-    },
-    guests: '',
-    category: ''
-  }
-  for (var key in filterBy){
-    filterBy[key] = utilService.getValFromParam(key)
-  }
+    const filterBy = { 
+        loc: '',
+        dates: {
+            from: '',
+            to:''
+            },
+        adults:'',
+        children: '',
+        infants: '',
+        category: ''
+    }
+    // console.log(filterBy)
+    for (var key in filterBy){
+    //   if (utilService.getValFromParam(key))
+        filterBy[key] = utilService.getValFromParam(key) 
+    }
+  
     var stays = await storageService.query(STORAGE_KEY)
     if (filterBy.loc) {
         const regex = new RegExp(filterBy.loc, 'i')
         stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
     }
-    // if (filterBy.guests) {
-    //     stays = stays.filter(stay => stay.capacity === filterBy.guests)
-    // }
+    if (filterBy.adults && filterBy.children) {
+        stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
+    }
+    else if (filterBy.adults && !filterBy.children) {
+        stays = stays.filter(stay => stay.capacity >= filterBy.adults)
+    }
+    else if (!filterBy.adults && filterBy.children) {
+        stays = stays.filter(stay => stay.capacity >= filterBy.children)
+    }
     if (filterBy.category) {
         stays = stays.filter(stay => stay.labels.includes(filterBy.category))
     }
@@ -754,7 +765,7 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "Florida",
+                      "country": "Unites States",
                       "countryCode": "PT",
                       "city": "Miami",
                       "address": "17 Kombo st",
@@ -852,8 +863,8 @@ const stays = [
                       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
                     },
                     "loc": {
-                      "country": "New York",
-                      "countryCode": "PT",
+                      "country": "United States",
+                      "countryCode": "USA",
                       "city": "New York",
                       "address": "17 Kombo st",
                       "lat": -8.61308,

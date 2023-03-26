@@ -15,11 +15,11 @@
 }
 
 .header {
-    width: 100%;
-    max-width: 2520px;
     height: em(70px);
     position: relative;
     z-index: 4;
+    width: 100%;
+    max-width: 2520px;
 
     @include for-mobile-layout {
         padding-inline: rem(24px);
@@ -41,7 +41,18 @@
         padding-inline: rem(40px);
         padding-inline-end: rem(45px);
     }
+
+    &.margin-details-page {
+        margin-inline: em(105px);
+        width: auto;
+    }
+    
+    &.no-margin {
+        margin-inline: 0;
+        width: 100%;
+    }
 }
+
 
 .backdrop {
     background-color: rgba($clr3, 0.5);

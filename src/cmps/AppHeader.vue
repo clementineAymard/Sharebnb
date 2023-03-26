@@ -2,7 +2,7 @@
     <section class="main-header">
         <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
         <div class="header-background" :class="isSearchOpenClass"></div>
-        <header class="header flex align-center justify-between">
+        <header class="header flex align-center justify-between" :class="isDetailsClass">
 
             <BrandLogo />
 
@@ -13,7 +13,7 @@
             </div>
 
             <div class="search-container flex align-center" :class="isSearchOpenClass">
-                <section class="search">
+                <section class="search" v-if="!isDetails">
 
                     <button class="location" @click="onSearch('locations')">
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
@@ -21,7 +21,7 @@
                             <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations">
                             <LocationPicker v-if="selectedFilterKey === 'locations'" @setLoc="onSetLoc($event)" />
                         </div>
-                        <div v-else>Anywhere</div>
+                        <div v-else>{{ locForDisplayTitle }}</div>
                     </button>
 
                     <button @click="onSearch('dates')" class="dates flex ">
@@ -45,8 +45,8 @@
                     <button class="guests flex align-center" @click="onSearch('guests')">
                         <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
-                            <input v-model="filterBy.guests" type="text" class="sub-title" placeholder="Add guests">
-                            <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests($event)" />
+                            <div class="sub-title">{{ guestsForDisplay }}</div>
+                            <GuestsPicker v-if="selectedFilterKey === 'guests'" @setGuests="onSetGuests" />
                         </div>
 
                         <div v-else class="title">Add guests</div>
@@ -60,6 +60,16 @@
                         <span v-if="isSearchOpen">Search</span>
                     </button>
 
+                </section>
+
+                <section v-else class="search-details-page flex align-center justify-between">
+                    <input type="text" placeholder="Start your search">
+                    <button class="glass  flex align-center justify-between"
+                        :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
+                        @click="onSetFilter">
+                        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
+                        <span v-if="isSearchOpen">Search</span>
+                    </button>
                 </section>
             </div>
 
@@ -76,17 +86,21 @@ import LocationPicker from './LocationPicker.vue'
 import DatePicker from './DatePicker.vue'
 import GuestsPicker from './GuestsPicker.vue'
 import NavBar from './NavBar.vue'
+import { utilService } from "../services/util.service"
 
 export default {
     created() {
         eventBus.on('closeHeader', () => {
             this.isSearchOpen = false
         })
+        if (this.$route.params.stayId) this.isDetails = true
+        // else this.isDetails = false
     },
     data() {
         return {
             isSearchOpen: false,
             selectedFilterKey: 'locations',
+            isDetails: false,
             offset: {
                 x: 0,
                 y: 0
@@ -99,6 +113,8 @@ export default {
                 },
                 guests: ''
             },
+            locForDisplayTitle: 'Anywhere',
+            guestsForDisplayTitle: 'Add guests'
         }
     },
     computed: {
@@ -111,7 +127,16 @@ export default {
         isExpandedClass() {
             return this.isSearchOpen ? 'expanded' : 'closed'
         },
-
+        guestsForDisplay() {
+            if (this.filterBy.guests) return `${this.filterBy.guests.adults} adults, ${this.filterBy.guests.chidren} chidren, ${this.filterBy.guests.infants} infants`
+            else return 'Add guests'
+        },
+        stayId() {
+            return this.$route.params.stayId
+        },
+        isDetailsClass(){
+            return this.isDetails ? 'margin-details-page' : 'no-margin'
+        }
     },
     methods: {
         onSearch(filterKey) {
@@ -139,16 +164,22 @@ export default {
         },
         onSetFilter() {
             if (this.isSearchOpen)
-                this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
+                this.$store.dispatch({ type: 'loadStays', filterBy: JSON.parse(JSON.stringify(this.filterBy)) })
+            // console.log(this.filterBy)
             this.clearBooleans()
+            this.locForDisplayTitle = utilService.getValFromParam('loc')
+            this.guestsForDisplayTitle = this.guestsForDisplay
         },
         clearBooleans() {
             this.isSearchOpen = false
             this.selectedFilterKey = 'locations'
+            this.isDetails = false
         }
     },
     watch: {
-
+        stayId() {
+            this.isDetails = this.$route.params.stayId ? true : false
+        }
     },
     components: {
         BrandLogo,
