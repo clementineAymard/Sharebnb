@@ -15,7 +15,9 @@
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
         </a>
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
-            <RouterLink to="/login" class="bold">My Profile</RouterLink>
+
+            <RouterLink to="/login" class="bold flex justify-between"><span>My Profile</span><span
+                    @click="isMiniMenuOpen = false">X</span></RouterLink>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
     </nav>
