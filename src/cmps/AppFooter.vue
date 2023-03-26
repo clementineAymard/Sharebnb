@@ -1,6 +1,14 @@
 <template>
-    <section class="footer">
-        © 2023 Airbnb, Inc.·TermsSitemapPrivacyYour Privacy Choices
+    <section class="footer flex align-center">
+        <span>© 2023 Airbnb, Inc.</span>
+        <span>·</span>
+        <span>Terms</span>
+        <span>·</span>
+        <span>Sitemap</span>
+        <span>·</span>
+        <span>Privacy</span>
+        <span>·</span>
+        <span>Your Privacy Choices</span>
     </section>
 </template>
 

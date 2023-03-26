@@ -1,9 +1,9 @@
 <template>
-    <section class="main">
+    <section class="main-container">
         <AppHeader />
         <RouterView  /> <!--@wheel="onCloseHeader"-->
         <AppFooter />
-        <UserMsg />
+        <!-- <UserMsg /> -->
     </section>
 </template>
 
