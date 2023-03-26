@@ -266,8 +266,8 @@ const stays = [
         ],
         "labels": [
           "Top of the world",
-          "Trending",
-          "Play",
+          "Iconic",
+          "Private",
           "Tropical"
         ],
         "host": {
@@ -413,7 +413,7 @@ const stays = [
       ],
       "labels": [
         "Top of the world",
-        "Trending",
+        "Adapted",
         "Play",
         "Tropical"
       ],
@@ -609,8 +609,7 @@ const stays = [
               ],
               "labels": [
                 "Top of the world",
-                "Trending",
-                "Play",
+                "private",
                 "Tropical"
               ],
               "host": {

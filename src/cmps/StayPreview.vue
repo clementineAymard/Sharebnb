@@ -1,5 +1,5 @@
 <template>
-    <li class="stay-preview flex column">
+    <li class="stay-preview flex column" @click="handleViews">
 
         <div class="img-container">
             <i class="fa-solid fa-heart"></i>
@@ -23,7 +23,7 @@
             </p>
             <p class="regular-font beds"> {{ stay.capacity }} beds , {{ rooms }} rooms</p>
             <p class="medium-font">
-                ${{ randomPrice.toLocaleString() }} <span class="regular-font"> night</span>
+                ${{ stay.price }} <span class="regular-font"> night</span>
             </p>
         </div>
 
@@ -41,7 +41,6 @@ export default {
     data() {
         return {
 
-            randomPrice: utilService.getRandomIntInclusive(350, 2500).toLocaleString(),
             randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             rooms: Math.floor(this.stay.capacity / 2),
             intervalNum: parseInt(0),
@@ -62,10 +61,9 @@ export default {
                 this.stay.name.slice(0, 30) + '...'
             }
         },
-        goToDetail() {
-            this.$router.push(`/stay/${this.stay._id}`)
-        },
-      
+        handleViews(){
+            this.randomViwes++
+        }
     },
     computed: {
 
