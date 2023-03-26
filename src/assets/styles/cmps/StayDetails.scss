@@ -194,7 +194,7 @@ img {
 
 h2 {
     display: block;
-    margin-block-start: 0.83em;
+    // margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -256,8 +256,8 @@ element.style {
 
 h4 {
     display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
+    // margin-block-start: 1.33em;
+    // margin-block-end: 1.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
@@ -598,10 +598,11 @@ button {
     overflow: hidden;
 }
 
-
-
-
-
+.stay-details1 .more-details .special-perks > * {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.25rem;
+}
 
 
 
