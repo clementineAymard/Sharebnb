@@ -3,7 +3,7 @@
 
         <div class="img-container">
             <i class="fa-solid fa-heart"></i>
-            <button v-if="user&&user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button>
+            <button v-if="user && user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
                     <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
@@ -12,7 +12,7 @@
         </div>
 
         <div class="preview-txt">
-            <button v-if="user&&user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button>
+            <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button>
             <p class="bold-font">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             <p class="rating regular-font">
@@ -67,12 +67,13 @@ export default {
         },
         handleViews() {
             this.randomViwes++
+            this.$emit('openStayDetails', this.stay._id)
         }
     },
     computed: {
-user(){
-    return this.$store.getters.loggedinUser
-}
+        user() {
+            return this.$store.getters.loggedinUser
+        }
     },
     created() {
 
