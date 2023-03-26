@@ -1,6 +1,6 @@
 
 <template>
-  <section class="main-layout smaller-layout">
+  <section class="main-layout smaller-layout" v-if="stay">
 
     <section class="stay-details1">
       <h1 class="name-title">{{ stay.loc.city }} , {{ stay.loc.country }}</h1>
