@@ -6,6 +6,22 @@ body {
     font-size: 1em;
 }
 
+.main-container {
+    display:block;
+}
+
+.main-layout.smaller-layout {
+    grid-template-columns: 80px 1fr 80px;
+}
+
+
+// .main-container {
+    // grid-template-columns: minmax(40px, 1fr) minmax(auto, 950px) minmax(40px, 1fr);
+// }
+// .main-layout>* {
+//     grid-column: 2;
+// }
+
 .main-layout {
     // display: grid;
     // grid-template-columns: 40px 1fr 40px;
@@ -19,8 +35,8 @@ body {
 }
 
 .main-layout {
-    // grid-column: 2;
-    // @include width-padding-mqs
+    grid-column: 2;
+    @include width-padding-mqs
 }
 
 .stay-details1 {
@@ -33,12 +49,12 @@ body {
 }
 
 .stay-details1>* {
-    margin-top: 18px;
+    // margin-top: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: cereal;
-    margin: 0 0 0.6em;
+    margin: 0 0 0.4em;
     line-height: 1;
 }
 
@@ -53,10 +69,7 @@ h1 {
     justify-content: space-between;
 }
 
-.flex {
-    display: flex;
-}
-
+.reservation 
 .stay-details1 .name-subtitle {
     gap: 0.5625rem;
     font-size: .875rem;
@@ -115,8 +128,9 @@ element.style {
 .stay-details1 .save-stay {
     align-items: center;
     gap: 7px;
-    padding: 8px;
+    // padding: 8px;
     border-radius: 8px;
+    font-family:sans-serif;
 }
 
 .btn {
@@ -145,14 +159,14 @@ overflow: visible;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: 50% 50%;
-    aspect-ratio: 2.6/1;
+    aspect-ratio: 3.05/1;
     gap: 8px;
     border-radius: 12px;
     overflow: hidden;    
 }
 
 .stay-details1 .images-container {
-    margin-top: 10px;
+    margin-top: 17px;
 }
 
 .stay-details1 .images-container :first-child {
@@ -181,7 +195,7 @@ img {
 }
 
 .stay-details1 .more-details>* {
-    padding-top: 32px;
+    padding-top: 49px;
 }
 
 .stay-details1 .more-details .heading {
@@ -221,8 +235,9 @@ line-height: 1.2;
 .stay-details1 .more-details .heading
 img {
     height: 56px;
-    width: 56px;
+    width: 66px;
     border-radius: 50%;
+    padding: 3px;
 }
 
 .divider {
@@ -234,11 +249,6 @@ img {
 .stay-details1 .more-details .divider {
     padding: 0;
     margin: 0;
-}
-
-.stay-details1 .more-details>* {
-    padding-top: 32px;
-    padding-bottom: 32px;
 }
 
 .stay-details1 .more-details .special-perks>* {
@@ -272,7 +282,7 @@ h4 {
 
 .stay-details1 .subtitle {
     color: #717171;
-    font-family: cereal-light;
+    // font-family: cereal-light;
 }
 
 .stay-details1 .more-details .amenities-container {
@@ -288,9 +298,9 @@ li {
     gap: 1rem;
 }
 
-// section {
-//     padding: 5px;
-// }
+section {
+    padding: 5px;
+}
 
 li {
     display: list-item;
@@ -541,7 +551,6 @@ button {
 .stay-details1 .reviews-and-map {
     margin: 0;
 }
-
 .stay-details1 .reviews-and-map>*:not(.divider) {
     padding: 48px 0;
 }
@@ -603,11 +612,6 @@ button {
     margin-bottom: 1.5rem;
     line-height: 1.25rem;
 }
-
-
-
-
-
 
 
 // section, main, footer {
