@@ -1,4 +1,5 @@
 .my-layout {
+    padding: 0;
     display: grid;
 
     >* {
@@ -9,12 +10,12 @@
         }
     }
 
-    &.narrow {}
+    // &.narrow {}
 
     @include for-mobile-layout {
         @include layoutGTC($break-mobile, $layoutPaddingSmall);
     }
-    
+
     @include for-mobile-layout-min {
         @include layoutGTC($break-mobile, $layoutPadding);
     }

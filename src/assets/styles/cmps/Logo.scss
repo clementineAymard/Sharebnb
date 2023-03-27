@@ -4,23 +4,20 @@
     position: relative;
     z-index: 3;
 
-    // @include for-mobile-layout {
-    //     display: none;
-    // }
-
-    @include for-normal-layout {
-        flex-grow: 1;
+    @include for-mobile-layout {
+        display: none;
     }
 
-    // @include for-wide-layout {
-    //     flex: 1 0 140px;
-    // }
+    @include for-narrow-layout {
+        flex-grow: 1;
+    }
 
     img {
         object-fit: contain;
         height: em(32px);
+
         @include for-mobile-layout {
-            width:0;
+            width: 0;
             height: 0;
         }
     }
@@ -31,15 +28,11 @@
         letter-spacing: 0.9;
         color: $clr1;
 
-        @include for-mobile-layout {
+        @include for-mobile-layout-min {
             display: none;
         }
 
         @include for-narrow-layout {
-            display: none;
-        }
-
-        @include for-normal-layout {
             display: block;
         }
 
