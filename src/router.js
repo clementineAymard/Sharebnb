@@ -4,21 +4,22 @@ import Home from './pages/Home.vue'
 import Chat from './pages/Chat.vue'
 import StayDetails from './pages/StayDetails.vue'
 import StayEdit from './pages/StayEdit.vue'
-import StayIndex from './pages/StayIndex.vue'
+import Explore from './pages/Explore.vue'
 import ReviewIndex from './pages/ReviewIndex.vue'
 import LoginSignup from './pages/LoginSignup.vue'
 import UserDetails from './pages/UserDetails.vue'
+import OrderConfirmation from './pages/OrderConfirmation.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: StayIndex
+    component: Home
   },
   {
-    path: '/stay',
-    name: 'StayIndex',
-    component: StayIndex
+    path: '/explore',
+    name: 'Explore',
+    component: Explore
   },
   {
     path: '/stay/:stayId',
@@ -45,12 +46,12 @@ const routes = [
     name: 'LoginSignup',
     component: LoginSignup
   },
-  {
-    path: '/edit',
-    name: 'edit',
-    component: LoginSignup
-  },
 
+  {
+    path: '/order/:id',
+    name: 'OrderConfirmation',
+    component: OrderConfirmation
+  },
   {
     path: '/user/:id',
     name: 'UserDetails',

@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-size: 1em;
 }
@@ -32,11 +28,16 @@ body {
 
 .main-layout .stay-details1 {
     max-width: 1127px;
+
+    @include for-wide-layout {
+        max-width: 1280px;
+        ;
+    }
 }
 
 .main-layout {
     grid-column: 2;
-    @include width-padding-mqs
+    // @include width-padding-mqs
 }
 
 .stay-details1 {
@@ -52,7 +53,12 @@ body {
     // margin-top: 5px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: cereal;
     margin: 0 0 0.4em;
     line-height: 1;
@@ -117,7 +123,8 @@ element.style {
     transform-origin: 0px 0px;
 }
 
-.stay-details1 .name-subtitle .rev-count, .stay-details1 .name-subtitle  .address {
+.stay-details1 .name-subtitle .rev-count,
+.stay-details1 .name-subtitle .address {
     cursor: pointer;
 }
 
@@ -142,27 +149,27 @@ element.style {
 }
 
 element.style {
-display: block;
-fill: none;
-height: 16px;
-width: 16px;
-stroke: currentColor;
-stroke-width: 2;
-overflow: visible;
+    display: block;
+    fill: none;
+    height: 16px;
+    width: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    overflow: visible;
 }
 
 .fs14 {
-    font-size:  .875rem;
+    font-size: .875rem;
 }
 
 .stay-details1 .images-container {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 50% 50%;
     aspect-ratio: 3.05/1;
     gap: 8px;
     border-radius: 12px;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 .stay-details1 .images-container {
@@ -229,11 +236,10 @@ h2 {
 }
 
 .stay-details1 .more-details .heading .capacity-subtitle {
-line-height: 1.2;
+    line-height: 1.2;
 }
 
-.stay-details1 .more-details .heading
-img {
+.stay-details1 .more-details .heading img {
     height: 56px;
     width: 66px;
     border-radius: 50%;
@@ -322,7 +328,7 @@ li {
 }
 
 .stay-details1 .reservation .reservation-container {
-    border: 1px solid rgb(221,221,221);
+    border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     padding: 24px;
     box-shadow: #0000001f 0 6px 16px;
@@ -370,7 +376,7 @@ p {
 }
 
 .stay-details1 .reservation .reservation-container .reservation-data {
-    border: 1px solid rgba(0,0,0,.3137254902);
+    border: 1px solid rgba(0, 0, 0, .3137254902);
     border-radius: 13px;
     margin-bottom: 15px;
 }
@@ -406,7 +412,7 @@ label {
 }
 
 .stay-details1 .reservation .reservation-container .date-input:last-of-type {
-    border-left: 1px solid rgba(0,0,0,.3137254902);
+    border-left: 1px solid rgba(0, 0, 0, .3137254902);
 }
 
 // input {
@@ -432,7 +438,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    border-top: 1px solid rgba(0,0,0,.3137254902);
+    border-top: 1px solid rgba(0, 0, 0, .3137254902);
     padding: 7px 12px;
 }
 
@@ -473,7 +479,7 @@ label {
     cursor: pointer;
     border: none;
     display: grid;
-    grid-template: repeat(10,1fr)/repeat(10,1fr);
+    grid-template: repeat(10, 1fr)/repeat(10, 1fr);
 }
 
 .content {
@@ -489,7 +495,7 @@ label {
     align-items: center;
     height: 100%;
     border-radius: 8px;
-    background-image: radial-gradient(circle at calc((0 + var(--positionX, 0)) * 10%) calc((0 + var(--positionY, 0)) * 5%),rgb(241,37,75) 0%,rgb(230,30,77) 27.5%,rgb(227,28,95) 40%,rgb(215,4,102) 57.5%,rgb(189,30,89) 75%,rgb(189,30,89) 100%);
+    background-image: radial-gradient(circle at calc((0 + var(--positionX, 0)) * 10%) calc((0 + var(--positionY, 0)) * 5%), rgb(241, 37, 75) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
 }
 
 .action-btn {
@@ -538,7 +544,7 @@ button {
 // }
 
 .stay-details1 .reservation .reservation-container {
-    border: 1px solid rgb(221,221,221);
+    border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     padding: 24px;
     box-shadow: #0000001f 0 6px 16px;
@@ -592,7 +598,8 @@ button {
     border-radius: 50%;
 }
 
-.flex.column, .stay-header .column.carousel-flex {
+.flex.column,
+.stay-header .column.carousel-flex {
     flex-direction: column;
 }
 
@@ -607,7 +614,7 @@ button {
     overflow: hidden;
 }
 
-.stay-details1 .more-details .special-perks > * {
+.stay-details1 .more-details .special-perks>* {
     gap: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.25rem;
@@ -617,4 +624,3 @@ button {
 // section, main, footer {
 //     padding: 5px;
 // }
-

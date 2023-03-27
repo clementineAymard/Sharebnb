@@ -1,66 +1,48 @@
-.header-background {
-    background-color: $clr6;
-    border-bottom: solid 1px $clr4;
-    height: em(80px);
-    width: 100%;
-    position: absolute;
-    inset:0;
-    z-index: 4;
-    transform: scaleY(1);
-    transition: transform 250ms ease-in-out;
-
-    &.open {
-        transform: scaleY(2);
-    }
-}
-
-.header {
-    height: em(80px);
+.main-header {
     position: relative;
-    z-index: 4;
-    width: 100%;
-    margin: auto;
-    // max-width: 2520px;
 
-    // @include for-mobile-layout {
-    //     padding-inline: rem(24px);
-    // }
-
-    // @include for-narrow-layout {
-    //     padding-inline: rem(40px);
-    // }
-
-    // @include for-medium-layout {
-    //     padding-inline: rem(40px);
-    // }
-
-    // @include for-normal-layout {
-    //     padding-inline: rem(40px);
-    // }
-
-    // @include for-wide-layout {
-    //     padding-inline: rem(80px);
-    //     padding-inline-end: rem(85px);
-    // }
-
-    &.margin-details-page {
-        max-width: 1127px;
-    }
-    
-    &.no-margin {
-        margin-inline: auto;
+    .header-background {
+        background-color: $clr6;
+        border-bottom: solid 1px $clr4;
+        height: em(80px);
         width: 100%;
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        transform: scaleY(1);
+        transition: transform 250ms ease-in-out;
+
+        &.open {
+            transform: scaleY(2);
+        }
     }
-}
+
+    .header {
+        height: em(80px);
+        position: relative;
+        z-index: 4;
+        width: 100%;
+        margin: auto;
+
+        &.margin-details-page {
+            padding-inline: 80px;
+        }
+
+        &.no-margin {
+            padding-inline: 0;
+            width: 100%;
+        }
+    }
 
 
-.backdrop {
-    background-color: rgba($clr3, 0.5);
-    position: fixed;
-    z-index: 1;
-    top: em(140px);
-    right: 0;
-    width: 100%;
-    height: 100%;
-    // padding: 0px 80px;
+    .backdrop {
+        background-color: rgba($clr3, 0.5);
+        position: fixed;
+        z-index: 1;
+        top: em(140px);
+        right: 0;
+        width: 100%;
+        height: 100%;
+        // padding: 0px 80px;
+    }
 }

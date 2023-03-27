@@ -74,17 +74,21 @@ function loadFromStorage(key) {
 function setQueryParams(newParams) {
     console.log('setQueryParams')
     
-        const url = new URL(window.location.href);
-        const params = new URLSearchParams(url.search);
-    
+        // const url = new URL(window.location.href);
+        // console.log('window.location.href', window.location.href)
+        // const params = new URLSearchParams(url.search);
+        // console.log('params', params)
+        
         for (var paramName in newParams) {
-            const paramValue = newParams[paramName];
-            params.set(paramName, paramValue); // used to update an existing query string parameter or add a new one if it doesn't exist.
+
+
+            // const paramValue = newParams[paramName];
+            // params.set(paramName, paramValue); // used to update an existing query string parameter or add a new one if it doesn't exist.
         }
-    
         url.search = params.toString();
+        console.log('url search', url.search)
         window.history.pushState({ path: url.href }, '', url.href); //modify the URL of the current page without reloading the page
-    }
+}
     
     function deleteQueryParam(key) {
         const url = new URL(window.location.href);

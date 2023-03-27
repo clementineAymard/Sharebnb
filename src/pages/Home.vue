@@ -1,28 +1,22 @@
 <template>
-  <section class="container home text-center">
-    <h1>Home Page</h1>
-    <h5 class="text-center">
-      Powered up Frontend 
-    </h5>
-    <img alt="Vue logo" src="../assets/logo.png">
-  </section>
-
-  
+    <section class="container home text-center">
+        <StayIndex />
+    </section>
 </template>
 
 <script>
+import StayIndex from './StayIndex.vue';
+
 export default {
-  name: 'home',
-  data() {
-    return {
-    }
-  },
-  computed: {
-  },
-  created() {
-  },
-  methods: {
-  }
-  
+    name: "home",
+    created() {
+        this.$store.dispatch({ type: 'loadStays', filterBy: {} })
+    },
+    data() {
+        return {};
+    },
+    computed: {},
+    methods: {},
+    components: { StayIndex }
 }
 </script>

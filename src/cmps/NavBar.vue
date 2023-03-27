@@ -10,8 +10,10 @@
         </a>
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
 
-            <RouterLink to="/login" class="bold flex justify-between"><span>My Profile</span><span
-                    @click="isMiniMenuOpen = false">X</span></RouterLink>
+            <a class="bold flex justify-between">
+                <span @click="this.$router.push(`/user/${loggedinUser._id}`)">My Profile</span>
+                <span @click.prevent="isMiniMenuOpen = false">X</span>
+            </a>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
     </nav>

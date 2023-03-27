@@ -1,6 +1,6 @@
  .filter-category {
-    //  padding: 0px 80px;
-     width: 100%;
+      padding: 0px 80px;
+
      margin-top: 10px;
     //  @include  width-padding-mqs;
 
@@ -9,17 +9,21 @@
          border: 1px solid $clr3;
          border-radius: 50%;
          color: $clr2;
-         margin: 6px 80px;
+         margin: 3px;
          font-size: 16px;
-         
+
          &.carousel__next {
-             background-color: $clr6;
-             box-shadow: -20px -1px 30px 20px rgb(255, 255, 255);
-            }
-            &.carousel__prev {
-             background-color: $clr6;
-             box-shadow: 20px  -1px 30px 20px rgb(255, 255, 255);
+             box-shadow: 20px 0px 18px 30px rgb(255, 255, 255);
+             background-color: #fff;
+             margin-right: 35px;
          }
+
+         &.carousel__prev {
+             box-shadow: -20px 0px 18px 30px rgb(255, 255, 255);
+             background-color: #fff;
+             margin-left: 35px;
+         }
+
          &:hover {
              color: $clr2;
              box-shadow: 1px 3px 10px $clr3;
@@ -28,33 +32,48 @@
 
      .carousel__track {
          display: flex;
+         gap: em(10px);
          margin-top: 20px;
+         color: $clr3;
+         gap: -80px;
+         .carousel__slide{
+            align-items: flex-start;
+         }
 
          img {
              height: 24px;
              width: 24px;
+             opacity: 0.5;
          }
 
          .nav-item {
              text-align: center;
              width: fit-content;
              cursor: pointer;
+             flex:default;
 
-             &:hover {
+             &:hover p{
                  box-shadow: 0px -2px 0px 0px inset $clr3;
+                 color: black;
+                 img{
+                     opacity: 1;
+                 }
              }
          }
 
          p {
-             font-family: montserrat_bold;
+             margin-top: 1px;
+             font-family: montserrat_medium;
              font-size: 11px;
          }
      }
 
      ol {
          list-style-type: none;
-         //   padding: 0px 80px;
+        //    padding: 0px 80px;
          height: 65px;
+        
      }
-     
+   
+
  }

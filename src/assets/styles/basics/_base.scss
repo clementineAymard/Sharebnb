@@ -18,15 +18,16 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: airbnb_bold;
     margin: 0 0 0.6em;
     line-height: 1;
 }
-
-// img {
-//     width: 100%;
-// }
 
 p {
     margin: 0 0 1em;
@@ -37,12 +38,7 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
-button{
+
+button {
     cursor: pointer;
-}
-// a:hover {
-    // text-decoration: underline;
-// }
-.main-container {
-    margin: auto;
 }
