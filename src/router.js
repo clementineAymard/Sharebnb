@@ -8,6 +8,7 @@ import Explore from './pages/Explore.vue'
 import ReviewIndex from './pages/ReviewIndex.vue'
 import LoginSignup from './pages/LoginSignup.vue'
 import UserDetails from './pages/UserDetails.vue'
+import OrderConfirmation from './pages/OrderConfirmation.vue'
 
 const routes = [
   {
@@ -44,6 +45,12 @@ const routes = [
     path: '/login',
     name: 'LoginSignup',
     component: LoginSignup
+  },
+
+  {
+    path: '/order/:id',
+    name: 'OrderConfirmation',
+    component: OrderConfirmation
   },
   {
     path: '/user/:id',
