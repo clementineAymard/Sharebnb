@@ -65,7 +65,7 @@ function getEmptyOrder() {
               price: 0
             },
             msgs: [],
-            status: '' // pending, approved/
+            status: 'pending' // pending, approved/
     }
 }
 

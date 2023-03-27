@@ -1,5 +1,5 @@
 <template>
-    <section class="main-container">
+    <section class="my-layout">
         <AppHeader />
         <RouterView  /> <!--@wheel="onCloseHeader"-->
         <AppFooter />

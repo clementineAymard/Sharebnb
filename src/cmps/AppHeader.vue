@@ -1,5 +1,5 @@
 <template>
-    <section class="main-header full main-container">
+    <section class="main-header full my-layout">
         <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
         <div class="header-background full" :class="isSearchOpenClass"></div>
         <header class="header flex align-center justify-between" :class="isDetailsClass">
