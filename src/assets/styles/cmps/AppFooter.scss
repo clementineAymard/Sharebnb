@@ -1,9 +1,13 @@
-.footer {
+footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: $clr4;
-    padding-block: 14px;
-    font-size: 14px;
-    gap: 10px;
+    background-color: $clr5;
+    z-index: 10;
+
+    .footer>div {
+        padding-block: 14px;
+        font-size: 14px;
+        gap: 10px;
+    }
 }

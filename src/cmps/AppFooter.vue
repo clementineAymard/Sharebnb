@@ -1,15 +1,17 @@
 <template>
-    <footer class="full main-container" v-if="isOpen">
-        <section class="footer flex align-center" >
-            <span>© 2023 Airbnb, Inc.</span>
-            <span>·</span>
-            <span>Terms</span>
-            <span>·</span>
-            <span>Sitemap</span>
-            <span>·</span>
-            <span>Privacy</span>
-            <span>·</span>
-            <span>Your Privacy Choices</span>
+    <footer class="full " v-if="isOpen">
+        <section class="footer my-layout ">
+            <div class="flex align-center">
+                <span>© 2023 Airbnb, Inc.</span>
+                <span>·</span>
+                <span>Terms</span>
+                <span>·</span>
+                <span>Sitemap</span>
+                <span>·</span>
+                <span>Privacy</span>
+                <span>·</span>
+                <span>Your Privacy Choices</span>
+            </div>
         </section>
     </footer>
 </template>
