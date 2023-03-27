@@ -2,6 +2,20 @@
     padding: 0;
     display: grid;
 
+
+    @media (min-width: 2600px) {
+        max-width: 2600px;
+        margin: auto;
+
+        // >*.full {
+        //     width:calc(100% - 20px);
+        // }
+
+        >*:not(.full) {
+            max-width: 2420px;
+        }
+    }
+
     >* {
         grid-column: 2;
 
@@ -10,7 +24,23 @@
         }
     }
 
-    // &.narrow {}
+    &.narrow {
+        @include for-mobile-layout-min {
+            @include layoutGTC($break-mobile, calc(2 * $layoutPaddingLarge));
+        }
+
+        @include for-narrow-layout {
+            @include layoutGTC($break-narrow, calc(2 * $layoutPaddingLarge));
+        }
+
+        @include for-normal-layout {
+            @include layoutGTC($break-normal, calc(2 * $layoutPaddingLarge));
+        }
+    }
+
+    &.regular {
+        padding: 0;
+    }
 
     @include for-mobile-layout {
         @include layoutGTC($break-mobile, $layoutPaddingSmall);
@@ -25,7 +55,11 @@
     }
 
     @include for-normal-layout {
-        @include layoutGTC($break-normal, $layoutPadding);
+        @include layoutGTC($break-normal, $layoutPaddingLarge);
+    }
+
+    @include for-normal-list-layout {
+        @include layoutGTC($break-normal-list, $layoutPaddingLarge);
     }
 
     @include for-wide-layout {

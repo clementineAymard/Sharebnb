@@ -1,7 +1,7 @@
 <template>
-    <section class="my-layout">
+    <section class="my-layout" :class="isDetailsClass">
         <AppHeader />
-        <RouterView  /> <!--@wheel="onCloseHeader"-->
+        <RouterView /> <!--@wheel="onCloseHeader"-->
         <AppFooter />
         <!-- <UserMsg /> -->
     </section>
@@ -29,6 +29,11 @@ export default {
     methods: {
         onCloseHeader() {
             closeHeader()
+        },
+    },
+    computed: {
+        isDetailsClass() {
+            return (this.$route.name === 'StayDetails') ? 'narrow' : 'regular'
         },
     },
     components: {

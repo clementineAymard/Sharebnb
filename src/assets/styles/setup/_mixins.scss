@@ -29,6 +29,11 @@
         @content;
     }
 }
+@mixin for-normal-list-layout {
+    @media (min-width: $break-normal-list) {
+        @content;
+    }
+}
 
 @mixin for-wide-layout {
     @media (min-width: $break-wide) {
@@ -38,50 +43,51 @@
 
 @mixin layoutGTC($max, $padding) {
     grid-template-columns:
-        minmax($padding, 1fr) 
+        $padding 
+        // minmax($padding, 1fr) 
         minmax(auto, calc($max - 2 * $padding)) 
-        minmax($padding, 1fr);
+        // minmax($padding, 1fr)
+        $padding ;
 }
 
 
+// // ///////////// FOR STAY LIST //////////////////
 
-// ///////////// FOR STAY LIST //////////////////
+// @mixin for-grid-mobile-layout {
+//     @media (max-width: calc($mobile-breakpoint)) {
+//         @content;
+//     }
+// }
 
-@mixin for-grid-mobile-layout {
-    @media (max-width: calc($mobile-breakpoint)) {
-        @content;
-    }
-}
+// @mixin for-grid-narrow-layout {
+//     @media (min-width: calc($grid-mobile-breakpoint)) {
+//         @content;
+//     }
+// }
 
-@mixin for-grid-narrow-layout {
-    @media (min-width: calc($grid-mobile-breakpoint)) {
-        @content;
-    }
-}
+// @mixin for-grid-medium-layout {
+//     @media (min-width: calc($grid-narrow-breakpoint)) {
+//         @content;
+//     }
+// }
 
-@mixin for-grid-medium-layout {
-    @media (min-width: calc($grid-narrow-breakpoint)) {
-        @content;
-    }
-}
+// @mixin for-grid-normal-layout {
+//     @media (min-width: calc($grid-medium-breakpoint)) {
+//         @content;
+//     }
+// }
 
-@mixin for-grid-normal-layout {
-    @media (min-width: calc($grid-medium-breakpoint)) {
-        @content;
-    }
-}
+// @mixin for-grid-wide-layout {
+//     @media (min-width: calc($grid-normal-breakpoint)) {
+//         @content;
+//     }
+// }
 
-@mixin for-grid-wide-layout {
-    @media (min-width: calc($grid-normal-breakpoint)) {
-        @content;
-    }
-}
-
-@mixin for-grid-extra-wide-layout {
-    @media (min-width: calc($grid-large-breakpoint)) {
-        @content;
-    }
-}
+// @mixin for-grid-extra-wide-layout {
+//     @media (min-width: calc($grid-large-breakpoint)) {
+//         @content;
+//     }
+// }
 
 
 

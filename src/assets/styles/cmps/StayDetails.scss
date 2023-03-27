@@ -3,7 +3,7 @@ body {
 }
 
 .main-container {
-    display:block;
+    display: block;
 }
 
 .main-layout.smaller-layout {
@@ -12,7 +12,7 @@ body {
 
 
 // .main-container {
-    // grid-template-columns: minmax(40px, 1fr) minmax(auto, 950px) minmax(40px, 1fr);
+// grid-template-columns: minmax(40px, 1fr) minmax(auto, 950px) minmax(40px, 1fr);
 // }
 // .main-layout>* {
 //     grid-column: 2;
@@ -40,13 +40,14 @@ body {
     // @include width-padding-mqs
 }
 
-.stay-details1 {
+// .stay-details1 {
     // letter-spacing: 007em;
-    margin-inline: auto;
-}
+    // margin-inline: auto;
+// }
 
 .stay-details1 .name-title {
     font-size: 1.625rem;
+    padding-block-start: 1.5rem;
 }
 
 .stay-details1>* {
@@ -75,8 +76,7 @@ h1 {
     justify-content: space-between;
 }
 
-.reservation 
-.stay-details1 .name-subtitle {
+.reservation .stay-details1 .name-subtitle {
     gap: 0.5625rem;
     font-size: .875rem;
     margin-top: 0%;
@@ -137,7 +137,7 @@ element.style {
     gap: 7px;
     // padding: 8px;
     border-radius: 8px;
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
 .btn {
@@ -304,9 +304,9 @@ li {
     gap: 1rem;
 }
 
-section {
-    padding: 5px;
-}
+// section {
+//     padding: 5px;
+// }
 
 li {
     display: list-item;
@@ -557,6 +557,7 @@ button {
 .stay-details1 .reviews-and-map {
     margin: 0;
 }
+
 .stay-details1 .reviews-and-map>*:not(.divider) {
     padding: 48px 0;
     // margin-top: 50px;
@@ -623,15 +624,35 @@ button {
 
 .stay-details1 .reviews-and-map>*:not(.divider) {
     padding: 48px 0;
-margin-bottom: 40px;
+    margin-bottom: 40px;
 }
+
 // reviews-and-map
 // section, main, footer {
 //     padding: 5px;
 // }
 
-.stay-details1 .more-details > * {
+.stay-details1 .more-details>* {
     padding-top: 32px;
     padding-bottom: 32px;
 }
 
+.stay-details {
+    padding: 0;
+
+    .stay-details1 > *{
+        
+        @include for-mobile-layout {
+            width: calc(100vw - 2 * $layoutPaddingSmall - 20px);
+        }
+        
+        @include for-mobile-layout-min {
+            width: calc(100vw - 2 * $layoutPaddingLarge - 20px);
+        }
+        
+        
+        @include for-normal-layout {
+            width: calc(100vw - 4 * $layoutPaddingLarge - 20px);
+        }
+    }
+}
