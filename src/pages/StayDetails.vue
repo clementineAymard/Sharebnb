@@ -404,7 +404,7 @@
                                     in the fridge! We could have breakfast at her place which was perfect because she
                                     has a little sweet balcony!
                                     Location: calmly situated in a side street, very near to the Placa Catalunya, the
-                                    Rambla and the gothic area of Barcelona (very beautiful:)) so you have the old
+                                    Rambla and the gothic area of Barcelona (very beautiful:) so you have the old
                                     cultural center as well as all the restaurants and bars just nearby.
                                     House/Room: the appartment is not a huge, but I think you have everything you need
                                     (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment
@@ -435,6 +435,7 @@
 
 <script>
 import { stayService } from '../services/stay.service.local.js'
+import { orderService } from '../services/order.service.local.js'
 
 export default {
     name: 'stay-detail',
@@ -454,6 +455,19 @@ export default {
             this.$router.push('/stay')
         },
         async onReserve() {
+          const order = orderService.getEmptyOrder()
+          order.buyer.fullname = 
+          order.startDate= 
+          order.endDate = 
+          order.guests.adults = 
+          order.guests.kids = 
+          order.stay.id = 
+          order.stay.name = 
+          order.stay.price = 
+        
+
+          console.log('order',order)
+          console.log('this.$route.query',this.$route.query)
             // 1. create order : order service getEmptyOrder() 
             // 2. fill the order with relevant info 
             // this.$route.query : {loc: .., adults:..., infants:...}
