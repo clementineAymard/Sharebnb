@@ -20,11 +20,14 @@
                 {{ getRate }} ({{ stay.reviews.length }})
             </p>
             </p>
-            <p class="regular-font">
+            <p class="regular-font grey">
                 {{ stay.name }}
                 <!-- {{ stayName }} -->
             </p>
-            <p class="regular-font beds"> {{ stay.capacity }} beds , {{ rooms }} rooms</p>
+            <p class="regular-font beds grey" v-if="stay.capacity > 1 && rooms > 1"> {{ stay.capacity }} beds , {{ rooms }}
+                rooms</p>
+            <p v-else="stay.capacity===1">{{ stay.capacity }} bed, {{ rooms }} rooms</p>
+            <p v-else="rooms===1">{{ stay.capacity }} beds, {{ rooms }} room</p>
             <p class="medium-font">
                 ${{ stay.price }} <span class="regular-font"> night</span>
             </p>
