@@ -1,27 +1,29 @@
 .stay-preview {
     align-content: center;
     justify-items: start;
-    // margin-left: -10px;
     color: $clr2;
     cursor: pointer;
-    // margin-bottom: -10px;
 }
 
 .img-container {
     margin-top: 26px;
     position: relative;
     margin-bottom: 12px;
-    // @include aspect-ratio(1, 1);
-    
+    border-radius: em(10px);
+    @include aspect-ratio(1, 1);
+    // aspect-ratio: 1.0550819672/1;
+
 
     &:hover .el-carousel__arrow {
         background-color: $clr4;
         color: $clr2;
     }
 
+    .el-carousel {
+        overflow: hidden;
+    }
+
     .stay-img {
-        // @include aspect-ratio(1, 1);
-        aspect-ratio: 1.0550819672/1;
         top: 0;
         left: 0;
         border-radius: 10px;
@@ -31,11 +33,12 @@
         z-index: -1;
         object-fit: cover;
     }
-    .remove-stay{
+
+    .remove-stay {
         position: absolute;
         color: $clr2;
         height: 30px;
-        margin: 3px ;
+        margin: 3px;
         padding: 3px;
         top: 15px;
         left: 15px;
@@ -47,6 +50,7 @@
 
     .fa-heart {
         position: absolute;
+        display: block;
         height: 21px;
         margin: -2px 0px 0px;
         padding: 2px 0px 0px;
@@ -61,16 +65,22 @@
         -webkit-text-stroke-color: $clr4;
         z-index: 1;
 
+        &:before {
+            position: absolute;
+            right: 0;
+        }
     }
 }
- .update-btn{
+
+.update-btn {
     color: #252525;
     border: 1px solid $clr2;
 }
+
 .rating {
     float: right;
     // text-align: right;
-   
+
 }
 
 .preview-txt {

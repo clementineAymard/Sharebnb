@@ -1,5 +1,5 @@
 <template>
-    <section class="exlpore">
+    <section class="explore">
         <FilterCategory />
         
         <h3 v-if="stays.length">Found {{ stayNumber }} home<span v-if="stays.length > 1">s</span></h3>
@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             filterBy: {},
-            stays: null
+            // stays: null
         }
     },
     methods: {
@@ -30,6 +30,7 @@ export default {
             return this.$store.getters.stays
         },
         stayNumber() {
+            if (this.stays)
             return new Intl.NumberFormat().format(this.stays.length)
         }
     },
