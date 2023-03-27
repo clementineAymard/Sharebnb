@@ -25,10 +25,10 @@
                 {{ stay.name }}
                 <!-- {{ stayName }} -->
             </p>
-            <p class="regular-font beds grey" v-if="stay.capacity > 1 && rooms > 1"> {{ stay.capacity }} beds , {{ rooms }}
+            <p class="regular-font beds grey" v-if="stay.capacity > 1 && stay.bedrooms > 1"> {{ stay.capacity }} beds , {{ stay.bedrooms }}
                 rooms</p>
-            <p v-else="stay.capacity===1">{{ stay.capacity }} bed, {{ rooms }} rooms</p>
-            <p v-else="rooms===1">{{ stay.capacity }} beds, {{ rooms }} room</p>
+            <p v-else="stay.capacity===1" class="regular-font grey">{{ stay.capacity }} bed, {{ stay.bedrooms }} rooms</p>
+            <p v-else="stay.bedrooms===1" class="regular-font grey">{{ stay.capacity }} beds, {{ stay.bedrooms }} room</p>
             <p class="medium-font">
                 ${{ stay.price }} <span class="regular-font"> night</span>
             </p>
@@ -49,7 +49,7 @@ export default {
         return {
 
             randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
-            rooms: Math.floor(this.stay.capacity / 2),
+            // rooms: Math.floor(this.stay.capacity / 2),
             intervalNum: parseInt(0),
             getRate: (Math.random() + 4).toFixed(2),
             // user: this.$store.getters.loggedinUser
