@@ -25,7 +25,7 @@ export default {
     },
     computed: {
         isOpen(){
-            return (this.$route.name === 'HomePage')
+            return (this.$route.name === 'Home')
         }
     },
     created() {

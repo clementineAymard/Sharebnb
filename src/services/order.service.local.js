@@ -11,9 +11,7 @@ export const orderService = {
     getById,
     save,
     remove,
-    getEmptyStay,
-    getLabels
-    // addStayMsg
+    getEmptyOrder,
 }
 window.cs = orderService
 
@@ -21,68 +19,84 @@ window.cs = orderService
 async function query(filterBy={}) {
     var orders = await storageService.query(STORAGE_KEY)
 
-    if (filterBy.)
+    if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
+    if (filterBy.userId) orders = orders.filter(order => order.buyer._id === filterBy.userId)
 
-    return stays
+    return orders
 }
 
-function getById(stayId) {
-    return storageService.get(STORAGE_KEY, stayId)
+function getById(orderId) {
+    return storageService.get(STORAGE_KEY, orderId)
 }
 
-async function remove(stayId) {
-    await storageService.remove(STORAGE_KEY, stayId)
+async function remove(orderId) {
+    await storageService.remove(STORAGE_KEY, orderId)
 }
 
-async function save(stay) {
-    var savedStay
-    if (stay._id) {
-        savedStay = await storageService.put(STORAGE_KEY, stay)
+async function save(order) {
+    var savedOrder
+    if (order._id) {
+        savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
-        // Later, host is set by the backend
-        stay.host = userService.getLoggedinUser()
-        savedStay = await storageService.post(STORAGE_KEY, stay)
+        // Later, buyer is set by the backend ?
+        order.buyer = userService.getLoggedinUser()
+        savedOrder = await storageService.post(STORAGE_KEY, order)
     }
     return savedStay
 }
 
-function getEmptyStay() {
+function getEmptyOrder() {
     return {
-        name: '',
-        price: '',
+            hostId: '',
+            buyer: {
+              _id: '',
+              fullname: ''
+            },
+            totalPrice: 160,
+            startDate: '',
+            endDate:'',
+            guests: {
+              adults: 0,
+              kids: 0
+            },
+            stay :{
+              _id: '',
+              name: '',
+              price: 0
+            },
+            msgs: [],
+            status: '' // pending, approved/
     }
 }
 
-// ; (async () => {
-//     for (var i = 0; i < users.length; i++) {
-//         await orderService.save(users[i])
-//     }
-// })()
+const orders = [
+    {
+      "_id": "o1225",
+      "hostId": "u102",
+      "buyer": {
+        "_id": "u101",
+        "fullname": "User 1"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "h102",
+            "name": "House Of Uncle My",
+            "price": 80.00
+        },
+        "msgs": [],
+        "status": "pending" // pending, approved
+    }
+]
 
-// const orders = [
-//     {
-//       "_id": "o1225",
-//       "hostId": "u102",
-//       "buyer": {
-//         "_id": "u101",
-//         "fullname": "User 1"
-//       },
-//       "totalPrice": 160,
-//       "startDate": "2025/10/15",
-//       "endDate": "2025/10/17",
-//       "guests": {
-//         "adults": 2,
-//         "kids": 1
-//       },
-//       "stay": {
-//         "_id": "h102",
-//         "name": "House Of Uncle My",
-//         "price": 80.00
-//       },
-//       "msgs": [],
-//       "status": "pending" // pending, approved
-//     }
-//   ]
+// ;(async () => {
+//     await storageService.post(STORAGE_KEY, orders[0])
+// })()
 
   // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
   // Renders a <StayList> with <StayPreview> with Link to <StayDetails>   url: /stay/123

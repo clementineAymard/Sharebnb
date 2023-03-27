@@ -24,22 +24,22 @@
     @include for-narrow-layout {
         grid-template-columns:
             $medium_padding-inline 
-            minmax(calc($narrow-breakpoint), calc($medium-breakpoint))
+            minmax($narrow-breakpoint, $medium-breakpoint)
             $medium_padding-inline;
     }
 
     @include for-medium-layout {
         grid-template-columns:
             $medium_padding-inline 
-            minmax(calc($medium-breakpoint), calc($normal-breakpoint)) 
+            minmax($medium-breakpoint, $normal-breakpoint) 
             $medium_padding-inline;
     }
 
     @include for-normal-layout {
         grid-template-columns:
-            $medium_padding-inline // minmax($medium_padding-inline, 1fr) 
-            minmax(calc($normal-breakpoint), calc($max-width-breakpoint - 2 * $medium_padding-inline)) 
-            $medium_padding-inline // minmax($medium_padding-inline, 1fr);
+            $medium_padding-inline
+            minmax($normal-breakpoint, $max-width-breakpoint) 
+            $medium_padding-inline
     }
 
     @include for-wide-layout {
@@ -52,8 +52,7 @@
     @include for-extra-wide-layout {
         grid-template-columns:
             minmax($large_padding-inline, 1fr) 
-            minmax(auto, $max-width-breakpoint) // calc($max-width-breakpoint - 2 * $large_padding-inline))
-            // 1fr
+            minmax(auto, $max-width-breakpoint)
             minmax($large_padding-inline, 1fr);
     }
 
