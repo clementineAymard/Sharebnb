@@ -17,7 +17,8 @@
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             <p class="rating regular-font">
                 <i class="fa-sharp fa-solid fa-star"></i>
-                {{ getRate }} ({{ stay.reviews.length }})
+                {{ getRate }} 
+                <!-- ({{ stay.reviews.length }}) -->
             </p>
             </p>
             <p class="regular-font grey">
