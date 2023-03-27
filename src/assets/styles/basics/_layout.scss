@@ -1,8 +1,3 @@
-.container {
-    max-width: 1500px;
-    padding: 10px;
-}
-
 .main-container {
     display: grid;
 
@@ -14,53 +9,20 @@
         }
     }
 
-    @include for-mobile-layout {
-        grid-template-columns:
-            ($small_padding-inline) 
-            minmax(0, $mobile-breakpoint)
-            ($small_padding-inline)
+    &.narrow {
+        @include layoutGTC($break-narrow);
     }
 
     @include for-narrow-layout {
-        grid-template-columns:
-            $medium_padding-inline 
-            minmax($narrow-breakpoint, $medium-breakpoint)
-            $medium_padding-inline;
-    }
-
-    @include for-medium-layout {
-        grid-template-columns:
-            $medium_padding-inline 
-            minmax($medium-breakpoint, $normal-breakpoint) 
-            $medium_padding-inline;
+        @include layoutGTC($break-narrow);
     }
 
     @include for-normal-layout {
-        grid-template-columns:
-            $medium_padding-inline
-            minmax($normal-breakpoint, $max-width-breakpoint) 
-            $medium_padding-inline
+        @include layoutGTC($break-normal);
     }
 
     @include for-wide-layout {
-        grid-template-columns:
-            minmax($large_padding-inline, 1fr)
-            minmax(auto, calc($normal-breakpoint - 2 * $large_padding-inline)) // 1fr
-            minmax($large_padding-inline, 1fr);
+        @include layoutGTC($break-wide);
     }
 
-    @include for-extra-wide-layout {
-        grid-template-columns:
-            minmax($large_padding-inline, 1fr) 
-            minmax(auto, $max-width-breakpoint)
-            minmax($large_padding-inline, 1fr);
-    }
-
-}
-
-.card-grid {
-    display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-template-columns: repeat(auto-fill, minmax(285px, 330px));
-    grid-gap: 20px;
 }

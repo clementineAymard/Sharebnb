@@ -8,13 +8,13 @@
     //     display: none;
     // }
 
-    @include for-narrow-layout {
+    @include for-normal-layout {
         flex-grow: 1;
     }
 
-    @include for-medium-layout {
-        flex: 1 0 140px;
-    }
+    // @include for-wide-layout {
+    //     flex: 1 0 140px;
+    // }
 
     img {
         object-fit: contain;

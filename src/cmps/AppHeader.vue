@@ -224,3 +224,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.el-popper.is-pure.is-light.el-picker__popper{
+    display: block;
+}
+</style>

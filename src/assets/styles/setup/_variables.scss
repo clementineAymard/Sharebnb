@@ -7,14 +7,19 @@ $clr5: #f7f7f7;
 $clr6: #fff;
 
 // Breakpoints
-$mobile-breakpoint: calc(735px - 20px);
-$narrow-breakpoint: calc(950px - 20px);
-$medium-breakpoint: calc(1128px - 20px); 
-$normal-breakpoint: calc(1440px - 20px);
-$max-width-breakpoint : 1760px;
-// $normal-breakpoint: 2360px;
+// $mobile-breakpoint: calc(735px - 20px);
+// $narrow-breakpoint: calc(950px - 20px);
+// $medium-breakpoint: calc(1128px - 20px); 
+// $normal-breakpoint: calc(1440px - 20px);
+// $max-width-breakpoint : 1760px;
+// // $normal-breakpoint: 2360px;
 
-//Paddings
-$small_padding-inline: 24px;
-$medium_padding-inline: 40px;
-$large_padding-inline: 80px;
+// //Paddings
+// $small_padding-inline: 24px;
+// $medium_padding-inline: 40px;
+// $large_padding-inline: 80px;
+
+$break-narrow: 1200px;
+$break-normal: 1360px;
+$break-wide: 1920px;
+$layoutPadding: 20px;
