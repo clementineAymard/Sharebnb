@@ -2,7 +2,8 @@
     <section className="stay-list"> <!-- @scroll="onCloseHeader"-->
 
         <StayPreview v-for="stay in stays" :key="stay._id" :stay="stay" @removeStay="$emit('removeStay', stay._id)"
-            @updateStay="$emit('updateStay', stay)" @click="this.$router.push(`/stay/${stay._id}`)"></StayPreview>
+            @updateStay="$emit('updateStay', stay)" @click="onOpenDetails(stay._id)">
+        </StayPreview>
 
     </section>
 </template>
@@ -23,6 +24,17 @@ export default {
         }
     },
     methods: {
+        onOpenDetails(stayId){
+            var queryStr = this.$route.query
+            console.log(queryStr)
+            this.$router.replace({
+                // name: 'StayDetails',
+                path:`/stay/${stayId}`,
+                query: queryStr,
+                // params: stayId,
+            })
+            // this.$router.push(`/stay/${stayId}`)
+        },
         removeStay(stayId) {
             this.$emit('removeStay', stayId)
         },

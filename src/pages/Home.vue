@@ -1,5 +1,5 @@
 <template>
-    <section class="container home text-center">
+    <section class="home text-center">
         <StayIndex />
     </section>
 </template>
