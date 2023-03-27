@@ -1,4 +1,5 @@
 // import { stayService } from '../services/stay.service.local'
+import { filter } from 'lodash'
 import { stayService } from '../services/stay.service.local'
 import { utilService } from '../services/util.service'
 
@@ -56,6 +57,15 @@ export const stayStore = {
         // },
     },
     actions: {
+        async loadStays(context, { filterBy }) {
+            try {
+                const stays = await stayService.query(JSON.parse(JSON.stringify(filterBy)))
+                context.commit({ type: 'setStays', stays })
+            } catch (err) {
+                console.log('stayStore: Error in loadStays', err)
+                throw err
+            }
+        },
         async addStay(context, { stay }) {
             try {
                 stay = await stayService.save(stay)
@@ -73,27 +83,6 @@ export const stayStore = {
                 return stay
             } catch (err) {
                 console.log('stayStore: Error in updateStay', err)
-                throw err
-            }
-        },
-        async loadStays(context, { filterBy }) {
-            if (filterBy) {
-                if (filterBy.guests) {
-                    filterBy.adults = filterBy.guests.adults
-                    filterBy.children = filterBy.guests.children
-                    filterBy.infants = filterBy.guests.infants
-                    // delete filterBy.guests
-                }
-                utilService.setQueryParams(JSON.parse(JSON.stringify(filterBy)))
-                utilService.deleteQueryParam('guests')
-                utilService.deleteQueryParam('date')
-            }
-
-            try {
-                const stays = await stayService.query()
-                context.commit({ type: 'setStays', stays })
-            } catch (err) {
-                console.log('stayStore: Error in loadStays', err)
                 throw err
             }
         },

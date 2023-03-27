@@ -12,7 +12,7 @@
         </div>
 
         <div class="preview-txt">
-            <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button>
+            <!-- <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button> -->
             <p class="bold-font">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             <p class="rating regular-font">
@@ -47,11 +47,11 @@ export default {
     data() {
         return {
 
-            randomViwes: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
+            randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             rooms: Math.floor(this.stay.capacity / 2),
             intervalNum: parseInt(0),
             getRate: (Math.random() + 4).toFixed(2),
-            user: this.$store.getters.loggedinUser
+            // user: this.$store.getters.loggedinUser
 
         }
     },
@@ -69,7 +69,7 @@ export default {
             }
         },
         handleViews() {
-            this.randomViwes++
+            this.randomViews++
             this.$emit('openStayDetails', this.stay._id)
         }
     },

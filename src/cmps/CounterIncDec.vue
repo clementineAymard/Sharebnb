@@ -1,6 +1,11 @@
 <template>
     <div class="counter-inc-dec flex align-center">
-        <button @click="changeCount(-1)">-</button>
+        <button @click="changeCount(-1)" :disabled="count === 0">
+           <svg style="display: block; fill: none; height: 27px; width: 27px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible; flex-grow: 1; scale: 0.4;"
+           viewBOx="0 0 32 32" xmins="http://www.w3.org/200©/svg" aria-hidden="true" role="presentation" focusable="false">
+                <path d="m2 16h28"></path>
+            </svg>
+        </button>
         <span><input type="number" v-model="count"></span>
         <button @click="changeCount(1)">+</button>
     </div>

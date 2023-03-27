@@ -4,6 +4,12 @@ nav {
     position: relative;
     z-index: 3;
 
+    @include for-mobile-layout {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
     .links {
         justify-content: end;
 
@@ -14,25 +20,6 @@ nav {
             padding: 12px 15px;
             border-radius: 28px;
             width: max-content;
-
-            &:hover {
-                background-color: $clr5;
-            }
-        }
-
-        .i18n-container {
-            border-radius: 50%;
-            width: rem(46px);
-            height: rem(42px);
-            justify-content: center;
-
-            .i18n {
-                height: 1rem;
-
-                img {
-                    width: 1rem;
-                }
-            }
 
             &:hover {
                 background-color: $clr5;
@@ -83,6 +70,7 @@ nav {
             color: $clr2;
             padding-block: 5px;
         }
+
         .bold {
             font-family: airbnb_bold;
         }

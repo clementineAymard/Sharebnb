@@ -11,7 +11,7 @@
         <input
           type="text"
           v-model="loginCred.password"
-          placeholder="Password (123)"
+          placeholder="Password"
         />
         <button>Login</button>
       </form>
@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       msg: '',
-      loginCred: { username: '', password: '123' },
+      loginCred: { username: '', password: 'secret' },
       signupCred: { username: '', password: '', fullname: '', imgUrl : '' },
     }
   },

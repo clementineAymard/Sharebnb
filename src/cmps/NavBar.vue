@@ -2,12 +2,6 @@
     <nav class="flex align-center">
         <div class="links flex align-center">
             <RouterLink class="link-add-stay" to="/stay/edit">Airbnb your home</RouterLink>
-
-            <div class="i18n-container flex align-center">
-                <button class="i18n">
-                    <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/globe_uzkbnn.png">
-                </button>
-            </div>
         </div>
 
         <a @click="openUserMenu" class="loggedin-user flex justify-between align-center">
@@ -16,8 +10,10 @@
         </a>
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
 
-            <RouterLink to="/login" class="bold flex justify-between"><span>My Profile</span><span
-                    @click="isMiniMenuOpen = false">X</span></RouterLink>
+            <a class="bold flex justify-between">
+                <span @click="this.$router.push(`/user/${loggedinUser._id}`)">My Profile</span>
+                <span @click.prevent="isMiniMenuOpen = false">X</span>
+            </a>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
     </nav>
