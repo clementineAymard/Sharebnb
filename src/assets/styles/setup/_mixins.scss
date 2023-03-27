@@ -39,9 +39,13 @@
 @mixin layoutGTC($max, $padding) {
     grid-template-columns:
         minmax($padding, 1fr) 
-        minmax(auto, $max) 
+        minmax(auto, calc($max - 2 * $padding)) 
         minmax($padding, 1fr);
 }
+
+
+
+// ///////////// FOR STAY LIST //////////////////
 
 @mixin for-grid-mobile-layout {
     @media (max-width: calc($mobile-breakpoint)) {
