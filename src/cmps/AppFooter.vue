@@ -25,7 +25,7 @@ export default {
     },
     computed: {
         isOpen(){
-            return !this.$route.params.stayId
+            return (this.$route.name === 'HomePage')
         }
     },
     created() {

@@ -9,7 +9,7 @@
             <div class="search-container flex align-center" :class="isSearchOpenClass">
                 <section class="search" v-if="!isDetails">
 
-                    <button class="location" @click="onSearch('locations')">
+                    <button class="location" @click="onOpenSearch('locations')">
                         <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
                             <label>Where</label>
                             <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations">
@@ -18,7 +18,7 @@
                         <div v-else>{{ locForDisplayTitle }}</div>
                     </button>
 
-                    <button @click="onSearch('dates')" class="dates flex ">
+                    <button @click="onOpenSearch('dates')" class="dates flex ">
 
                         <div v-if="isSearchOpen" class="from flex column" :class="isSearchOpenClass">
                             <label>Check in</label>
@@ -36,7 +36,7 @@
 
                     </button>
 
-                    <button class="guests flex align-center" @click="onSearch('guests')">
+                    <button class="guests flex align-center" @click="onOpenSearch('guests')">
                         <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
                             <label>Who</label>
                             <div class="sub-title">
@@ -47,8 +47,8 @@
                         </div>
 
                         <div v-else class="title">
-                            <span v-if="guestsForDisplayTitle > 0" class="medium-font black">{{ guestsForDisplayTitle }} guest<span
-                                    v-if="guestsForDisplayTitle > 1">s</span></span>
+                            <span v-if="guestsForDisplayTitle > 0" class="medium-font black">{{ guestsForDisplayTitle }}
+                                guest<span v-if="guestsForDisplayTitle > 1">s</span></span>
                             <span v-else>Add guests</span>
                         </div>
 
@@ -99,6 +99,7 @@ export default {
     mounted() {
         this.setLocFromParams()
         this.setGuestsFromParams()
+        this.clearBooleans()
     },
     data() {
         return {
@@ -136,7 +137,7 @@ export default {
         }
     },
     methods: {
-        onSearch(filterKey) {
+        onOpenSearch(filterKey) {
             this.isSearchOpen = true
             this.selectedFilterKey = filterKey
         },
@@ -171,16 +172,12 @@ export default {
             delete filterToSend.date
 
             this.$router.push({
-                name: 'Home',
+                name: 'Explore',
                 query: filterToSend,
             })
-
+            this.clearBooleans()
             this.setLocFromParams()
             this.setGuestsFromParams()
-            if (this.isSearchOpen)
-                this.$store.dispatch({ type: 'loadStays', filterBy: JSON.parse(JSON.stringify(this.filterBy)) })
-            // console.log(this.filterBy)
-            this.clearBooleans()
         },
         clearBooleans() {
             this.isSearchOpen = false
@@ -194,14 +191,12 @@ export default {
         },
         setGuestsFromParams() {
             setTimeout(() => {
-                if (this.$route.query.children)
+                if (this.$route.query.adults && this.$route.query.children)
                     this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
-                else
+                else if (this.$route.query.adults)
                     this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
 
-                console.log('this.guestsForDisplayTitle',this.guestsForDisplayTitle)
-                console.log('this.$route.query.adults', this.$route.query.adults)
-
+                console.log('this.guestsForDisplayTitle', this.guestsForDisplayTitle)
             }, 1)
         },
         onResetFields() {
@@ -218,7 +213,7 @@ export default {
                 this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
             else
                 this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
-        }
+        },
     },
     components: {
         BrandLogo,

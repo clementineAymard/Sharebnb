@@ -1,9 +1,18 @@
 <template>
-  <section v-if="user">
-    <h1>User Details - {{ user.fullname }}</h1>
-    <h2 v-if="isMe">Its me</h2>
-    <h3>{{ user.username }} score: {{ user.score }}</h3>
+  <section class="user-profile">
+    <nav>
+        <ul class="user-menu">
+            <li>Wishlist</li>
+            <li>Trips</li> <!-- stays user has been hosted by = where user is guest -->
+            <li>Dashboard</li>
+            <li>Listings</li> <!-- stays user has hosted= where user is host -->
+        </ul>
+    </nav>
+    <h2 v-if="isMe">My Profile</h2>
+    <h1 v-else>User Profile - {{ user.fullname }}</h1>
+    <h3>{{ user.username }}</h3>
     <img style="max-width: 200px;" :src="user.imgUrl" />
+    <h2>Reviews</h2>
     <ul>
       <li v-for="review in user.givenReviews" :key="review._id">
         {{ review.txt }}
@@ -13,10 +22,10 @@
       </li>
     </ul>
 
-    <details>
+    <!-- <details>
       <summary>Full JSON</summary>
       <pre>{{ user }}</pre>
-    </details>
+    </details> -->
   </section>
 </template>
 

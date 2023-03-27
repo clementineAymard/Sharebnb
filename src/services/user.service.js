@@ -109,7 +109,10 @@ const users = [
         "fullname": "User 1",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "user1",
-        "password": "secret"
+        "password": "secret",
+        "visitedStays": [],
+        "myStayOrders": [],
+        "ownedStays": [],
     },
     {
         "_id": "u102",
@@ -117,6 +120,9 @@ const users = [
         "imgUrl": "/imgs/userfemale.png",
         "username": "user2",
         "password": "secret",
+        "visitedStays": [],
+        "myStayOrders": [],
+        "ownedStays": [],
         // "isOwner" : true // OPTIONAL
     }
 ]
@@ -127,30 +133,3 @@ const users = [
 //     }
 // })()
 
-
-
-
-// const orders = [
-//     {
-//       "_id": "o1225",
-//       "hostId": "u102",
-//       "buyer": {
-//         "_id": "u101",
-//         "fullname": "User 1"
-//       },
-//       "totalPrice": 160,
-//       "startDate": "2025/10/15",
-//       "endDate": "2025/10/17",
-//       "guests": {
-//         "adults": 2,
-//         "kids": 1
-//       },
-//       "stay": {
-//         "_id": "h102",
-//         "name": "House Of Uncle My",
-//         "price": 80.00
-//       },
-//       "msgs": [],
-//       "status": "pending" // pending, approved
-//     }
-//   ]

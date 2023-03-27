@@ -1,58 +1,70 @@
 .stay-edit {
-    margin-top: 20px;
-    text-align: center;
 
-    .editTitle {
-        color: $clr1;
-        font-family: airbnb_medium;
-        box-sizing: border-box;
-        font-size: 40px
-    }
+    >div:first-child {
+        margin-top: 20px;
+        text-align: center;
 
-    .editSecondLine {
-        font-family: airbnb_medium;
-        font-size: 40px
-    }
+        .editTitle {
+            color: $clr1;
+            font-family: airbnb_medium;
+            box-sizing: border-box;
+            font-size: 40px
+        }
 
-    .money {
-        font-family: airbnb_medium;
-        font-size: 64px
-    }
+        .editSecondLine {
+            font-family: airbnb_medium;
+            font-size: 40px
+        }
 
-    .estimated {
+        .money {
+            font-family: airbnb_medium;
+            font-size: 64px
+        }
 
-        font-family: airbnb_book;
-        font-size: 16px;
-        margin-bottom: 28px;
+        .estimated {
 
-        .nights {
+            font-family: airbnb_book;
+            font-size: 16px;
+            margin-bottom: 28px;
+
+            .nights {
+                font-family: airbnb_medium;
+                text-decoration: underline black;
+            }
+        }
+
+        .estimate {
+            font-size: 16px;
             font-family: airbnb_medium;
             text-decoration: underline black;
         }
+
+        .el-slider {
+            width: 150%;
+            margin-left: -50px;
+
+            .el-slider__button {
+                color: rgb(40, 62, 62);
+                border: solid 1px black;
+                background-color: black
+            }
+
+            .el-slider__runway {
+                background: #DDDDDD;
+
+            }
+
+            .el-slider__bar {
+                background-color: black;
+
+            }
+
+        }
     }
-    .estimate{
-        font-size: 16px;
-        font-family: airbnb_medium;
-        text-decoration: underline black;
-    }
-    
-    .el-slider{
-        width:150%;
-       margin-left: -50px;
-     
-        .el-slider__button{
-            color: rgb(40, 62, 62);
-             border:  solid 1px black;
-             background-color: black
-        }
-        .el-slider__runway {
-            background:  #DDDDDD ;
-    
-        }
-        .el-slider__bar{
-            background-color: black;
-           
-        }
-       
+
+    button.save-stay {
+        background-color: $clr1;
+        padding: 5px;
+        border-radius: 5px;
     }
 }

@@ -17,42 +17,27 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query() { // filterBy = { txt: '', price: 0 }
-    const filterBy = { 
-        loc: '',
-        dates: {
-            from: '',
-            to:''
-            },
-        adults:'',
-        children: '',
-        infants: '',
-        category: ''
-    }
-    // console.log(filterBy)
-    for (var key in filterBy){
-    //   if (utilService.getValFromParam(key))
-        filterBy[key] = utilService.getValFromParam(key) 
-    }
-  
+async function query(filterBy) {     
+    console.log('filterBy: ', filterBy)
     var stays = await storageService.query(STORAGE_KEY)
-    if (filterBy.loc) {
+    if (filterBy){
+        if (filterBy.loc) {
         const regex = new RegExp(filterBy.loc, 'i')
         stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
+        }
+        if (filterBy.adults && filterBy.children) {
+            stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
+        }
+        else if (filterBy.adults && !filterBy.children) {
+            stays = stays.filter(stay => stay.capacity >= filterBy.adults)
+        }
+        else if (!filterBy.adults && filterBy.children) {
+            stays = stays.filter(stay => stay.capacity >= filterBy.children)
+        }
+        if (filterBy.category) {
+            stays = stays.filter(stay => stay.labels.includes(filterBy.category))
+        }
     }
-    if (filterBy.adults && filterBy.children) {
-        stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
-    }
-    else if (filterBy.adults && !filterBy.children) {
-        stays = stays.filter(stay => stay.capacity >= filterBy.adults)
-    }
-    else if (!filterBy.adults && filterBy.children) {
-        stays = stays.filter(stay => stay.capacity >= filterBy.children)
-    }
-    if (filterBy.category) {
-        stays = stays.filter(stay => stay.labels.includes(filterBy.category))
-    }
-
     // stays = stays.sort((s1,s2) => s1 average rate - s2 average rate)
     // TODO : SORT BY RATE
     return stays
@@ -96,8 +81,25 @@ async function save(stay) {
 
 function getEmptyStay() {
     return {
-        name: '',
-        price: '',
+        name: "",
+        type: "",
+        imgUrls: [],
+        price: 0,
+        summary: "",
+        capacity: 0,
+        amenities: [],
+        labels: [],
+      host: {},
+      loc: {
+        country: "",
+        countryCode: "",
+        city: "",
+        address: "",
+        lat: -8.61308,
+        lng: 41.1413
+      },
+      reviews: [],
+      likedByUsers: [] // 'mini-user'
     }
 }
 

@@ -10,7 +10,7 @@
         font-size: rem(22px);
         color: $clr3;
 
-        &:hover {
+        &:hover:not(:disabled) {
             color: $clr2;
             border-color: $clr2;
         }
