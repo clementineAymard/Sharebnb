@@ -42,7 +42,7 @@ async function save(order) {
         order.buyer = userService.getLoggedinUser()
         savedOrder = await storageService.post(STORAGE_KEY, order)
     }
-    return savedStay
+    return savedOrder
 }
 
 function getEmptyOrder() {
