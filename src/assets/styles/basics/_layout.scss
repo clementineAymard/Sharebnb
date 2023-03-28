@@ -15,7 +15,6 @@
     >* {
         grid-column: 2;
         width:100%;
-        // overflow: hidden;
 
         &.full {
             grid-column: 1 /-1;
@@ -72,3 +71,4 @@
     }
 
 }
+

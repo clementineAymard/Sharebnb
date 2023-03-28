@@ -1,7 +1,7 @@
 <template>
     <section class="my-layout" :class="isDetailsClass">
         <AppHeader />
-        <RouterView /> <!--@wheel="onCloseHeader"-->
+        <RouterView class="overflow-hidden"/> <!--@wheel="onCloseHeader"-->
         <AppFooter />
         <!-- <UserMsg /> -->
     </section>
