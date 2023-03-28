@@ -88,7 +88,43 @@ export default defineComponent({
                 1500: {
                     itemsToShow: 16,
                     snapAlign: 'start',
-                }
+                },
+                1600: {
+                    itemsToShow: 17,
+                    snapAlign: 'start',
+                },
+                1700: {
+                    itemsToShow: 18,
+                    snapAlign: 'start',
+                },
+                1800: {
+                    itemsToShow: 19,
+                    snapAlign: 'start',
+                },
+                1900: {
+                    itemsToShow: 20,
+                    snapAlign: 'start',
+                },
+                2000: {
+                    itemsToShow: 21,
+                    snapAlign: 'start',
+                },
+                2100: {
+                    itemsToShow: 22,
+                    snapAlign: 'start',
+                },
+                2200: {
+                    itemsToShow: 23,
+                    snapAlign: 'start',
+                },
+                2300: {
+                    itemsToShow: 24,
+                    snapAlign: 'start',
+                },
+                2400: {
+                    itemsToShow: 24,
+                    snapAlign: 'start',
+                },
             },
             isActive: 'Trending',
             hideArrows : false
