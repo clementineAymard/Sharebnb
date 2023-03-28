@@ -1,8 +1,8 @@
  .filter-category {
-    //   padding: 0px 80px;
+     //   padding: 0px 80px;
 
      margin-top: 10px;
-    //  @include  width-padding-mqs;
+     //  @include  width-padding-mqs;
 
      button {
          cursor: pointer;
@@ -11,17 +11,25 @@
          color: $clr2;
          margin: 3px;
          font-size: 16px;
+         height: 20px;
+         width: 20px;
 
-         &.carousel__next {
+         .carousel__next {
              box-shadow: 20px 0px 18px 30px rgb(255, 255, 255);
              background-color: #fff;
-             margin-right: 35px;
+             margin-right: auto;
+
+             &:hover.carousel__prev {
+                 opacity: 1;
+
+             }
          }
 
          &.carousel__prev {
              box-shadow: -20px 0px 18px 30px rgb(255, 255, 255);
              background-color: #fff;
-             margin-left: 35px;
+             margin-left: auto;
+             //  opacity: 0;
          }
 
          &:hover {
@@ -32,13 +40,20 @@
 
      .carousel__track {
          display: flex;
-         gap: em(10px);
          margin-top: 20px;
          color: $clr3;
          gap: -80px;
-         .carousel__slide{
-            align-items: flex-start;
+
+         .carousel__slide {
+             align-items: flex-start;
+
          }
+
+         //  .carousel__item{
+         //    box-shadow: 0px -2px 0px 0px inset black
+         //  }
+
+
 
          img {
              height: 24px;
@@ -47,18 +62,22 @@
          }
 
          .nav-item {
-             text-align: center;
-             width: fit-content;
+             //  text-align: center;
              cursor: pointer;
-             flex:default;
+             //  flex: default;
 
-             &:hover p{
+             &:hover .carousel__item {
+                 // margin-block-end: 30px;
                  box-shadow: 0px -2px 0px 0px inset $clr3;
                  color: black;
-                 img{
+
+                 img {
                      opacity: 1;
                  }
              }
+             .clicked-label {
+                border-bottom: 3px solid black!important;
+            }
          }
 
          p {
@@ -70,10 +89,29 @@
 
      ol {
          list-style-type: none;
-        //    padding: 0px 80px;
+         //    padding: 0px 80px;
          height: 65px;
-        
-     }
-   
+         margin-left: -26px;
 
+         li {
+             width: fit-content;
+             margin-right: -20px;
+           
+            //  margin-left: -30px;
+
+         }
+     }
+
+     .carousel__slide.carousel__slide--visible.carousel__slide--active.nav-item {
+         width: fit-content;
+     }
+ }
+
+ .active {
+     box-shadow: 0px -2px 0px 0px inset $clr3;
+     color: black;
+ }
+ .inactive{
+    box-shadow:none;
+    color: $clr3;
  }

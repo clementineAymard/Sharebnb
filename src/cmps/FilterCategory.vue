@@ -1,7 +1,7 @@
 <template>
     <Carousel class="filter-category" :settings="settings" :breakpoints="breakpoints">
         <Slide class="nav-item" v-for="img in imgs" :key="img">
-            <div class="carousel__item" @click="setFilterBy(img.key)">
+            <div class="carousel__item" @click="setFilterBy(img.key)" :class="isActive===img.key?'active':'inactive'">
                 <img :src="img.url" :alt="img.key">
                 <p>{{ img.key }}</p>
             </div>
@@ -45,14 +45,19 @@ export default defineComponent({
                     itemsToShow: 13,
                     snapAlign: 'start',
                 }
-            }
+            },
+            isActive: ''
         }
     },
     methods: {
         setFilterBy(filterBy) {
+            this.isActive = filterBy
             this.filterBy.category = filterBy
             this.$emit('filter-by', this.filterBy);
         }
+    },
+    computed: {
+
     },
     components: {
         Carousel,

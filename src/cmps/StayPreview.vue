@@ -2,7 +2,7 @@
     <li class="stay-preview flex column" @click="handleViews">
 
         <div class="img-container">
-            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart" @click.stop="addToFavorite"></i>
             <button v-if="user && user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
@@ -13,7 +13,7 @@
 
         <div class="preview-txt">
             <!-- <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button> -->
-            <p class="bold-font">
+            <p class="bold-font address">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             <p class="rating regular-font">
                 <i class="fa-sharp fa-solid fa-star"></i>
@@ -21,7 +21,7 @@
                 <!-- ({{ stay.reviews.length }}) -->
             </p>
             </p>
-            <p class="regular-font grey">
+            <p class="regular-font grey stayName">
                 {{ stay.name }}
                 <!-- {{ stayName }} -->
             </p>
@@ -64,14 +64,18 @@ export default {
             this.$emit('updateStay', stay)
         },
         stayName() {
+
             if (this.stay.name.length > 30) {
 
-                this.stay.name.slice(0, 30) + '...'
+              this.stay.name.splice(0, 30) + '...'
             }
         },
         handleViews() {
             this.randomViews++
             this.$emit('openStayDetails', this.stay._id)
+        },
+        addToFavorite(){
+
         }
     },
     computed: {
