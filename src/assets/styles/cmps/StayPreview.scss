@@ -65,13 +65,24 @@
             -webkit-text-stroke-opacity: 1;
             -webkit-text-stroke-color: $clr5;
             z-index: 1;
-.red{
-    -webkit-text-fill-color: red; 
-}
+            
             &:before {
                 position: absolute;
                 right: 0;
             }
+        }
+        .red {
+            -webkit-text-fill-color: red;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-opacity: 1;
+            -webkit-text-stroke-color: $clr5;
+        }
+
+        .black {
+            -webkit-text-fill-color: rgba(0, 0, 0, 0.5);
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-opacity: 1;
+            -webkit-text-stroke-color: $clr5;
         }
 
         .el-carousel__container {
@@ -124,7 +135,7 @@
 
         .fa-star {
             font-size: 11px;
-           transform: translateY(-10%);
+            transform: translateY(-10%);
         }
 
         .stayName {
@@ -137,10 +148,11 @@
             grid-row: 3;
             grid-column: 1;
         }
-        .price{
+
+        .price {
             grid-row: 4;
-    grid-column: 1;
-    margin-top: 6px;
+            grid-column: 1;
+            margin-top: 6px;
         }
     }
 }
