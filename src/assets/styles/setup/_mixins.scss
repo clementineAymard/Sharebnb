@@ -1,7 +1,23 @@
 /* Media queries Breakpoint mixins */
+@mixin layoutGTC($max, $padding) {
+    grid-template-columns:
+        minmax($padding, 1fr) minmax(auto, $max) minmax($padding, 1fr);
+}
+
+@mixin for-mobile-layout-list {
+    @media (max-width: $break-mobile-list) {
+        @content;
+    }
+}
 
 @mixin for-mobile-layout {
     @media (max-width: $break-mobile) {
+        @content;
+    }
+}
+
+@mixin for-mobile-layout-list-min {
+    @media (min-width: $break-mobile-list) {
         @content;
     }
 }
@@ -29,6 +45,7 @@
         @content;
     }
 }
+
 @mixin for-normal-list-layout {
     @media (min-width: $break-normal-list) {
         @content;
@@ -41,11 +58,10 @@
     }
 }
 
-@mixin layoutGTC($max, $padding) {
-    grid-template-columns:
-        minmax($padding, 1fr) 
-        minmax(auto, $max) 
-        minmax($padding, 1fr) ;
+@mixin for-extra-wide-layout {
+    @media (min-width: $break-wide-list) {
+        @content;
+    }
 }
 
 /* Media  Mixins */
@@ -92,11 +108,11 @@
     z-index: 1;
     position: relative;
 }
-@mixin  filter-hover {
+
+@mixin filter-hover {
     background-color: $clr4;
     border-radius: 50px;
     box-shadow: none;
     z-index: 1;
     position: relative;
 }
-

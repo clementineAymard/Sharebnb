@@ -43,7 +43,7 @@
             top: 15px;
             left: 15px;
             border: 1px solid $clr2;
-            font-size: 21px;
+            font-size: rem(21px);
             opacity: 1.5;
             z-index: 1;
         }
@@ -58,7 +58,7 @@
             transition: transform 0.25s ease;
             top: 16px;
             right: 16px;
-            font-size: 21px;
+            font-size: rem(21px);
             opacity: 1;
             -webkit-text-fill-color: rgba(0, 0, 0, 0.5);
             -webkit-text-stroke-width: 1px;
@@ -101,7 +101,7 @@
         p {
             margin: 0;
             padding: 0;
-            font-size: 15px;
+            font-size: rem(15px);
             text-align: left;
             overflow: hidden;
             white-space: nowrap;
@@ -123,7 +123,7 @@
         }
 
         .fa-star {
-            font-size: 11px;
+            font-size: rem(11px);
            transform: translateY(-10%);
         }
 

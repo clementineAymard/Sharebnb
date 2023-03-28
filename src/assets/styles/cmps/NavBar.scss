@@ -9,15 +9,17 @@ nav {
         height: 0;
         opacity: 0;
     }
-
+    @include for-extra-wide-layout {
+        flex-grow: 1;
+    }
     .links {
         justify-content: end;
 
         .link-add-stay {
             color: $clr2;
-            font-size: 14px;
+            font-size: rem(14px);
             font-family: airbnb_medium;
-            padding: 12px 15px;
+            padding: rem(12px) rem(15px);
             border-radius: 28px;
             width: max-content;
 

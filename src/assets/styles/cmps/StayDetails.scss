@@ -63,7 +63,7 @@ h1 {
 
 .stay-details1 .font-md {
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    font-size: 14px;
+    font-size: rem(14px);
     position: relative;
     font-weight: 600;
 }
@@ -96,7 +96,7 @@ element.style {
     fill: currentColor;
 }
 
-:not(svg) {
+.stay-details :not(svg) {
     transform-origin: 0px 0px;
 }
 
@@ -115,7 +115,7 @@ element.style {
     // padding: 8px;
     border-radius: 8px;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    font-size: 14px;
+    font-size: rem(14px);
     position: relative;
     font-weight: 600;
 }
@@ -503,7 +503,7 @@ button {
     padding: 0;
     margin: 0;
     color: #fff;
-    font-size: 16px;
+    font-size: rem(16px);
     line-height: 20px;
 }
 

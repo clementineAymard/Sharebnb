@@ -14,7 +14,7 @@
 
     >span {
         font-family: airbnb_medium;
-        font-size: 14px;
+        font-size: rem(14px);
         padding-block: 40px;
         align-self: flex-start;
     }
@@ -61,7 +61,7 @@
 
             span {
                 font-family: cereal;
-                font-size: 14px;
+                font-size: rem(14px);
             }
         }
     }
