@@ -1,7 +1,7 @@
 <template>
     <section class="explore">
-        <FilterCategory />
-        
+        <FilterCategory @filterBy="onFilterBy" />
+
         <h3 v-if="stays.length">Found {{ stayNumber }} home<span v-if="stays.length > 1">s</span></h3>
         <h3 v-else>No results found for this search.</h3>
 
@@ -23,15 +23,23 @@ export default {
         }
     },
     methods: {
-
+        // filterBy(filterBy) {
+        //     console.log('Selected category:', filterBy)
+        //     this.$store.dispatch({ type: 'loadStays', filterBy })
+        // },
+        onFilterBy(filter) {
+            console.log('filterrrr');
+            console.log('Selected category:', filter)
+            this.$store.dispatch({ type: 'loadStays', filterBy: filter })
+        }
     },
     computed: {
-        stays(){
+        stays() {
             return this.$store.getters.stays
         },
         stayNumber() {
             if (this.stays)
-            return new Intl.NumberFormat().format(this.stays.length)
+                return new Intl.NumberFormat().format(this.stays.length)
         }
     },
     created() {
