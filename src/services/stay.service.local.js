@@ -3,6 +3,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import staysDevDB from "./../../src/data/stays-dev.json" assert { type: "json" }
+import staysDB from "./../../src/data/stays.json" assert { type: "json" }
 
 
 const STORAGE_KEY = 'stay'
@@ -208,8 +209,8 @@ function getLabels() {
 
   
 //   TEST DATA
-//   ;(async ()=>{
-//       await utilService.saveToStorage(STORAGE_KEY, staysDevDB)
+//   ;(()=>{
+//        utilService.saveToStorage(STORAGE_KEY, staysDB)
 //   })()
   
   // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore

@@ -659,16 +659,16 @@ button {
     .stay-details1 > *{
         
         @include for-mobile-layout {
-            width: calc(100vw - 2 * $layoutPaddingSmall - 20px);
+            width: calc(100vw - 2 * $layoutPaddingSmall - 16px);
         }
         
         @include for-mobile-layout-min {
-            width: calc(100vw - 2 * $layoutPaddingLarge - 20px);
+            width: calc(100vw - 2 * $layoutPaddingLarge - 16px);
         }
         
         
         @include for-normal-layout {
-            width: calc(100vw - 4 * $layoutPaddingLarge - 20px);
+            width: calc(100vw - 4 * $layoutPaddingLarge - 16px);
         }
     }
 }
