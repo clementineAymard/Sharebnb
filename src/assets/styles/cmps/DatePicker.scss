@@ -11,7 +11,9 @@
 
 }
 
-// inset: 209px auto auto 5px; in : .el-popper.is-pure.is-light.el-picker__popper
+[class^='el-popper-container-']>div.el-popper.is-pure.is-light.el-picker__popper {
+    inset: 209px auto auto 5px;
+}
 .el-date-editor .el-range__icon {
     width: 3em !important;
 }

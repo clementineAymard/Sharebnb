@@ -1,6 +1,5 @@
 <template>
     <div class="date-picker flex ">
-        <!-- <v-date-picker v-model="dates" range reactive></v-date-picker> -->
         <el-date-picker ref="calendar" v-model="dates" type="daterange"/>
     </div> 
 </template>

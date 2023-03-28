@@ -2,7 +2,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-import staysDB from "./../../src/data/stays.json" assert { type: "json" }
+import staysDevDB from "./../../src/data/stays-dev.json" assert { type: "json" }
 
 
 const STORAGE_KEY = 'stay'
@@ -148,7 +148,7 @@ function getLabels() {
           url: 'https://a0.muscache.com/pictures/eb7ba4c0-ea38-4cbb-9db6-bdcc8baad585.jpg',
       },
       {
-          key: 'Private',
+          key: 'Amazing',
           url: 'https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg',
       },
       {
@@ -209,7 +209,7 @@ function getLabels() {
   
 //   TEST DATA
 //   ;(async ()=>{
-//       await utilService.saveToStorage(STORAGE_KEY, staysDB)
+//       await utilService.saveToStorage(STORAGE_KEY, staysDevDB)
 //   })()
   
   // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
