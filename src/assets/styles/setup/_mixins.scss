@@ -1,70 +1,87 @@
 /* Media queries Breakpoint mixins */
 
 @mixin for-mobile-layout {
-    @media (max-width: $break-narrow) {
-      @content;
+    @media (max-width: $break-mobile) {
+        @content;
     }
-  }
-  
-  @mixin for-narrow-layout {
+}
+
+@mixin for-mobile-layout-min {
+    @media (min-width: $break-mobile) {
+        @content;
+    }
+}
+
+@mixin for-narrow-layout {
     @media (min-width: $break-narrow) {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin for-normal-layout {
+}
+
+@mixin for-medium-layout {
+    @media (min-width: $break-medium) {
+        @content;
+    }
+}
+
+@mixin for-normal-layout {
     @media (min-width: $break-normal) {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin for-wide-layout {
+}
+
+@mixin for-wide-layout {
     @media (min-width: $break-wide) {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin layoutGTC($max) {
+}
+
+@mixin layoutGTC($max, $padding) {
     grid-template-columns:
-      minmax($layoutPadding, 1fr)
-      minmax(auto, $max)
-      minmax($layoutPadding, 1fr);
-  }
-// @mixin for-mobile-layout {
-//     @media (max-width: calc($mobile-breakpoint)) {
-//         @content;
-//     }
-// }
+        minmax($padding, 1fr) 
+        minmax(auto, calc($max - 2 * $padding)) 
+        minmax($padding, 1fr);
+}
 
-// @mixin for-narrow-layout {
-//     @media (min-width: calc($mobile-breakpoint)) {
-//         @content;
-//     }
-// }
 
-// @mixin for-medium-layout {
-//     @media (min-width: calc($medium-breakpoint)) {
-//         @content;
-//     }
-// }
 
-// @mixin for-normal-layout {
-//     @media (min-width: calc($normal-breakpoint)) {
-//         @content;
-//     }
-// }
+// ///////////// FOR STAY LIST //////////////////
 
-// @mixin for-wide-layout {
-//     @media (min-width: calc($normal-breakpoint)) {
-//         @content;
-//     }
-// }
+@mixin for-grid-mobile-layout {
+    @media (max-width: calc($mobile-breakpoint)) {
+        @content;
+    }
+}
 
-// @mixin for-extra-wide-layout {
-//     @media (min-width: calc($max-width-breakpoint)) {
-//         @content;
-//     }
-// }
+@mixin for-grid-narrow-layout {
+    @media (min-width: calc($grid-mobile-breakpoint)) {
+        @content;
+    }
+}
+
+@mixin for-grid-medium-layout {
+    @media (min-width: calc($grid-narrow-breakpoint)) {
+        @content;
+    }
+}
+
+@mixin for-grid-normal-layout {
+    @media (min-width: calc($grid-medium-breakpoint)) {
+        @content;
+    }
+}
+
+@mixin for-grid-wide-layout {
+    @media (min-width: calc($grid-normal-breakpoint)) {
+        @content;
+    }
+}
+
+@mixin for-grid-extra-wide-layout {
+    @media (min-width: calc($grid-large-breakpoint)) {
+        @content;
+    }
+}
 
 
 

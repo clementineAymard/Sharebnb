@@ -29,10 +29,12 @@ export function getActionAddOrderMsg(orderId) {
 
 export const orderStore = {
     state: {
-        orders: []
+        orders: [],
+        currOrder: {}
     },
     getters: {
         orders({ orders }) { return orders },
+        currOrder({ currOrder }) { return currOrder }
     },
     mutations: {
         setOrders(state, { orders }) {
@@ -40,6 +42,7 @@ export const orderStore = {
         },
         addOrder(state, { order }) {
             state.orders.push(order)
+            state.currOrder = order
         },
         updateOrder(state, { order }) {
             const idx = state.orders.findIndex(c => c._id === order._id)

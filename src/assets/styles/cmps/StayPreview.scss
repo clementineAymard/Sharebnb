@@ -3,102 +3,110 @@
     justify-items: start;
     color: $clr2;
     cursor: pointer;
-}
+    height: fit-content;
 
-.img-container {
-    margin-top: 26px;
-    position: relative;
-    margin-bottom: 12px;
-    border-radius: em(10px);
-    @include aspect-ratio(1, 1);
-    // aspect-ratio: 1.0550819672/1;
+    .img-container {
+        margin-top: 26px;
+        position: relative;
+        margin-bottom: 12px;
+        border-radius: em(10px);
+
+        @include aspect-ratio(1, 1);
+        // aspect-ratio: 1.0550819672/1;
 
 
-    &:hover .el-carousel__arrow {
-        background-color: $clr4;
-        color: $clr2;
-    }
+        &:hover .el-carousel__arrow {
+            background-color: $clr4;
+            color: $clr2;
+        }
 
-    .el-carousel {
-        overflow: hidden;
-    }
+        .el-carousel {
+            overflow: hidden;
+        }
 
-    .stay-img {
-        top: 0;
-        left: 0;
-        border-radius: 10px;
-        width: 100%;
-        height: 100%;
-        display: block;
-        z-index: -1;
-        object-fit: cover;
-    }
+        .stay-img {
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: -1;
+            object-fit: cover;
+        }
 
-    .remove-stay {
-        position: absolute;
-        color: $clr2;
-        height: 30px;
-        margin: 3px;
-        padding: 3px;
-        top: 15px;
-        left: 15px;
-        border: 1px solid $clr2;
-        font-size: 21px;
-        opacity: 1.5;
-        z-index: 1;
-    }
-
-    .fa-heart {
-        position: absolute;
-        display: block;
-        height: 21px;
-        margin: -2px 0px 0px;
-        padding: 2px 0px 0px;
-        background-color: transparent;
-        transition: transform 0.25s ease;
-        top: 12px;
-        right: 12px;
-        font-size: 21px;
-        opacity: 0.6;
-        -webkit-text-fill-color: $clr3;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $clr4;
-        z-index: 1;
-
-        &:before {
+        .remove-stay {
             position: absolute;
-            right: 0;
+            color: $clr2;
+            height: 30px;
+            margin: 3px;
+            padding: 3px;
+            top: 15px;
+            left: 15px;
+            border: 1px solid $clr2;
+            font-size: 21px;
+            opacity: 1.5;
+            z-index: 1;
+        }
+
+        .fa-heart {
+            position: absolute;
+            display: block;
+            height: 21px;
+            margin: -2px 0px 0px;
+            padding: 2px 0px 0px;
+            background-color: transparent;
+            transition: transform 0.25s ease;
+            top: 12px;
+            right: 12px;
+            font-size: 21px;
+            opacity: 0.6;
+            -webkit-text-fill-color: $clr3;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: $clr4;
+            z-index: 1;
+
+            &:before {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        .el-carousel__container {
+            position: relative;
+        }
+
+        .el-carousel__button {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+
         }
     }
-}
 
-.update-btn {
-    color: #252525;
-    border: 1px solid $clr2;
-}
-
-.rating {
-    float: right;
-    // text-align: right;
-
-}
-
-.preview-txt {
-    p {
-        margin: 0;
-        padding: 0;
-        font-size: 15px;
-        text-align: left
+    .update-btn {
+        color: #252525;
+        border: 1px solid $clr2;
     }
 
-    .fa-star {
-        font-size: 11px;
-    }
-}
 
-.el-carousel__button {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    .preview-txt {
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            text-align: left
+        }
+
+        .rating {
+            float: right;
+            // text-align: right;
+
+        }
+
+        .fa-star {
+            font-size: 11px;
+        }
+    }
 
 }

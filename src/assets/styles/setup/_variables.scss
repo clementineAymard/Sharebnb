@@ -7,19 +7,47 @@ $clr5: #f7f7f7;
 $clr6: #fff;
 
 // Breakpoints
-// $mobile-breakpoint: calc(735px - 20px);
-// $narrow-breakpoint: calc(950px - 20px);
-// $medium-breakpoint: calc(1128px - 20px); 
-// $normal-breakpoint: calc(1440px - 20px);
-// $max-width-breakpoint : 1760px;
-// // $normal-breakpoint: 2360px;
+$grid-mobile-breakpoint: 550px;
+$grid-narrow-breakpoint: 950px;
+$grid-medium-breakpoint: 1128px;
+$grid-normal-breakpoint: 1640px;
+$grid-large-breakpoint : 1880px;
 
 // //Paddings
 // $small_padding-inline: 24px;
 // $medium_padding-inline: 40px;
 // $large_padding-inline: 80px;
-
-$break-narrow: 1200px;
+$break-mobile: 750px;
+$break-narrow: 950px;
+$break-medium: 1130px;
 $break-normal: 1360px;
-$break-wide: 1920px;
-$layoutPadding: 20px;
+$break-wide: 1720px;
+
+$layoutPadding: 40px;
+$layoutPaddingSmall: 24px;
+$layoutPaddingLarge: 80px;
+
+$row-gap: 40px;
+$col-gap: 24px;
+
+// $break-grid-col: 1;
+
+// @include for-grid-narrow-layout {
+//     $break-grid-col: 2;
+// }
+
+// @include for-grid-medium-layout {
+//     $break-grid-col: 3;
+// }
+
+// @include for-grid-normal-layout {
+//     $break-grid-col: 4;
+// }
+
+// @include for-grid-wide-layout {
+//     $break-grid-col: 5;
+// }
+
+// @include for-grid-extra-wide-layout {
+//     $break-grid-col: 6;
+// }
