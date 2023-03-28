@@ -28,7 +28,7 @@ body {
 
 .main-layout .stay-details1 {
     max-width: 1127px;
-
+    
     @include for-wide-layout {
         max-width: 1280px;
         ;
@@ -173,7 +173,7 @@ element.style {
 }
 
 .stay-details1 .images-container {
-    margin-top: 17px;
+    margin-top: 22px;
 }
 
 .stay-details1 .images-container :first-child {
@@ -194,7 +194,7 @@ img {
 
 .stay-details1 .mid-section {
     display: grid;
-    grid-template-columns: 1.45fr 1fr;
+    grid-template-columns: 1.23fr 1fr;
 }
 
 .flex.justify-between {
@@ -240,8 +240,8 @@ h2 {
 }
 
 .stay-details1 .more-details .heading img {
-    height: 56px;
-    width: 66px;
+    height: 62px;
+    width: 62px;
     border-radius: 50%;
     padding: 3px;
 }
@@ -250,6 +250,7 @@ h2 {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #ddd;
+    // padding-top:32px;
 }
 
 .stay-details1 .more-details .divider {
@@ -636,6 +637,21 @@ button {
     padding-top: 32px;
     padding-bottom: 32px;
 }
+
+.stay-details1 .reviews .reviews-container .show-all-btn {
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    transition: box-shadow .2s ease,transform .1s ease;
+    border-color: #222;
+    padding: 13px 23px;
+    max-width: fit-content;
+    margin-top: 24px;
+}
+
+
+
+
 
 .stay-details {
     padding: 0;
