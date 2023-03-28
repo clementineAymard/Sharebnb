@@ -43,11 +43,9 @@
 
 @mixin layoutGTC($max, $padding) {
     grid-template-columns:
-        $padding 
-        // minmax($padding, 1fr) 
-        minmax(auto, calc($max - 2 * $padding)) 
-        // minmax($padding, 1fr)
-        $padding ;
+        minmax($padding, 1fr) 
+        minmax(auto, $max) 
+        minmax($padding, 1fr) ;
 }
 
 /* Media  Mixins */

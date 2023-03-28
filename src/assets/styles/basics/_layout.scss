@@ -7,10 +7,6 @@
         max-width: 2600px;
         margin: auto;
 
-        // >*.full {
-        //     width:calc(100% - 20px);
-        // }
-
         >*:not(.full) {
             max-width: 2420px;
         }

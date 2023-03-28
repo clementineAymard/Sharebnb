@@ -23,27 +23,6 @@
         z-index: 4;
         width: 100%;
         margin: auto;
-
-        @include for-mobile-layout {
-            width: calc(100vw - 2 * $layoutPaddingSmall - 16px);
-        }
-    
-        @include for-mobile-layout-min {
-            width: calc(100vw - 2 * $layoutPadding - 16px);
-        }
-    
-        @include for-normal-layout {
-            width: calc(100vw - 2 * $layoutPaddingLarge - 16px);
-        }
-    
-        &.margin-details-page{
-            @include for-mobile-layout-min {
-                width: calc(100vw - 2 * $layoutPaddingLarge - 16px);
-            }
-            @include for-normal-layout {
-                width: calc(100vw - 4 * $layoutPaddingLarge - 16px);
-            }
-        }
     }
 
     &.margin-details-page {
