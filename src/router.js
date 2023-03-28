@@ -56,8 +56,13 @@ const routes = [
   {
     path: '/user/:id',
     name: 'UserDetails',
+    component: UserDetails
+  },
+  {
+    path: '/user/:id/wishlist',
+    name: 'WishList',
     component: WishList
-  }
+  },
 ]
 
 

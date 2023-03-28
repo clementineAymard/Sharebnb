@@ -1,6 +1,6 @@
 <template>
     <section class="wish-list">
-        <h1 class="header-wish-list medium-font">Wishlist</h1>
+        <h1 class="header-wish-list medium-font">Wishlists</h1>
         <div class="preview-wish-list">
             <div class="container-wish-list">
                 <div class="imgs-wish-list">
