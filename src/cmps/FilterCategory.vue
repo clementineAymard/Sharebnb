@@ -1,10 +1,12 @@
 <template>
-    <Carousel class="filter-category" :settings="settings" :breakpoints="breakpoints">
-        <Slide class="nav-item" v-for="img in imgs" :key="img">
-            <div class="carousel__item" @click="setFilterBy(img.key)" :class="isActive===img.key?'active':'inactive'">
+    <Carousel class="filter-category" :settings="settings" :breakpoints="breakpoints" :start="0"
+        @before-slide="handleBeforeSlide" :hide-arrows="hideArrows">
+        <Slide class="nav-item" v-for="(img, index) in imgs" :key="index">
+            <div class="carousel__item" @click="setFilterBy(img.key)" :class="isActive === img.key ? 'active' : 'inactive'">
                 <img :src="img.url" :alt="img.key">
                 <p>{{ img.key }}</p>
             </div>
+
         </Slide>
         <template #addons>
             <!-- :nextLabel="'>'" :prevLabel="'<'" -->
@@ -30,11 +32,15 @@ export default defineComponent({
             imgs: stayService.getLabels(),
             settings: {
                 itemsToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
+                // slidesToScroll: 12,
+                // infinite: true,
                 snapAlign: 'center',
             },
             breakpoints: {
+                300: {
+                    itemsToShow: 5,
+                    snapAlign: 'center',
+                },
                 // 700px and up
                 700: {
                     itemsToShow: 8,
@@ -46,7 +52,8 @@ export default defineComponent({
                     snapAlign: 'start',
                 }
             },
-            isActive: ''
+            isActive: '',
+            hideArrows : false
         }
     },
     methods: {
@@ -54,7 +61,17 @@ export default defineComponent({
             this.isActive = filterBy
             this.filterBy.category = filterBy
             this.$emit('filter-by', this.filterBy);
-        }
+        },
+        handleBeforeSlide(index) {
+            if (index === 0) {
+                this.hideArrows = true; // hide left arrow on first slide
+            } else if (index === this.imgs.length - 1) {
+                this.hideArrows = true; // hide right arrow on last slide
+            } else {
+                this.hideArrows = false; // show both arrows on other slides
+            }
+
+        },
     },
     computed: {
 

@@ -15,21 +15,24 @@
             <!-- <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button> -->
             <p class="bold-font address">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
+            </p>
             <p class="rating regular-font">
                 <i class="fa-sharp fa-solid fa-star"></i>
                 {{ getRate }} 
                 <!-- ({{ stay.reviews.length }}) -->
             </p>
-            </p>
             <p class="regular-font grey stayName">
                 {{ stay.name }}
                 <!-- {{ stayName }} -->
             </p>
-            <p class="regular-font beds grey" v-if="stay.capacity > 1 && stay.bedrooms > 1"> {{ stay.capacity }} beds , {{ stay.bedrooms }}
-                rooms</p>
-            <p v-else="stay.capacity===1" class="regular-font grey">{{ stay.capacity }} bed, {{ stay.bedrooms }} rooms</p>
-            <p v-else="stay.bedrooms===1" class="regular-font grey">{{ stay.capacity }} beds, {{ stay.bedrooms }} room</p>
-            <p class="medium-font">
+            <div class="beds">
+
+                <p class="regular-font beds grey" v-if="stay.capacity > 1 && stay.bedrooms > 1"> {{ stay.capacity }} beds , {{ stay.bedrooms }}
+                    rooms</p>
+                <p v-else="stay.capacity===1" class="regular-font grey">{{ stay.capacity }} bed, {{ stay.bedrooms }} rooms</p>
+                <p v-else="stay.bedrooms===1" class="regular-font grey">{{ stay.capacity }} beds, {{ stay.bedrooms }} room</p>
+            </div>
+            <p class="medium-font price">
                 ${{ stay.price }} <span class="regular-font"> night</span>
             </p>
         </div>
