@@ -18,11 +18,11 @@
                             </section>
                             3.73
                         </span>
-                        <span>·</span>
-                        <span class="rev-count link font-md"> {{ stay.reviews.length }} reviews</span>
+                        <span> · </span>
+                        <span class="rev-count link font-md"> {{ stay.reviews.length }} reviews </span>
                     </div>
                     <span>·</span>
-                    <span class="address link font-md">{{ stay.loc.city }} , {{ stay.loc.country }}
+                    <span class="address link font-md"> {{ stay.loc.city }} , {{ stay.loc.country }}
                     </span>
                 </div>
                 <div class="save-stay flex btn">
@@ -393,7 +393,7 @@
                                     <img
                                         src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg">
                                     <div class="flex column">
-                                        <span class="name font-md">{{ stay.reviews.fullname }}</span>
+                                        <span class="name font-md">{{ review.fullname }}</span>
                                         <span class="subtitle fs14">July 2016</span>
                                     </div>
                                 </div>
@@ -415,87 +415,6 @@
                                     or another appartment.
                                 </div>
                             </li>
-                            <!-- <li>
-                                <div class="title flex">
-                                    <img
-                                        src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg">
-                                    <div class="flex column">
-                                        <span class="name font-md">Rafaela</span>
-                                        <span class="subtitle fs14">jul 2016</span>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    Host: Davit gave us a warm welcome and treated us kindly from the very beginning. She
-                                    offered us help, told us what to visit and even put water, milk and orange juice in the
-                                    fridge! We could have breakfast at her place which was perfect because she has a little
-                                    sweet balcony!
-                                    Location: calmly situated in a side street, very near to the Placa Catalunya, the Rambla
-                                    and the gothic area of Barcelona (very beautiful:) so you have the old cultural center
-                                    as well as all the restaurants and bars just nearby.
-                                    House/Room: the appartment is not a huge, but I think you have everything you need
-                                    (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment with
-                                    Marian so pay attention and don't be too loud in the evening!!
-                                    disadvantage: the heat is terrible in summer and there is no air-condition..
-
-                                    I would overall recommend it to everybody!! But if you want to party and stay up late,
-                                    take a hostel
-                                    or another appartment.
-                                </div>
-                            </li>
-                            <li>
-                                <div class="title flex">
-                                    <img
-                                        src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg">
-                                    <div class="flex column">
-                                        <span class="name font-md">Rafaela</span>
-                                        <span class="subtitle fs14">jul 2016</span>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    Host: Davit gave us a warm welcome and treated us kindly from the very beginning. She
-                                    offered us help, told us what to visit and even put water, milk and orange juice in the
-                                    fridge! We could have breakfast at her place which was perfect because she has a little
-                                    sweet balcony!
-                                    Location: calmly situated in a side street, very near to the Placa Catalunya, the Rambla
-                                    and the gothic area of Barcelona (very beautiful:) so you have the old cultural center
-                                    as well as all the restaurants and bars just nearby.
-                                    House/Room: the appartment is not a huge, but I think you have everything you need
-                                    (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment with
-                                    Marian so pay attention and don't be too loud in the evening!!
-                                    disadvantage: the heat is terrible in summer and there is no air-condition..
-
-                                    I would overall recommend it to everybody!! But if you want to party and stay up late,
-                                    take a hostel
-                                    or another appartment.
-                                </div>
-                            </li>
-                            <li>
-                                <div class="title flex">
-                                    <img
-                                        src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg">
-                                    <div class="flex column">
-                                        <span class="name font-md">Rafaela</span>
-                                        <span class="subtitle fs14">jul 2016</span>
-                                    </div>
-                                </div>
-                                <div class="txt">
-                                    Host: Davit gave us a warm welcome and treated us kindly from the very beginning. She
-                                    offered us help, told us what to visit and even put water, milk and orange juice in the
-                                    fridge! We could have breakfast at her place which was perfect because she has a little
-                                    sweet balcony!
-                                    Location: calmly situated in a side street, very near to the Placa Catalunya, the Rambla
-                                    and the gothic area of Barcelona (very beautiful:) so you have the old cultural center
-                                    as well as all the restaurants and bars just nearby.
-                                    House/Room: the appartment is not a huge, but I think you have everything you need
-                                    (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment with
-                                    Marian so pay attention and don't be too loud in the evening!!
-                                    disadvantage: the heat is terrible in summer and there is no air-condition..
-
-                                    I would overall recommend it to everybody!! But if you want to party and stay up late,
-                                    take a hostel
-                                    or another appartment.
-                                </div>
-                            </li> -->
                         </div>
                         <div class="show-all-btn font-md btn"> Show all reviews
                         </div>
@@ -527,7 +446,6 @@
                     </div>
                   </div>
                 </div>
-
         </section>
     </section>
 </template>
@@ -574,18 +492,13 @@ export default {
                 await this.$store.dispatch({ type: 'addOrder', order })
                 console.log('this.$store.getters.currOrder._id', this.$store.getters.currOrder._id)
                 const orderId = this.$store.getters.currOrder._id
+                this.$router.push('/order/' + orderId)
             }
             catch {
                 console.log('Error on details');
             }
           
-            // this.$router.push('/order/' + orderId)
-            // 1. create order : order service getEmptyOrder() 
-            // 2. fill the order with relevant info 
-            // this.$route.query : {loc: .., adults:..., infants:...}
-            // this.$store.dispatch({type: 'addOrder', order})
-            // orderId = this.$store.getters.currOrder
-            // this.$router.push('/order/' + orderId)
+      
         }
     },
     computed: {

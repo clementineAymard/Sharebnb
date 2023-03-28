@@ -209,8 +209,8 @@ function getLabels() {
 
   
 //   TEST DATA
-//   ;(()=>{
-//        utilService.saveToStorage(STORAGE_KEY, staysDB)
+//   ;(async ()=>{
+//       await utilService.saveToStorage(STORAGE_KEY, staysDB)
 //   })()
   
   // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
