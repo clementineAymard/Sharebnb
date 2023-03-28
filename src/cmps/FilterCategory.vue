@@ -41,15 +41,52 @@ export default defineComponent({
                     itemsToShow: 5,
                     snapAlign: 'center',
                 },
-
-                // 700px and up
+                400: {
+                    itemsToShow: 5,
+                    snapAlign: 'center',
+                },
+                500: {
+                    itemsToShow: 6,
+                    snapAlign: 'center',
+                },
+                600: {
+                    itemsToShow: 7,
+                    snapAlign: 'center',
+                },
                 700: {
                     itemsToShow: 8,
                     snapAlign: 'center',
                 },
-                // 1024 and up
-                1024: {
+                800: {
+                    itemsToShow: 9,
+                    snapAlign: 'start',
+                },
+                900: {
+                    itemsToShow: 10,
+                    snapAlign: 'start',
+                },
+                1000: {
+                    itemsToShow: 11,
+                    snapAlign: 'start',
+                },
+                1100: {
+                    itemsToShow: 12,
+                    snapAlign: 'start',
+                },
+                1200: {
                     itemsToShow: 13,
+                    snapAlign: 'start',
+                },
+                1300: {
+                    itemsToShow: 14,
+                    snapAlign: 'start',
+                },
+                1400: {
+                    itemsToShow: 15,
+                    snapAlign: 'start',
+                },
+                1500: {
+                    itemsToShow: 16,
                     snapAlign: 'start',
                 }
             },
