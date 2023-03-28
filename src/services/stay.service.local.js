@@ -148,7 +148,7 @@ function getLabels() {
           url: 'https://a0.muscache.com/pictures/eb7ba4c0-ea38-4cbb-9db6-bdcc8baad585.jpg',
       },
       {
-          key: 'Private',
+          key: 'Amazing',
           url: 'https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg',
       },
       {
