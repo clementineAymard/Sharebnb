@@ -87,7 +87,9 @@ h1 {
 }
 
 .stay-details1 .font-md {
-    font-family: cereal;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    position: relative;
     font-weight: 600;
 }
 
@@ -137,7 +139,10 @@ element.style {
     gap: 7px;
     // padding: 8px;
     border-radius: 8px;
-    font-family: sans-serif;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    position: relative;
+    font-weight: 600;
 }
 
 .btn {
@@ -195,6 +200,10 @@ img {
 .stay-details1 .mid-section {
     display: grid;
     grid-template-columns: 1.23fr 1fr;
+}
+
+section {
+    padding: 5px;
 }
 
 .flex.justify-between {
