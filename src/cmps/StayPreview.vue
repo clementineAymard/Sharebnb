@@ -2,7 +2,7 @@
     <li class="stay-preview flex column" @click="handleViews">
 
         <div class="img-container">
-            <i class="fa-solid fa-heart" @click.stop="addToFavorite"></i>
+            <i class="fa-solid fa-heart" @click.stop="addToFavorite" :class="(isFavorite) ? 'red' : ''"></i>
             <button v-if="user && user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
@@ -18,7 +18,7 @@
             </p>
             <p class="rating regular-font">
                 <i class="fa-sharp fa-solid fa-star"></i>
-                {{ stay.rate }} 
+                {{ stay.rate }}
                 <!-- ({{ stay.reviews.length }}) -->
             </p>
             <p class="regular-font grey stayName">
@@ -27,10 +27,13 @@
             </p>
             <div class="beds">
 
-                <p class="regular-font beds grey" v-if="stay.capacity > 1 && stay.bedrooms > 1"> {{ stay.capacity }} beds , {{ stay.bedrooms }}
+                <p class="regular-font beds grey" v-if="stay.capacity > 1 && stay.bedrooms > 1"> {{ stay.capacity }} beds ,
+                    {{ stay.bedrooms }}
                     rooms</p>
-                <p v-else="stay.capacity===1" class="regular-font grey">{{ stay.capacity }} bed, {{ stay.bedrooms }} rooms</p>
-                <p v-else="stay.bedrooms===1" class="regular-font grey">{{ stay.capacity }} beds, {{ stay.bedrooms }} room</p>
+                <p v-else="stay.capacity===1" class="regular-font grey">{{ stay.capacity }} bed, {{ stay.bedrooms }} rooms
+                </p>
+                <p v-else="stay.bedrooms===1" class="regular-font grey">{{ stay.capacity }} beds, {{ stay.bedrooms }} room
+                </p>
             </div>
             <p class="medium-font price">
                 ${{ stay.price }} <span class="regular-font"> night</span>
@@ -50,7 +53,7 @@ export default {
     props: { stay: Object },
     data() {
         return {
-
+            isFavorite: false,
             randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             intervalNum: parseInt(0),
             // user: this.$store.getters.loggedinUser
@@ -68,15 +71,15 @@ export default {
 
             if (this.stay.name.length > 30) {
 
-              this.stay.name.splice(0, 30) + '...'
+                this.stay.name.splice(0, 30) + '...'
             }
         },
         handleViews() {
             this.randomViews++
             this.$emit('openStayDetails', this.stay._id)
         },
-        addToFavorite(){
-
+        addToFavorite() {
+            this.isFavorite = !this.isFavorite
         }
     },
     computed: {

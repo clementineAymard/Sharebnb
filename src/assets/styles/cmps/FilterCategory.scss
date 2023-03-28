@@ -2,7 +2,13 @@
      //   padding: 0px 80px;
 
      margin-top: 10px;
+
      //  @include  width-padding-mqs;
+     .carousel__next--disabled,
+     .carousel__prev--disabled {
+         display: none;
+         opacity: 0.5;
+     }
 
      button {
          cursor: pointer;

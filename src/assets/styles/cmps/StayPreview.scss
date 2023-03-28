@@ -65,7 +65,9 @@
             -webkit-text-stroke-opacity: 1;
             -webkit-text-stroke-color: $clr5;
             z-index: 1;
-
+.red{
+    -webkit-text-fill-color: red; 
+}
             &:before {
                 position: absolute;
                 right: 0;
@@ -118,14 +120,12 @@
             grid-row: 1;
             grid-column: 2;
             text-align: right;
-
         }
 
         .fa-star {
             font-size: 11px;
-            // margin-right: 5px;
+           transform: translateY(-10%);
         }
-
 
         .stayName {
             grid-row: 2;
