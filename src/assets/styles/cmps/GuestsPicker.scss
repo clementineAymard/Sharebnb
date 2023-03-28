@@ -1,15 +1,15 @@
 .guests-picker {
     position: absolute;
-    left: 0;
-    top: 112%;
+    right: 0;
+    top: 120%;
     z-index: 5;
-    background-color: $clr5;
+    background-color: $clr6;
     border-radius: 32px;
-    border: solid 1px $clr4;
+    border: none;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
     width: fit-content;
     height: fit-content;
-    padding: 1rem 2rem;
+    padding: 1rem 2.3rem;
 
     .adults,
     .children,
@@ -17,7 +17,7 @@
         text-align: start;
         padding-block: 1.5rem;
         height: fit-content;
-        width: 326px;
+        width: 330px;
         border-block-end: solid 1px $clr4;
 
         >div:first-child {
@@ -27,7 +27,7 @@
                 font-size: 1rem;
                 font-family: airbnb_medium;
                 color: $clr2;
-
+                margin-block-end: 6px;
             }
 
             .description {
