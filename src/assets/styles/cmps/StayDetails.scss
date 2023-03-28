@@ -5,6 +5,47 @@ body {
 .main-container {
     display: block;
 }
+// ////////////////////////////////////////////////////////////////////////
+.my-layout.narrow {
+    grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr)!important;
+    padding: 0;
+    display: grid;
+}
+
+.home {
+    /* width: calc(100vw - 80px - 20px); */
+    width: 100%;
+    overflow: hidden;
+}
+
+.stay-details .stay-details1 > * {
+    // width: calc(100vw - 160px - 20px);
+    // width: 100%;
+}
+
+.main-layout .stay-details1 {
+    // max-width: 1127px;
+}
+
+.stay-details1 .reservation {
+    position: sticky;
+    top: 32px;
+}
+
+.stay-details1 .font-thin {
+    // font-family: cereal-light; 
+}
+
+
+
+
+
+
+
+// ////////////////////////////////////////////////////////////////////////
+
+
+
 
 .main-layout.smaller-layout {
     grid-template-columns: 80px 1fr 80px;
@@ -27,7 +68,7 @@ body {
 // }
 
 .main-layout .stay-details1 {
-    max-width: 1127px;
+    // max-width: 1127px;
     
     @include for-wide-layout {
         max-width: 1280px;
@@ -87,9 +128,9 @@ h1 {
 }
 
 .stay-details1 .font-md {
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    position: relative;
+    // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    // font-size: 14px;
+    // position: relative;
     font-weight: 600;
 }
 
@@ -330,11 +371,6 @@ li {
 
 .stay-details1.reservation {
     justify-content: flex-end;
-}
-
-.stay-details1 .reservation {
-    position: sticky;
-    top: 150px;
 }
 
 .stay-details1 .reservation .reservation-container {
@@ -657,6 +693,17 @@ button {
     max-width: fit-content;
     margin-top: 24px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

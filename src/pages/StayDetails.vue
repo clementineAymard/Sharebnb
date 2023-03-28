@@ -224,7 +224,7 @@
                         <div class="reservation-container font-thin">
                             <div>
                                 <div class="reservation-form-header">
-                                    <p><span class="cost font-md">${{ stay.price }}</span> night </p>
+                                    <p><span class="cost font-md">${{ stay.price }} </span> night  </p>
                                     <div class="rating-review flex"><span class="avg-rating flex font-md">
                                             <section class="icon-svg"><svg viewBox="0 0 32 32"
                                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
