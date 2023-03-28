@@ -2,8 +2,8 @@
     <Carousel class="filter-category" :settings="settings" :breakpoints="breakpoints" :start="0"
         @before-slide="handleBeforeSlide" :hide-arrows="hideArrows">
         <Slide class="nav-item" v-for="(img, index) in imgs" :key="index">
-            <div class="carousel__item" @click="setFilterBy(img.key)" :class="isActive === img.key ? 'active' : 'inactive'">
-                <img :src="img.url" :alt="img.key">
+            <div class="carousel__item" @click="setFilterBy(img.key)" :class="(isActive === img.key) ? 'active' : 'inactive'">
+                <img :src="img.url" :alt="img.key" :class="(isActive === img.key) ? 'active' : 'inactive'">
                 <p>{{ img.key }}</p>
             </div>
 
@@ -52,7 +52,7 @@ export default defineComponent({
                     snapAlign: 'start',
                 }
             },
-            isActive: '',
+            isActive: 'Trending',
             hideArrows : false
         }
     },

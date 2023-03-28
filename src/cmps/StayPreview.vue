@@ -18,7 +18,7 @@
             </p>
             <p class="rating regular-font">
                 <i class="fa-sharp fa-solid fa-star"></i>
-                {{ getRate }} 
+                {{ stay.rate }} 
                 <!-- ({{ stay.reviews.length }}) -->
             </p>
             <p class="regular-font grey stayName">
@@ -52,9 +52,7 @@ export default {
         return {
 
             randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
-            // rooms: Math.floor(this.stay.capacity / 2),
             intervalNum: parseInt(0),
-            getRate: (Math.random() + 4).toFixed(2),
             // user: this.$store.getters.loggedinUser
 
         }

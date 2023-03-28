@@ -49,12 +49,6 @@
 
          }
 
-         //  .carousel__item{
-         //    box-shadow: 0px -2px 0px 0px inset black
-         //  }
-
-
-
          img {
              height: 24px;
              width: 24px;
@@ -68,22 +62,25 @@
 
              &:hover .carousel__item {
                  // margin-block-end: 30px;
-                 box-shadow: 0px -2px 0px 0px inset $clr3;
+                 box-shadow: 0px -2px 0px 0px inset rgb(216, 210, 210);
                  color: black;
 
                  img {
                      opacity: 1;
                  }
              }
+
              .clicked-label {
-                border-bottom: 3px solid black!important;
-            }
+                 border-bottom: 3px solid black !important;
+
+             }
          }
 
          p {
              margin-top: 1px;
              font-family: montserrat_medium;
              font-size: 11px;
+             font-weight: bolder;
          }
      }
 
@@ -96,8 +93,8 @@
          li {
              width: fit-content;
              margin-right: -20px;
-           
-            //  margin-left: -30px;
+
+             //  margin-left: -30px;
 
          }
      }
@@ -110,8 +107,18 @@
  .active {
      box-shadow: 0px -2px 0px 0px inset $clr3;
      color: black;
+     opacity: 1;
+
+     img {
+         opacity: 1 !important;
+     }
  }
- .inactive{
-    box-shadow:none;
-    color: $clr3;
+
+ img .active {
+     opacity: 1;
+ }
+
+ .inactive {
+     box-shadow: none;
+     color: $clr3;
  }
