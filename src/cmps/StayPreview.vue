@@ -2,7 +2,7 @@
     <li class="stay-preview flex column" @click="handleViews">
 
         <div class="img-container">
-            <i class="fa-solid fa-heart" @click.stop="addToFavorite" :class="(isFavorite) ? 'red' : ''"></i>
+            <i class="fa-solid fa-heart" @click.stop="addToFavorite(stay)" :class="(isFavorite)? 'red' : 'black'"></i>
             <button v-if="user && user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
@@ -56,6 +56,7 @@ export default {
             isFavorite: false,
             randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             intervalNum: parseInt(0),
+            wishList: []
             // user: this.$store.getters.loggedinUser
 
         }
@@ -79,7 +80,10 @@ export default {
             this.$emit('openStayDetails', this.stay._id)
         },
         addToFavorite() {
-            this.isFavorite = !this.isFavorite
+            // if (user) {
+                this.isFavorite = !this.isFavorite
+                this.$store.dispatch({ type: 'addToWishList' , stay: this.stay })
+            // }
         }
     },
     computed: {
