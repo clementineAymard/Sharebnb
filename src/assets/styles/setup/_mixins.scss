@@ -50,47 +50,6 @@
         $padding ;
 }
 
-
-// // ///////////// FOR STAY LIST //////////////////
-
-// @mixin for-grid-mobile-layout {
-//     @media (max-width: calc($mobile-breakpoint)) {
-//         @content;
-//     }
-// }
-
-// @mixin for-grid-narrow-layout {
-//     @media (min-width: calc($grid-mobile-breakpoint)) {
-//         @content;
-//     }
-// }
-
-// @mixin for-grid-medium-layout {
-//     @media (min-width: calc($grid-narrow-breakpoint)) {
-//         @content;
-//     }
-// }
-
-// @mixin for-grid-normal-layout {
-//     @media (min-width: calc($grid-medium-breakpoint)) {
-//         @content;
-//     }
-// }
-
-// @mixin for-grid-wide-layout {
-//     @media (min-width: calc($grid-normal-breakpoint)) {
-//         @content;
-//     }
-// }
-
-// @mixin for-grid-extra-wide-layout {
-//     @media (min-width: calc($grid-large-breakpoint)) {
-//         @content;
-//     }
-// }
-
-
-
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {
     position: relative;
@@ -112,7 +71,7 @@
     }
 
     >img {
-        height: 100%;
+        width: 100%;
         object-fit: cover;
     }
 }
@@ -126,28 +85,20 @@
     }
 }
 
-// @mixin width-padding-mqs {
-//     width: 100%;
-//     max-width: 2520px;
 
-//     @include for-mobile-layout {
-//         padding-inline: rem(24px);
-//     }
+@mixin filter-focus {
+    background-color: $clr6;
+    border-radius: 50px;
+    margin: -1px;
+    box-shadow: 0 6px 20px darken($clr4, 10%);
+    z-index: 1;
+    position: relative;
+}
+@mixin  filter-hover {
+    background-color: $clr4;
+    border-radius: 50px;
+    box-shadow: none;
+    z-index: 1;
+    position: relative;
+}
 
-//     @include for-narrow-layout {
-//         padding-inline: rem(40px);
-//     }
-
-//     @include for-medium-layout {
-//         padding-inline: rem(40px);
-//     }
-
-//     @include for-normal-layout {
-//         padding-inline: rem(40px);
-//     }
-
-//     @include for-wide-layout {
-//         padding-inline: rem(80px);
-//         padding-inline-end: rem(85px);
-//     }
-// }

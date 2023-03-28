@@ -3,23 +3,14 @@
     .search {
         display: flex;
         width: fit-content;
-        margin: -1px 18 px;
+        margin: -1px 18px;
         padding-inline-start: 10px;
         padding-block: 7px;
 
         border-radius: 50px;
         border: solid 1px $clr4;
         box-shadow: 0px 1px 2px 0px $clr4;
-
-        // position: absolute;
-        // left: 49vw;
-        // translate: -50%;
-        // z-index: 3;
         transition: box-shadow ease-in-out 250ms;
-
-        // @include for-medium-layout {
-        //     margin-inline: rem(20px);
-        // }
 
         &:hover {
             box-shadow: 0px 1px 3px 1px $clr4;
@@ -29,16 +20,16 @@
             background-color: transparent;
             color: $clr2;
 
+            &:not(:first-child)>div {
+                border-left: $clr4 solid 1px;
+            }
+
+
             >div {
                 padding-inline: 1rem;
                 font-size: 14px;
                 font-family: airbnb_medium;
                 margin: auto;
-
-                &.open {
-                    align-items: start;
-                    padding-inline: 1rem;
-                }
 
                 label {
                     font-size: 12px;
@@ -83,30 +74,11 @@
                 }
             }
 
-            &.location input {
-                width: 150px;
+            &.guests .title>span:last-child {
+                font-family: cereal;
+                color: $clr3;
             }
 
-            &.dates div:first-child {
-                border-left: solid 1px $clr4;
-            }
-
-            &.guests {
-                .title {
-                    border-left: solid 1px $clr4;
-                }
-
-                >div {
-                    padding-inline-start: 1rem;
-                    color: $clr3;
-                    font-family: cereal;
-
-                    label {
-                        color: $clr2;
-                        font-family: airbnb_bold;
-                    }
-                }
-            }
         }
 
         .glass {
@@ -136,34 +108,111 @@
         position: absolute;
         top: em(70px);
         right: 0;
-        // margin-inline-start: -100px;
         z-index: 4;
         display: flex;
         justify-content: center;
 
         .search {
-            background-color: lighten($clr4, 8%);
+            background-color: lighten($clr4, 5%);
             margin-block-end: 12px;
-            padding-block: 0px;
+            padding: 0px;
             z-index: 3;
             position: relative;
+            transform: translateY(12px);
+            box-shadow: none;
+            flex-grow: 1;
+            max-width: 850px;
 
             >button {
-                
+
                 &:not(:last-of-type) {
                     padding-block: 14px;
                 }
 
+                label {
+                    text-align: start;
+                }
+
                 &.location {
-                    padding-inline-start: 24px;
+                    padding: 14px 32px;
+                    width: 100%;
+                    align-items: start;
+
+                    &:hover {
+                        @include filter-hover
+                    }
+
+                    &.active-locations {
+                        @include filter-focus
+                    }
+
+                    >div {
+                        padding-inline-start: 0;
+
+
+                        label {
+                            padding-block-end: 2px;
+                        }
+
+                        input {
+                            width: 150px;
+                        }
+                    }
                 }
 
                 &.dates {
-                    padding-inline: 24px;
+                    padding: 14px 24px;
                     position: relative;
+                    // z-index: 5;
+
+                    &:hover {
+                        @include filter-hover
+                    }
+
+                    &::before {
+                        transform: translateX(-26px);
+                    }
+
+                    &::after {
+                        transform: translate(240px, -4px);
+                    }
+
+                    &::before,
+                    &::after {
+                        content: '';
+                        height: 40px;
+                        width: 1px;
+                        background-color: $clr4;
+                        z-index: 0;
+                        position: absolute;
+                    }
+
+                    .from::after {
+                        content: '';
+                        height: 40px;
+                        width: 1px;
+                        background-color: $clr4;
+                        z-index: 0;
+                        position: absolute;
+                        transform: translate(90px, -4px);
+                    }
 
                     .to {
-                        border-left: solid 1px $clr4;
+                        padding-inline-end: 0;
+                    }
+                    
+                    &.active-dates {
+                        @include filter-focus;
+
+                        &::after {
+                            opacity: 0;
+                        }
+                    }
+
+                    >* {
+                        max-width: em(132px);
+                        border-left: none;
+                        z-index: 1;
                     }
                 }
 
@@ -171,37 +220,62 @@
                     padding-inline: 0;
                     position: relative;
 
-                    .who {
+                    &:hover {
+                        @include filter-hover
+                    }
+
+                    &.active-guests {
+                        @include filter-focus
+                    }
+
+                    >div {
+                        padding-inline-start: 2rem;
+                        color: $clr3;
+                        font-family: cereal;
+                        border-left: none;
+
+                        label {
+                            color: $clr2;
+                            font-family: airbnb_bold;
+                        }
+                    }
+
+                    .title {
                         border-left: solid 1px $clr4;
+                    }
+
+                    .glass {
+                        padding: 24px 16px;
+                        width: fit-content;
+                        border-radius: 30px;
+                        color: $clr6;
+                        font-size: 16px;
+                        background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+                        background-size: 200% 200%;
+                        transition: opacity 1.25s;
+
+                        &:hover {
+                            background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+                            --mouse-x: 1.87891;
+                            --mouse-y: 85.4167;
+                        }
+
+                        img {
+                            width: 16px;
+                        }
+
+                        span {
+                            padding-inline: 8px 4px;
+                        }
                     }
                 }
             }
 
 
+
         }
 
-        .glass {
-            background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-            padding: 24px 16px;
-            width: fit-content;
-            border-radius: 30px;
-            color: $clr6;
-            font-size: 16px;
 
-            &:hover {
-                background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-                --mouse-x: 1.87891;
-                --mouse-y: 85.4167;
-            }
-
-            img {
-                width: 16px;
-            }
-
-            span {
-                padding-inline: 8px 4px;
-            }
-        }
     }
 
 

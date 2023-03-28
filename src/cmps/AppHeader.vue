@@ -9,8 +9,8 @@
             <div class="search-container flex align-center" :class="isSearchOpenClass">
                 <section class="search" v-if="!isDetails">
 
-                    <button class="location" @click="onOpenSearch('locations')">
-                        <div v-if="isSearchOpen" class="flex column" :class="isSearchOpenClass">
+                    <button class="location" @click="onOpenSearch('locations')" :class="isActiveClass">
+                        <div v-if="isSearchOpen" class="mode flex column" :class="isActiveClass">
                             <label>Where</label>
                             <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations">
                             <LocationPicker v-if="selectedFilterKey === 'locations'" @setLoc="onSetLoc($event)" />
@@ -18,26 +18,26 @@
                         <div v-else>{{ locForDisplayTitle }}</div>
                     </button>
 
-                    <button @click="onOpenSearch('dates')" class="dates flex ">
+                    <button @click="onOpenSearch('dates')" class="dates flex " :class="isActiveClass">
 
-                        <div v-if="isSearchOpen" class="from flex column" :class="isSearchOpenClass">
+                        <div v-if="isSearchOpen" class="from flex column">
                             <label>Check in</label>
                             <div class="sub-title">Add dates</div>
                             <DatePicker v-if="selectedFilterKey === 'dates'" />
                         </div>
 
-                        <div v-if="isSearchOpen" class="to flex column" :class="isSearchOpenClass">
+                        <div v-if="isSearchOpen" class="to flex column">
                             <label>Check out</label>
                             <div class="sub-title">Add dates</div>
                         </div>
 
-                        <div v-if="!isSearchOpen" :class="isSearchOpenClass">Any week</div>
+                        <div v-if="!isSearchOpen">Any week</div>
 
 
                     </button>
 
-                    <button class="guests flex align-center" @click="onOpenSearch('guests')">
-                        <div v-if="isSearchOpen" class="who flex column" :class="isSearchOpenClass">
+                    <button class="guests flex align-center" @click="onOpenSearch('guests')" :class="isActiveClass">
+                        <div v-if="isSearchOpen" class="who flex column">
                             <label>Who</label>
                             <div class="sub-title">
                                 <span v-if="guestsForDisplayTitle > 0">{{ guestsForDisplayTitle }} guest<span
@@ -52,13 +52,13 @@
                             <span v-else>Add guests</span>
                         </div>
 
-                    </button>
 
-                    <button class="glass  flex align-center justify-between"
-                        :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
-                        @click="onSetFilter">
-                        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
-                        <span v-if="isSearchOpen">Search</span>
+                        <button class="glass  flex align-center justify-between"
+                            :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
+                            @click="onSetFilter">
+                            <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
+                            <span v-if="isSearchOpen">Search</span>
+                        </button>
                     </button>
 
                 </section>
@@ -132,6 +132,9 @@ export default {
         },
         isDetailsClass() {
             return this.isDetails ? 'margin-details-page' : 'no-margin'
+        },
+        isActiveClass() {
+            return `active-${this.selectedFilterKey}`
         },
         routeQuery() {
             return this.$route.query
@@ -227,7 +230,7 @@ export default {
 </script>
 
 <style>
-.el-popper.is-pure.is-light.el-picker__popper{
+.el-popper.is-pure.is-light.el-picker__popper {
     display: block;
 }
 </style>

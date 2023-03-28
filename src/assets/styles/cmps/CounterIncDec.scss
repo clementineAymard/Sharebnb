@@ -1,6 +1,6 @@
 .counter-inc-dec {
     justify-content: space-between;
-    width: 6rem;
+    min-width: 104px;
 
     button {
         height: 2rem;
@@ -10,9 +10,26 @@
         font-size: rem(22px);
         color: $clr3;
 
+        &:disabled {
+            color: darken($clr5, 9%);
+            border-color: darken($clr5, 9%);
+        }
+
         &:hover:not(:disabled) {
             color: $clr2;
             border-color: $clr2;
+        }
+
+        >svg {
+            display: block;
+            fill: none;
+            height: 29px;
+            width: 29px;
+            stroke: currentcolor;
+            stroke-width: 5.33333;
+            overflow: visible;
+            flex-grow: 1;
+            scale: 0.4;
         }
     }
 
