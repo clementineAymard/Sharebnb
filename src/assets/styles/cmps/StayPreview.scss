@@ -5,12 +5,16 @@
     color: $clr2;
     cursor: pointer;
     height: fit-content;
+    // max-width: 330px;
 
     .img-container {
-
+        
         position: relative;
         margin-bottom: 12px;
         border-radius: em(10px);
+
+        // max-width: 330px;
+        // max-height: 330px;
 
         @include aspect-ratio(1, 1);
 
@@ -23,7 +27,7 @@
             overflow: hidden;
         }
 
-        .stay-img {
+        img.stay-img {
             top: 0;
             left: 0;
             border-radius: 10px;

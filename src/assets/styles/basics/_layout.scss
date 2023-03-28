@@ -56,7 +56,7 @@
         @include layoutGTC($break-normal, $medium_padding-inline);
     }
     @include for-normal-layout {
-        @include layoutGTC($break-normal, $large_padding-inline);
+        @include layoutGTC($break-normal-list, $large_padding-inline);
     }
 
     @include for-normal-list-layout {
