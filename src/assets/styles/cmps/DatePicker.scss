@@ -3,11 +3,12 @@
     left: 28px;
     top: 34%;
     display: flex;
-    width: 38%;
+    width: 80%;
     padding: 0;
     flex-wrap: wrap;
     z-index: 5;
     border: none;
+    transition: all ease-in-out 0.3s;
 }
 
 .el-date-editor .el-range__icon {
@@ -15,7 +16,8 @@
 }
 
 .el-range-editor.el-input__wrapper {
-    opacity: 0;
+    // opacity: 0;
+
 }
 
 .el-picker__popper.el-popper[data-popper-placement^=bottom] .el-popper__arrow::before {
@@ -58,6 +60,7 @@
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
 
     &.is-light.el-picker__popper {
+        display: block;
         top: 203px !important;
         left: 43vh !important;
         padding-block-start: 1rem;

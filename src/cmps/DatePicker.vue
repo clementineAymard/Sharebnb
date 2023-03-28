@@ -1,7 +1,7 @@
 <template>
     <div class="date-picker flex ">
-        <el-date-picker ref="calendar" v-model="dates" type="daterange"/>
-    </div> 
+        <el-date-picker ref="calendar" v-model="dates" type="daterange" @change="setDates" />
+    </div>
 </template>
 
 <script>
@@ -16,17 +16,21 @@ export default {
         }
     },
     methods: {
-
+        setDates(dates) {
+            console.log('this.dates', this.dates)
+            this.$emit('setDates', { ...this.dates })
+        }
     },
     computed: {
 
     },
     created() {
-        
-        // this.$refs.calendar.handleOpen()
     },
     components: {
 
     },
+    unmounted() {
+        // this.$emit('setDates', this.dates)
+    }
 }
 </script>

@@ -10,4 +10,7 @@ footer {
         font-size: 14px;
         gap: 10px;
     }
+    @include for-mobile-layout {
+        display: none;
+    }
 }

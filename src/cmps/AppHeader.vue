@@ -22,13 +22,19 @@
 
                         <div v-if="isSearchOpen" class="from flex column">
                             <label>Check in</label>
-                            <div class="sub-title">Add dates</div>
-                            <DatePicker v-if="selectedFilterKey === 'dates'" />
+                            <div class="sub-title">
+                                <span v-if="dateFromForDisplay">{{ dateFromForDisplay }}</span>
+                                <span v-else>Add dates</span>
+                            </div>
+                            <DatePicker v-if="selectedFilterKey === 'dates'" @setDates="onSetDates" />
                         </div>
 
                         <div v-if="isSearchOpen" class="to flex column">
                             <label>Check out</label>
-                            <div class="sub-title">Add dates</div>
+                            <div class="sub-title">
+                                <span v-if="dateToForDisplay">{{ dateToForDisplay }}</span>
+                                <span v-else>Add dates</span>
+                            </div>
                         </div>
 
                         <div v-if="!isSearchOpen">Any week</div>
@@ -55,7 +61,7 @@
 
                         <button class="glass  flex align-center justify-between"
                             :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
-                            @click="onSetFilter">
+                            @click.stop="onSetFilter">
                             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
                             <span v-if="isSearchOpen">Search</span>
                         </button>
@@ -120,6 +126,8 @@ export default {
             },
             locForDisplayTitle: this.$route.query.loc || 'Anywhere',
             guestsForDisplayTitle: this.$route.query.adults || 'Add guests',
+            dateFromForDisplay: this.$route.query.from || 'Add dates',
+            dateToForDisplay: this.$route.query.to || 'Add dates',
             detailsSearchBar: 'Start your search',
         }
     },
@@ -153,13 +161,23 @@ export default {
             this.selectedFilterKey = 'dates'
         },
         onSetDates(selectedDates) {
-            this.filterBy.date.to = selectedDates[0]
-            this.filterBy.date.from = selectedDates[1]
+            let options = {
+                month: 'short',
+                day: 'numeric'
+            }
+            this.filterBy.date.to = new Intl.DateTimeFormat('en-US', options).format(selectedDates[0])
+            this.filterBy.date.from =  new Intl.DateTimeFormat('en-US', options).format(selectedDates[1])
+            this.$router.push({
+                query: { ...this.filterBy.date },
+            })
             this.selectedFilterKey = 'guests'
         },
         onSetGuests(selectedGuests) {
             this.filterBy.guests = selectedGuests
             console.log('this.filterBy.guests', this.filterBy.guests)
+            this.$router.push({
+                query: { ...this.filterBy.guests },
+            })
         },
         onHoverSearchBtn(event) {
             this.offset.x = event.offsetX
@@ -173,7 +191,11 @@ export default {
                 filterToSend.infants = this.filterBy.guests.infants
                 delete filterToSend.guests
             }
-            delete filterToSend.date
+            if (this.filterBy.date) {
+                filterToSend.from = this.filterBy.date.from
+                filterToSend.to = this.filterBy.date.to
+                delete filterToSend.date
+            }
 
             this.$router.push({
                 name: 'Explore',
@@ -181,6 +203,7 @@ export default {
             })
             this.clearBooleans()
             this.setLocFromParams()
+            this.setDatesFromParams()
             this.setGuestsFromParams()
         },
         clearBooleans() {
@@ -191,6 +214,12 @@ export default {
         setLocFromParams() {
             setTimeout(() => {
                 this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
+            }, 1)
+        },
+        setDatesFromParams() {
+            setTimeout(() => {
+                this.dateFromForDisplay = this.$route.query.from || 'Anywhere'
+                this.dateToForDisplay = this.$route.query.to || 'Anywhere'
             }, 1)
         },
         setGuestsFromParams() {
@@ -217,6 +246,11 @@ export default {
                 this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
             else
                 this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
+
+            if (this.$route.query.to)
+                this.dateToForDisplay = this.$route.query.to || 'Add dates'
+            if (this.$route.query.from)
+                this.dateFromForDisplay = this.$route.query.from || 'Add dates'
         },
     },
     components: {
@@ -228,9 +262,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.el-popper.is-pure.is-light.el-picker__popper {
-    display: block;
-}
-</style>
