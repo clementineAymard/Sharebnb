@@ -1,5 +1,5 @@
 <template>
-    <section class="main-header full my-layout">
+    <section class="main-header full my-layout" :class="isDetailsClass">
         <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
         <div class="header-background full" :class="isSearchOpenClass"></div>
         <header class="header flex align-center justify-between" :class="isDetailsClass">
@@ -64,7 +64,7 @@
                 </section>
 
                 <section v-else class="search-details-page flex align-center justify-between">
-                    <input type="text" placeholder="Start your search">
+                    <input type="text" v-model="detailsSearchBar">
                     <button class="glass  flex align-center justify-between"
                         :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
                         @click="onSetFilter">
@@ -119,7 +119,8 @@ export default {
                 guests: 0
             },
             locForDisplayTitle: this.$route.query.loc || 'Anywhere',
-            guestsForDisplayTitle: this.$route.query.adults || 'Add guests'
+            guestsForDisplayTitle: this.$route.query.adults || 'Add guests',
+            detailsSearchBar: 'Start your search',
         }
     },
     computed: {

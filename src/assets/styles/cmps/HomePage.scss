@@ -7,7 +7,7 @@
         width: calc(100vw - 2 * $layoutPadding - 20px);
     }
 
-    @include for-wide-layout {
+    @include for-normal-layout {
         width: calc(100vw - 2 * $layoutPaddingLarge - 20px);
     }
 
