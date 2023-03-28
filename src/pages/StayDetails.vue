@@ -492,6 +492,7 @@ export default {
                 await this.$store.dispatch({ type: 'addOrder', order })
                 console.log('this.$store.getters.currOrder._id', this.$store.getters.currOrder._id)
                 const orderId = this.$store.getters.currOrder._id
+                this.$router.push('/order/' + orderId)
             }
             catch {
                 console.log('Error on details');
