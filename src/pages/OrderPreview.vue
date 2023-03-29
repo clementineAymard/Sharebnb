@@ -2,7 +2,7 @@
 <template>
     <section class="user-preview">
 
-  
+  <h1></h1>
    
         <div>{{ user.name }}</div>
             <div > {{ user.gender }}</div>
