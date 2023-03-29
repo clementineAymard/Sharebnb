@@ -3,7 +3,7 @@
   position: relative;
   display: grid;
   //   grid-template-columns: 40px minmax(120px, 1fr) minmax(120px, 160px);
-  grid-template-columns: 3.5fr 1.5fr 1.5fr 1.5fr 1.5fr 0.1fr 0.1fr ;
+  grid-template-columns: 4.2fr 2.9fr 1.2fr 1.2fr  1fr 1.5fr ;
   grid-template-rows: 1fr;
   gap: 0px 15px;
   border-bottom: 1px solid #EBEEF2;
@@ -12,6 +12,19 @@
   padding: 20px;
   div {
     background-color: white;
+    padding-inline-end: 1em;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9375rem;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 19px;
+  }
+  img{
+    height: 50px;
+    border-radius: 7px;
   }
 }
 .header-trip {
@@ -20,7 +33,7 @@
   span {
     font-weight: bold;
   }
-  .header-sort {
+  .header-sort-trip {
     display: flex;
     gap: 3px;
     &:hover {
@@ -79,7 +92,7 @@
     }
   }
 }
-.list {
+.list-trip {
   margin-bottom: 2em;
   button {
     border-radius: 3px;

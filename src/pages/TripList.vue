@@ -1,14 +1,14 @@
 <template>
-    <div class="list">
+    <div class="list-trip">
      
       <ul>
-        <div class="order-preview header-order">
-          <span @click="setSortBy('name')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Stay Name</span>
-          <span @click="setSortBy('host')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Host</span>
-              <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check in</span>
-              <span @click="setSortBy('endDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check out</span>
-            <span @click="setSortBy('totalPrice')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Total price</span>
-            <span @click="setSortBy('status')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Status</span>
+        <div class="trip-preview header-trip">
+          <span @click="setSortBy('name')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Stay Name</span>
+          <span @click="setSortBy('host')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Host</span>
+              <span @click="setSortBy('startDate')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Check in</span>
+              <span @click="setSortBy('endDate')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Check out</span>
+            <span @click="setSortBy('totalPrice')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Total price</span>
+            <span @click="setSortBy('status')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Status</span>
         </div>
         <li v-for="order in orders" :key="order.name">
           <TripPreview :order="order" @updateOrder="updateOrder"></TripPreview>
