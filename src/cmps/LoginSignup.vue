@@ -1,6 +1,5 @@
 <template>
-  <section class="login-page flex column align-center" >
-    
+  <section class="login-modal flex column align-center" >   
       <form @submit.prevent="doLogin">
         <h2>Login</h2>
         <select v-model="loginCred.username">
@@ -24,35 +23,12 @@
         <button>Signup</button>
 
       </form>
-
-    <!-- <p>{{ msg }}</p>
-
-    <div v-if="loggedinUser">
-      <h3>
-        Loggedin User:
-        {{ loggedinUser.fullname }}
-        <button @click="doLogout">Logout</button>
-      </h3>
-    </div> -->
-
-    <!-- <hr /> -->
-    <!-- <details>
-      <summary>
-        Admin Section
-      </summary>
-      <ul>
-        <li v-for="user in users" :key="user._id">
-          <pre>{{ user }}</pre>
-          <button @click="removeUser(user._id)">x</button>
-        </li>
-      </ul>
-    </details> -->
   </section>
 </template>
 
 <script>
 
-import ImgUploader from '../cmps/ImgUploader.vue'
+import ImgUploader from './ImgUploader.vue'
 
 export default {
   name: 'login-signup',

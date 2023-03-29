@@ -57,7 +57,7 @@ export default {
             randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             intervalNum: parseInt(0),
             wishList: [],
-            user: this.$store.getters.loggedinUser
+            // user: this.$store.getters.loggedinUser
 
         }
     },

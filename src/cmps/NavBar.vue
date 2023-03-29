@@ -9,7 +9,41 @@
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
         </a>
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
+            <div class="guest-options">
+                <a class="bold flex justify-between">
+                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}/staywishlist`)">WishList</span>
+                </a>
+                <a class="bold flex justify-between">
+                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</span>
+                </a>
+            </div>
+            <div class="host-options">
+                <a class="bold flex justify-between">
+                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</span>
+                </a>
+                <a class="bold flex justify-between">
+                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}/trips`)">Trips</span>
+                </a>
+            </div>
+            <RouterLink to="/" @click="doLogout">Logout</RouterLink>
+        </div>
+        <div v-if="isMiniMenuOpen && !loggedinUser" class="mini-menu flex column">
+            <div class="guest-options">
 
+            </div>
+            <div class="host-options"></div>
+            <a class="bold flex justify-between">
+                <span @click="openProfile">My Profile</span>
+                <span @click.prevent="isMiniMenuOpen = false">X</span>
+            </a>
+            <a class="bold flex justify-between">
+                <span @click="openProfile">My Profile</span>
+                <span @click.prevent="isMiniMenuOpen = false">X</span>
+            </a>
+            <a class="bold flex justify-between">
+                <span @click="openProfile">My Profile</span>
+                <span @click.prevent="isMiniMenuOpen = false">X</span>
+            </a>
             <a class="bold flex justify-between">
                 <span @click="openProfile">My Profile</span>
                 <span @click.prevent="isMiniMenuOpen = false">X</span>
@@ -31,14 +65,10 @@ export default {
     },
     methods: {
         openUserMenu() {
-            console.log(this.loggedinUser)
-            if (this.loggedinUser) this.isMiniMenuOpen = true
-            else {
-                this.isMiniMenuOpen = false
-                this.$router.push('/login')
-            }
+            this.isMiniMenuOpen = true
+            // console.log(this.loggedinUser)
         },
-        openProfile(){
+        openProfile() {
             this.isMiniMenuOpen = false
             this.$router.push(`/user/${this.loggedinUser._id}`)
         },
