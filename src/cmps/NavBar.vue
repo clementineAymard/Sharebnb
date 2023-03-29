@@ -25,7 +25,7 @@
                     <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</div> -->
                 </a>
                 <a>
-                    <div @click="goToPage('orders')">Orders</div>
+                    <div @click="goToPage('/orders')">Orders</div>
                     <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</div> -->
                 </a>
             </div>
