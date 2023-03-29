@@ -21,28 +21,47 @@ window.cs = stayService
 
 
 async function query(filterBy) {     
-    console.log('filterBy: ', filterBy)
+    // console.log('filterBy: ', filterBy)
     var stays = await storageService.query(STORAGE_KEY)
-    if (filterBy){
+    // console.log('stays:   ',stays)
+    
+    if (Object.keys(filterBy).length){
+        console.log('filtering in service: filterBy: ', filterBy)
+
         if (filterBy.loc) {
-        const regex = new RegExp(filterBy.loc, 'i')
-        stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
+            const regex = new RegExp(filterBy.loc, 'i')
+            stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
         }
-        if (filterBy.adults && filterBy.children) {
-            stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
+        
+        if (filterBy.adults && filterBy.children && filterBy.infants) {
+            stays = stays.filter(stay => stay.capacity >= parseInt(filterBy.adults) + parseInt(filterBy.children) + parseInt(filterBy.infants))
         }
-        else if (filterBy.adults && !filterBy.children) {
-            stays = stays.filter(stay => stay.capacity >= filterBy.adults)
+        
+        if (filterBy.adults && filterBy.children && !filterBy.infants){
+            stays = stays.filter(stay => stay.capacity >= parseInt(filterBy.adults) + parseInt(filterBy.children))
         }
-        else if (!filterBy.adults && filterBy.children) {
-            stays = stays.filter(stay => stay.capacity >= filterBy.children)
+        
+        if (filterBy.adults && filterBy.infants && !filterBy.children){
+            stays = stays.filter(stay => stay.capacity >= parseInt(filterBy.adults) + parseInt(filterBy.infants))
         }
+        
+        // if ((filterBy.adults && filterBy.children) !== '0') {
+        //     stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
+        // }
+        // else if (filterBy.adults && filterBy.children!=='0') {
+        //     stays = stays.filter(stay => stay.capacity >= filterBy.adults)
+        // }
+        // else if (filterBy.adults!=='0' && filterBy.children) {
+        //     stays = stays.filter(stay => stay.capacity >= filterBy.children)
+        // }
+        
         if (filterBy.category) {
             stays = stays.filter(stay => stay.labels.includes(filterBy.category))
         }
     }
-    // stays = stays.sort((s1,s2) => s1 average rate - s2 average rate)
-    // TODO : SORT BY RATE
+    console.log('stays: ',stays)
+    
+    stays = stays.sort((s1,s2) => s2.rate - s1.rate)
     return stays
 }
 

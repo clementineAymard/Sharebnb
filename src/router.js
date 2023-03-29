@@ -80,7 +80,11 @@ const routes = [
 
 export const router = createRouter({
   routes,
-  history: createWebHashHistory()
+  history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  }
   // base: process.env.BASE_URL,
 })
 

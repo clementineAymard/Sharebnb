@@ -18,19 +18,23 @@ export default {
     name: '',
     data() {
         return {
-            filterBy: {},
+            filterBy: {
+                loc: '',
+                from: '',
+                to: '',
+                adults: 0,
+                children: 0,
+                infants: 0,
+                category: ''
+            },
             // stays: null
         }
     },
     methods: {
-        // filterBy(filterBy) {
-        //     console.log('Selected category:', filterBy)
-        //     this.$store.dispatch({ type: 'loadStays', filterBy })
-        // },
         onFilterBy(filter) {
-            console.log('filterrrr');
             console.log('Selected category:', filter)
-            this.$store.dispatch({ type: 'loadStays', filterBy: filter })
+            this.filterBy.category = filter.category
+            this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
         }
     },
     computed: {
@@ -43,11 +47,21 @@ export default {
         }
     },
     created() {
-        this.filterBy = {...this.$route.query}
-        console.log('this.filterBy', this.filterBy)
-        if (this.filterBy.from) delete this.filterBy.from
-        if (this.filterBy.to) delete this.filterBy.to
-        console.log('this.filterBy', this.filterBy)
+        this.filterBy.loc = this.$route.query.loc
+        this.filterBy.from = this.$route.query.from
+        this.filterBy.to = this.$route.query.to
+        this.filterBy.adults = this.$route.query.adults
+        this.filterBy.children = this.$route.query.children
+        this.filterBy.infants = this.$route.query.infants
+        this.filterBy.category = this.$route.query.category
+
+        console.log('EXPLORE this.filterBy', this.filterBy)
+
+        delete this.filterBy.from
+        delete this.filterBy.to
+
+        console.log('this.filterBy after del from to', this.filterBy)
+
         this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
     },
     components: {

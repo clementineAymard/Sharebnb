@@ -20,6 +20,11 @@
 
 }
 
+.stay-details1 .reservation-data .el-range-editor.el-input__wrapper {
+    opacity: 1;
+
+}
+
 .el-picker__popper.el-popper[data-popper-placement^=bottom] .el-popper__arrow::before {
     display: none;
 }
@@ -89,7 +94,8 @@
 }
 
 .el-date-table td.today .el-date-table-cell__text {
-    color: $clr5;
+    color: $clr1;
+    background-color: $clr5;
 }
 
 .el-date-table__row {
