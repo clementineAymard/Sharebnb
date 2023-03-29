@@ -2,7 +2,12 @@
     padding: 1rem 2rem;
     border-radius: 2rem;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: &clr6;
+    position: absolute;
+    z-index: 20;
+    top: 150px;
+    left: auto;
+    right: auto;
+    background-color: $clr6;
 
     >form {
         display: flex;

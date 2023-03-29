@@ -28,34 +28,18 @@
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
         <div v-if="isMiniMenuOpen && !loggedinUser" class="mini-menu flex column">
-            <div class="guest-options">
 
-            </div>
-            <div class="host-options"></div>
-            <a class="bold flex justify-between">
-                <span @click="openProfile">My Profile</span>
-                <span @click.prevent="isMiniMenuOpen = false">X</span>
-            </a>
-            <a class="bold flex justify-between">
-                <span @click="openProfile">My Profile</span>
-                <span @click.prevent="isMiniMenuOpen = false">X</span>
-            </a>
-            <a class="bold flex justify-between">
-                <span @click="openProfile">My Profile</span>
-                <span @click.prevent="isMiniMenuOpen = false">X</span>
-            </a>
-            <a class="bold flex justify-between">
-                <span @click="openProfile">My Profile</span>
-                <span @click.prevent="isMiniMenuOpen = false">X</span>
-            </a>
-            <RouterLink to="/" @click="doLogout">Logout</RouterLink>
+            <div @click="openModal">Login / Signup</div>
+
         </div>
     </nav>
+    <LoginSignup/>
 </template>
 
 <script>
 
 import { userService } from '../services/user.service.js'
+import LoginSignup from './LoginSignup.vue'
 export default {
     name: '',
     data() {
@@ -75,6 +59,9 @@ export default {
         doLogout() {
             this.isMiniMenuOpen = false
             this.$store.dispatch({ type: 'logout' })
+        },
+        openModal(){
+
         }
     },
     computed: {
@@ -86,7 +73,7 @@ export default {
 
     },
     components: {
-
+        LoginSignup
     },
 }
 </script>
