@@ -1,7 +1,7 @@
 <template>
     <Chart></Chart>
     <div class="list">
-        <ul>
+        <ul v-if="orders">
             <div class="order-preview header-order">
                 <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon
                         icon="fa-solid fa-sort" />Guest</span>
@@ -22,6 +22,8 @@
             </li>
             <!-- <RouterLink to="/list/people/order">Add a new Character</RouterLink> -->
         </ul>
+
+        <h3 v-else>No orders yet.</h3>
     </div>
 </template>
 

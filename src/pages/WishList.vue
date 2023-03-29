@@ -55,7 +55,7 @@ export default {
             return this.$store.getters.loggedinUser
         },
         userId() {
-            return this.$route.params.id
+            return this.$route.params.userId
         },
     },
     created() {

@@ -1,15 +1,15 @@
 <template>
-    <section class="main-header full my-layout" :class="isDetailsClass">
+    <section class="main-header full my-layout " :class="isDetailsClass">
         <div v-if="isSearchOpen" class="backdrop" @click="onCloseHeader"></div>
-        <div class="header-background full" :class="isSearchOpenClass"></div>
-        <header class="header flex align-center justify-between" :class="isDetailsClass">
+        <div class="header-background full animate__animated animate__fadeInDown" :class="isSearchOpenClass"></div>
+        <header class="header flex align-center justify-between " :class="isDetailsClass">
 
             <BrandLogo @resetFields="onResetFields" />
 
-            <div class="search-container flex align-center" :class="isSearchOpenClass">
-                <section class="search" v-if="!isDetails">
+            <div class="search-container flex align-center " :class="isSearchOpenClass">
+                <section class="search  animate__animated " v-if="!isDetails && !isUserPage">
 
-                    <button class="location" @click="onOpenSearch('locations')" :class="isActiveClass">
+                    <button class="location " @click="onOpenSearch('locations')" :class="isActiveClass">
                         <div v-if="isSearchOpen" class="mode flex column" :class="isActiveClass">
                             <label>Where</label>
                             <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations"
@@ -75,7 +75,7 @@
 
                 </section>
 
-                <section v-else class="search-details-page flex align-center justify-between">
+                <section v-if="isDetails" class="search-details-page flex align-center justify-between">
                     <input type="text" v-model="detailsSearchBar">
                     <button class="glass  flex align-center justify-between"
                         :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
@@ -108,6 +108,7 @@ export default {
             this.isSearchOpen = false
         })
         if (this.$route.params.stayId) this.isDetails = true
+        if (this.$route.params.userId) this.isUserPage = true
     },
     mounted() {
         this.setLocFromParams()
@@ -119,6 +120,7 @@ export default {
             isSearchOpen: false,
             selectedFilterKey: 'locations',
             isDetails: false,
+            isUserPage: false,
             offset: {
                 x: 0,
                 y: 0
@@ -145,6 +147,9 @@ export default {
     computed: {
         stayId() {
             return this.$route.params.stayId
+        },
+        userId() {
+            return this.$route.params.userId
         },
         isSearchOpenClass() {
             return this.isSearchOpen ? 'open' : 'closed'
@@ -269,6 +274,10 @@ export default {
     watch: {
         stayId() {
             this.isDetails = this.$route.params.stayId ? true : false
+        },
+        userId() {
+            this.isUserPage = this.$route.params.userId ? true : false
+            console.log('isUserPage:', this.isUserPage);
         },
         routeQuery() {
             console.log('route query change', this.$route.query)

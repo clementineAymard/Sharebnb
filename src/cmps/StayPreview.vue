@@ -47,6 +47,7 @@
 <script>
 import { utilService } from '../services/util.service'
 import { ElCarousel, ElCarouselItem } from 'element-plus';
+import { showErrorMsg } from '../services/event-bus.service';
 
 export default {
     name: 'StayPreview',
@@ -80,14 +81,16 @@ export default {
             this.$emit('openStayDetails', this.stay._id)
         },
         addToFavorite() {
-            // if (user) {
+            if (this.loggedinUser) {
                 this.isFavorite = !this.isFavorite
-                this.$store.dispatch({ type: 'addToWishList' , user: this.user , stay:this.stay })
-            // }
+                this.$store.dispatch({ type: 'addToWishList' , user: this.loggedinUser , stay:this.stay })
+            } else {
+                showErrorMsg('Login to save to wishlist.')
+            }
         }
     },
     computed: {
-        user() {
+        loggedinUser() {
             return this.$store.getters.loggedinUser
         }
     },

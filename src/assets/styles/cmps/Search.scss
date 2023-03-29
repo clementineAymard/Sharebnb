@@ -103,6 +103,7 @@
 
 
     &.open {
+        
         width: 100%;
         height: em(70px);
         position: absolute;
@@ -111,8 +112,9 @@
         z-index: 4;
         display: flex;
         justify-content: center;
-
+        
         .search {
+            animation: animate__zoomIn;
             background-color: lighten($clr4, 5%);
             margin-block-end: 12px;
             padding: 0px;
@@ -280,6 +282,49 @@
 
 
     .search-details-page {
+        width: 300px;
+        margin: -1px 18px;
+        padding-inline-start: 10px;
+        padding-block: 7px;
+
+        border-radius: 50px;
+        border: solid 1px $clr4;
+        box-shadow: 0px 1px 2px 0px $clr4;
+        transition: box-shadow ease-in-out 250ms;
+
+        &:hover {
+            box-shadow: 0px 1px 3px 1px $clr4;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            font-size: rem(14px);
+            font-family: airbnb_bold;
+            color: $clr2;
+            margin-inline-start: 10px;
+        }
+
+        .glass {
+            background-color: $clr1;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            padding: 10px;
+            display: flex;
+            margin: auto auto;
+            margin-inline-end: 10px;
+            font-family: airbnb_medium;
+
+            img {
+                width: 12px;
+                object-fit: contain;
+                position: relative;
+            }
+        }
+    }
+
+    .search-user-page {
         width: 300px;
         margin: -1px 18px;
         padding-inline-start: 10px;
