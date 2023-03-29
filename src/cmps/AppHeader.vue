@@ -282,6 +282,7 @@ export default {
             if (this.$route.query.children && this.$route.query.adults && this.$route.query.infants)
                 this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) + parseInt(this.$route.query.infants) || 'Add guests'
 
+                
             if (this.$route.query.to)
                 this.dateToForDisplay = this.$route.query.to
             if (this.$route.query.from)
