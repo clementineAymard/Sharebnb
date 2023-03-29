@@ -1,16 +1,18 @@
 <template>
   <div class="list">
+   
     <ul>
       <div class="order-preview header-order">
-        <span @click="setSortBy('name')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Name</span>
-        <span @click="setSortBy('gender')" class="header-sort"><font-awesome-icon
-            icon="fa-solid fa-sort" />Gender</span><span @click="setSortBy('birth_year')"
-          class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Birth year</span><span
-          @click="setSortBy('height')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Height</span><span
-          @click="setSortBy('mass')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Mass</span>
+        <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Guest</span>
+        <span @click="setSortBy('name')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Stay Name</span>
+            <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check in</span>
+            <span @click="setSortBy('endDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check out</span>
+          <span @click="setSortBy('totalPrice')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Total price</span>
+          <span @click="setSortBy('status')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Status</span>
+          <span class="header-sort"></span>
       </div>
       <li v-for="order in orders" :key="order.name">
-        <OrderPreview :order="order" @deleteOrder="deleteOrder"></OrderPreview>
+        <OrderPreview :order="order" @updateOrder="updateOrder"></OrderPreview>
       </li>
       <!-- <RouterLink to="/list/people/order">Add a new Character</RouterLink> -->
     </ul>
@@ -18,13 +20,15 @@
 </template>
 
 <script>
+import OrderPreview from './OrderPreview.vue'
+
 export default {
   name: '',
   data() {
     return {
-      filterBy: {
-        hostId: loggedinUser._id
-      },
+      // filterBy: {
+      //   hostId: this.loggedinUser._id
+      // },
 
     }
   },
@@ -34,19 +38,23 @@ export default {
   computed: {
     orders() {
       return this.$store.getters.orders
+    },
+    loggedinUser(){
+      console.log(this.$store.getters.loggedinUser);
+      return this.$store.getters.loggedinUser
     }
   },
   async created() {
     try{
-      await this.$store.dispatch({ type: 'loadOrders', filterBy: this.filterBy })
+      await this.$store.dispatch({ type: 'loadOrders', filterBy: {hostId: this.loggedinUser._id} })
     }
     catch(err){
       console.log(err,'cannot load orders');
     }
     },
   components: {
-
+    OrderPreview
   },
 }
-// {buyerId : loggedinUser._id}
+
 </script>

@@ -1,22 +1,51 @@
 
 <template>
-    <section class="user-preview">
+    <section class="order-preview">
 
-  <h1></h1>
-   
-        <div>{{ user.name }}</div>
-            <div > {{ user.gender }}</div>
-                <div > {{ user.birth_year }}</div>
-                    <div  > {{ user.height }}</div>
-                        <div> {{ user.mass }}</div>
-                        <!-- < div class=" buttons" v-if="buttons">
-                        <div @click=" deleteUser(user.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
-                <div @click=" this.$router.push({ name: 'user-edit', params: { name: user.name } })">
-                <font-awesome-icon icon="fa-edit" /> -->
-         
-       
-        </section>
-        </template>
 
-        <script>
-        </script>
+        <div>{{ order.buyer.fullname }}</div>
+        <div>{{ order.stay.name }}</div>
+        <div> {{ order.startDate }}</div>
+        <div> {{ order.endDate }}</div>
+        <div> {{ order.totalPrice }}</div>
+        <div> {{ order.status }}</div>
+        <div> 
+            <select v-if="order.status==='pending'" v-model="status" @change="onSelectStatus">
+            <option value="" selected>Select status</option>
+            <option value="approved">Approve</option>
+            <option value="rejected">Reject</option>
+        </select></div>
+    <!-- < div class=" buttons" v-if="buttons">
+                        <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
+                <div @click=" this.$router.push({ name: 'order-edit', params: { name: order.name } })">
+                            <font-awesome-icon icon="fa-edit" /> -->
+
+
+    </section>
+</template>
+
+<script>
+export default {
+    name: '',
+    props: { order: Object },
+    data() {
+        return {
+            status:''
+        }
+    },
+    methods: {
+        onSelectStatus(){
+            this.$emit('updateOrder', this.status)
+        }
+    },
+    computed: {
+
+    },
+    created() {
+
+    },
+    components: {
+
+    }
+}
+</script>
