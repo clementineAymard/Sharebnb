@@ -11,7 +11,7 @@
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
 
             <a class="bold flex justify-between">
-                <span @click="this.$router.push(`/user/${loggedinUser._id}`)">My Profile</span>
+                <span @click="openProfile">My Profile</span>
                 <span @click.prevent="isMiniMenuOpen = false">X</span>
             </a>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
@@ -37,6 +37,10 @@ export default {
                 this.isMiniMenuOpen = false
                 this.$router.push('/login')
             }
+        },
+        openProfile(){
+            this.isMiniMenuOpen = false
+            this.$router.push(`/user/${this.loggedinUser._id}`)
         },
         doLogout() {
             this.isMiniMenuOpen = false

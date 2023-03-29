@@ -56,8 +56,8 @@ export default {
             isFavorite: false,
             randomViews: utilService.getRandomIntInclusive(6000, 25000).toLocaleString(),
             intervalNum: parseInt(0),
-            wishList: []
-            // user: this.$store.getters.loggedinUser
+            wishList: [],
+            user: this.$store.getters.loggedinUser
 
         }
     },
@@ -82,7 +82,7 @@ export default {
         addToFavorite() {
             // if (user) {
                 this.isFavorite = !this.isFavorite
-                this.$store.dispatch({ type: 'addToWishList' , stay: this.stay })
+                this.$store.dispatch({ type: 'addToWishList' , user: this.user , stay:this.stay })
             // }
         }
     },
