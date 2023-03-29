@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     async doLogin() {
+    
       if (!this.loginCred.username) {
         this.msg = 'Please enter username/password'
         return
@@ -63,6 +64,7 @@ export default {
         console.log(err)
         this.msg = 'Failed to login'
       }
+      this.$emit('closeModal')
     },
     // doLogout() {
     //   this.$store.dispatch({ type: 'logout' })
@@ -74,22 +76,22 @@ export default {
       }
       await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
       this.$router.push('/')
-
+      this.$emit('closeModal')
     },
     loadUsers() {
       this.$store.dispatch({ type: "loadUsers" })
     },
-    async removeUser(userId) {
-      try {
-        await this.$store.dispatch({ type: "removeUser", userId })
-        this.msg = 'User removed'
-      } catch (err) {
-        this.msg = 'Failed to remove user'
-      }
-    },
-    onUploaded(imgUrl) {
-      this.signupCred.imgUrl = imgUrl
-    }
+    // async removeUser(userId) {
+    //   try {
+    //     await this.$store.dispatch({ type: "removeUser", userId })
+    //     this.msg = 'User removed'
+    //   } catch (err) {
+    //     this.msg = 'Failed to remove user'
+    //   }
+    // },
+    // onUploaded(imgUrl) {
+    //   this.signupCred.imgUrl = imgUrl
+    // }
 
   },
   components: {

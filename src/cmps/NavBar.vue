@@ -10,30 +10,29 @@
         </a>
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
             <div class="guest-options">
-                <a class="bold flex justify-between">
-                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}/staywishlist`)">WishList</span>
+                <a>
+                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}/staywishlist`)">WishList</div>
                 </a>
-                <a class="bold flex justify-between">
-                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</span>
+                <a>
+                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}/trips`)">Trips</div>
                 </a>
             </div>
             <div class="host-options">
-                <a class="bold flex justify-between">
-                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</span>
+                <a>
+                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</div>
                 </a>
-                <a class="bold flex justify-between">
-                    <span @click="this.$router.push(`/user/${this.loggedinUser._id}/trips`)">Trips</span>
+                <a>
+                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</div>
                 </a>
             </div>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
         <div v-if="isMiniMenuOpen && !loggedinUser" class="mini-menu flex column">
-
-            <div @click="openModal">Login / Signup</div>
-
+            <a @click="openModal">Login</a>
+            <a @click="openModal">Signup</a>
         </div>
     </nav>
-    <LoginSignup/>
+    <LoginSignup v-if="isModalOpen" @closeModal="onCloseModal"/>
 </template>
 
 <script>
@@ -52,16 +51,16 @@ export default {
             this.isMiniMenuOpen = true
             // console.log(this.loggedinUser)
         },
-        openProfile() {
-            this.isMiniMenuOpen = false
-            this.$router.push(`/user/${this.loggedinUser._id}`)
-        },
         doLogout() {
             this.isMiniMenuOpen = false
             this.$store.dispatch({ type: 'logout' })
         },
-        openModal(){
-
+        openModal() {
+            this.isModalOpen = true
+            this.isMiniMenuOpen = false
+        },
+        onCloseModal(){
+            this.isModalOpen = false
         }
     },
     computed: {
