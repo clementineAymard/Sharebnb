@@ -10,6 +10,8 @@ import LoginSignup from './pages/LoginSignup.vue'
 import UserDetails from './pages/UserDetails.vue'
 import OrderConfirmation from './pages/OrderConfirmation.vue'
 import WishList from './pages/WishList.vue'
+import OrderList from './pages/OrderList.vue'
+import TripsList from './pages/TripsList.vue'
 
 const routes = [
   {
@@ -62,6 +64,16 @@ const routes = [
     path: '/user/:id/staywishlist',
     name: 'WishList',
     component: WishList
+  },
+  {
+    path: '/user/:id/orders',
+    name: 'OrderList',
+    component: OrderList
+  },
+  {
+    path: '/user/:id/trips',
+    name: 'TripsList',
+    component: TripsList
   },
 ]
 
