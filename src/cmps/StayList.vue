@@ -28,12 +28,9 @@ export default {
             var queryStr = this.$route.query
             console.log(queryStr)
             this.$router.replace({
-                // name: 'StayDetails',
                 path:`/stay/${stayId}`,
                 query: queryStr,
-                // params: stayId,
             })
-            // this.$router.push(`/stay/${stayId}`)
         },
         removeStay(stayId) {
             this.$emit('removeStay', stayId)

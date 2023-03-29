@@ -41,17 +41,90 @@ export default defineComponent({
                     itemsToShow: 5,
                     snapAlign: 'center',
                 },
-
-                // 700px and up
+                400: {
+                    itemsToShow: 5,
+                    snapAlign: 'center',
+                },
+                500: {
+                    itemsToShow: 6,
+                    snapAlign: 'center',
+                },
+                600: {
+                    itemsToShow: 7,
+                    snapAlign: 'center',
+                },
                 700: {
                     itemsToShow: 8,
                     snapAlign: 'center',
                 },
-                // 1024 and up
-                1024: {
+                800: {
+                    itemsToShow: 9,
+                    snapAlign: 'start',
+                },
+                900: {
+                    itemsToShow: 10,
+                    snapAlign: 'start',
+                },
+                1000: {
+                    itemsToShow: 11,
+                    snapAlign: 'start',
+                },
+                1100: {
+                    itemsToShow: 12,
+                    snapAlign: 'start',
+                },
+                1200: {
                     itemsToShow: 13,
                     snapAlign: 'start',
-                }
+                },
+                1300: {
+                    itemsToShow: 14,
+                    snapAlign: 'start',
+                },
+                1400: {
+                    itemsToShow: 15,
+                    snapAlign: 'start',
+                },
+                1500: {
+                    itemsToShow: 16,
+                    snapAlign: 'start',
+                },
+                1600: {
+                    itemsToShow: 17,
+                    snapAlign: 'start',
+                },
+                1700: {
+                    itemsToShow: 18,
+                    snapAlign: 'start',
+                },
+                1800: {
+                    itemsToShow: 19,
+                    snapAlign: 'start',
+                },
+                1900: {
+                    itemsToShow: 20,
+                    snapAlign: 'start',
+                },
+                2000: {
+                    itemsToShow: 21,
+                    snapAlign: 'start',
+                },
+                2100: {
+                    itemsToShow: 22,
+                    snapAlign: 'start',
+                },
+                2200: {
+                    itemsToShow: 23,
+                    snapAlign: 'start',
+                },
+                2300: {
+                    itemsToShow: 24,
+                    snapAlign: 'start',
+                },
+                2400: {
+                    itemsToShow: 24,
+                    snapAlign: 'start',
+                },
             },
             isActive: 'Trending',
             hideArrows : false

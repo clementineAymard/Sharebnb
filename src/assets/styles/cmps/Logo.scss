@@ -12,6 +12,14 @@
         flex-grow: 1.51;
     }
 
+    @include for-wide-layout {
+        flex-grow: 1.15;
+    }
+
+    @include for-extra-wide-layout {
+        flex-grow: 1.29;
+    }
+
     img {
         object-fit: contain;
         height: em(32px);
@@ -23,7 +31,7 @@
     }
 
     span {
-        font-size: 20px;
+        font-size: rem(20px);
         font-family: airbnb_bold;
         letter-spacing: 0.9;
         color: $clr1;
@@ -32,7 +40,7 @@
             display: none;
         }
 
-        @include for-narrow-layout {
+        @include for-medium-layout {
             display: block;
         }
 

@@ -8,12 +8,14 @@ export const userStore = {
     state: {
         loggedinUser: null,
         users: [],
-        watchedUser: null
+        watchedUser: null,
+        wishList: []
     },
     getters: {
         users({ users }) { return users },
         loggedinUser({ loggedinUser }) { return loggedinUser },
-        watchedUser({ watchedUser }) { return watchedUser }
+        watchedUser({ watchedUser }) { return watchedUser },
+        wishList({ wishList }) { return wishList }
     },
     mutations: {
         setLoggedinUser(state, { user }) {
@@ -31,8 +33,17 @@ export const userStore = {
         setUserScore(state, { score }) {
             state.loggedinUser.score = score
         },
+        addToWishList(state, { stay }){
+            console.log('stay',stay)
+            state.wishList.push(stay)
+            console.log('wishList',this.wishList)
+        }
     },
     actions: {
+        async addToWishList({ commit }, { stay }){
+            commit({ type: 'addToWishList', stay })
+           
+        },
         async login({ commit }, { userCred }) {
             try {
                 const user = await userService.login(userCred)
@@ -102,15 +113,15 @@ export const userStore = {
             }
 
         },
-        async increaseScore({ commit }) {
-            try {
-                const score = await userService.changeScore(100)
-                commit({ type: 'setUserScore', score })
-            } catch (err) {
-                console.log('userStore: Error in increaseScore', err)
-                throw err
-            }
-        },
+        // async increaseScore({ commit }) {
+        //     try {
+        //         const score = await userService.changeScore(100)
+        //         commit({ type: 'setUserScore', score })
+        //     } catch (err) {
+        //         console.log('userStore: Error in increaseScore', err)
+        //         throw err
+        //     }
+        // },
         // Keep this action for compatability with a common user.service ReactJS/VueJS
         setWatchedUser({commit}, payload) {
             commit(payload)

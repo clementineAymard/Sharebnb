@@ -43,7 +43,7 @@ export default {
         }
     },
     created() {
-        this.filterBy = this.$route.query
+        this.filterBy = {...this.$route.query}
         console.log('this.filterBy', this.filterBy)
         if (this.filterBy.from) delete this.filterBy.from
         if (this.filterBy.to) delete this.filterBy.to

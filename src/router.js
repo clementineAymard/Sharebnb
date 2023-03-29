@@ -9,6 +9,7 @@ import ReviewIndex from './pages/ReviewIndex.vue'
 import LoginSignup from './pages/LoginSignup.vue'
 import UserDetails from './pages/UserDetails.vue'
 import OrderConfirmation from './pages/OrderConfirmation.vue'
+import WishList from './pages/WishList.vue'
 
 const routes = [
   {
@@ -55,7 +56,7 @@ const routes = [
   {
     path: '/user/:id',
     name: 'UserDetails',
-    component: UserDetails
+    component: WishList
   }
 ]
 

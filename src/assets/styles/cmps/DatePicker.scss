@@ -24,6 +24,10 @@
     display: none;
 }
 
+.el-date-range-picker .el-picker-panel__body {
+    min-width: max-content;
+}
+
 .el-date-range-picker__header {
 
     button.el-picker-panel__icon-btn {
@@ -62,9 +66,15 @@
     &.is-light.el-picker__popper {
         display: block;
         top: 203px !important;
-        left: 43vh !important;
         padding-block-start: 1rem;
         padding-block-end: 3rem;
+
+        @include for-mobile-layout-list {
+            width:fit-content;
+            padding-inline: 0;
+            left: 0 !important;
+            right: 0 !important;
+        }
     }
 }
 
@@ -184,7 +194,7 @@
 
             border-radius: 50%;
             font-family: airbnb_medium;
-            font-size: 14px;
+            font-size: rem(14px);
             width: 45px;
             height: 45px;
             box-sizing: content-box;

@@ -498,13 +498,7 @@ export default {
                 console.log('Error on details');
             }
           
-            // this.$router.push('/order/' + orderId)
-            // 1. create order : order service getEmptyOrder() 
-            // 2. fill the order with relevant info 
-            // this.$route.query : {loc: .., adults:..., infants:...}
-            // this.$store.dispatch({type: 'addOrder', order})
-            // orderId = this.$store.getters.currOrder
-            // this.$router.push('/order/' + orderId)
+      
         }
     },
     computed: {
