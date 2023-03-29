@@ -481,7 +481,7 @@ export default {
             startDate: '',
             endDate: '',
             guests: 0,
-            guestsForDisplay: 1,
+            guestsForDisplay: 1
         }
     },
     async created() {
