@@ -33,15 +33,16 @@ export const userStore = {
         setUserScore(state, { score }) {
             state.loggedinUser.score = score
         },
-        addToWishList(state, { stay }){
-            console.log('stay',stay)
+        addToWishList(state, { user,stay }){
+            console.log('stay',stay,user)
+            console.log('wishList',state.wishList)
             state.wishList.push(stay)
-            console.log('wishList',this.wishList)
+            console.log('wishList',state.wishList)
         }
     },
     actions: {
-        async addToWishList({ commit }, { stay }){
-            commit({ type: 'addToWishList', stay })
+        async addToWishList({ commit }, { user,stay }){
+            commit({ type: 'addToWishList', user,stay })
            
         },
         async login({ commit }, { userCred }) {

@@ -10,7 +10,7 @@
         </nav>
         <h2 v-if="isMe">My Profile</h2>
         <h1 v-else>User Profile - {{ user.fullname }}</h1>
-        <h3>{{ user.username }}</h3>
+        <h3>{{ user.fullname }}</h3>
         <img style="max-width: 200px;" :src="user.imgUrl" />
         <h2>Reviews</h2>
         <ul>
