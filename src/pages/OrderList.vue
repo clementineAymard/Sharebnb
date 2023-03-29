@@ -1,6 +1,6 @@
 <template>
+    <Chart></Chart>
     <div class="list">
-
         <ul>
             <div class="order-preview header-order">
                 <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon
@@ -27,6 +27,7 @@
 
 <script>
 import OrderPreview from '../cmps/OrderPreview.vue'
+import Chart from '../cmps/Chart.vue'
 
 export default {
     name: '',
@@ -39,11 +40,13 @@ export default {
         }
     },
     methods: {
-
+       updateOrder(status){
+            // this.order.status = status
+        }
     },
     computed: {
         orders() {
-            return this.$store.getters.orders
+            return JSON.parse(JSON.stringify(this.$store.getters.orders) ) 
         },
         loggedinUser() {
             console.log(this.$store.getters.loggedinUser);
@@ -59,7 +62,8 @@ export default {
         }
     },
     components: {
-        OrderPreview
+        OrderPreview,
+        Chart
     },
 }
 

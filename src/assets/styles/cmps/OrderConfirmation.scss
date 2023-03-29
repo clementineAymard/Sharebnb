@@ -129,12 +129,10 @@
 
         .review-totals {
             display: flex;
-            gap: 15px;
-           
-
+            gap: 5px;
             
             .under-line {
-                text-underline-position: under
+                text-decoration: underline;
             }
         }
       
