@@ -9,9 +9,11 @@ nav {
         height: 0;
         opacity: 0;
     }
+
     @include for-extra-wide-layout {
         flex-grow: 1;
     }
+
     .links {
         justify-content: end;
 
@@ -56,21 +58,39 @@ nav {
 
     .mini-menu {
         position: absolute;
-        top: 0;
-        transform: translateY(60%);
+        top: 3em;
+        // transform: translateY(60%);
 
-        width: 200px;
-        padding: 1rem;
+        width: 240px;
+        // padding: 1rem;
 
         background-color: $clr6;
         border-radius: em(10px);
-        box-shadow: 0px 0px 7px 1px $clr4;
+        box-shadow: 0px 0px 8px -1px $clr4;
 
         >a {
             font-size: rem(14px);
             font-family: airbnb_book;
             color: $clr2;
-            padding-block: 5px;
+            margin: 16px;
+            display: block;
+        }
+
+        .guest-options,
+        .host-options {
+
+            border-bottom: 1px solid $clr4;
+
+            a {
+                font-family: airbnb_medium;
+                font-size: rem(15px);
+                display: block;
+                margin: 17px;
+            }
+        }
+
+        >div>a {
+
         }
 
         .bold {

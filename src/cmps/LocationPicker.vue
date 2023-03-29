@@ -3,12 +3,12 @@
         <span>Search by region</span>
         <div class="locations-options">
             <label for="flexible">
-                <input type="radio" value="Flexible" id="Flexible" hidden @click="setLoc">
+                <input type="radio" value="Flexible" id="Flexible" hidden @input="setLoc">
                 <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679569899/flexible_rtciou.jpg">
                 <span>I'm flexible</span>
             </label>
             <label v-for="region in regions" :for="region.title">
-                <input type="radio" :value="region.title" :id="region.title" hidden @click="setLoc">
+                <input type="radio" :value="region.title" :id="region.title" hidden @input="setLoc">
                 <img :src="region.url">
                 <span>{{ region.title }}</span>
             </label>

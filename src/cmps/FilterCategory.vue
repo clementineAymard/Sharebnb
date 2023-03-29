@@ -134,8 +134,7 @@ export default defineComponent({
         setFilterBy(filterBy) {
             this.isActive = filterBy
             this.filterBy.category = filterBy
-            this.$emit('filter-by', this.filterBy);
-          
+            this.$emit('filter-by', this.filterBy);      
         },
         handleBeforeSlide(index) {
             if (index === 0) {

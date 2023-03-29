@@ -2,14 +2,13 @@
 <template>
     <section class="order-preview">
 
-
-        <div>{{ order.buyer.fullname }}</div>
-        <div>{{ order.stay.name }}</div>
-        <div> {{ order.startDate }}</div>
-        <div> {{ order.endDate }}</div>
-        <div> {{ order.totalPrice }}</div>
-        <div> {{ order.status }}</div>
-        <div> 
+        <div class="order-pre buyer-name">{{ order.buyer.fullname }}</div>
+        <div class="order-pre stay-name">{{ order.stay.name }}</div>
+        <div class="order-pre startDate"> {{ order.startDate }}</div>
+        <div class="order-pre endDate"> {{ order.endDate }}</div>
+        <div class="order-pre totalPrice"> {{ order.totalPrice }}</div>
+        <div class="order-pre status"> {{ order.status }}</div>
+        <div class="order-pre select"> 
             <select v-if="order.status==='pending'" v-model="status" @change="onSelectStatus">
             <option value="" selected>Select status</option>
             <option value="approved">Approve</option>

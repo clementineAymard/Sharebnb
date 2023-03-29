@@ -60,7 +60,7 @@ export default {
         guests() {
             return {
                 adults: this.adultsCount,
-                chidren: this.childrenCount,
+                children: this.childrenCount,
                 infants: this.infantsCount
             }
         }

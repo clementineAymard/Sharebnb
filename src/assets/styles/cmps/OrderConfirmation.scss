@@ -18,14 +18,14 @@
     .order-container {
         position: relative;
         flex-direction: column;
+        gap: 30px;
 
-        @media (min-width:550px) {
+        @media (min-width:750px) {
             flex-direction: row;
         }
     }
 
-    .header {
-
+    .header-order1 {
         // display: flex;
         gap: 15px;
         // padding-block: 64px 50px;
@@ -54,37 +54,41 @@
 
     .first-line {
         font-size: 2em;
-        gap: 15px;
-        padding-block: 24px 30px;
+        // gap: 15px;
+        padding-block: 20px 0px;
         margin: 0;
     }
 
-    
-    .order-text{
+
+    .order-text {
         max-width: 100%;
-        margin-top: 60px;
+      
+        // margin-top: 60px;
         @media (min-width:550px) {
-            width: 45%;
+            // width: 45%;
         }
-        >p{
-            
+
+        >p {
+
             .big {
                 font-size: rem(18px);
                 padding-block: 1rem;
             }
-            .pad-end{
+
+            .pad-end {
                 padding-block-end: 1rem;
             }
         }
     }
 
     & .order-sticky {
+        min-width: 350px;
         position: sticky;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 24px;
-        margin-top: 65px;
+        // margin-top: 65px;
         // margin-left: 8.3333333333%;
         border: 1px solid $clr4;
         border-radius: 12px;
@@ -93,21 +97,26 @@
         box-shadow: $clr4 0 6px 16px;
         width: 100%;
         height: max-content;
+        p{
+            font-size: 14px;
+            margin: 0px;
+        }
+
         @media (min-width:550px) {
             width: 43%;
         }
 
 
         // .order-details-container {
-            // border-bottom: 1px solid $clr3;
-            // padding-bottom: 24px;
+        // border-bottom: 1px solid $clr3;
+        // padding-bottom: 24px;
         // }
 
         .stay-info-container {
-            min-width: 300px;
+           
             display: grid;
             grid-template-columns: 150px 2fr;
-            grid-template-rows: 1fr 1fr;
+            // grid-template-rows: 1fr 1fr;
             gap: 0.625em 1.875em;
 
             img {
@@ -120,18 +129,15 @@
 
         .review-totals {
             display: flex;
+            gap: 15px;
+           
 
-            .fa-star {
-                display: block;
-                height: 12px;
-                width: 12px;
-                fill: currentcolor;
-            }
-
+            
             .under-line {
                 text-underline-position: under
             }
         }
+      
 
 
         .protected {
@@ -172,3 +178,9 @@
         justify-self: end;
     }
 }
+.fa-star {
+      display: inline;
+      font-size: 12px;
+      fill: currentcolor;
+      line-height:2
+  }
