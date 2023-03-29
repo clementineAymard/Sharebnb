@@ -13,7 +13,7 @@
         transition: transform 250ms ease-in-out;
 
         &.open {
-            transform: scaleY(2);
+            height: 10rem;
         }
     }
 
@@ -28,15 +28,15 @@
     &.margin-details-page {
 
         @include for-mobile-layout-min {
-            @include layoutGTC($break-mobile, calc(2 * $layoutPaddingLarge));
+            @include layoutGTC($break-mobile, calc(2 * $large_padding-inline));
         }
 
         @include for-narrow-layout {
-            @include layoutGTC($break-narrow, calc(2 * $layoutPaddingLarge));
+            @include layoutGTC($break-narrow, calc(2 * $large_padding-inline));
         }
 
         @include for-normal-layout {
-            @include layoutGTC($break-normal, calc(2 * $layoutPaddingLarge));
+            @include layoutGTC($break-normal, calc(2 * $large_padding-inline));
         }
     }
 

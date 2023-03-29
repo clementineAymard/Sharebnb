@@ -14,6 +14,7 @@
 
     >* {
         grid-column: 2;
+        width:100%;
 
         &.full {
             grid-column: 1 /-1;
@@ -22,15 +23,15 @@
 
     &.narrow {
         @include for-mobile-layout-min {
-            @include layoutGTC($break-mobile, calc(2 * $layoutPaddingLarge));
+            @include layoutGTC($break-mobile, calc(2 * $large_padding-inline));
         }
 
         @include for-narrow-layout {
-            @include layoutGTC($break-narrow, calc(2 * $layoutPaddingLarge));
+            @include layoutGTC($break-narrow, calc(2 * $large_padding-inline));
         }
 
         @include for-normal-layout {
-            @include layoutGTC($break-normal, calc(2 * $layoutPaddingLarge));
+            @include layoutGTC($break-normal, calc(2 * $large_padding-inline));
         }
     }
 
@@ -39,27 +40,35 @@
     }
 
     @include for-mobile-layout {
-        @include layoutGTC($break-mobile, $layoutPaddingSmall);
+        @include layoutGTC($break-mobile, $small_padding-inline);
     }
 
     @include for-mobile-layout-min {
-        @include layoutGTC($break-mobile, $layoutPadding);
+        @include layoutGTC($break-narrow, $medium_padding-inline);
     }
 
     @include for-narrow-layout {
-        @include layoutGTC($break-narrow, $layoutPadding);
+        @include layoutGTC($break-medium, $medium_padding-inline);
     }
 
+    @include for-medium-layout {
+        @include layoutGTC($break-normal, $medium_padding-inline);
+    }
     @include for-normal-layout {
-        @include layoutGTC($break-normal, $layoutPaddingLarge);
+        @include layoutGTC($break-normal-list, $large_padding-inline);
     }
 
     @include for-normal-list-layout {
-        @include layoutGTC($break-normal-list, $layoutPaddingLarge);
+        @include layoutGTC($break-normal-list, $large_padding-inline);
     }
 
     @include for-wide-layout {
-        @include layoutGTC($break-wide, $layoutPaddingLarge);
+        @include layoutGTC($break-wide, $large_padding-inline);
+    }
+
+    @include for-extra-wide-layout {
+        @include layoutGTC($max-middle-width, $large_padding-inline);
     }
 
 }
+

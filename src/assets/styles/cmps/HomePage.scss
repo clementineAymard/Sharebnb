@@ -1,14 +1,3 @@
 .home {
-    @include for-mobile-layout {
-        width: calc(100vw - 2 * $layoutPaddingSmall - 20px);
-    }
-
-    @include for-mobile-layout-min {
-        width: calc(100vw - 2 * $layoutPadding - 20px);
-    }
-
-    @include for-normal-layout {
-        width: calc(100vw - 2 * $layoutPaddingLarge - 20px);
-    }
-
+    overflow: hidden;
 }
