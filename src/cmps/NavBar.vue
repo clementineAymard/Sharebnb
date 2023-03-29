@@ -10,24 +10,12 @@
         </a>
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
             <div class="guest-options">
-                <a>
-                    <div @click="goToPage('/staywishlist')">WishList</div>
-                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/staywishlist`)">WishList</div> -->
-                </a>
-                <a>
-                    <div @click="goToPage('/trips')">Trips</div>
-                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/trips`)">Trips</div> -->
-                </a>
+                <a @click="goToPage('/staywishlist')">WishList</a>
+                <a @click="goToPage('/trips')">Trips</a>
             </div>
             <div class="host-options">
-                <a>
-                    <div @click="goToPage('')">My Profile</div>
-                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</div> -->
-                </a>
-                <a>
-                    <div @click="goToPage('/orders')">Orders</div>
-                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</div> -->
-                </a>
+                <a @click="goToPage('')">My Profile</a>
+                <a @click="goToPage('/orders')">Orders</a>
             </div>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
@@ -36,7 +24,7 @@
             <a @click="openModal">Signup</a>
         </div>
     </nav>
-    <LoginSignup v-if="isModalOpen" @closeModal="onCloseModal"/>
+    <LoginSignup v-if="isModalOpen" @closeModal="onCloseModal" />
 </template>
 
 <script>
@@ -48,6 +36,7 @@ export default {
     data() {
         return {
             isMiniMenuOpen: false,
+            isModalOpen: false,
         }
     },
     methods: {
@@ -63,10 +52,10 @@ export default {
             this.isModalOpen = true
             this.isMiniMenuOpen = false
         },
-        onCloseModal(){
+        onCloseModal() {
             this.isModalOpen = false
         },
-        goToPage(path){
+        goToPage(path) {
             this.$router.push(`/user/${this.loggedinUser._id}${path}`)
             this.isMiniMenuOpen = false
         },

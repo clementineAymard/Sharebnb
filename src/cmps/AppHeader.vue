@@ -12,7 +12,8 @@
                     <button class="location" @click="onOpenSearch('locations')" :class="isActiveClass">
                         <div v-if="isSearchOpen" class="mode flex column" :class="isActiveClass">
                             <label>Where</label>
-                            <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations">
+                            <input v-model="filterBy.loc" type="text" class="sub-title" placeholder="Search destinations"
+                                @input="setLoc">
                             <LocationPicker v-if="selectedFilterKey === 'locations'" @setLoc="onSetLoc($event)" />
                         </div>
                         <div v-else>{{ locForDisplayTitle }}</div>
@@ -134,8 +135,8 @@ export default {
             // dateFromForDisplay: this.$route.query.from || 'Add dates',
             // dateToForDisplay: this.$route.query.to || 'Add dates',
             locForDisplayTitle: 'Anywhere',
-            guestsForDisplayTitle:'Add guests',
-            dateFromForDisplay:  'Add dates',
+            guestsForDisplayTitle: 'Add guests',
+            dateFromForDisplay: 'Add dates',
             dateToForDisplay: 'Add dates',
             detailsSearchBar: 'Start your search',
         }
@@ -211,7 +212,7 @@ export default {
             this.setLocFromParams()
             this.setDatesFromParams()
             this.setGuestsFromParams()
-            
+
             this.$router.push({
                 name: 'Explore',
                 query: filterToSend,
@@ -235,10 +236,14 @@ export default {
         },
         setGuestsFromParams() {
             setTimeout(() => {
-                if (this.$route.query.adults && this.$route.query.children)
-                    this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
-                else if (this.$route.query.adults)
+                if (this.$route.query.adults)
                     this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
+                if (this.$route.query.children && this.$route.query.adults)
+                    this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) || 'Add guests'
+                if (this.$route.query.infants && this.$route.query.adults)
+                    this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) || 'Add guests'
+                if (this.$route.query.children && this.$route.query.adults && this.$route.query.infants)
+                    this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) + parseInt(this.$route.query.infants) || 'Add guests'
 
                 console.log('this.guestsForDisplayTitle', this.guestsForDisplayTitle)
             }, 1)
@@ -253,6 +258,11 @@ export default {
                 },
                 guests: 0
             }
+            this.locForDisplayTitle = 'Anywhere'
+            this.guestsForDisplayTitle = 'Add guests'
+            this.dateFromForDisplay = 'Add dates'
+            this.dateToForDisplay = 'Add dates'
+            this.detailsSearchBar = 'Start your search'
         }
     },
     watch: {
@@ -262,15 +272,20 @@ export default {
         routeQuery() {
             console.log('route query change', this.$route.query)
             this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
-            if (this.$route.query.children)
-                this.guestsForDisplayTitle = this.$route.query.adults + this.$route.query.children || 'Add guests'
-            else
+
+            if (this.$route.query.adults)
                 this.guestsForDisplayTitle = this.$route.query.adults || 'Add guests'
+            if (this.$route.query.children && this.$route.query.adults)
+                this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) || 'Add guests'
+            if (this.$route.query.infants && this.$route.query.adults)
+                this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) || 'Add guests'
+            if (this.$route.query.children && this.$route.query.adults && this.$route.query.infants)
+                this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) + parseInt(this.$route.query.infants) || 'Add guests'
 
             if (this.$route.query.to)
                 this.dateToForDisplay = this.$route.query.to
             if (this.$route.query.from)
-                this.dateFromForDisplay = this.$route.query.from 
+                this.dateFromForDisplay = this.$route.query.from
         },
     },
     components: {

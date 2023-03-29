@@ -21,28 +21,34 @@ window.cs = stayService
 
 
 async function query(filterBy) {     
-    console.log('filterBy: ', filterBy)
+    // console.log('filterBy: ', filterBy)
     var stays = await storageService.query(STORAGE_KEY)
-    if (filterBy){
+    // console.log('stays:   ',stays)
+    
+    if (Object.keys(filterBy).length){
+        console.log('filtering in service: filterBy: ', filterBy)
         if (filterBy.loc) {
-        const regex = new RegExp(filterBy.loc, 'i')
-        stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
+            const regex = new RegExp(filterBy.loc, 'i')
+            stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
         }
-        if (filterBy.adults && filterBy.children) {
+        
+        if ((filterBy.adults && filterBy.children) !== '0') {
             stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
         }
-        else if (filterBy.adults && !filterBy.children) {
+        else if (filterBy.adults && filterBy.children!=='0') {
             stays = stays.filter(stay => stay.capacity >= filterBy.adults)
         }
-        else if (!filterBy.adults && filterBy.children) {
+        else if (filterBy.adults!=='0' && filterBy.children) {
             stays = stays.filter(stay => stay.capacity >= filterBy.children)
         }
+
         if (filterBy.category) {
             stays = stays.filter(stay => stay.labels.includes(filterBy.category))
         }
     }
-    // stays = stays.sort((s1,s2) => s1 average rate - s2 average rate)
-    // TODO : SORT BY RATE
+
+    stays = stays.sort((s1,s2) => s2.rate - s1.rate)
+    // console.log('stays:   ',stays)
     return stays
 }
 
