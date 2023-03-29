@@ -6,7 +6,7 @@ import { showSuccessMsg } from './event-bus.service'
 import { utilService } from './util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-const STORAGE_KEY_USER = STORAGE_KEY_USER
+const STORAGE_KEY_USER = 'user'
 
 export const userService = {
     login,
@@ -174,4 +174,6 @@ const users = [
     },
 ]
 
-   utilService.saveToStorage(STORAGE_KEY_USER, users)
+// utilService.saveToStorage(STORAGE_KEY_USER, users)
+
+
