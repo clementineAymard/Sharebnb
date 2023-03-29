@@ -11,18 +11,22 @@
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
             <div class="guest-options">
                 <a>
-                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}/staywishlist`)">WishList</div>
+                    <div @click="goToPage('/staywishlist')">WishList</div>
+                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/staywishlist`)">WishList</div> -->
                 </a>
                 <a>
-                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}/trips`)">Trips</div>
+                    <div @click="goToPage('/trips')">Trips</div>
+                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/trips`)">Trips</div> -->
                 </a>
             </div>
             <div class="host-options">
                 <a>
-                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</div>
+                    <div @click="goToPage('')">My Profile</div>
+                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}`)">My Profile</div> -->
                 </a>
                 <a>
-                    <div @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</div>
+                    <div @click="goToPage('orders')">Orders</div>
+                    <!-- <div @click="this.$router.push(`/user/${this.loggedinUser._id}/orders`)">Orders</div> -->
                 </a>
             </div>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
@@ -61,7 +65,11 @@ export default {
         },
         onCloseModal(){
             this.isModalOpen = false
-        }
+        },
+        goToPage(path){
+            this.$router.push(`/user/${this.loggedinUser._id}${path}`)
+            this.isMiniMenuOpen = false
+        },
     },
     computed: {
         loggedinUser() {
