@@ -14,12 +14,14 @@ export const orderService = {
 }
 window.cs = orderService
 
+// FOR ORDERLIST orderService.query({hostId : loggedinUser._id})
+// FOR TRIPSLIST orderService.query({buyerId : loggedinUser._id})
 
 async function query(filterBy={}) {
     var orders = await storageService.query(STORAGE_KEY)
 
     if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
-    if (filterBy.userId) orders = orders.filter(order => order.buyer._id === filterBy.userId)
+    if (filterBy.buyerId) orders = orders.filter(order => order.buyer._id === filterBy.buyerId)
 
     return orders
 }
@@ -269,4 +271,4 @@ const orders = [
     },
 ]
 
-utilService.saveToStorage(STORAGE_KEY, orders)
+// utilService.saveToStorage(STORAGE_KEY, orders)
