@@ -59,7 +59,7 @@ const routes = [
     component: UserDetails
   },
   {
-    path: '/user/:id/wishlist',
+    path: '/user/:id/staywishlist',
     name: 'WishList',
     component: WishList
   },

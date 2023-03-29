@@ -3,8 +3,10 @@ import { httpService } from './http.service'
 import { store } from '../store/store'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
 import { showSuccessMsg } from './event-bus.service'
+import { utilService } from './util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const STORAGE_KEY_USER = STORAGE_KEY_USER
 
 export const userService = {
     login,
@@ -23,7 +25,7 @@ window.userService = userService
 
 
 function getUsers() {
-    return storageService.query('user')
+    return storageService.query(STORAGE_KEY_USER)
     // return httpService.get(`user`)
 }
 
@@ -33,7 +35,7 @@ function getUsers() {
 // }
 
 async function getById(userId) {
-    const user = await storageService.get('user', userId)
+    const user = await storageService.get(STORAGE_KEY_USER, userId)
     // const user = await httpService.get(`user/${userId}`)
 
     // socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
@@ -43,15 +45,15 @@ async function getById(userId) {
     return user
 }
 function remove(userId) {
-    return storageService.remove('user', userId)
+    return storageService.remove(STORAGE_KEY_USER, userId)
     // return httpService.delete(`user/${userId}`)
 }
 
 async function update({ _id, score }) {
-    const user = await storageService.get('user', _id)
+    const user = await storageService.get(STORAGE_KEY_USER, _id)
     // let user = getById(_id)
     // user.score = score
-    await storageService.put('user', user)
+    await storageService.put(STORAGE_KEY_USER, user)
 
     // user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
@@ -61,7 +63,7 @@ async function update({ _id, score }) {
 
 
 async function login(userCred) {
-    const users = await storageService.query('user')
+    const users = await storageService.query(STORAGE_KEY_USER)
     const user = users.find(user => user.username === userCred.username)
     // const user = await httpService.post('auth/login', userCred)
     if (user) {
@@ -72,7 +74,7 @@ async function login(userCred) {
 async function signup(userCred) {
     // userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    const user = await storageService.post('user', userCred)
+    const user = await storageService.post(STORAGE_KEY_USER, userCred)
     // const user = await httpService.post('auth/signup', userCred)
     // socketService.login(user._id)
     return saveLocalUser(user)
@@ -106,8 +108,8 @@ function getLoggedinUser() {
 const users = [
     {
         "_id": "u101",
-        "fullname": "User 1",
-        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+        "fullname": "Clem",
+        "imgUrl": "/imgs/userfemale.png",
         "username": "user1",
         "password": "secret",
         "visitedStays": [],
@@ -117,7 +119,7 @@ const users = [
     },
     {
         "_id": "u102",
-        "fullname": "User 2",
+        "fullname": "Shira",
         "imgUrl": "/imgs/userfemale.png",
         "username": "user2",
         "password": "secret",
@@ -125,13 +127,51 @@ const users = [
         "myStayOrders": [],
         "ownedStays": [],
         "wishList": []
-        // "isOwner" : true // OPTIONAL
-    }
+    },
+    {
+        "_id": "u103",
+        "fullname": "Kamal",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+        "username": "user2",
+        "password": "secret",
+        "visitedStays": [],
+        "myStayOrders": [],
+        "ownedStays": [],
+        "wishList": []
+    },
+    {
+        "_id": "u104",
+        "fullname": "Inbar",
+        "imgUrl": "/imgs/userfemale.png",
+        "username": "user2",
+        "password": "secret",
+        "visitedStays": [],
+        "myStayOrders": [],
+        "ownedStays": [],
+        "wishList": []
+    },
+    {
+        "_id": "u105",
+        "fullname": "Guy",
+        "imgUrl": "/imgs/userfemale.png",
+        "username": "user2",
+        "password": "secret",
+        "visitedStays": [],
+        "myStayOrders": [],
+        "ownedStays": [],
+        "wishList": []
+    },
+    {
+        "_id": "u106",
+        "fullname": "Tal",
+        "imgUrl": "/imgs/userfemale.png",
+        "username": "user2",
+        "password": "secret",
+        "visitedStays": [],
+        "myStayOrders": [],
+        "ownedStays": [],
+        "wishList": []
+    },
 ]
 
-// ; (async () => {
-//     for (var i = 0; i < users.length; i++) {
-//         await userService.signup(users[i])
-//     }
-// })()
-
+   utilService.saveToStorage(STORAGE_KEY_USER, users)

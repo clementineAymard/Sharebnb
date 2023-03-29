@@ -1,4 +1,3 @@
-
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
@@ -72,10 +71,10 @@ function getEmptyOrder() {
 const orders = [
     {
       "_id": "o1225",
-      "hostId": "u102",
+      "hostId": "u103",
       "buyer": {
         "_id": "u101",
-        "fullname": "User 1"
+        "fullname": "Clem"
       },
       "totalPrice": 160,
       "startDate": "2025/10/15",
@@ -85,15 +84,189 @@ const orders = [
           "kids": 1
         },
         "stay": {
-            "_id": "h102",
-            "name": "House Of Uncle My",
-            "price": 80.00
+            "_id": "622f337a75c7d36e498aaaf8",
+            "name": "Westin Kaanapali KORVN 2BR",
+            "price": 595
+        },
+        "msgs": [],
+        "status": "approved" // pending, approved
+    },
+    {
+      "_id": "o1235",
+      "hostId": "u103",
+      "buyer": {
+        "_id": "u101",
+        "fullname": "Clem"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf9",
+            "name": "Belle chambre à côté Metro Papineau",
+            "price": 30
         },
         "msgs": [],
         "status": "pending" // pending, approved
-    }
+    },
+    {
+      "_id": "o8225",
+      "hostId": "u103",
+      "buyer": {
+        "_id": "u102",
+        "fullname": "Shira"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf9",
+            "name": "Belle chambre à côté Metro Papineau",
+            "price": 30
+        },
+        "msgs": [],
+        "status": "approved" // pending, approved
+    },
+    {
+      "_id": "o1295",
+      "hostId": "u103",
+      "buyer": {
+        "_id": "u102",
+        "fullname": "Shira"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf8",
+            "name": "Westin Kaanapali KORVN 2BR",
+            "price": 595
+        },
+        "msgs": [],
+        "status": "pending" // pending, approved
+    },
+    {
+      "_id": "o1125",
+      "hostId": "u103",
+      "buyer": {
+        "_id": "u106",
+        "fullname": "Tal"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf8",
+            "name": "Westin Kaanapali KORVN 2BR",
+            "price": 595
+        },
+        "msgs": [],
+        "status": "pending" // pending, approved
+    },
+    {
+      "_id": "o1265",
+      "hostId": "u102",
+      "buyer": {
+        "_id": "u103",
+        "fullname": "Kamal"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaafb",
+            "name": "Fresh and modern 1BR in Bed-Stuy",
+            "price": 79
+        },
+        "msgs": [],
+        "status": "pending" // pending, approved
+    },
+    {
+      "_id": "o4225",
+      "hostId": "u101",
+      "buyer": {
+        "_id": "u103",
+        "fullname": "Kamal"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaafe",
+            "name": "Home, Sweet, Harlem. Welcome!",
+            "price": 110
+        },
+        "msgs": [],
+        "status": "pending" // pending, approved
+    },
+    {
+      "_id": "o2225",
+      "hostId": "u103",
+      "buyer": {
+        "_id": "u104",
+        "fullname": "Inbar"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf8",
+            "name": "Westin Kaanapali KORVN 2BR",
+            "price": 595
+        },
+        "msgs": [],
+        "status": "approved" // pending, approved
+    },
+    {
+      "_id": "o1725",
+      "hostId": "u103",
+      "buyer": {
+        "_id": "u105",
+        "fullname": "Guy"
+      },
+      "totalPrice": 160,
+      "startDate": "2025/10/15",
+      "endDate": "2025/10/17",
+      "guests": {
+          "adults": 2,
+          "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf8",
+            "name": "Westin Kaanapali KORVN 2BR",
+            "price": 595
+        },
+        "msgs": [],
+        "status": "approved" // pending, approved
+    },
 ]
 
-// ;(async () => {
-//     await storageService.post(STORAGE_KEY, orders[0])
-// })()
+utilService.saveToStorage(STORAGE_KEY, orders)
