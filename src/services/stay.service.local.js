@@ -45,21 +45,11 @@ async function query(filterBy) {
             stays = stays.filter(stay => stay.capacity >= parseInt(filterBy.adults) + parseInt(filterBy.infants))
         }
         
-        // if ((filterBy.adults && filterBy.children) !== '0') {
-        //     stays = stays.filter(stay => stay.capacity >= filterBy.adults + filterBy.children)
-        // }
-        // else if (filterBy.adults && filterBy.children!=='0') {
-        //     stays = stays.filter(stay => stay.capacity >= filterBy.adults)
-        // }
-        // else if (filterBy.adults!=='0' && filterBy.children) {
-        //     stays = stays.filter(stay => stay.capacity >= filterBy.children)
-        // }
-        
         if (filterBy.category) {
             stays = stays.filter(stay => stay.labels.includes(filterBy.category))
         }
     }
-    console.log('stays: ',stays)
+    // console.log('stays: ',stays)
     
     stays = stays.sort((s1,s2) => s2.rate - s1.rate)
     return stays

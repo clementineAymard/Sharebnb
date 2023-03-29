@@ -93,6 +93,7 @@
 
 <script>
 
+import 'animate.css'
 import { eventBus } from "../services/event-bus.service.js"
 import BrandLogo from './BrandLogo.vue'
 import LocationPicker from './LocationPicker.vue'
@@ -149,7 +150,7 @@ export default {
             return this.isSearchOpen ? 'open' : 'closed'
         },
         isDetailsClass() {
-            return this.isDetails ? 'margin-details-page' : 'no-margin'
+            return this.isDetails ? 'narrow' : ''
         },
         isActiveClass() {
             return `active-${this.selectedFilterKey}`
@@ -245,7 +246,7 @@ export default {
                 if (this.$route.query.children && this.$route.query.adults && this.$route.query.infants)
                     this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) + parseInt(this.$route.query.infants) || 'Add guests'
 
-                console.log('this.guestsForDisplayTitle', this.guestsForDisplayTitle)
+                // console.log('this.guestsForDisplayTitle', this.guestsForDisplayTitle)
             }, 1)
         },
         onResetFields() {
@@ -282,7 +283,7 @@ export default {
             if (this.$route.query.children && this.$route.query.adults && this.$route.query.infants)
                 this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) + parseInt(this.$route.query.infants) || 'Add guests'
 
-                
+
             if (this.$route.query.to)
                 this.dateToForDisplay = this.$route.query.to
             if (this.$route.query.from)

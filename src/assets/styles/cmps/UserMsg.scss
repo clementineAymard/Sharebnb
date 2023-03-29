@@ -1,16 +1,46 @@
-
-
 .alert {
     background-color: lightgray;
     position: fixed;
-    top: 0;
-    right: 0.5em;
-    padding: 1em;
+    z-index: 100;
+    top: 1rem;
+    right: 1rem;
+    transform: translateY(-150%);
+    width: auto;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    border: solid 2px;
+    font-size: 14px;
+    font-family: airbnb_medium;
+
     &.alert-success {
-        background-color: lightgreen;
+        background-color: rgb(193, 239, 193);
+        border-color: lightgreen;
+        color: green;
     }
+
     &.alert-error {
-        background-color: lightcoral;
+        background-color: rgb(239, 186, 186);
+        border-color: lightcoral;
+        color: crimson;
+    }
+
+    animation: inout 3000ms linear;
+
+    @keyframes inout {
+        20% {
+            transform: translateY(0);
+        }
+        
+        80% {
+            transform: translateY(0);
+        }
+        
+        to {
+            transform: translateY(-150%);
+        }
     }
 }
 
+:root {
+    animation-duration: 0.8s;
+}

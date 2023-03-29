@@ -3,7 +3,7 @@
         <AppHeader />
         <RouterView class="overflow-hidden"/> <!--@wheel="onCloseHeader"-->
         <AppFooter />
-        <!-- <UserMsg /> -->
+        <UserMsg />
     </section>
 </template>
 
