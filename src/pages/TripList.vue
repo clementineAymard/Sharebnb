@@ -3,16 +3,15 @@
      
       <ul>
         <div class="order-preview header-order">
-          <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Guest</span>
           <span @click="setSortBy('name')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Stay Name</span>
+          <span @click="setSortBy('host')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Host</span>
               <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check in</span>
               <span @click="setSortBy('endDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check out</span>
             <span @click="setSortBy('totalPrice')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Total price</span>
             <span @click="setSortBy('status')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Status</span>
-            <span class="header-sort"></span>
         </div>
         <li v-for="order in orders" :key="order.name">
-          <OrderPreview :order="order" @updateOrder="updateOrder"></OrderPreview>
+          <TripPreview :order="order" @updateOrder="updateOrder"></TripPreview>
         </li>
         <!-- <RouterLink to="/list/people/order">Add a new Character</RouterLink> -->
       </ul>
@@ -20,14 +19,14 @@
   </template>
   
   <script>
-  import OrderPreview from './OrderPreview.vue'
+  import TripPreview from './../cmps/TripPreview.vue'
   
   export default {
     name: '',
     data() {
       return {
         // filterBy: {
-        //   hostId: this.loggedinUser._id
+        //   buyerId: this.loggedinUser._id
         // },
   
       }
@@ -46,17 +45,16 @@
     },
     async created() {
       try{
-        await this.$store.dispatch({ type: 'loadOrders', filterBy: {hostId: this.loggedinUser._id} })
+        await this.$store.dispatch({ type: 'loadOrders', filterBy: {buyerId : this.loggedinUser._id} })
       }
       catch(err){
-        console.log(err,'cannot load orders');
+        console.log(err,'cannot load trips');
       }
       },
     components: {
-      OrderPreview
+      TripPreview
     },
   }
   
   </script>
   
-// {buyerId : loggedinUser._id}
