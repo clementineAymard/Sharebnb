@@ -2,15 +2,16 @@
     <section class="wish-list">
         <h1 class="header-wish-list medium-font">Wishlist</h1>
         <div class="preview-wish-list">
-            <div class="container-wish-list">
+            <div class="container-wish-list" @click="onOpenWishList()">
+
                 <div class="imgs-wish-list">
                     <!-- <img src="{{ wishList[0].imgsUrl[0] }}" alt="">
-
-                    <img v-if="wishList.length > 1" src="{{ wishList[1].imgsUrl[0] }}" alt="">
-                    <img v-else src="{{ wishList[0].imgsUrl[1] }}" alt="">
-
-                    <img v-if="wishList.length > 2" src="{{ wishList[2].imgsUrl[0] }}" alt="">
-                    <img v-else src="{{ wishList[1].imgsUrl[1] }}" alt=""> -->
+    
+                        <img v-if="wishList.length > 1" src="{{ wishList[1].imgsUrl[0] }}" alt="">
+                        <img v-else src="{{ wishList[0].imgsUrl[1] }}" alt="">
+    
+                        <img v-if="wishList.length > 2" src="{{ wishList[2].imgsUrl[0] }}" alt="">
+                        <img v-else src="{{ wishList[1].imgsUrl[1] }}" alt=""> -->
 
                     <img class="img1-wish-list"
                         src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437040/oarfkdxx7gyyvcynvwko.jpg"
@@ -24,7 +25,7 @@
                 </div>
                 <div class="wish-list-name">
                 </div>
-                
+
             </div>
             <h3>My Wish List 💓</h3>
         </div>
@@ -37,11 +38,18 @@ export default {
     data() {
         return {
             wishList: this.$store.getters.wishList,
-            stays: this.$store.getters.stays
+            // stays: this.$store.getters.stays
         }
     },
     methods: {
-
+        onOpenWishList() {
+            var queryStr = this.$route.query
+            console.log(queryStr)
+            this.$router.replace({
+                path: `/wishList/${wishListId}`,
+                query: queryStr,
+            })
+        }
     },
     computed: {
 
