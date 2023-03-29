@@ -5,7 +5,7 @@
             <div class="order-preview header-order">
                 <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon
                         icon="fa-solid fa-sort" />Guest</span>
-                <span @click="setSortBy('name')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Stay
+                <span @click="setSortBy('name')" class="header-sort name"><font-awesome-icon icon="fa-solid fa-sort" />Stay
                     Name</span>
                 <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check
                     in</span>

@@ -1,6 +1,6 @@
 <template>
     <section class="order-confirm">
-        <header class="header">
+        <header class="header-order1">
             <p class="medium-font first-line">Your order has been sent to host</p>
         </header>
         <div class="order-container flex justify-between">
@@ -32,13 +32,13 @@
                         <img src="https://a0.muscache.com/im/pictures/e386d60e-d902-4589-aefb-1943eb7947c3.jpg?im_w=720"
                             alt="">
                         <p>Fantastic duplex apartment with three bedrooms</p>
-                    </div>
-                    <div class="review-totals">
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <p>4.74 </p>
-                        <p class="under-line">21 reviews</p>
-
-
+                        <div class="review-totals">
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <p>4.74 </p>
+                            <p class="under-line">21 reviews</p>
+    
+    
+                        </div>
                     </div>
                     <div class="protected">
                         <p> Your booking is protected by <span class="air-txt medium-font">Air</span><span
