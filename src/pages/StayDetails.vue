@@ -52,15 +52,16 @@
                         <div class="txt column flex justify-between">
                             <h2 class="title subheading">{{ stay.host.fullname }}</h2>
                             <div class="flex capacity-details">
-                                <div class="capacity-subtitle">2 guests</div>
-                                <span>·</span>
-                                <div class="capacity-subtitle">
-                                    1 bedroom
+                                <div class="capacity-subtitle"> {{stay.capacity}} guests
                                 </div>
                                 <span>·</span>
-                                <div class="capacity-subtitle">2 beds </div>
+                                <div class="capacity-subtitle">
+                                    {{ stay.bedrooms }} bedrooms
+                                </div>
                                 <span>·</span>
-                                <div class="capacity-subtitle"> 1 bath
+                                <!-- <div class="capacity-subtitle">{{ stay.capacity }} beds </div> -->
+                                <!-- <span>·</span> -->
+                                <div class="capacity-subtitle"> {{ stay.bathrooms }} bathrooms
                                 </div>
                             </div>
                         </div>
@@ -127,8 +128,8 @@
 
                         </h4>
                         <div class="amenities-container">
-                            <!-- {{ stay.amenities }} -->
                             <li>
+                                <!-- {{ stay.amenities }} -->
                                 <section class="amenity flex">
                                     <section class="icon-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                                             aria-hidden="true" role="presentation" focusable="false"
@@ -251,6 +252,7 @@
                                                 d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
                                             </path>
                                         </svg></div>
+                                        
                                 </div>
                                 <div class="branded-btn">
                                     <div class="cell"></div>
@@ -388,17 +390,20 @@
                     </h1>
                     <div class="reviews-container">
                         <div class="reviews-list">
-                            <li v-for="review in stay.reviews">
+                            <li v-for="(reviews, fullname) in stay.reviews">
                                 <div class="title flex">
                                     <img
-                                        src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg">
+                                        :src="  reviews.by.imgUrl ">
                                     <div class="flex column">
-                                        <span class="name font-md">{{ review.fullname }}</span>
-                                        <span class="subtitle fs14">July 2016</span>
+                                        <span class="name font-md">{{ reviews.fullname}} {{ reviews.by.fullname }}</span>
+                                        <span class="subtitle fs14">{{ reviews.fullname}} {{ reviews.at }}</span>
+                                        <!-- <span class="name font-md">{{ reviews.fullname}} {{ new Intl.DateTimeFormat('en-US',{month: 'short', day: 'numeric'} ).format(reviews.at) }}</span> -->
+                                        <!-- <span class="subtitle fs14">July 2016</span> -->
                                     </div>
                                 </div>
                                 <div class="txt">
-                                    Host: Davit gave us a warm welcome and treated us kindly from the very beginning. She
+                                    <span class="subtitle fs14">{{ reviews.fullname}} {{ reviews.txt }}</span>
+                                    <!-- Host: Davit gave us a warm welcome and treated us kindly from the very beginning. She
                                     offered us help, told us what to visit and even put water, milk and orange juice in the
                                     fridge! We could have breakfast at her place which was perfect because she has a little
                                     sweet balcony!
@@ -412,7 +417,7 @@
 
                                     I would overall recommend it to everybody!! But if you want to party and stay up late,
                                     take a hostel
-                                    or another appartment.
+                                    or another appartment. -->
                                 </div>
                             </li>
                         </div>
@@ -422,7 +427,7 @@
                       <!-- <div class="divider"></div> -->
                     </div>
                 </div>
-                <div class="all-reviews">
+                <!-- <div class="all-reviews">
                   <div class="all-reviews-model">
                     <div class="modal-content">
                       <span class="close">X</span>
@@ -445,7 +450,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
         </section>
     </section>
 </template>
