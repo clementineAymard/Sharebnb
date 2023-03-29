@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import OrderPreview from './OrderPreview.vue'
+import OrderPreview from '../cmps/OrderPreview.vue'
 
 export default {
     name: '',
