@@ -3,6 +3,7 @@ import { httpService } from './http.service'
 import { store } from '../store/store'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
 import { showSuccessMsg } from './event-bus.service'
+import { utilService } from './util.service.js'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -130,8 +131,6 @@ const users = [
 ]
 
 // ; (async () => {
-//     for (var i = 0; i < users.length; i++) {
-//         await userService.signup(users[i])
-//     }
+//     await utilService.saveToStorage(STORAGE_KEY_LOGGEDIN_USER, users)
 // })()
 

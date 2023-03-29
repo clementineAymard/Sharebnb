@@ -40,7 +40,7 @@ export default {
         },
         openProfile(){
             this.isMiniMenuOpen = false
-            this.$router.push(`/user/${loggedinUser._id}`)
+            this.$router.push(`/user/${this.loggedinUser._id}`)
         },
         doLogout() {
             this.isMiniMenuOpen = false
