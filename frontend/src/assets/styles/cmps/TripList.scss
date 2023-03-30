@@ -3,7 +3,7 @@
     position: relative;
     display: grid;
     //   grid-template-columns: 40px minmax(120px, 1fr) minmax(120px, 160px);
-    grid-template-columns: 4.2fr 2.9fr 1.2fr 1.2fr 1fr 1.5fr;
+    grid-template-columns: 4.2fr 1.2fr 1.2fr 1.2fr 1fr 1.5fr;
     grid-template-rows: 1fr;
     gap: 0px 15px;
     border-bottom: 1px solid #EBEEF2;
@@ -11,6 +11,12 @@
     border-radius: 8px 8px 0 0;
     padding: 20px;
 
+
+    .order-stay{
+        display: flex;
+        align-items: center;
+        gap: 9px
+    }
     div {
         background-color: white;
         padding-inline-end: 1em;

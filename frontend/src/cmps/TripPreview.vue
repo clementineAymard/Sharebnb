@@ -3,16 +3,15 @@
     <section class="trip-preview">
 
 
-        <div>
-            <img src={{ imgStay }} alt="">
-            
-            <!-- {{ order.stay.name }} -->
+        <div class="order-stay">
+            <img :src="order.stay.imgUrl" alt="">
+            {{ order.stay.name }}
         </div>
         <div>{{ hostName }}</div>
         <div> {{ order.startDate }}</div>
         <div> {{ order.endDate }}</div>
         <div> {{ order.totalPrice }}</div>
-        <div> {{ order.status }}</div>
+        <div class="status medium-font"> {{ order.status }}</div>
 
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>

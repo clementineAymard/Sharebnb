@@ -44,6 +44,7 @@ export default {
     },
     computed: {
         statusClass() {
+            console.log('this.order',this.order)
             if (this.status === 'approved')
                 return 'green'
             else if (this.status === 'rejected')
