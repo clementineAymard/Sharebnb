@@ -51,7 +51,7 @@ async function query(filterBy) {
     }
     // console.log('stays: ',stays)
     
-    stays = stays.sort((s1,s2) => s2.rate - s1.rate)
+    // stays = stays.sort((s1,s2) => s2.rate - s1.rate)
     return stays
 }
 
