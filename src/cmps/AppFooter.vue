@@ -2,7 +2,7 @@
     <footer class="full " v-if="isOpen">
         <section class="footer my-layout ">
             <div class="flex align-center">
-                <span>© 2023 Airbnb, Inc.</span>
+                <span>© 2023 Sharebnb, Inc.</span>
                 <span>·</span>
                 <span>Terms</span>
                 <span>·</span>

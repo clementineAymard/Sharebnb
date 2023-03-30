@@ -6,12 +6,12 @@
         <div class="order-pre stay-name">{{ order.stay.name }}</div>
         <div class="order-pre startDate"> {{ order.startDate }}</div>
         <div class="order-pre endDate"> {{ order.endDate }}</div>
-        <div class="order-pre totalPrice"> {{ order.totalPrice }}</div>
-        <div class="order-pre status" :class="statusClass"> {{ status }}
+        <div class="order-pre totalPrice"> $ {{ order.totalPrice }}</div>
+        <div class="order-pre status medium-font" :class="statusClass"> {{ status }}
         </div>
-        <div class="order-pre select">
-            <select v-if="order.status === 'pending'" v-model="status" @change="onSelectStatus">
-                <option value="" disabled>Select status</option>
+        <div class="order-pre select ">
+            <!-- <option value="" disabled>Select status</option> -->
+            <select v-if="status === 'pending'" v-model="status" @change="onSelectStatus">
                 <option value="approved">Approve</option>
                 <option value="rejected">Reject</option>
             </select>
@@ -44,9 +44,9 @@ export default {
     },
     computed: {
         statusClass() {
-            if (this.order.status === 'approved')
+            if (this.status === 'approved')
                 return 'green'
-            else if (this.order.status === 'rejected')
+            else if (this.status === 'rejected')
                 return 'red'
             else return 'black'
         }

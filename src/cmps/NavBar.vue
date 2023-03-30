@@ -1,7 +1,7 @@
 <template>
     <nav class="flex align-center">
         <div class="links flex align-center">
-            <RouterLink class="link-add-stay" to="/stay/edit">Airbnb your home</RouterLink>
+            <RouterLink class="link-add-stay" to="/stay/edit">Sharebnb your home</RouterLink>
         </div>
 
         <a @click="toggleMiniMenu" class="loggedin-user flex justify-between align-center">

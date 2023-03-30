@@ -1,5 +1,12 @@
 <template>
-    <Chart></Chart>
+    <div class="charts-container">
+
+        <PieChart/>
+        <div class="table-order">
+            
+        </div>
+        <BarChart/>
+    </div>
     <div class="list">
         <ul v-if="orders">
             <div class="order-preview header-order">
@@ -29,7 +36,8 @@
 
 <script>
 import OrderPreview from '../cmps/OrderPreview.vue'
-import Chart from '../cmps/Chart.vue'
+import PieChart from '../cmps/PieChart.vue'
+import BarChart from '../cmps/BarChart.vue'
 
 export default {
     name: '',
@@ -65,7 +73,8 @@ export default {
     },
     components: {
         OrderPreview,
-        Chart
+        PieChart,
+        BarChart
     },
 }
 

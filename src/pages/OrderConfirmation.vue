@@ -11,7 +11,7 @@
                 <p class="pad-end">You won't be charged until then.</p>
                 <hr>
                 <p class="bold-font big">Cancellation policy</p>
-                <p class="pad-end">Free cancellation before Mar 29. Cancel before Apr 3 for a partial refund.</p>
+                <p class="pad-end">Free cancellation before April 29. Cancel before May 3 for a partial refund.</p>
                 <hr>
                 <p class="bold-font big">Ground rules</p>
                 <p>We ask every guest to remember a few simple things about what makes a great guest.</p>
@@ -28,16 +28,15 @@
             <div class="order-sticky">
                 <div class="order-details-container">
                     <div class="stay-info-container">
-
-                        <img src="https://a0.muscache.com/im/pictures/e386d60e-d902-4589-aefb-1943eb7947c3.jpg?im_w=720"
+                        <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg"
                             alt="">
                         <p>Fantastic duplex apartment with three bedrooms</p>
                         <div class="review-totals">
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <p>4.74 </p>
                             <p class="under-line">21 reviews</p>
-    
-    
+
+
                         </div>
                     </div>
                     <div class="protected">
@@ -47,16 +46,17 @@
                     <div class="price-details ">
                         <p class="header medium-font">Price Details</p>
                         <div class="price-order">
-                            <p>$65 x 4 nights</p>
-                            <p class="end">$260</p>
+                            <p>${{ order.stay.price }} x 4 nights</p>
+                            <p class="end">${{ totalPrice }}</p>
                             <p>total guests</p>
-                            <p class="end">1</p>
+                            <p class="end" v-if="order.guests.length > 0">{{ order.guests.length }}</p>
+                            <p class="end" v-else>2</p>
                         </div>
 
                     </div>
                     <div class="total-price-order">
                         <p class="bold-font">Total after fees</p>
-                        <p class="end bold-font">$330.20</p>
+                        <p class="end bold-font">${{ totalAfterFees }}</p>
                     </div>
                 </div>
             </div>
@@ -70,10 +70,12 @@ export default {
     name: '',
     data() {
         return {
+            order: this.$store.getters.currOrder,
             offset: {
                 x: 0,
                 y: 0
             },
+            // stays: this.$store.getters.stays
         }
     },
     methods: {
@@ -81,9 +83,22 @@ export default {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
         },
+
     },
     computed: {
+        nights() {
+            return this.order.endDate - this.order.startDate
+        },
+        totalPrice() {
+            return this.order.stay.price * 4
+        },
+        totalAfterFees() {
+            return (this.totalPrice * 1.08).toFixed(2)
+        },
+        // stay() {
+        //     this.stays.filter(stay => stay._id !== this.order.stay._id)
 
+        // }
     },
     created() {
 

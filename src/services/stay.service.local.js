@@ -51,7 +51,7 @@ async function query(filterBy) {
     }
     // console.log('stays: ',stays)
     
-    stays = stays.sort((s1,s2) => s2.rate - s1.rate)
+    // stays = stays.sort((s1,s2) => s2.rate - s1.rate)
     return stays
 }
 
@@ -116,9 +116,9 @@ function getEmptyStay() {
 }
 
 function getLabels() {
-  return [
-      {
-          key: 'Trending',
+    return [
+        {
+            key: 'Trending',
           url: 'https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg',
       },
       {
@@ -132,7 +132,11 @@ function getLabels() {
       {
           key: 'Iconic',
           url: 'https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg',
-      },
+        },
+        {
+            key: 'Skiing',
+            url: 'https://a0.muscache.com/pictures/c8bba3ed-34c0-464a-8e6e-27574d20e4d2.jpg',
+        },
       {
           key: 'Beachfront',
           url: 'https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg',
@@ -164,10 +168,6 @@ function getLabels() {
       {
           key: 'OMG!',
           url: 'https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg',
-      },
-      {
-          key: 'Skiing',
-          url: 'https://a0.muscache.com/pictures/c8bba3ed-34c0-464a-8e6e-27574d20e4d2.jpg',
       },
       {
           key: 'Private',
