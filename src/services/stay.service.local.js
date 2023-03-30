@@ -59,7 +59,7 @@ async function query(filterBy) {
             stays = stays.filter(stay => stay.labels.includes(filterBy.category))
         }
     }
-    console.log('stays: ',stays)
+    // console.log('stays: ',stays)
     
     stays = stays.sort((s1,s2) => s2.rate - s1.rate)
     return stays
