@@ -1,0 +1,24 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $clr5;
+    z-index: 10;
+
+    &.stay-details-page {
+        position: static;
+        padding-block: 1rem;
+    }
+    
+    &.any-page{
+        position: fixed;
+    }
+    .footer>div {
+        padding-block: 14px;
+        font-size: 14px;
+        gap: 10px;
+    }
+    @include for-mobile-layout {
+        display: none;
+    }
+}
