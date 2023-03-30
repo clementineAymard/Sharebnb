@@ -25,27 +25,6 @@
         margin: auto;
     }
 
-    &.margin-details-page {
-
-        @include for-mobile-layout-min {
-            @include layoutGTC($break-mobile, calc(2 * $large_padding-inline));
-        }
-
-        @include for-narrow-layout {
-            @include layoutGTC($break-narrow, calc(2 * $large_padding-inline));
-        }
-
-        @include for-normal-layout {
-            @include layoutGTC($break-normal, calc(2 * $large_padding-inline));
-        }
-    }
-
-    &.no-margin {
-        // padding-inline: 0;
-        width: 100%;
-    }
-
-
     .backdrop {
         background-color: rgba($clr3, 0.5);
         position: fixed;
@@ -54,6 +33,10 @@
         right: 0;
         width: 100%;
         height: 100%;
-        // padding: 0px 80px;
     }
 }
+
+:root {
+    --animate-duration: 800ms;
+    --animate-delay: 2000ms;
+  }

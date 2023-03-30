@@ -109,7 +109,7 @@ const users = [
     {
         "_id": "u101",
         "fullname": "Clem",
-        "imgUrl": "/imgs/userfemale.png",
+        "imgUrl": "./userfemale.png",
         "username": "cleme",
         "password": "secret",
         "visitedStays": [],

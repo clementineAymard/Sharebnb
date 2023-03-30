@@ -44,34 +44,34 @@ const routes = [
     name: 'Chat',
     component: Chat
   },
-  {
-    path: '/login',
-    name: 'LoginSignup',
-    component: LoginSignup
-  },
+//   {
+//     path: '/login',
+//     name: 'LoginSignup',
+//     component: LoginSignup
+//   },
 
   {
-    path: '/order/:id',
+    path: '/order/:orderId',
     name: 'OrderConfirmation',
     component: OrderConfirmation
   },
   {
-    path: '/user/:id',
+    path: '/user/:userId',
     name: 'UserDetails',
     component: UserDetails
   },
   {
-    path: '/user/:id/staywishlist',
+    path: '/user/:userId/staywishlist',
     name: 'WishList',
     component: WishList
   },
   {
-    path: '/user/:id/orders',
+    path: '/user/:userId/orders',
     name: 'OrderList',
     component: OrderList
   },
   {
-    path: '/user/:id/trips',
+    path: '/user/:userId/trips',
     name: 'TripList',
     component: TripList
   },
