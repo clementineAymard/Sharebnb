@@ -1,0 +1,99 @@
+// Font Sizes
+.fs12 {
+    font-size: rem(12px);
+}
+
+.fs14 {
+    font-size: rem(14px);
+}
+
+.fs18 {
+    font-size: rem(18px);
+}
+
+.fs20 {
+    font-size: rem(20px);
+}
+
+.fs24 {
+    font-size: rem(24px);
+}
+
+.fs28 {
+    font-size: rem(28px);
+}
+
+.fs30 {
+    font-size: rem(30px);
+}
+
+.text-center {
+    text-align: center;
+}
+
+// flex helpers
+
+.flex {
+
+    display: flex;
+
+    >*.full {
+        flex: 1;
+    }
+
+    &.column {
+        flex-direction: column;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.justify-between {
+        justify-content: space-between;
+    }
+    &.gap1rem{
+        gap:1rem;
+    }
+}
+
+.regular-font {
+    font-family: airbnb_book;
+}
+
+.bold-font {
+    font-family: airbnb_bold
+}
+
+.medium-font {
+    font-family: airbnb_medium
+}
+.grey{
+    color: $clr3
+}
+
+.black {
+    color: $clr2;
+}
+
+// Media helpers
+
+.square-ratio {
+    @include aspect-ratio(1, 1);
+}
+
+.video-ratio {
+    @include aspect-ratio(16, 9);
+}
+
+.portrait-ratio {
+    @include aspect-ratio(9, 16);
+}
+
+.central-el:not(.stay-details) {
+    overflow: hidden;
+}
