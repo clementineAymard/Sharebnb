@@ -3,7 +3,8 @@
 
         <PieChart/>
         <div class="table-order">
-            
+            <!-- <TableOrder></TableOrder> -->
+            <StatisticOrder></StatisticOrder>
         </div>
         <BarChart/>
     </div>
@@ -38,6 +39,8 @@
 import OrderPreview from '../cmps/OrderPreview.vue'
 import PieChart from '../cmps/PieChart.vue'
 import BarChart from '../cmps/BarChart.vue'
+import TableOrder from '../cmps/TableOrder.vue'
+import StatisticOrder from '../cmps/StatisticOrder.vue'
 
 export default {
     name: '',
@@ -74,7 +77,9 @@ export default {
     components: {
         OrderPreview,
         PieChart,
-        BarChart
+        BarChart,
+        TableOrder,
+        StatisticOrder
     },
 }
 
