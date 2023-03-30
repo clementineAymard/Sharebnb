@@ -11,6 +11,8 @@
     transition: all ease-in-out 0.3s;
 }
 
+
+
 .el-date-editor .el-range__icon {
     width: 3em !important;
 }
@@ -68,14 +70,14 @@
     border: none;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
 
-    &.is-light.el-picker__popper {
+    &.is-light.el-picker__popper.main-date-popper {
         display: block;
         top: 203px !important;
         padding-block-start: 1rem;
         padding-block-end: 3rem;
 
         @include for-mobile-layout-list {
-            width:fit-content;
+            width: fit-content;
             padding-inline: 0;
             left: 0 !important;
             right: 0 !important;

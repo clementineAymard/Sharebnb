@@ -1,6 +1,6 @@
 <template>
     <div class="date-picker-small flex ">
-        <el-date-picker ref="calendar" v-model="dates" type="daterange" @change="setDates" />
+        <el-date-picker ref="calendar" popper-class="details-date-popper" v-model="dates" type="daterange" @change="setDates" :teleported="false"/>
     </div>
 </template>
 

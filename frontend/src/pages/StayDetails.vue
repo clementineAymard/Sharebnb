@@ -67,6 +67,7 @@
                         </div>
 
                         <img src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/40.jpg">
+                        <!-- <img :src="stay.host.thumbnailUrl"> -->
                     </div>
                     <div class="divider"></div>
                     <div class="special-perks">
@@ -235,7 +236,7 @@
                                 <div class="reservation-form-header flex justify-between ">
                                     <!-- <div class="date-picker"></div> -->
                                     <p class="reservation-price flex column">
-                                        <span class="cost font-md">${{ stay.price }} </span> 
+                                        <span class="cost font-md">${{ stay.price }} </span>
                                         <span class="font-thin">per night</span>
                                     </p>
                                     <div class="rating-review flex align-center"><span class="avg-rating flex font-md">
@@ -258,24 +259,30 @@
                                     <div class="date-picker-container">
                                         <div class="date-input">
                                             <label>CHECK-IN</label>
-                                            <input class="subtitle" v-model="startDate" placeholder="Add date" fdprocessedid="b60swf">
+                                            <input class="subtitle" v-model="startDate" placeholder="Add date"
+                                                fdprocessedid="b60swf">
                                         </div>
                                         <div class="date-input">
                                             <label>CHECKOUT</label>
-                                            <input class="subtitle" v-model="endDate" placeholder="Add date" fdprocessedid="l3c0t">
+                                            <input class="subtitle" v-model="endDate" placeholder="Add date"
+                                                fdprocessedid="l3c0t">
                                         </div>
                                     </div>
                                     <DatePickerSmall @setDates="onSetDate" />
-                                    <div class="guest-input">
+                                    <div class="guest-input" >
                                         <label class="bold-font">GUESTS</label>
-                                        <input class="font-thin" v-model="guestsForDisplay" placeholder="1 Adult" fdprocessedid="xr56ac" @click="toggleGuestPicker">
-                                        <span> guest<span v-if="guestsForDisplay>1">s</span>
-                                        </span><svg viewBox="0 0 320 512" width="100" title="angle-down">
-                                            <path
-                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
-                                            </path>
-                                        </svg></div>
-                                    <GuestPicker v-if="isGuestPickerOpen" @setGuests="onSetGuest" />
+                                        <div @click="toggleGuestPicker">
+                                            <input class="font-thin" v-model="guestsForDisplay" placeholder="1 Adult"
+                                                fdprocessedid="xr56ac">
+                                            <span> guest<span v-if="guestsForDisplay > 1">s</span></span>
+                                            <svg viewBox="0 0 320 512" width="100" title="angle-down">
+                                                <path
+                                                    d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <GuestPicker v-if="isGuestPickerOpen" @setGuests="onSetGuest" />
+                                    </div>
                                 </div>
                                 <div class="branded-btn">
                                     <div class="cell"></div>
@@ -416,32 +423,32 @@
                         <p>Cleanliness</p>
                         <span class="progress-container">
                             <progress max="5" value="4.8"></progress>
-                            4.8
+                            <span class="fs12 bold-font">4.8</span>
                         </span>
                         <p>Communication</p>
                         <span class="progress-container">
                             <progress max="5" value="4.3"></progress>
-                            4.3
+                            <span class="fs12 bold-font">4.3</span>
                         </span>
                         <p>Check-in</p>
                         <span class="progress-container">
                             <progress max="5" value="4.7"></progress>
-                            4.7
+                            <span class="fs12 bold-font">4.7</span>
                         </span>
                         <p>Accuracy</p>
                         <span class="progress-container">
                             <progress max="5" value="4.4"></progress>
-                            4.4
+                            <span class="fs12 bold-font">4.4</span>
                         </span>
                         <p>Location</p>
                         <span class="progress-container">
                             <progress max="5" value="5"></progress>
-                            5
+                            <span class="fs12 bold-font">5</span>
                         </span>
                         <p>Value</p>
                         <span class="progress-container">
                             <progress max="5" value="4.9"></progress>
-                            4.9
+                            <span class="fs12 bold-font">4.9</span>
                         </span>
                     </div>
                     <div class="reviews-container">
@@ -530,7 +537,7 @@ export default {
             endDate: '',
             guests: 0,
             guestsForDisplay: 1,
-            isGuestPickerOpen:false
+            isGuestPickerOpen: false
         }
     },
     async created() {
@@ -544,7 +551,6 @@ export default {
             adults: this.$route.query.adults,
             children: this.$route.query.children,
             infants: this.$route.query.infants
-
         }
         console.log(this.startDate, this.endDate, this.guests)
 
@@ -558,7 +564,7 @@ export default {
             this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children) + parseInt(this.$route.query.infants)
     },
     methods: {
-        toggleGuestPicker(){
+        toggleGuestPicker() {
             this.isGuestPickerOpen = !this.isGuestPickerOpen
         },
         goBack() {
@@ -570,9 +576,13 @@ export default {
             order.buyer.fullname = this.$store.getters.loggedinUser.fullname
             order.buyer._id = this.$store.getters.loggedinUser._id
             order.hostId = this.stay.host._id
-            order.totalPrice = '700'
-            order.startDate = '4/5/2023'
-            order.endDate = '6/6/2023'
+            // order.host._id = this.stay.host._id
+            // order.host.fullname = this.stay.host.fullname
+            // order.host.imgUrl = this.stay.host.thumbnailUrl
+            order.totalPrice = parseInt(this.stay.price) * (new Date(this.endDate) - new Date(this.startDate)) / 86400000
+            console.log('TOTAL PRICE', order.totalPrice)
+            order.startDate = this.startDate
+            order.endDate = this.endDate
             order.guests.adults = this.$route.query.adults
             order.guests.kids = this.$route.query.infants
             order.stay._id = this.stay._id
@@ -598,11 +608,6 @@ export default {
         onSetGuest(guests) {
             this.guests = guests
         }
-
-
-
-
-
     },
     computed: {
         formattedDate() {

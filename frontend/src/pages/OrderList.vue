@@ -56,7 +56,7 @@ export default {
     },
     computed: {
         orders() {
-            return JSON.parse(JSON.stringify(this.$store.getters.orders) ) 
+            return JSON.parse(JSON.stringify(this.$store.getters.orders))
         },
         loggedinUser() {
             console.log(this.$store.getters.loggedinUser);
