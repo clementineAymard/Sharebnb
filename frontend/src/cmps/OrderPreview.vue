@@ -2,7 +2,10 @@
 <template>
     <section class="order-preview">
 
-        <div class="order-pre buyer-name">{{ order.buyer.fullname }}</div>
+        <div class="order-pre buyer-name">
+            <img :src=" order.buyer.imgUrl  " alt="">
+            
+             {{ order.buyer.fullname }}</div>
         <div class="order-pre stay-name">{{ order.stay.name }}</div>
         <div class="order-pre startDate"> {{ order.startDate }}</div>
         <div class="order-pre endDate"> {{ order.endDate }}</div>
@@ -11,10 +14,11 @@
         </div>
         <div class="order-pre select ">
             <!-- <option value="" disabled>Select status</option> -->
-            <select v-if="status === 'pending'" v-model="status" @change="onSelectStatus">
-                <option value="approved">Approve</option>
-                <option value="rejected">Reject</option>
-            </select>
+            <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
+                <el-option value=""  label="Select" selected/>
+                <el-option value="approved" label="Approve"/>
+                <el-option value="rejected" label="Reject"/>
+            </el-select>
         </div>
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
@@ -44,6 +48,7 @@ export default {
     },
     computed: {
         statusClass() {
+            console.log('this.order',this.order)
             if (this.status === 'approved')
                 return 'green'
             else if (this.status === 'rejected')

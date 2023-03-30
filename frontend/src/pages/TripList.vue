@@ -1,6 +1,6 @@
 <template>
-    <div class="list-trip">
-     
+
+  <div class="list-trip">
       <ul v-if="orders">
         <div class="trip-preview header-trip">
           <span @click="setSortBy('name')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Stay Name</span>

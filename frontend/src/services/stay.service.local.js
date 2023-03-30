@@ -20,7 +20,7 @@ window.cs = stayService
 
 
 async function query(filterBy) {     
-    // console.log('filterBy: ', filterBy)
+    console.log('filterBy: ', filterBy)
     var stays = await storageService.query(STORAGE_KEY)
     // console.log('stays:   ',stays)
     

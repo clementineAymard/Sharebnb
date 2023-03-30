@@ -3,15 +3,15 @@
     <section class="trip-preview">
 
 
-        <div>
-            <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437355/fy46xsk3yd7xujzcs2uz.jpg" alt="">
+        <div class="order-stay">
+            <img :src="order.stay.imgUrl" alt="">
             {{ order.stay.name }}
         </div>
         <div>{{ hostName }}</div>
         <div> {{ order.startDate }}</div>
         <div> {{ order.endDate }}</div>
         <div> {{ order.totalPrice }}</div>
-        <div> {{ order.status }}</div>
+        <div class="status medium-font"> {{ order.status }}</div>
 
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
@@ -35,6 +35,9 @@ export default {
     methods: {
         onSelectStatus() {
             this.$emit('updateOrder', this.status)
+        },
+        imgStay(){
+           return  "order.stay.imgUrl" 
         }
 
     },
