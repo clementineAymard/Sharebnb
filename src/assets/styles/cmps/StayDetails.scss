@@ -6,7 +6,6 @@ body {
     display: block;
 }
 
-<<<<<<< HEAD
 // ////////////////////////////////////////////////////////////////////////
 .my-layout.narrow {
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr) !important;
@@ -15,19 +14,6 @@ body {
 }
 
 .stay-details1 .more-details .amenities-container .home {
-=======
-// // ////////////////////////////////////////////////////////////////////////
-// .my-layout.narrow {
-//     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr)!important;
-//     padding: 0;
-//     display: grid;
-// }
-
-// .stay-details1 .more-details .amenities-container
-
-
-.home {
->>>>>>> ceb111add7239e56f48dc7589f9c8821b0edabc3
     /* width: calc(100vw - 80px - 20px); */
     width: 100%;
     overflow: hidden;
@@ -861,3 +847,56 @@ p {
 // .stay-details1 .data-picker.flex {
 // }
 
+// .stay-details1 .main-address link 
+.address link .font-md {
+    // line-height: 20px ;
+    // overflow: hidden ;
+    // text-overflow: ellipsis ;
+    // display: -webkit-box ;
+    // -webkit-line-clamp: 1 ;
+    // -webkit-box-orient: vertical ;
+    // color: rgb(34, 34, 34) ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    // font-size: 14px ;
+    // position: relative ;
+    // font-weight: 600 ;
+    // text-decoration: underline ;
+}
+
+/////////////////////////////////////////////////////
+// ***review-head-lins*** //
+
+.reviews-and-map .review-head-lins {
+    grid-template: repeat(3, 1fr)/repeat(4, 1fr);
+    grid-gap: 10px;
+    align-items: center;
+    display: grid;
+    gap: 10px;
+    // grid-template: repeat(3,1fr)/repeat(2,1fr);
+    margin-bottom: 1.875em;
+    font-family: circularL;
+    font-size: .9375em;
+    // color: #222;
+}
+
+.reviews-and-map .review-head-lins .progress-container {
+    align-items: center;
+    border-radius: 1.875em;
+    display: flex;
+    // font-size: 1.125em;
+    color: black;
+}
+
+.reviews-and-map .review-head-lins .progress-container progress {
+    // height: 0.800em;
+    margin-inline-end: 0.625em;
+}
+
+progress {
+    -webkit-margin-end: 0.625em;
+    // background-color: #000;
+    // border-radius: 2.5em;
+    font-size: 1.5em;
+    height: 0.375em;
+    margin-inline-end: 0.625em;
+}

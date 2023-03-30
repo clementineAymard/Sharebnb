@@ -2,7 +2,7 @@
     <section class="stay-details main-layout smaller-layout" v-if="stay">
 
         <section class="stay-details1">
-            <h1 class="name-title">{{ stay.loc.city }} , {{ stay.loc.country }}</h1>
+            <h1 class="name-title">{{ stay.name }}</h1>
             <div class="flex justify-between">
                 <div class="name-subtitle flex">
                     <div class="rating-review flex">
@@ -233,7 +233,9 @@
                         <div class="reservation-container font-thin">
                             <div>
                                 <div class="reservation-form-header">
-                                    <p><span class="cost font-md">${{ stay.price }} </span> night </p>
+                                    <!-- <div class="date-picker"></div> -->
+                                    <p>
+                                        <span class="cost font-md">${{ stay.price }} </span> night </p>
                                     <div class="rating-review flex"><span class="avg-rating flex font-md">
                                             <section class="icon-svg"><svg viewBox="0 0 32 32"
                                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -241,27 +243,32 @@
                                                     style="display: block; height: 14px; width: 14px; fill: currentcolor;">
                                                     <path
                                                         d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"
-                                                        fill-rule="evenodd"></path>
-                                                </svg></section> 3.73
-                                        </span><span>·</span><span class="rev-count link font-md">{{ stay.reviews.length }}
-                                            reviews</span></div>
+                                                        fill-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </section>
+                                             3.73
+                                        </span>
+                                        <span>·</span>
+                                        <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span>
+                                    </div>
                                 </div>
                                 <div class="reservation-data">
                                     <div class="date-picker">
                                         <div class="date-input"><label>CHECK-IN</label><input class="subtitle"
-                                                v-model="startDate" fdprocessedid="b60swf"></div>
+                                                v-model="startDate" placeholder="add date" fdprocessedid="b60swf"></div>
                                         <DatePicker @setDates="onSetDate" />
                                         <div class="date-input"><label>CHECKOUT</label><input class="subtitle"
-                                                v-model="endDate" fdprocessedid="l3c0t"></div>
+                                                v-model="endDate" placeholder="add date" fdprocessedid="l3c0t"></div>
                                     </div>
-                                    <div class="guest-input"><label>GUESTS</label><input class="font-thin" v-model="guestsForDisplay"
-                                            placeholder="1 Adult" fdprocessedid="xr56ac"><span> guest </span><svg viewBox="0 0 320 512"
-                                            width="100" title="angle-down">
+                                    <div class="guest-input"><label>GUESTS</label><input class="font-thin"
+                                            v-model="guestsForDisplay" placeholder="1 Adult" fdprocessedid="xr56ac"><span>
+                                            guest </span><svg viewBox="0 0 320 512" width="100" title="angle-down">
                                             <path
                                                 d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
                                             </path>
                                         </svg></div>
-                                    <GuestPicker  @setGuests="onSetGuest" />
+                                    <GuestPicker @setGuests="onSetGuest" />
                                 </div>
                                 <div class="branded-btn">
                                     <div class="cell"></div>
@@ -397,9 +404,42 @@
                             <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span>
                         </div>
                     </h1>
+
+                    <div class="review-head-lins">
+                        <p>Cleanliness</p>
+                        <span class="progress-container">
+                            <progress max="5" value="4.8"></progress>
+                            4.8
+                        </span>
+                        <p>Communication</p>
+                        <span class="progress-container">
+                            <progress max="5" value="4.3"></progress>
+                            4.3
+                        </span>
+                        <p>Check-in</p>
+                        <span class="progress-container">
+                            <progress max="5" value="4.7"></progress>
+                            4.7
+                        </span>
+                        <p>Accuracy</p>
+                        <span class="progress-container">
+                            <progress max="5" value="4.4"></progress>
+                            4.4
+                        </span>
+                        <p>Location</p>
+                        <span class="progress-container">
+                            <progress max="5" value="5"></progress>
+                            5
+                        </span>
+                        <p>Value</p>
+                        <span class="progress-container">
+                            <progress max="5" value="4.9"></progress>
+                            4.9
+                        </span>
+                    </div>
                     <div class="reviews-container">
                         <div class="reviews-list">
-                            <li v-for="(reviews, fullname) in stay.reviews">
+                            <li v-for="(reviews, fullname) in forReviews">
                                 <div class="title flex">
                                     <img :src="reviews.by.imgUrl">
                                     <div class="flex column">
@@ -489,24 +529,24 @@ export default {
         const stay = await stayService.getById(stayId)
         this.stay = stay
         // console.log(stay)
-        this.startDate= this.$route.query.from
-        this.endDate= this.$route.query.to
-        this.guests=  {
+        this.startDate = this.$route.query.from
+        this.endDate = this.$route.query.to
+        this.guests = {
             adults: this.$route.query.adults,
             children: this.$route.query.children,
             infants: this.$route.query.infants
-            
+
         }
         console.log(this.startDate, this.endDate, this.guests)
 
         if (this.guests.adults)
-                this.guestsForDisplay = this.guests.adults
-            if (this.guests.children && this.guests.adults)
-                this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children)
-            if (this.guests.infants && this.guests.adults)
-                this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children)
-            if (this.guests.children && this.guests.adults && this.guests.infants)
-                this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children) + parseInt(this.$route.query.infants)
+            this.guestsForDisplay = this.guests.adults
+        if (this.guests.children && this.guests.adults)
+            this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children)
+        if (this.guests.infants && this.guests.adults)
+            this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children)
+        if (this.guests.children && this.guests.adults && this.guests.infants)
+            this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children) + parseInt(this.$route.query.infants)
     },
     methods: {
         goBack() {
@@ -559,6 +599,9 @@ export default {
         // getLabels(){
         //   return this.stay?.labels.join(', ')
         // }
+        forReviews() {
+            return this.stay.reviews.slice(0, 4)
+        }
     },
     components: {
         DatePicker,
