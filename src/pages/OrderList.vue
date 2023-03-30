@@ -1,7 +1,7 @@
 <template>
+    <Chart></Chart>
     <div class="list">
-
-        <ul>
+        <ul v-if="orders">
             <div class="order-preview header-order">
                 <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon
                         icon="fa-solid fa-sort" />Guest</span>
@@ -22,11 +22,14 @@
             </li>
             <!-- <RouterLink to="/list/people/order">Add a new Character</RouterLink> -->
         </ul>
+
+        <h3 v-else>No orders yet.</h3>
     </div>
 </template>
 
 <script>
 import OrderPreview from '../cmps/OrderPreview.vue'
+import Chart from '../cmps/Chart.vue'
 
 export default {
     name: '',
@@ -39,11 +42,13 @@ export default {
         }
     },
     methods: {
-
+       updateOrder(status){
+            // this.order.status = status
+        }
     },
     computed: {
         orders() {
-            return this.$store.getters.orders
+            return JSON.parse(JSON.stringify(this.$store.getters.orders) ) 
         },
         loggedinUser() {
             console.log(this.$store.getters.loggedinUser);
@@ -59,7 +64,8 @@ export default {
         }
     },
     components: {
-        OrderPreview
+        OrderPreview,
+        Chart
     },
 }
 

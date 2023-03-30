@@ -6,13 +6,16 @@
 
 
 <script>
+
+import 'animate.css'
 import { eventBus, SHOW_MSG } from "../services/event-bus.service.js"
 
 export default {
   created() {
+    console.log('USER MSG CREATED');
     eventBus.on(SHOW_MSG, (msg) => {
       this.msg = msg
-      var delay = msg.delay || 2000
+      var delay = msg.delay || 3000
       this.alive = true
       setTimeout(() => {
         this.alive = false

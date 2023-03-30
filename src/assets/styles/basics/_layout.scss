@@ -22,21 +22,28 @@
     }
 
     &.narrow {
-        @include for-mobile-layout-min {
-            @include layoutGTC($break-mobile, calc(2 * $large_padding-inline));
+        @include for-mobile-layout-list {
+            @include layoutGTC($break-mobile-list, 24px);
+        }
+        @include for-mobile-layout {
+            @include layoutGTC($break-mobile, 40px);
         }
 
-        @include for-narrow-layout {
-            @include layoutGTC($break-narrow, calc(2 * $large_padding-inline));
+        @include for-mobile-layout-min {
+            @include layoutGTC($break-mobile, 40px);
+        }
+
+        @include for-medium-layout {
+            @include layoutGTC($break-normal, 80px);
         }
 
         @include for-normal-layout {
-            @include layoutGTC($break-normal, calc(2 * $large_padding-inline));
+            @include layoutGTC($break-normal, 160px);
         }
     }
 
     &.regular {
-        padding: 0;
+        
     }
 
     @include for-mobile-layout {

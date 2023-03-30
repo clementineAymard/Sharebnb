@@ -4,7 +4,7 @@
             <RouterLink class="link-add-stay" to="/stay/edit">Airbnb your home</RouterLink>
         </div>
 
-        <a @click="openUserMenu" class="loggedin-user flex justify-between align-center">
+        <a @click="toggleMiniMenu" class="loggedin-user flex justify-between align-center">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/hamburger_vuqyb2.png" class="ham">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
         </a>
@@ -20,8 +20,8 @@
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
         <div v-if="isMiniMenuOpen && !loggedinUser" class="mini-menu flex column">
-            <a @click="openModal">Login</a>
-            <a @click="openModal">Signup</a>
+            <a @click="openModal" class="bold">Login</a>
+            <a @click="openModal" class="bold">Signup</a>
         </div>
     </nav>
     <LoginSignup v-if="isModalOpen" @closeModal="onCloseModal" />
@@ -40,8 +40,8 @@ export default {
         }
     },
     methods: {
-        openUserMenu() {
-            this.isMiniMenuOpen = true
+        toggleMiniMenu() {
+            this.isMiniMenuOpen = !this.isMiniMenuOpen
             // console.log(this.loggedinUser)
         },
         doLogout() {
@@ -50,14 +50,14 @@ export default {
         },
         openModal() {
             this.isModalOpen = true
-            this.isMiniMenuOpen = false
+            this.isMiniMenuOpen = !this.isMiniMenuOpen
         },
         onCloseModal() {
             this.isModalOpen = false
         },
         goToPage(path) {
             this.$router.push(`/user/${this.loggedinUser._id}${path}`)
-            this.isMiniMenuOpen = false
+            this.isMiniMenuOpen = !this.isMiniMenuOpen
         },
     },
     computed: {

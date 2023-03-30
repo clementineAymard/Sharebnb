@@ -55,10 +55,10 @@ export default {
         this.filterBy.infants = this.$route.query.infants
         this.filterBy.category = this.$route.query.category
 
-        console.log('this.filterBy', this.filterBy)
+        console.log('EXPLORE this.filterBy', this.filterBy)
 
-        if (this.filterBy.from) delete this.filterBy.from
-        if (this.filterBy.to) delete this.filterBy.to
+        delete this.filterBy.from
+        delete this.filterBy.to
 
         console.log('this.filterBy after del from to', this.filterBy)
 

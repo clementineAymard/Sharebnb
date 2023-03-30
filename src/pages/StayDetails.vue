@@ -513,6 +513,7 @@ export default {
             this.$router.push('/stay')
         },
         async onReserve() {
+            console.log('onReserve .....................')
             const order = orderService.getEmptyOrder()
             order.buyer.fullname = this.$store.getters.loggedinUser.fullname
             order.buyer._id = this.$store.getters.loggedinUser._id
