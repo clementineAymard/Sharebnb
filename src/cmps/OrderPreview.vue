@@ -2,7 +2,7 @@
 <template>
     <section class="order-preview">
 
-        <div class="order-pre buyer-name">{{ order.buyer.fullname }}</div>
+        <div class="order-pre buyer-name">{{ order.buyer.imgUrl }} {{ order.buyer.fullname }}</div>
         <div class="order-pre stay-name">{{ order.stay.name }}</div>
         <div class="order-pre startDate"> {{ order.startDate }}</div>
         <div class="order-pre endDate"> {{ order.endDate }}</div>

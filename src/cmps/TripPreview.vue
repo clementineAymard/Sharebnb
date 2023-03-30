@@ -4,8 +4,9 @@
 
 
         <div>
-            <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437355/fy46xsk3yd7xujzcs2uz.jpg" alt="">
-            {{ order.stay.name }}
+            <img src={{ imgStay }} alt="">
+            
+            <!-- {{ order.stay.name }} -->
         </div>
         <div>{{ hostName }}</div>
         <div> {{ order.startDate }}</div>
@@ -35,6 +36,9 @@ export default {
     methods: {
         onSelectStatus() {
             this.$emit('updateOrder', this.status)
+        },
+        imgStay(){
+           return  "order.stay.imgUrl" 
         }
 
     },
