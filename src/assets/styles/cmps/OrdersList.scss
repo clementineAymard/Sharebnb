@@ -26,15 +26,19 @@
     // }
   }
 }
-.green{
+
+.green {
   color: rgb(62, 207, 54);
 }
-.red{
+
+.red {
   color: red;
 }
-.black{
+
+.black {
   color: black;
 }
+
 .header-order {
   background-color: #F4F6FA;
   padding: 20px;
@@ -129,5 +133,16 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.charts-container {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) ;
+
+  .chart {
+    // height: 500px;
+    width: 400px;
   }
 }
