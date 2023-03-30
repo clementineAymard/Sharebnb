@@ -10,20 +10,26 @@
   align-items: start;
   border-radius: 8px 8px 0 0;
   padding: 20px;
+  justify-items: center;
 
   div {
     background-color: white;
 
   }
+  .stay-name {
+    justify-self: start;
+  }
 
   .order-pre {
     width: fit-content;
+
     // &.buyer-name{
     //   width: 200px;
     // }
     // &.stay-name {
     //   width: 400px;
     // }
+   
   }
 }
 
@@ -37,6 +43,14 @@
 
 .black {
   color: black;
+}
+
+.status {
+  text-transform: capitalize;
+}
+
+.totalPrice {
+  text-align: center;
 }
 
 .header-order {
@@ -139,10 +153,11 @@
 .charts-container {
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr) ;
+  grid-template-columns: repeat(3, 1fr);
 
   .chart {
     // height: 500px;
-    width: 400px;
+    width: 300px;
+    color: #e8b8a5;
   }
 }
