@@ -4,8 +4,8 @@
      margin-top: 10px;
 
      //  @include  width-padding-mqs;
-     .carousel__next--disabled,
-     .carousel__prev--disabled {
+     .stayousel__next--disabled,
+     .stayousel__prev--disabled {
          display: none;
          opacity: 0.5;
      }
@@ -21,18 +21,18 @@
          height: 20px;
          width: 20px;
 
-         &.carousel__next {
+         &.stayousel__next {
              box-shadow: 20px 0px 18px 30px rgb(255, 255, 255);
              background-color: #fff;
              margin-right: auto;
 
-             &:hover.carousel__prev {
+             &:hover.stayousel__prev {
                  opacity: 1;
 
              }
          }
 
-         &.carousel__prev {
+         &.stayousel__prev {
              box-shadow: -20px 0px 18px 30px rgb(255, 255, 255);
              background-color: #fff;
              margin-left: auto;
@@ -44,7 +44,7 @@
          }
      }
 
-     .carousel__track {
+     .stayousel__track {
          display: flex;
          justify-content: space-between;
          gap: 2rem;
@@ -53,7 +53,7 @@
          color: $clr3;
          //  gap: -80px;
 
-         .carousel__slide {
+         .stayousel__slide {
              //  align-items: flex-start;
              flex-shrink: unset;
 
@@ -74,7 +74,7 @@
          .nav-item {
              cursor: pointer;
 
-             &:hover .carousel__item {
+             &:hover .stayousel__item {
                  box-shadow: 0px -2px 0px 0px inset rgb(216, 210, 210);
                  color: black;
 
@@ -108,8 +108,8 @@
 
              //  width: fit-content;
              //  margin-right: -20px;
-             .carousel__slide.carousel__slide--visible.nav-item,
-             .carousel__slide.carousel__slide--visible.carousel__slide--active.nav-item {
+             .stayousel__slide.stayousel__slide--visible.nav-item,
+             .stayousel__slide.stayousel__slide--visible.stayousel__slide--active.nav-item {
                  width: fit-content !important;
              }
          }
@@ -117,7 +117,7 @@
 
  }
 
- .active.carousel__item{
+ .active.stayousel__item{
       box-shadow: 0px -2px 0px 0px inset $clr3;
 
   }

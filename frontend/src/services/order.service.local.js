@@ -20,7 +20,7 @@ window.cs = orderService
 async function query(filterBy={}) {
     var orders = await storageService.query(STORAGE_KEY)
 
-    if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
+    if (filterBy.hostId) orders = orders.filter(order => order.host._id === filterBy.hostId)
     if (filterBy.buyerId) orders = orders.filter(order => order.buyer._id === filterBy.buyerId)
 
     return orders

@@ -18,12 +18,12 @@
 
         @include aspect-ratio(1, 1);
 
-        &:hover .el-carousel__arrow {
+        &:hover .el-stayousel__arrow {
             background-color: $clr4;
             color: $clr2;
         }
 
-        .el-carousel {
+        .el-stayousel {
             overflow: hidden;
         }
 
@@ -89,12 +89,12 @@
             -webkit-text-stroke-color: $clr5;
         }
 
-        .el-carousel__container {
+        .el-stayousel__container {
             position: relative;
             height: 100%;
         }
 
-        .el-carousel__button {
+        .el-stayousel__button {
             width: 6px;
             height: 6px;
             border-radius: 50%;

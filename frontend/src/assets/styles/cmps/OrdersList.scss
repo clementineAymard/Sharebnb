@@ -3,11 +3,11 @@
   position: relative;
   display: grid;
   //   grid-template-columns: 40px minmax(120px, 1fr) minmax(120px, 160px);
-  grid-template-columns: 1.5fr 3.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+  grid-template-columns: 3.5fr 4.5fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
   grid-template-rows: 1fr;
   gap: 0px 15px;
   border-bottom: 1px solid #EBEEF2;
-  align-items: start;
+  align-items: center;
   border-radius: 8px 8px 0 0;
   padding: 20px;
   justify-items: center;
@@ -48,9 +48,26 @@
 .status {
   text-transform: capitalize;
 }
+.el-input__inner{
+  text-transform: capitalize;
+  text-align: center;
+  min-width: fit-content;
+}
 
 .totalPrice {
   text-align: center;
+}
+.buyer-name{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-self: start;
+  img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
 
 .header-order {
@@ -132,6 +149,10 @@
 
 .list {
   margin-bottom: 2em;
+  >ul {
+    padding: 0;
+}
+
 
   button {
     border-radius: 3px;
