@@ -1,7 +1,7 @@
 <template>
     <RouterLink to="/" class="logo flex align-center" @click="resetStringParams">
         <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/favicon_a0jwly.png">
-        <span>airbnb</span>
+        <span>Sharebnb</span>
     </RouterLink>
 </template>
 

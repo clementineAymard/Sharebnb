@@ -1,7 +1,7 @@
 <template>
     <section class="stay-edit flex column  align-center">
         <div v-if="!loggedinUser">
-            <div class="editTitle">Airbnb it.</div>
+            <div class="editTitle">Sharebnb it.</div>
             <div class="editSecondLine">You could earn</div>
             <div class="money"> $1,337</div>
 
