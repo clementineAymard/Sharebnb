@@ -2,7 +2,9 @@
     <div class="charts-container">
 
         <PieChart/>
-        <LineChart/>
+        <div class="table-order">
+            
+        </div>
         <BarChart/>
     </div>
     <div class="list">
@@ -35,7 +37,6 @@
 <script>
 import OrderPreview from '../cmps/OrderPreview.vue'
 import PieChart from '../cmps/PieChart.vue'
-import LineChart from '../cmps/LineChart.vue'
 import BarChart from '../cmps/BarChart.vue'
 
 export default {
@@ -73,7 +74,6 @@ export default {
     components: {
         OrderPreview,
         PieChart,
-        LineChart,
         BarChart
     },
 }
