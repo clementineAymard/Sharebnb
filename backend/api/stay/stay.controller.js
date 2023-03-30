@@ -6,7 +6,13 @@ async function getStays(req, res) {
   try {
     logger.debug('Getting Stays')
     const filterBy = {
-      txt: req.query.txt || ''
+      loc: req.query.loc || '',
+      adults: req.query.adults || '',
+      children: req.query.children || '',
+      infants: req.query.infants || '',
+      from: req.query.from || '',
+      to: req.query.to || '',
+      category: req.query.category || ''
     }
     const stays = await stayService.query(filterBy)
     res.json(stays)
@@ -103,6 +109,6 @@ module.exports = {
   addStay,
   updateStay,
   removeStay,
-  addStayMsg,
-  removeStayMsg
+  // addStayMsg,
+  // removeStayMsg
 }

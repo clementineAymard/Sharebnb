@@ -1,4 +1,4 @@
 module.exports = {
-  dbURL: 'mongodb://127.0.0.1:27017',
-  dbName : 'tester_db'
+  dbURL: 'mongodb+srv://shira:1234@cluster0.qehjfs4.mongodb.net/?retryWrites=true&w=majority',
+  dbName : 'sharebnb_db'
 }
