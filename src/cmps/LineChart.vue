@@ -1,5 +1,5 @@
 <template>
-    <LineChart :chartData="testData" class="chart line" />
+    <LineChart :chartData="testData" :chart-options="options" class="chart line" />
 </template>
   
 <script lang="ts">
@@ -24,6 +24,16 @@ export default {
                     },
                 ],
             },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Chart Title",
+                    }
+                }
+            }
         }
     },
     created() {
