@@ -1,5 +1,6 @@
 <template>
-    <div class="list-trip">
+
+  <div class="list-trip">
      
       <ul v-if="orders">
         <div class="trip-preview header-trip">
