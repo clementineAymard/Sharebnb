@@ -57,7 +57,7 @@ export default {
 
             try {
                 await this.$store.dispatch({ type: "login", userCred: this.loginCred })
-                this.$router.push('/')
+                // this.$router.push('/')
                 console.log(`Welcome back ${this.loginCred.username} !`);
                 showSuccessMsg(`Welcome back ${this.loginCred.username} !`)
             } catch (err) {
@@ -73,7 +73,7 @@ export default {
             }
             try{
                 await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
-                this.$router.push('/')
+                // this.$router.push('/')
                 this.$emit('closeModal')
                 showSuccessMsg(`Welcome ${this.loginCred.username} ! `)
             } catch(err) {

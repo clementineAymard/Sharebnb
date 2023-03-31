@@ -63,7 +63,8 @@ function getEmptyOrder() {
             endDate:'',
             guests: {
               adults: 0,
-              kids: 0
+              children: 0,
+              infants: 0
             },
             stay :{
               _id: '',

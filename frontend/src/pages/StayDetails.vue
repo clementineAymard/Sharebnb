@@ -572,6 +572,11 @@ export default {
         },
         async onReserve() {
             console.log('onReserve .....................')
+            if (!loggedinUser) {
+                console.log('You need to login first then try again');
+                return
+            }
+
             const order = orderService.getEmptyOrder()
             order.buyer.fullname = this.$store.getters.loggedinUser.fullname
             order.buyer._id = this.$store.getters.loggedinUser._id
@@ -584,6 +589,7 @@ export default {
             order.startDate = this.startDate
             order.endDate = this.endDate
             order.guests.adults = this.$route.query.adults
+            order.guests.children = this.$route.query.children
             order.guests.kids = this.$route.query.infants
             order.stay._id = this.stay._id
             order.stay.name = this.stay.name
