@@ -23,8 +23,9 @@
     "vue": "^3.2.37",
     "vue-chart-3": "^3.1.8",
     "vue-router": "^4.1.2",
-    "vue3-stayousel": "^0.2.14",
+    "vue3-carousel": "^0.2.14",
     "vue3-google-map": "^0.15.0",
+    "vue3-stayousel": "^0.2.14",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
