@@ -2,7 +2,6 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-import staysDevDB from "./../../src/data/stays-dev.json" assert { type: "json" }
 import staysDB from "./../../src/data/stays.json" assert { type: "json" }
 
 
@@ -21,7 +20,7 @@ window.cs = stayService
 
 
 async function query(filterBy) {     
-    // console.log('filterBy: ', filterBy)
+    console.log('filterBy: ', filterBy)
     var stays = await storageService.query(STORAGE_KEY)
     // console.log('stays:   ',stays)
     

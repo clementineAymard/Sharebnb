@@ -174,11 +174,16 @@
 .charts-container {
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 0.8fr 1.7fr 1fr ;
 
   .chart {
     // height: 500px;
-    width: 300px;
+    width: 270px;
     color: #e8b8a5;
+    justify-items: center
+  }
+  .table-order{
+
+    align-self: center;
   }
 }

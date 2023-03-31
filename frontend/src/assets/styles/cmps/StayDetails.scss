@@ -52,7 +52,7 @@ h1 {
 .stay-details1 .font-md {
     font-family: airbnb_medium;
     font-size: em(14px);
-    position: relative;
+    // position: relative;
 }
 
 section {
@@ -286,7 +286,7 @@ li {
 }
 
 .stay-details1 .reservation-section {
-    margin-top: 32px;
+    margin-top: 50px;
     margin-bottom: 32px;
 }
 
@@ -404,9 +404,9 @@ label {
     >input.subtitle {
         display: flex;
         min-width: fit-content;
-        
-        // width: 6.5rem;
+        padding-block-start: 5px;
         max-width: 135px;
+        font-size: em(14px);
     }
 }
 
@@ -439,6 +439,12 @@ label {
     gap: 5px;
     border-top: 1px solid rgba(0, 0, 0, .3137254902);
     padding: 7px 12px;
+    font-size: em(14px);
+
+    label {
+        font-family: airbnb_bold;
+        font-size: 10px;
+    }
 }
 
 // input {
@@ -460,13 +466,19 @@ label {
 //     margin: 0em;
 // }
 
-.stay-details1 .reservation .reservation-container .guest-input>svg {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    top: 50%;
-    right: 0;
-    transform: translate(-12px) translatey(-50%);
+.stay-details1 .reservation .reservation-container .guest-input>div {
+    >input {
+        width: 10px;
+    }
+
+    >svg {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: 50%;
+        right: 0;
+        transform: translate(-12px) translatey(-50%);
+    }
 }
 
 .branded-btn {
@@ -583,7 +595,7 @@ button {
 }
 
 .flex.column,
-.stay-header .column.stayousel-flex {
+.stay-header .column.carousel-flex {
     flex-direction: column;
 }
 
@@ -624,15 +636,6 @@ button {
 
 ///////////////////////////////////////////////////////////////////////////
 
-.stay-details .reservation-section {
-    // margin-top: 32px;
-    // margin-bottom: 32px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
 .stay-details {
     letter-spacing: .007em;
     margin-inline: auto;
@@ -641,7 +644,7 @@ button {
 .stay-details .reservation {
     // justify-content: center;
     position: sticky;
-    top: 150px;
+    top: 50px;
 }
 
 .stay-details .reservation {
@@ -673,39 +676,25 @@ p {
 
 ///////////////////////////////////////////////////////////////////////////
 
-// .stay-details1 .guests-picker {
-//     position: absolute;
-//     right: 0;
-//     top: 120%;
-// }
 
 .stay-details1 .guests-picker {
     position: absolute;
     right: 0;
-    top: 150%;
+    top: 101%;
     z-index: 5;
     background-color: $clr6;
-    border-radius: 32px;
+    border-radius: 12px;
     border: none;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
     width: fit-content;
     height: fit-content;
-    padding: 1rem 2.3rem;
-}
+    padding: 1rem 1rem;
 
-// .stay-details1 .date-picker {
-//     position: absolute;
-//     right: 0;
-//     top: 150%;
-//     z-index: 5;
-//     background-color: $clr6;
-//     border-radius: 32px;
-//     border: none;
-//     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
-//     width: fit-content;
-//     height: fit-content;
-//     padding: 1rem 2.3rem;
-// }
+    >div {
+        min-width: 303px;
+        width: auto;
+    }
+}
 
 .stay-details1 .style {
     z-index: 2023;
@@ -810,27 +799,34 @@ p {
 }
 
 /////////////////////////////////////////////////////
+
 // ***review-head-lins*** //
 
 .reviews-and-map .review-head-lins {
-    grid-template: repeat(3, 1fr)/repeat(4, 1fr);
-    grid-gap: 10px;
-    align-items: center;
     display: grid;
-    gap: 10px;
-    // grid-template: repeat(3,1fr)/repeat(2,1fr);
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    column-gap: 10px;
+    align-items: center;
+
     margin-bottom: 1.875em;
-    font-family: circularL;
-    font-size: .9375em;
     // color: #222;
 }
 
-.reviews-and-map .review-head-lins .progress-container {
-    align-items: center;
-    border-radius: 1.875em;
-    display: flex;
-    // font-size: 1.125em;
-    color: black;
+.reviews-and-map .review-head-lins {
+    .progress-container {
+        align-items: center;
+        border-radius: 1.875em;
+        display: flex;
+        // font-size: 1.125em;
+        color: black;
+    }
+    
+    >p {
+        margin: 0;
+        font-size: 1rem;
+        font-family: cereal;
+        padding-block:5px;
+    }
 }
 
 .reviews-and-map .review-head-lins .progress-container progress {
@@ -845,4 +841,20 @@ progress {
     font-size: 1.5em;
     height: 0.375em;
     margin-inline-end: 0.625em;
+}
+
+progress[value] {
+    background-color: $clr6;
+    height: 4px;
+    width: 104px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: $clr6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 10px;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: $clr2;
 }

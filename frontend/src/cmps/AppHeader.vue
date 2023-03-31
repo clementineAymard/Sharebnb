@@ -133,10 +133,6 @@ export default {
                 },
                 guests: 0
             },
-            // locForDisplayTitle: this.$route.query.loc || 'Anywhere',
-            // guestsForDisplayTitle: this.$route.query.adults || 'Add guests',
-            // dateFromForDisplay: this.$route.query.from || 'Add dates',
-            // dateToForDisplay: this.$route.query.to || 'Add dates',
             locForDisplayTitle: 'Anywhere',
             guestsForDisplayTitle: 'Add guests',
             dateFromForDisplay: 'Add dates',
@@ -219,6 +215,7 @@ export default {
             this.setDatesFromParams()
             this.setGuestsFromParams()
 
+            console.log('filterToSend', filterToSend)
             this.$router.push({
                 name: 'Explore',
                 query: filterToSend,

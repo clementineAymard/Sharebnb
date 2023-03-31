@@ -3,7 +3,8 @@
 
         <PieChart/>
         <div class="table-order">
-            
+            <!-- <TableOrder></TableOrder> -->
+            <StatisticOrder></StatisticOrder>
         </div>
         <BarChart/>
     </div>
@@ -38,6 +39,8 @@
 import OrderPreview from '../cmps/OrderPreview.vue'
 import PieChart from '../cmps/PieChart.vue'
 import BarChart from '../cmps/BarChart.vue'
+import TableOrder from '../cmps/TableOrder.vue'
+import StatisticOrder from '../cmps/StatisticOrder.vue'
 
 export default {
     name: '',
@@ -56,7 +59,7 @@ export default {
     },
     computed: {
         orders() {
-            return JSON.parse(JSON.stringify(this.$store.getters.orders) ) 
+            return JSON.parse(JSON.stringify(this.$store.getters.orders))
         },
         loggedinUser() {
             console.log(this.$store.getters.loggedinUser);
@@ -74,7 +77,9 @@ export default {
     components: {
         OrderPreview,
         PieChart,
-        BarChart
+        BarChart,
+        TableOrder,
+        StatisticOrder
     },
 }
 

@@ -19,18 +19,21 @@
                     <li> Follow the house rules</li>
                     <li>Treat your Host's home like your own </li>
                 </ul>
-                <button class="CheckoutBtn flex align-center justify-between"
-                    :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverCheckoutBtn">
-                    <span>Check your orders</span>
-                </button>
-                <button>Check your orders</button>
+
+                    <button class="CheckoutBtn flex align-center justify-between"
+                    @click="goToTrips">
+                        <span>Check your trips</span>
+                    </button>
+
+              
+                <!-- <a @click="goToTrips">Check your trips</a> -->
             </div>
             <div class="order-sticky">
                 <div class="order-details-container">
                     <div class="stay-info-container">
-                        <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg"
+                        <img :src=order.stay.imgUrl 
                             alt="">
-                        <p>Fantastic duplex apartment with three bedrooms</p>
+                        <p>{{order.stay.name}}</p>
                         <div class="review-totals">
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <p>4.74 </p>
@@ -46,10 +49,10 @@
                     <div class="price-details ">
                         <p class="header medium-font">Price Details</p>
                         <div class="price-order">
-                            <p>${{ order.stay.price }} x 4 nights</p>
-                            <p class="end">${{ totalPrice }}</p>
+                            <p>${{ order.stay.price }} x {{nightsCount}} nights</p>
+                            <p class="end">${{ order.totalPrice }}</p>
                             <p>total guests</p>
-                            <p class="end" v-if="order.guests.length > 0">{{ order.guests.length }}</p>
+                            <p class="end" v-if="order.guests.length > 0">{{guestsCount}}</p>
                             <p class="end" v-else>2</p>
                         </div>
 
@@ -83,22 +86,23 @@ export default {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
         },
-
+        goToTrips(){
+            this.$router.push(`/user/${this.order.buyer._id}/trips`)
+        }
     },
     computed: {
         nights() {
             return this.order.endDate - this.order.startDate
         },
-        totalPrice() {
-            return this.order.stay.price * 4
+        guestsCount(){
+            return parseInt(this.order.guests.adults) + parseInt(this.order.guests.children) + parseInt(this.order.guests.infants)
         },
         totalAfterFees() {
-            return (this.totalPrice * 1.08).toFixed(2)
+            return ((this.order.totalPrice * 1.08).toFixed(2))
         },
-        // stay() {
-        //     this.stays.filter(stay => stay._id !== this.order.stay._id)
-
-        // }
+        nightsCount(){
+            return (new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000
+        },
     },
     created() {
 

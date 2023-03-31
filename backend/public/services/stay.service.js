@@ -15,7 +15,7 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { adults: 0, children: 0, infants: 0, from: '', to: '', category: '' }) {
     return httpService.get('stay', filterBy)
 }
 function getById(stayId) {
@@ -37,7 +37,7 @@ async function save(stay) {
 }
 
 async function addStayMsg(stayId, txt) {
-    const savedMsg = await httpService.post(`stay/${stayId}/msg`, {txt})
+    const savedMsg = await httpService.post(`stay/${stayId}/msg`, { txt })
     return savedMsg
 }
 
