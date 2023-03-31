@@ -19,6 +19,7 @@
       
         <h3 v-else>No trips yet.</h3>
     </div>
+ 
   </template>
   
   <script>

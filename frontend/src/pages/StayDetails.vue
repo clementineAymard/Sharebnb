@@ -541,16 +541,19 @@ export default {
         }
     },
     async created() {
+       const loggedinUser = this.$store.getters.loggedinUser
+            console.log(loggedinUser)
+           
         const { stayId } = this.$route.params
         const stay = await stayService.getById(stayId)
         this.stay = stay
         // console.log(stay)
-        this.startDate = this.$route.query.from
-        this.endDate = this.$route.query.to
+        this.startDate = this.$route.query.from || '5/5/23'
+        this.endDate = this.$route.query.to || '5/10/23'
         this.guests = {
-            adults: this.$route.query.adults,
-            children: this.$route.query.children,
-            infants: this.$route.query.infants
+            adults: this.$route.query.adults || '2',
+            children: this.$route.query.children || '0',
+            infants: this.$route.query.infants || '0'
         }
         console.log(this.startDate, this.endDate, this.guests)
 
@@ -571,19 +574,22 @@ export default {
             this.$router.push('/stay')
         },
         async onReserve() {
-            console.log('onReserve .....................')
-            if (!loggedinUser) {
+            console.log('onResev',this.loggedinUser)
+            if (!this.loggedinUser) {
                 console.log('You need to login first then try again');
                 return
             }
 
             const order = orderService.getEmptyOrder()
-            order.buyer.fullname = this.$store.getters.loggedinUser.fullname
+
+            // order.hostId = this.stay.host._id
+            order.host._id = this.stay.host._id
+            order.host.fullname = this.stay.host.fullname
+            order.host.imgUrl = this.stay.host.thumbnailUrl
+
             order.buyer._id = this.$store.getters.loggedinUser._id
-            order.hostId = this.stay.host._id
-            // order.host._id = this.stay.host._id
-            // order.host.fullname = this.stay.host.fullname
-            // order.host.imgUrl = this.stay.host.thumbnailUrl
+            order.buyer.fullname = this.$store.getters.loggedinUser.fullname
+
             order.totalPrice = parseInt(this.stay.price) * (new Date(this.endDate) - new Date(this.startDate)) / 86400000
             console.log('TOTAL PRICE', order.totalPrice)
             order.startDate = this.startDate
@@ -594,6 +600,7 @@ export default {
             order.stay._id = this.stay._id
             order.stay.name = this.stay.name
             order.stay.price = this.stay.price
+            order.stay.imgUrl = this.stay.imgUrls[0]
 
             console.log('order', order)
             try {
@@ -616,6 +623,10 @@ export default {
         }
     },
     computed: {
+        loggedinUser() {
+            console.log(this.$store.getters.loggedinUser);
+            return this.$store.getters.loggedinUser
+        },
         formattedDate() {
             return new Date(this.stay.createdAt).toLocaleDateString()
         },
@@ -624,7 +635,7 @@ export default {
         // }
         forReviews() {
             return this.stay.reviews.slice(0, 4)
-        }
+        },
     },
     components: {
         DatePickerSmall,

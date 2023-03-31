@@ -332,4 +332,4 @@ const orders = [
     },
 ]
 
-// utilService.saveToStorage(STORAGE_KEY, orders)
+utilService.saveToStorage(STORAGE_KEY, orders)

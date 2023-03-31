@@ -19,18 +19,21 @@
                     <li> Follow the house rules</li>
                     <li>Treat your Host's home like your own </li>
                 </ul>
-                <button class="CheckoutBtn flex align-center justify-between"
-                    :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverCheckoutBtn">
-                    <span>Check your orders</span>
-                </button>
-                <a @click="goToOrders">Check your orders</a>
+
+                    <button class="CheckoutBtn flex align-center justify-between"
+                    @click="goToTrips">
+                        <span>Check your trips</span>
+                    </button>
+
+              
+                <!-- <a @click="goToTrips">Check your trips</a> -->
             </div>
             <div class="order-sticky">
                 <div class="order-details-container">
                     <div class="stay-info-container">
-                        <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg"
+                        <img :src=order.stay.imgUrl 
                             alt="">
-                        <p>Fantastic duplex apartment with three bedrooms</p>
+                        <p>{{order.stay.name}}</p>
                         <div class="review-totals">
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <p>4.74 </p>
@@ -56,7 +59,7 @@
                     </div>
                     <div class="total-price-order">
                         <p class="bold-font">Total after fees</p>
-                        <p class="end bold-font">${{ order.totalPrice }}</p>
+                        <p class="end bold-font">${{ totalAfterFees }}</p>
                     </div>
                 </div>
             </div>
@@ -83,23 +86,23 @@ export default {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
         },
-        goToOrders(){
-            this.$router.push(`/user/${this.order.buyer._id}/orders`)
+        goToTrips(){
+            this.$router.push(`/user/${this.order.buyer._id}/trips`)
         }
     },
     computed: {
         nights() {
             return this.order.endDate - this.order.startDate
         },
+        guestsCount(){
+            return parseInt(this.order.guests.adults) + parseInt(this.order.guests.children) + parseInt(this.order.guests.infants)
+        },
         totalAfterFees() {
-            return (this.order.totalPrice * 1.08).toFixed(2)
+            return ((this.order.totalPrice * 1.08).toFixed(2))
         },
         nightsCount(){
             return (new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000
         },
-        guestsCount(){
-            return parseInt(this.order.guests.adults) + parseInt(this.order.guests.children) + parseInt(this.order.guests.infants)
-        }
     },
     created() {
 

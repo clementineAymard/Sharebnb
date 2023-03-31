@@ -20,7 +20,7 @@
           </el-statistic>
           <div class="statistic-footer">
             <div class="footer-item">
-              <span>than yesterday</span>
+              <span>than yesterday  -</span>
               <span class="green">
                 24%
                 <el-icon>
@@ -51,7 +51,7 @@
           </el-statistic>
           <div class="statistic-footer">
             <div class="footer-item">
-              <span>month on month</span>
+              <span>month on month  -</span>
               <span class="red">
                 12%
                 <el-icon>
@@ -73,7 +73,7 @@
           </el-statistic>
           <div class="statistic-footer">
             <div class="footer-item">
-              <span>than yesterday</span>
+              <span>than yesterday  -</span>
               <span class="green">
                 16%
                 <el-icon>
@@ -100,17 +100,26 @@
   <style scoped>
   :global(h2#card-usage ~ .example .example-showcase) {
     background-color: var(--el-fill-color) !important;
+ 
   }
   
   .el-statistic {
-    --el-statistic-content-font-size: 28px;
+    --el-statistic-content-font-size: 24px;
+    
+    
   }
   
   .statistic-card {
     height: 100%;
     padding: 20px;
     border-radius: 4px;
-    background-color: var(--el-bg-color-overlay);
+    background-color: rgb(221, 173, 221);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* background-color: var(--el-bg-color-overlay); */
+   
   }
   
   .statistic-footer {
@@ -118,9 +127,10 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--el-text-color-regular);
     margin-top: 16px;
+    
   }
   
   .statistic-footer .footer-item {
@@ -132,14 +142,19 @@
   .statistic-footer .footer-item span:last-child {
     display: inline-flex;
     align-items: center;
-    margin-left: 4px;
+    /* margin-left: 4px; */
   }
   
   .green {
     color: var(--el-color-success);
+    font-weight: bold;
   }
   .red {
     color: var(--el-color-error);
+    font-weight: bold;
+  }
+  .el-row{
+ margin-right: 50px;
+
   }
   </style>
-  
