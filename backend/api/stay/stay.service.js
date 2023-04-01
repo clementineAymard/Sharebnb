@@ -99,7 +99,6 @@ async function update(stay) {
 
 function _buildCriteria(filterBy) {
     console.log('BACKEND FILTER: ', filterBy)
-
     const criteria = {}
     if (filterBy.loc) {
         const locCriteria = { $regex: filterBy.loc, $options: 'i' }
@@ -120,7 +119,6 @@ function _buildCriteria(filterBy) {
         const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.children)
         criteria.capacity = capacityCriteria
     }
-
     if (filterBy.adults && filterBy.infants && !filterBy.children) {
         const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.infants)
         criteria.capacity = { $gte: capacityCriteria }
