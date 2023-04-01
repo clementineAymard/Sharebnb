@@ -15,11 +15,11 @@
     "startDate": "2022/10/15",
     "endDate": "2022/10/17",
     "guests": {
-        "adults": 2,
+        "adults": 6,
         "kids": 0
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf8",
+          "_id": "64259dd9eaedf344bcf69628",
           "name": "Westin Kaanapali KORVN 2BR",
           "price": 595,
           "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
@@ -44,10 +44,10 @@
     "endDate": "2022/11/27",
     "guests": {
         "adults": 2,
-        "kids": 4
+        "kids": 0
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf9",
+          "_id": "64259dd9eaedf344bcf69629",
           "name": "Belle chambre à côté Metro Papineau",
           "price": 300,
           "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg"
@@ -67,17 +67,17 @@
       "fullname": "Shira",
       "imgUrl":"https://cdn.sanity.io/images/xmpcmhrn/production/f363771ad3c072ec71f1ea5e8f3868d18de231a6-1200x800.jpg"
     },
-    "totalPrice": 800,
+    "totalPrice": 1023,
     "startDate": "2022/10/10",
     "endDate": "2022/10/13",
     "guests": {
         "adults": 2,
-        "kids": 3
+        "kids": 0
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf9",
+          "_id": "64259dd9eaedf344bcf69629",
           "name": "Belle chambre à côté Metro Papineau",
-          "price": 240,
+          "price": 300,
           "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg"
       },
       "msgs": [],
@@ -95,7 +95,7 @@
       "fullname": "Shira",
       "imgUrl":"https://cdn.sanity.io/images/xmpcmhrn/production/f363771ad3c072ec71f1ea5e8f3868d18de231a6-1200x800.jpg"
     },
-    "totalPrice": 160,
+    "totalPrice": 1321,
     "startDate": "2022/10/15",
     "endDate": "2022/10/17",
     "guests": {
@@ -103,7 +103,7 @@
         "kids": 5
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf8",
+          "_id": "64259dd9eaedf344bcf69628",
           "name": "Westin Kaanapali KORVN 2BR",
           "price": 595,
           "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
@@ -124,17 +124,17 @@
       "imgUrl":"https://images.unsplash.com/photo-1597248374161-426f0d6d2fc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmVhdXRpZnVsJTIwd29tYW58ZW58MHx8MHx8&w=1000&q=80"
     },
     "totalPrice": 650,
-    "startDate": "2022/01/01",
+    "startDate": "2022/01/11",
     "endDate": "2021/12/31",
     "guests": {
         "adults": 2,
         "kids": 1
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf8",
-          "name": "Westin Kaanapali KORVN 2BR",
-          "price": 595,
-          "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
+          "_id": "64259dd9eaedf344bcf6962a",
+          "name": "M&M Space MM2  Apartamento no centro da cidade",
+          "price": 65,
+          "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436861/xrxhgsif3ekhxgn8irlm.jpg"
       },
       "msgs": [],
       "status": "approved" 
@@ -151,18 +151,18 @@
       "fullname": "Guy",
       "imgUrl": "https://res.cloudinary.com/deayegq6w/image/upload/v1679227648/samples/people/smiling-man.jpg"
     },
-    "totalPrice": 500,
+    "totalPrice": 861,
     "startDate": "2022/03/17",
     "endDate": "2022/03/23",
     "guests": {
-        "adults": 4,
+        "adults": 3,
         "kids": 0
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaafb",
-          "name": "Fresh and modern 1BR in Bed-Stuy",
-          "price": 79,
-          "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436912/xle8ueqxjeazbs4bp09p.jpg"
+          "_id": "64259dd9eaedf344bcf69737",
+          "name": "Cozy Comfy Suite of Rockaway Beach",
+          "price": 125,
+          "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436525/wdod0zfzsipkigajueda.jpg"
       },
       "msgs": [],
       "status": "approved" 
@@ -187,7 +187,7 @@
         "kids": 1
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaafe",
+          "_id": "64259dd9eaedf344bcf6962e",
           "name": "Home, Sweet, Harlem. Welcome!",
           "price": 110,
           "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg"
@@ -207,7 +207,7 @@
       "fullname": "Inbar",
       "imgUrl":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
-    "totalPrice": 1900,
+    "totalPrice": 346,
     "startDate": "2022/05/07",
     "endDate": "2022/05/10",
     "guests": {
@@ -215,10 +215,10 @@
         "kids": 0
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf8",
-          "name": "Westin Kaanapali KORVN 2BR",
-          "price": 595,
-          "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
+          "_id": "64259dd9eaedf344bcf6962e",
+          "name": "Home, Sweet, Harlem. Welcome",
+          "price": 110,
+          "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg"
       },
       "msgs": [],
       "status": "approved"
@@ -243,10 +243,10 @@
         "kids": 1
       },
       "stay": {
-          "_id": "622f337a75c7d36e498aaaf8",
-          "name": "Westin Kaanapali KORVN 2BR",
-          "price": 595,
-          "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
+          "_id": "64259dd9eaedf344bcf69737",
+          "name": "Cozy Comfy Suite of Rockaway Beach",
+          "price": 125,
+          "imgUrl":"http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436525/wdod0zfzsipkigajueda.jpg"
       },
       "msgs": [],
       "status": "approved" 
