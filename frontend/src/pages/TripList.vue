@@ -1,5 +1,5 @@
 <template>
-
+ <h1 class="head-order">My trips</h1>
   <div class="list-trip">
       <ul v-if="orders">
         <div class="trip-preview header-trip">

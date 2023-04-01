@@ -9,6 +9,9 @@ import { Chart, registerables } from 'chart.js'
 
 Chart.register(...registerables)
 
+const barLabels = ['December','January','February','March']
+const barBackgroundColors =  ['#FFBFA9', '#FBFFB1', '#FFEBB4', '#97B0C4']
+
 export default defineComponent({
   name: 'PieChart',
   components: { BarChart },
@@ -16,19 +19,22 @@ export default defineComponent({
     return {
       //testData.labels = labels, testData.datasets[0].data = data
       testData: {
-        labels: ['Decembe','January','February','March'],
+        labels: ['December','January','February','March'],
         datasets: [
           {
+            label: 'Last year',
+            data: [2065, 2148, 2608,2400 ],
+            backgroundColor:['#97B0C4'],
+          },
+          {
+            label: 'This year',
             data: [3065, 2348, 2758,1974 ],
-            backgroundColor: ['#FFBFA9', '#FBFFB1', '#FFEBB4', '#97B0C4', '#FBFFB1'],
+            backgroundColor:['#FFBFA9'],
           },
         ],
       },
       chartOptions: {
-        title: {
-            display: true,
-            text: "Monthly Report",
-          },
+        responsive: true,
         plugins: {
           title: {
             display: true,

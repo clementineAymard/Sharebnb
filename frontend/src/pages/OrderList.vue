@@ -1,4 +1,5 @@
 <template>
+    <h1 class="head-order">My reservations</h1>
     <div class="charts-container">
 
         <PieChart/>
