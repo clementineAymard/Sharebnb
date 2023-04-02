@@ -596,7 +596,7 @@ export default {
             order.stayName = this.stay.name
             order.stayImg = this.stay.imgUrls[0]
             order.stayPrice = this.stay.price
-            order.totalPrice = parseInt(this.stay.price) * (new Date(this.endDate) - new Date(this.startDate)) / 86400000
+            order.totalPrice = (parseInt(this.stay.price) * (new Date(this.endDate) - new Date(this.startDate)) / 86400000).toFixed(2)
             // from query or input
             order.startDate = this.startDate
             order.endDate = this.endDate
