@@ -43,12 +43,13 @@ export default {
         onSelectStatus() {
             // console.log('onSelectStatus', this.order.status, this.status)
             this.order.status = this.status
+
+            // console.log('this.order',this.order)
             this.$emit('updateOrder', this.order)
         }
     },
     computed: {
         statusClass() {
-            console.log('this.order',this.order)
             if (this.status === 'approved')
                 return 'green'
             else if (this.status === 'rejected')

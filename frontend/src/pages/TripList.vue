@@ -16,7 +16,7 @@
                         icon="fa-solid fa-sort" />Status</span>
             </div>
             <li v-for="order in orders" :key="order.name">
-                <TripPreview :order="order" @updateOrder="updateOrder"></TripPreview>
+                <TripPreview :order="order"></TripPreview>
             </li>
             <!-- <RouterLink to="/list/people/order">Add a new Character</RouterLink> -->
         </ul>

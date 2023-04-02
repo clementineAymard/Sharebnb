@@ -18,7 +18,8 @@
                             </section>
                             <span> {{ stay.rate }} </span>
                         </span> ·
-                        <span class="rev-count link font-md"> {{ stay.reviews.length }} reviews</span>
+                        <!-- <span class="rev-count link font-md"> {{ stay.reviews.length }} reviews</span> -->
+                        <span class="rev-count link font-md">124 reviews</span>
                     </div>
                     <span class="padinline8px grey">·</span>
                     <span class="address link font-md"> {{ stay.loc.city }}, {{ stay.loc.country }}
@@ -248,7 +249,8 @@
                                             {{ stay.rate }}
                                         </span>
                                         <span>·</span>
-                                        <div class="rev-count link font-md">{{ stay.reviews.length }} reviews</div>
+                                        <!-- <div class="rev-count link font-md">{{ stay.reviews.length }} reviews</div> -->
+                                        <div class="rev-count link font-md">124 reviews</div>
                                     </div>
                                 </div>
                                 <div class="reservation-data">
@@ -410,7 +412,8 @@
                                {{ stay.rate }}
                             </span>
                             <span>·</span>
-                            <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span>
+                            <!-- <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span> -->
+                            <span class="rev-count link font-md">124 reviews</span>
                         </div>
                     </h1>
 
