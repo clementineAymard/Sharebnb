@@ -20,7 +20,7 @@
                     <li> Follow the house rules</li>
                     <li>Treat your Host's home like your own </li>
                 </ul>
-                <button @click="goToOrders" class="CheckoutBtn flex align-center justify-between"
+                <button @click="goToTrips" class="CheckoutBtn flex align-center justify-between"
                     :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverCheckoutBtn">
                     <span>Check your orders</span>
                 </button>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="total-price-order">
                         <p class="bold-font">Total after fees</p>
-                        <p class="end bold-font">${{ order.totalPrice }}</p>
+                        <p class="end bold-font">${{ totalAfterFees }}</p>
                     </div>
                 </div>
             </div>
@@ -82,8 +82,8 @@ export default {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
         },
-        goToOrders() {
-            this.$router.push(`/user/${this.order.buyerId}/trips`)
+        goToTrips(){
+            this.$router.push(`/user/${this.order.buyer._id}/trips`)
         }
     },
     computed: {
@@ -94,8 +94,11 @@ export default {
         nights() {
             return this.order.endDate - this.order.startDate
         },
+        guestsCount(){
+            return parseInt(this.order.guests.adults) + parseInt(this.order.guests.children) + parseInt(this.order.guests.infants)
+        },
         totalAfterFees() {
-            return (this.order.totalPrice * 1.08).toFixed(2)
+            return ((this.order.totalPrice * 1.08).toFixed(2))
         },
         nightsCount() {
             return (new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000

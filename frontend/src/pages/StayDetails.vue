@@ -582,13 +582,13 @@ export default {
                 console.log('You need to login first then try again');
                 return
             }
-            
+
             const order = {}
             // from store 
             order.buyerFullname = this.$store.getters.loggedinUser.fullname
             order.buyerId = this.$store.getters.loggedinUser._id
             order.buyerImg = this.$store.getters.loggedinUser.imgUrl
-           // from stay
+            // from stay
             order.hostId = this.stay.host._id
             order.hostFullname = this.stay.host.fullname
             order.hostImgUrl = this.stay.host.thumbnailUrl
@@ -603,13 +603,13 @@ export default {
             order.adults = this.guests.adults
             order.children = this.guests.children
             order.infants = this.guests.infants
-            
+
             console.log('order to send :', order)
             try {
                 await this.$store.dispatch({ type: 'addOrder', order })
-                
+
                 this.$router.push({
-                    path:'/order',
+                    path: '/order',
                     query: order
                 })
             }
@@ -625,7 +625,7 @@ export default {
         onSetGuest(guests) {
             this.guests = guests
         },
-        calcGuestsTotal(){
+        calcGuestsTotal() {
             if (this.guests.children && this.guests.adults && this.guests.infants)
                 this.guestsForDisplay = this.guests.adults + this.guests.children + this.$route.query.infants
             if (this.guests.infants && this.guests.adults)
@@ -648,11 +648,11 @@ export default {
         // }
         forReviews() {
             return this.stay.reviews.slice(0, 4)
-        }
+        },
     },
-    watch:{
-        guests(){
-           return this.calcGuestsTotal()
+    watch: {
+        guests() {
+            return this.calcGuestsTotal()
         },
     },
     components: {
