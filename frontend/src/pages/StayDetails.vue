@@ -451,7 +451,7 @@
                     </div>
                     <div class="reviews-container">
                         <div class="reviews-list">
-                            <li v-for="(reviews, fullname) in forReviews">
+                            <!-- <li v-for="(reviews, fullname) in forReviews">
                                 <div class="title flex">
                                     <img :src="reviews.by.imgUrl">
                                     <div class="flex column">
@@ -463,6 +463,58 @@
                                 </div>
                                 <div class="txt">
                                     <span class="subtitle fs14">{{ reviews.fullname }} {{ reviews.txt }}</span>
+                                </div>
+                            </li> -->
+                            <li>
+                                <div class="title flex">
+                                    <img
+                                        src="https://randomuser.me/api/portraits/women/32.jpg">
+                                    <div class="flex column">
+                                        <span class="name font-md">Margaret</span>
+                                        <span class="subtitle fs14">March 2023</span>
+                                    </div>
+                                </div>
+                                <div class="txt">The most amazing holiday in the most amazing place- everything was more
+                                    than great.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title flex">
+                                    <img
+                                        src="https://randomuser.me/api/portraits/men/78.jpg">
+                                    <div class="flex column">
+                                        <span class="name font-md">John</span>
+                                        <span class="subtitle fs14">February 2023</span>
+                                    </div>
+                                </div>
+                                <div class="txt">It’s a perfect located house with all you need inside.
+                                     We enjoyed our stay there. Hope we will be back.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title flex">
+                                    <img
+                                        src="https://randomuser.me/api/portraits/men/62.jpg">
+                                    <div class="flex column">
+                                        <span class="name font-md">Robert</span>
+                                        <span class="subtitle fs14">February 2023</span>
+                                    </div>
+                                </div>
+                                <div class="txt">Wow, one of the most fun vacations in life. The location is amazing, the view is stunning,
+                                     the service is Vip and most importantly the owners are really cute.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title flex">
+                                    <img
+                                        src="https://randomuser.me/api/portraits/women/14.jpg">
+                                    <div class="flex column">
+                                        <span class="name font-md">Emma</span>
+                                        <span class="subtitle fs14">January 2016</span>
+                                    </div>
+                                </div>
+                                <div class="txt">Beautiful lovely villa. The view to the sea from the pool is amazing. The place is shining clean and you will find everything you need.
+                                     We enjoyed a lot staying here and already we are thinking about planning to come back here soon.
                                 </div>
                             </li>
                         </div>
