@@ -23,6 +23,9 @@
               backgroundColor: ['#a5e8c1', '#e8b8a5', '#a5a5e8', '#97B0C4', '#FBFFB1'],
             },
           ],
+          options:{
+            
+          }
         },
       }
     },

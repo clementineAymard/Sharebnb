@@ -29,27 +29,25 @@ async function deleteOrder(req, res) {
 }
 
 async function addOrder(req, res) {
-
-    var { loggedinUser } = req
-
+    // var { loggedinUser } = req
     try {
         var order = req.body
-        console.log('order', loggedinUser)
-        order.buyer._id = loggedinUser._id
+        // console.log('order', loggedinUser)
+        // order.buyer._id = loggedinUser._id
         order = await orderService.add(order)
 
-        // prepare the updated order for sending out
-        order.host = await userService.getById(order.hostId)
+        // // prepare the updated order for sending out
+        // order.host = await userService.getById(order.hostId)
 
-        loggedinUser = await userService.update(loggedinUser)
-        order.buyer = loggedinUser
+        // loggedinUser = await userService.update(loggedinUser)
+        // order.buyer = loggedinUser
 
-        // User info is saved also in the login-token, update it
+        // // User info is saved also in the login-token, update it
         const loginToken = authService.getLoginToken(loggedinUser)
         res.cookie('loginToken', loginToken)
 
-        if (order.hostId) delete order.hostId
-        if (order.buyerId) delete order.buyerId
+        // if (order.hostId) delete order.hostId
+        // if (order.buyerId) delete order.buyerId
 
         // socketService.broadcast({ type: 'order-added', data: order, userId: loggedinUser._id })
         socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.host._id })

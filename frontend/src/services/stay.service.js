@@ -18,58 +18,64 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
-
-    // var stays = await storageService.query(STORAGE_KEY)
-    // if (filterBy.txt) {
-    //     const regex = new RegExp(filterBy.txt, 'i')
-    //     stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.description))
-    // }
-    // if (filterBy.price) {
-    //     stays = stays.filter(stay => stay.price <= filterBy.price)
-    // }
-    // return stays
-
+async function query(filterBy = {}) {
+    try {
+        return await httpService.get(STORAGE_KEY, filterBy)
+    } catch (err) {
+        console.log('Stay service could not get stays.')
+        throw err
+    }
 }
-function getById(stayId) {
-    // return storageService.get(STORAGE_KEY, stayId)
-    return httpService.get(`stay/${stayId}`)
+
+async function getById(stayId) {
+    try {
+        return await httpService.get(`stay/${stayId}`)
+    } catch (err) {
+        console.log('Stay service could not get specific stay.')
+        throw err
+    }
 }
 
 async function remove(stayId) {
-    // await storageService.remove(STORAGE_KEY, stayId)
-    return httpService.delete(`stay/${stayId}`)
+    try {
+        return await httpService.delete(`stay/${stayId}`)
+    } catch (err) {
+        console.log('Stay service could not remove specific stay.')
+        throw err
+    }
 }
+
 async function save(stay) {
     var savedStay
     if (stay._id) {
-        // savedStay = await storageService.put(STORAGE_KEY, stay)
-        savedStay = await httpService.put(`stay/${stay._id}`, stay)
-
+        try {
+            savedStay = await httpService.put(`stay/${stay._id}`, stay)
+        } catch (err) {
+            console.log('Stay service could not save (update) stay.')
+            throw err
+        }
     } else {
-        // Later, host is set by the backend
         stay.host = userService.getLoggedinUser()
-        // savedStay = await storageService.post(STORAGE_KEY, stay)
-        savedStay = await httpService.post('stay', stay)
+        
+        try {
+            savedStay = await httpService.post('stay', stay)
+        } catch (err) {
+            console.log('Stay service could not save new stay.')
+            throw err
+        }
     }
     return savedStay
 }
 
-async function addStayMsg(stayId, txt) {
-    const savedMsg = await httpService.post(`stay/${stayId}/msg`, {txt})
-    return savedMsg
-}
+// async function addStayMsg(stayId, txt) {
+//     const savedMsg = await httpService.post(`stay/${stayId}/msg`, { txt })
+//     return savedMsg
+// }
 
 
-function getEmptyStay() {
-    return {
-        name: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
-    }
-}
-
-
-
-
-
+// function getEmptyStay() {
+//     return {
+//         name: 'Susita-' + (Date.now() % 1000),
+//         price: utilService.getRandomIntInclusive(1000, 9000),
+//     }
+// }

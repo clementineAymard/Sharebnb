@@ -10,6 +10,7 @@ module.exports = {
 var dbConn = null
 
 async function getCollection(collectionName) {
+    console.log(`Getting ${collectionName} in dbService`)   
     try {
         const db = await connect()
         const collection = await db.collection(collectionName)

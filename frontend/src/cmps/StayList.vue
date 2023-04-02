@@ -26,7 +26,7 @@ export default {
     methods: {
         onOpenDetails(stayId){
             var queryStr = this.$route.query
-            console.log(queryStr)
+            // console.log(queryStr)
             this.$router.replace({
                 path:`/stay/${stayId}`,
                 query: queryStr,

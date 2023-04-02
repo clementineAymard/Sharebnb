@@ -67,18 +67,6 @@ export default {
                 showErrorMsg('Cannot update stay')
             }
         },
-        // async addStayMsg(stayId) {
-        //   try {
-        //     await this.$store.dispatch(getActionAddStayMsg(stayId))
-        //     showSuccessMsg('Stay msg added')
-        //   } catch(err) {
-        //     console.log(err)
-        //     showErrorMsg('Cannot add stay msg')
-        //   }
-        // },
-        // printStayToConsole(stay) {
-        //   console.log('Stay msgs:', stay.msgs)
-        // }
     },
     components: {
         StayList,

@@ -128,8 +128,8 @@ export default {
             filterBy: {
                 loc: '',
                 date: {
-                    from: '',
-                    to: ''
+                    startDate: '',
+                    endDate: ''
                 },
                 guests: 0
             },
@@ -177,8 +177,8 @@ export default {
                 month: 'short',
                 day: 'numeric'
             }
-            this.filterBy.date.from = new Intl.DateTimeFormat('en-US', options).format(selectedDates[0])
-            this.filterBy.date.to = new Intl.DateTimeFormat('en-US', options).format(selectedDates[1])
+            this.filterBy.date.startDate = new Intl.DateTimeFormat('en-US', options).format(selectedDates[0])
+            this.filterBy.date.endDate = new Intl.DateTimeFormat('en-US', options).format(selectedDates[1])
             this.$router.push({
                 query: { ...this.filterBy.date },
             })
@@ -205,8 +205,8 @@ export default {
                 delete filterToSend.guests
             }
             if (this.filterBy.date) {
-                filterToSend.from = this.filterBy.date.from
-                filterToSend.to = this.filterBy.date.to
+                filterToSend.startDate = this.filterBy.date.startDate
+                filterToSend.endDate = this.filterBy.date.endDate
                 delete filterToSend.date
             }
 
@@ -233,8 +233,8 @@ export default {
         },
         setDatesFromParams() {
             setTimeout(() => {
-                this.dateFromForDisplay = this.$route.query.from || 'Add dates'
-                this.dateToForDisplay = this.$route.query.to || 'Add dates'
+                this.dateFromForDisplay = this.$route.query.startDate || 'Add dates'
+                this.dateToForDisplay = this.$route.query.endDate || 'Add dates'
             }, 1)
         },
         setGuestsFromParams() {
@@ -256,8 +256,8 @@ export default {
             this.filterBy = {
                 loc: '',
                 date: {
-                    from: '',
-                    to: ''
+                    startDate: '',
+                    endDate: ''
                 },
                 guests: 0
             }
@@ -290,10 +290,10 @@ export default {
                 this.guestsForDisplayTitle = parseInt(this.$route.query.adults) + parseInt(this.$route.query.children) + parseInt(this.$route.query.infants) || 'Add guests'
 
 
-            if (this.$route.query.to)
-                this.dateToForDisplay = this.$route.query.to
-            if (this.$route.query.from)
-                this.dateFromForDisplay = this.$route.query.from
+            if (this.$route.query.endDate)
+                this.dateToForDisplay = this.$route.query.endDate
+            if (this.$route.query.startDate)
+                this.dateFromForDisplay = this.$route.query.startDate
         },
     },
     components: {

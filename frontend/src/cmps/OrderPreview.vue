@@ -3,10 +3,10 @@
     <section class="order-preview">
 
         <div class="order-pre buyer-name">
-            <img :src=" order.buyer.imgUrl  " alt="">
+            <img :src=" order.buyerImg  " alt="">
             
-             {{ order.buyer.fullname }}</div>
-        <div class="order-pre stay-name">{{ order.stay.name }}</div>
+             {{ order.buyerFullname }}</div>
+        <div class="order-pre stay-name">{{ order.stayName }}</div>
         <div class="order-pre startDate"> {{ order.startDate }}</div>
         <div class="order-pre endDate"> {{ order.endDate }}</div>
         <div class="order-pre totalPrice"> $ {{ order.totalPrice }}</div>
@@ -41,9 +41,9 @@ export default {
     },
     methods: {
         onSelectStatus() {
-            console.log('onSelectStatus', this.order.status, this.status)
+            // console.log('onSelectStatus', this.order.status, this.status)
             this.order.status = this.status
-            this.$emit('updateOrder', this.status)
+            this.$emit('updateOrder', this.order)
         }
     },
     computed: {
@@ -56,11 +56,7 @@ export default {
             else return 'black'
         }
     },
-    created() {
-
-    },
-    components: {
-
-    }
+    created() {},
+    components: {}
 }
 </script>

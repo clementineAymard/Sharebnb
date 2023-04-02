@@ -30,7 +30,7 @@ const routes = [
         component: StayDetails
     },
     {
-        path: '/order/:orderId',
+        path: '/order/:orderId?',
         name: 'OrderConfirmation',
         component: OrderConfirmation
     },

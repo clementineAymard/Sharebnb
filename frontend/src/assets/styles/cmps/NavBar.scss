@@ -4,11 +4,7 @@ nav {
     position: relative;
     z-index: 3;
 
-    @include for-mobile-layout {
-        width: 0;
-        height: 0;
-        opacity: 0;
-    }
+
 
     @include for-extra-wide-layout {
         flex-grow: 1;
@@ -28,6 +24,12 @@ nav {
             &:hover {
                 background-color: $clr5;
             }
+        }
+
+        @include for-mobile-layout {
+            width: 0;
+            height: 0;
+            opacity: 0;
         }
     }
 
