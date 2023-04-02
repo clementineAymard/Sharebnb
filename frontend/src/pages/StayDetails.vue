@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                        <img src="https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/40.jpg">
+                        <img :src="stay.host.pictureUrl">
                         <!-- <img :src="stay.host.thumbnailUrl"> -->
                     </div>
                     <div class="divider"></div>
