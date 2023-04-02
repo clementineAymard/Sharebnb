@@ -7,8 +7,8 @@
             
              {{ order.buyerFullname }}</div>
         <div class="order-pre stay-name">{{ order.stayName }}</div>
-        <div class="order-pre startDate"> {{ order.startDate }}</div>
-        <div class="order-pre endDate"> {{ order.endDate }}</div>
+        <div class="order-pre startDate"> {{ startDate }}</div>
+        <div class="order-pre endDate"> {{ endDate }}</div>
         <div class="order-pre totalPrice"> $ {{ order.totalPrice }}</div>
         <div class="order-pre status medium-font" :class="statusClass"> {{ status }}
         </div>
@@ -55,6 +55,12 @@ export default {
             else if (this.status === 'rejected')
                 return 'red'
             else return 'black'
+        },
+        startDate(){
+            return new Intl.DateTimeFormat('en-GB').format(new Date(this.order.startDate))
+        },
+        endDate(){
+            return new Intl.DateTimeFormat('en-GB').format(new Date(this.order.endDate))
         }
     },
     created() {},

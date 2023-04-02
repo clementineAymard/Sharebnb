@@ -65,10 +65,10 @@ async function login(userCred) {
     // const user = users.find(user => user.username === userCred.username)
     try {
         const user = await httpService.post('auth/login', userCred)
-        if (user) {
-            socketService.login(user._id)
+        // if (user) {
+        //     // socketService.login(user._id)
             return saveLocalUser(user)
-        }
+        // }
     } catch (err) {
         console.log('User service could not login.')
         throw err
@@ -80,7 +80,7 @@ async function signup(userCred) {
 
     try {
         const user = await httpService.post('auth/signup', userCred)
-        socketService.login(user._id)
+        // socketService.login(user._id)
         return saveLocalUser(user)
     } catch (err) {
         console.log('User service could not signup.')
@@ -92,7 +92,7 @@ async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
     try {
         const user = await httpService.post('auth/logout')
-        socketService.logout()
+        // socketService.logout()
         return user
     } catch (err) {
         console.log('User service could not logout.')

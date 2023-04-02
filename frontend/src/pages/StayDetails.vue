@@ -409,7 +409,7 @@
                                             fill-rule="evenodd"></path>
                                     </svg>
                                 </section>
-                               {{ stay.rate }}
+                                {{ stay.rate }}
                             </span>
                             <span>·</span>
                             <!-- <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span> -->
@@ -578,14 +578,14 @@ export default {
             this.guests = guests
         },
         calcGuestsTotal() {
-            if (this.guests.children && this.guests.adults && this.guests.infants)
-                this.guestsForDisplay = this.guests.adults + this.guests.children + this.$route.query.infants
-            if (this.guests.infants && this.guests.adults)
-                this.guestsForDisplay = this.guests.adults + this.guests.infants
-            if (this.guests.children && this.guests.adults)
-                this.guestsForDisplay = this.guests.adults + this.guests.children
             if (this.guests.adults)
                 this.guestsForDisplay = this.guests.adults
+            if (this.guests.children && this.guests.adults)
+                this.guestsForDisplay = this.guests.adults + this.guests.children
+            if (this.guests.infants && this.guests.adults)
+                this.guestsForDisplay = this.guests.adults + this.guests.infants
+            if (this.guests.children && this.guests.adults && this.guests.infants)
+                this.guestsForDisplay = this.guests.adults + this.guests.children + this.$route.query.infants
         }
     },
     computed: {

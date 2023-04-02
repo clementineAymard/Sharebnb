@@ -214,8 +214,8 @@
     // height: 200px;
   }
 
-  @media (min-width:375px) {
-    // grid-template-columns: 1fr 1100px 1fr;
+  @include for-mobile-layout-list {
+        // grid-template-columns: 1fr 1100px 1fr;
     .chart{
 
       .doughnut {

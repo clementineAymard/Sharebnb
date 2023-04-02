@@ -10,25 +10,25 @@ import { store } from '../store/store'
 import { socketService, SOCKET_EVENT_YOUR_ORDER_UPDATED, SOCKET_EVENT_ORDER_FOR_YOU } from './socket.service'
 
 
-    ; (() => {
-        setTimeout(() => {
-            socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
-                console.log('GOT from socket', order)
-                var loggedinUser = store.getters.loggedinUser
-                console.log('loggedinUser (socket on.)', loggedinUser)
-                if (order.hostId === loggedinUser) showSuccessMsg(`You've just received a new order.`)
-                // store.commit({ type: 'addOrder', order })
-            })
-            socketService.on(SOCKET_EVENT_YOUR_ORDER_UPDATED, (order) => {
-                var loggedinUser = store.getters.loggedinUser
-                if (order.buyerId === loggedinUser) {
-                    if (order.status === 'approved') showSuccessMsg(`Notification : Your trip was approved by the host!`)
-                    if (order.status === 'rejected') showErrorMsg(`Notification : Your trip was rejected by the host.`)
-                }
-            })
-        }, 0)
+    // ; (() => {
+    //     setTimeout(() => {
+    //         socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
+    //             console.log('GOT from socket', order)
+    //             var loggedinUser = store.getters.loggedinUser
+    //             console.log('loggedinUser (socket on.)', loggedinUser)
+    //             // if (order.hostId === loggedinUser) 
+    //             showSuccessMsg(`You've just received a new order.`)
+    //         })
+    //         socketService.on(SOCKET_EVENT_YOUR_ORDER_UPDATED, (order) => {
+    //             var loggedinUser = store.getters.loggedinUser
+    //             // if (order.buyerId === loggedinUser) {
+    //                 if (order.status === 'approved') showSuccessMsg(`Notification : Your trip was approved by the host!`)
+    //                 if (order.status === 'rejected') showErrorMsg(`Notification : Your trip was rejected by the host.`)
+    //             // }
+    //         })
+    //     }, 0)
 
-    })()
+    // })()
 
 const STORAGE_KEY = 'order'
 
@@ -48,7 +48,6 @@ async function query(filterBy = {}) {
         var orders = await httpService.get('order', filterBy)
         if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
         if (filterBy.buyerId) orders = orders.filter(order => order.buyerId === filterBy.buyerId)
-        // orders = orders.
         return orders
     } catch (err) {
         console.log('Order service : Error while getting orders')
@@ -73,7 +72,7 @@ async function add(newOrder) {
         const addedOrder = await httpService.post('order', { ...newOrder })
         // console.log('addedOrder:', addedOrder)
 
-        // socketService.emit(SOCKET_EVENT_ORDER_FOR_YOU, addedOrder)
+        socketService.emit(SOCKET_EVENT_ORDER_FOR_YOU, addedOrder)
         return addedOrder
     } catch (err) {
         console.log('Could not add order')
@@ -88,7 +87,7 @@ async function save(order) {
         savedOrder = await httpService.put('order', order)
         // savedOrder = await storageService.put(STORAGE_KEY, order)
 
-        // socketService.emit(SOCKET_EVENT_YOUR_ORDER_UPDATED, savedOrder)
+        socketService.emit(SOCKET_EVENT_YOUR_ORDER_UPDATED, savedOrder)
         return savedOrder
     } catch (err) {
         console.log('Order service could not save order')

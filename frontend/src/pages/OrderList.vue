@@ -2,10 +2,10 @@
     <h1 class="head-order">My reservations</h1>
     <div class="charts-container">
 
-        <PieChart :orders="orders"/>
+        <PieChart :orders="orders" />
         <div class="table-order">
             <!-- <TableOrder></TableOrder> -->
-            <StatisticOrder/>
+            <StatisticOrder />
         </div>
         <BarChart />
     </div>
@@ -16,9 +16,11 @@
                     Guest</span>
                 <span @click="setSortBy('name')" class="header-sort name"><font-awesome-icon icon="fa-solid fa-sort" />
                     Stay Name</span>
-                <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check in
+                <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check
+                    in
                 </span>
-                <span @click="setSortBy('endDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check out
+                <span @click="setSortBy('endDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check
+                    out
                 </span>
                 <span @click="setSortBy('totalPrice')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />
                     Total price</span>
@@ -36,6 +38,7 @@
 </template>
 
 <script>
+import { socketService } from '../services/socket.service'
 import OrderPreview from '../cmps/OrderPreview.vue'
 import PieChart from '../cmps/PieChart.vue'
 import BarChart from '../cmps/BarChart.vue'
@@ -51,36 +54,47 @@ export default {
         async updateOrder(order) {
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order: order })
-            } catch(err){
-                throw err 
+            } catch (err) {
+                throw err
             }
         }
     },
-        computed: {
-            orders() {
-                // console.log(this.$store.getters.orders)
-                return JSON.parse(JSON.stringify(this.$store.getters.orders))
-            },
-            loggedinUser() {
-                console.log(this.$store.getters.loggedinUser);
-                return this.$store.getters.loggedinUser
-            }
+    computed: {
+        orders() {
+            // console.log(this.$store.getters.orders)
+            return JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
-        async created() {
-            try {
-                await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
-            }
-            catch (err) {
-                console.log(err, 'cannot load orders');
-            }
-        },
-        components: {
-            OrderPreview,
-            PieChart,
-            BarChart,
-            TableOrder,
-            StatisticOrder
-        },
+        loggedinUser() {
+            console.log(this.$store.getters.loggedinUser);
+            return this.$store.getters.loggedinUser
+        }
+    },
+    async created() {
+        try {
+            await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
+            socketService.on('order-for-you', (order) => {
+                console.log('GOT from socket', order)
+                var loggedinUser = store.getters.loggedinUser
+                console.log('loggedinUser (socket on.)', loggedinUser)
+                if (order.hostId === loggedinUser)
+                    showSuccessMsg(`You've just received a new order.`)
+            })
+        }
+        catch (err) {
+            console.log(err, 'cannot load orders');
+        }
+
+    },
+    components: {
+        OrderPreview,
+        PieChart,
+        BarChart,
+        TableOrder,
+        StatisticOrder
+    },
+    unmounted() {
+        socketService.off('order-for-you')
     }
+}
 
 </script>
