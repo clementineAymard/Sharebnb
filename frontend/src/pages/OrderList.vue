@@ -2,7 +2,7 @@
     <h1 class="head-order">My reservations</h1>
     <div class="charts-container">
 
-        <PieChart />
+        <PieChart :orders="orders"/>
         <div class="table-order">
             <!-- <TableOrder></TableOrder> -->
             <StatisticOrder/>
