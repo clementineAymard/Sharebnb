@@ -83,6 +83,7 @@ async function add(newOrder) {
 
 async function save(order) {
     var savedOrder
+    console.log('order',order)
     try {
         savedOrder = await httpService.put('order', order)
         // savedOrder = await storageService.put(STORAGE_KEY, order)
