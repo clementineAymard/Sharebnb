@@ -6,6 +6,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import orders from "../data/orders.json" assert { type: "json" }
 
 import { store } from '../store/store'
+// import { userStore } from '../store/user.store'
 import { socketService, SOCKET_EVENT_YOUR_ORDER_UPDATED, SOCKET_EVENT_ORDER_FOR_YOU } from './socket.service'
 
 
@@ -13,13 +14,13 @@ import { socketService, SOCKET_EVENT_YOUR_ORDER_UPDATED, SOCKET_EVENT_ORDER_FOR_
         setTimeout(() => {
             socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
                 console.log('GOT from socket', order)
-                var loggedinUser = sessionStorage.getItem('loggedinUser')
+                var loggedinUser = store.getters.loggedinUser
                 console.log('loggedinUser (socket on.)', loggedinUser)
                 if (order.hostId === loggedinUser) showSuccessMsg(`You've just received a new order.`)
                 // store.commit({ type: 'addOrder', order })
             })
             socketService.on(SOCKET_EVENT_YOUR_ORDER_UPDATED, (order) => {
-                var loggedinUser = sessionStorage.getItem('loggedinUser')
+                var loggedinUser = store.getters.loggedinUser
                 if (order.buyerId === loggedinUser) {
                     if (order.status === 'approved') showSuccessMsg(`Notification : Your trip was approved by the host!`)
                     if (order.status === 'rejected') showErrorMsg(`Notification : Your trip was rejected by the host.`)
