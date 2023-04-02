@@ -27,8 +27,5 @@ function _buildCriteria(filterBy) {
     if (filterBy.category) {
         criteria.labels = filterBy.category
     }
-
-    console.log('criteria', criteria)
-
     return criteria
 }
