@@ -7,7 +7,7 @@
             <img :src="imgStay" alt="">
             {{ order.stayName }}
         </div>
-        <div>{{ hostName }}</div>
+        <div>{{ order.hostFullname }}</div>
         <div> {{ order.startDate }}</div>
         <div> {{ order.endDate }}</div>
         <div> {{ order.totalPrice }}</div>
@@ -16,7 +16,7 @@
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
                 <div @click=" this.$router.push({ name: 'order-edit', params: { name: order.name } })">
-                                    <font-awesome-icon icon="fa-edit" /> -->
+                                        <font-awesome-icon icon="fa-edit" /> -->
 
 
     </section>
@@ -37,12 +37,6 @@ export default {
     computed: {
         users() {
             return this.$store.getters.users
-        },
-        hostName() {
-            const host = this.users.find(host => host._id === this.order.hostId)
-            console.log('host', host)
-
-            return host?.fullname || 'Inbar'
         },
         imgStay() {
             return this.order.stayImg

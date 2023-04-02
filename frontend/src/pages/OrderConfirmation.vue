@@ -83,7 +83,7 @@ export default {
             this.offset.y = event.offsetY
         },
         goToTrips(){
-            this.$router.push(`/user/${this.order.buyer._id}/trips`)
+            this.$router.push(`/user/${this.order.buyerId}/trips`)
         }
     },
     computed: {
