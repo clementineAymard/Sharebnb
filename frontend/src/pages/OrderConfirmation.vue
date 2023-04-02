@@ -82,7 +82,7 @@ export default {
             this.offset.x = event.offsetX
             this.offset.y = event.offsetY
         },
-        goToTrips(){
+        goToTrips() {
             this.$router.push(`/user/${this.order.buyerId}/trips`)
         }
     },
@@ -94,14 +94,15 @@ export default {
         nights() {
             return this.order.endDate - this.order.startDate
         },
-        guestsCount(){
+        guestsCount() {
             return parseInt(this.order.guests.adults) + parseInt(this.order.guests.children) + parseInt(this.order.guests.infants)
         },
         totalAfterFees() {
             return ((this.order.totalPrice * 1.08).toFixed(2))
         },
         nightsCount() {
-            return ((new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000).toFixed(2)
+            var count = ((new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000).toFixed(0)
+            return (count < 1) ? '1' : count
         },
         guestsCount() {
             return parseInt(this.order.adults) + parseInt(this.order.children) + parseInt(this.order.infants)
