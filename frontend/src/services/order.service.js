@@ -48,7 +48,7 @@ async function query(filterBy = {}) {
         var orders = await httpService.get('order', filterBy)
         if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
         if (filterBy.buyerId) orders = orders.filter(order => order.buyerId === filterBy.buyerId)
-
+        // orders = orders.
         return orders
     } catch (err) {
         console.log('Order service : Error while getting orders')
