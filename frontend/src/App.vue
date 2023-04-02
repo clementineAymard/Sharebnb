@@ -9,10 +9,10 @@
 
 <script>
 
-
+// import {socketService} from './services/socket.service'
 import { userService } from './services/user.service'
 import { store } from './store/store'
-import { closeHeader } from "./services/event-bus.service.js"
+import { closeHeader, showSuccessMsg } from "./services/event-bus.service.js"
 
 import AppHeader from './cmps/AppHeader.vue'
 import AppFooter from './cmps/AppFooter.vue'
@@ -25,6 +25,8 @@ export default {
         console.log('Vue App created')
         const user = userService.getLoggedinUser()
         if (user) store.commit({ type: 'setLoggedinUser', user })
+
+        
     },
     methods: {
         onCloseHeader() {

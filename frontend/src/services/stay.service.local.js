@@ -217,9 +217,9 @@ function getLabels() {
 
   
 //   TEST DATA
-  ;(async ()=>{
-      await utilService.saveToStorage(STORAGE_KEY, staysDB)
-  })()
+//   ;(async ()=>{
+//       await utilService.saveToStorage(STORAGE_KEY, staysDB)
+//   })()
   
   // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
   // Renders a <StayList> with <StayPreview> with Link to <StayDetails>   url: /stay/123
