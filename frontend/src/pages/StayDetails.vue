@@ -18,7 +18,6 @@
                             </section>
                             <span> {{ stay.rate }} </span>
                         </span> ·
-                        <!-- <span class="padinline8px"> · </span> -->
                         <span class="rev-count link font-md"> {{ stay.reviews.length }} reviews</span>
                     </div>
                     <span class="padinline8px grey">·</span>
@@ -59,8 +58,6 @@
                                     {{ stay.bedrooms }} bedrooms
                                 </div>
                                 <span>·</span>
-                                <!-- <div class="capacity-subtitle">{{ stay.capacity }} beds </div> -->
-                                <!-- <span>·</span> -->
                                 <div class="capacity-subtitle"> {{ stay.bathrooms }} bathrooms
                                 </div>
                             </div>
@@ -234,7 +231,6 @@
                         <div class="reservation-container font-thin">
                             <div>
                                 <div class="reservation-form-header flex justify-between ">
-                                    <!-- <div class="date-picker"></div> -->
                                     <p class="reservation-price flex column">
                                         <span class="cost font-md">${{ stay.price }} </span>
                                         <span class="font-thin">per night</span>
@@ -399,7 +395,6 @@
             <div class="reviews-and-map">
                 <div class="divider"></div>
                 <div class="reviews">
-                    <!-- <div class="divider"></div> -->
                     <h1 class="flex subheading">
                         <div class="rating-review flex">
                             <span class="avg-rating flex font-md">
@@ -412,7 +407,7 @@
                                             fill-rule="evenodd"></path>
                                     </svg>
                                 </section>
-                                3.73
+                               {{ stay.rate }}
                             </span>
                             <span>·</span>
                             <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span>
@@ -458,68 +453,22 @@
                                     <img :src="reviews.by.imgUrl">
                                     <div class="flex column">
                                         <span class="name font-md">{{ reviews.fullname }} {{ reviews.by.fullname }}</span>
-                                        <!-- <span class="subtitle fs14">{{ reviews.fullname}} {{ reviews.at }}</span> -->
                                         <span class="name font-md">{{ reviews.fullname }} {{ new
                                             Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(new
                                                 Date(reviews.at)) }}</span>
-                                        <!-- <span class="subtitle fs14">July 2016</span> -->
                                     </div>
                                 </div>
                                 <div class="txt">
                                     <span class="subtitle fs14">{{ reviews.fullname }} {{ reviews.txt }}</span>
-                                    <!-- Host: Davit gave us a warm welcome and treated us kindly from the very beginning. She
-                                    offered us help, told us what to visit and even put water, milk and orange juice in the
-                                    fridge! We could have breakfast at her place which was perfect because she has a little
-                                    sweet balcony!
-                                    Location: calmly situated in a side street, very near to the Placa Catalunya, the Rambla
-                                    and the gothic area of Barcelona (very beautiful:) so you have the old cultural center
-                                    as well as all the restaurants and bars just nearby.
-                                    House/Room: the appartment is not a huge, but I think you have everything you need
-                                    (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment with
-                                    Marian so pay attention and don't be too loud in the evening!!
-                                    disadvantage: the heat is terrible in summer and there is no air-condition..
-
-                                    I would overall recommend it to everybody!! But if you want to party and stay up late,
-                                    take a hostel
-                                    or another appartment. -->
                                 </div>
                             </li>
                         </div>
-                        <!-- <div class="show-all-btn font-md btn"> Show all reviews</div> -->
                     </div>
-                    <!-- <div class="divider"></div> -->
                 </div>
             </div>
-            <!-- <div class="all-reviews">
-                  <div class="all-reviews-model">
-                    <div class="modal-content">
-                      <span class="close">X</span>
-                      <h1 class="flex subheading">
-                        <div class="rating-review flex">
-                          <span class="avg-rating flex font-md">
-                            <section class="icon-svg">
-                              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
-                            </section>
-                            3.73
-                          </span>
-                          <span>•</span>
-                          <span class="rev-count link font-md">{{ stay.reviews.length }} reviews</span>
-                        </div>
-                      </h1>
-                      <div class="reviews-container">
-                        <div class="reviews-list">
-                          <li>{{stay.reviews}}</li>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
         </section>
-
     </section>
 </template>
-  
-
 
 <script>
 import { stayService } from '../services/stay.service.local.js'
@@ -547,7 +496,6 @@ export default {
         const { stayId } = this.$route.params
         const stay = await stayService.getById(stayId)
         this.stay = stay
-        // console.log(stay)
         this.startDate = this.$route.query.from || '5/5/23'
         this.endDate = this.$route.query.to || '5/10/23'
         this.guests = {
@@ -582,7 +530,6 @@ export default {
 
             const order = orderService.getEmptyOrder()
 
-            // order.hostId = this.stay.host._id
             order.host._id = this.stay.host._id
             order.host.fullname = this.stay.host.fullname
             order.host.imgUrl = this.stay.host.thumbnailUrl
@@ -630,9 +577,6 @@ export default {
         formattedDate() {
             return new Date(this.stay.createdAt).toLocaleDateString()
         },
-        // getLabels(){
-        //   return this.stay?.labels.join(', ')
-        // }
         forReviews() {
             return this.stay.reviews.slice(0, 4)
         },
