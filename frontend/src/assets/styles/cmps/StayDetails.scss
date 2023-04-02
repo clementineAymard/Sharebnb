@@ -155,6 +155,7 @@ element.style {
 img {
     overflow-clip-margin: content-box;
     overflow: clip;
+    object-fit: cover;
 }
 
 .stay-details1 .mid-section {
@@ -704,3 +705,4 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
     background-color: $clr2;
 }
+
