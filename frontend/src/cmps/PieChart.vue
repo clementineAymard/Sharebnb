@@ -11,6 +11,7 @@
 
   export default {
     name: 'PieChart',
+    props: { orders: Array },
     components: { DoughnutChart },
     data() {
       return {
@@ -19,7 +20,7 @@
           labels: ['approved', 'rejected','pending'],
           datasets: [
             {
-              data: [16, 4, 1],
+              data: [7, 4, 1],
               backgroundColor: ['#a5e8c1', '#e8b8a5', '#a5a5e8', '#97B0C4', '#FBFFB1'],
             },
           ],
@@ -34,6 +35,23 @@
     },
     methods: {
       setData() {
+       var appCount = this.orders.reduce((acc,order)=>{
+        if(order.status === 'approved')  acc++
+        return acc
+      },0)
+      this.testData.datasets[0].data[0]=appCount
+
+       var rejCount = this.orders.reduce((acc,order)=>{
+        if(order.status === 'rejected')  acc++
+        return acc
+      },0)
+      this.testData.datasets[0].data[1]=rejCount
+
+       var penCount = this.orders.reduce((acc,order)=>{
+        if(order.status === 'pending')  acc++
+        return acc
+      },0)
+      this.testData.datasets[0].data[2]=penCount
         // const toys = this.getAllToys
         // console.log('this.getAllToys', this.$store.getters.getAllToys)
         // const labelsMap = toys.reduce((acc, toy) => {
@@ -52,6 +70,13 @@
       },
     },
     computed: {
+      approvedNum(){
+      return 3
+        this.orders.reduce((acc,order)=>{
+        if(order.status === 'approved')  acc++
+        return acc
+      },0)
+     }
       // getAllToys() {
       //   return this.$store.getters.getAllToys
       // },

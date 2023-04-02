@@ -90,7 +90,7 @@ async function save(order) {
     }
 }
 
-// utilService.saveToStorage(STORAGE_KEY, orders)
+utilService.saveToStorage(STORAGE_KEY, orders)
 
 // function getEmptyOrder() {
 //     return {

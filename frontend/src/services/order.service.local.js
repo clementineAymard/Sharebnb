@@ -2,6 +2,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { stayService } from './stay.service.local.js'
+import ordersDB from "./../../src/data/orders.json" assert { type: "json" }
 
 const STORAGE_KEY = 'order'
 
@@ -332,4 +333,13 @@ const orders = [
     },
 ]
 
-utilService.saveToStorage(STORAGE_KEY, orders)
+// utilService.saveToStorage(STORAGE_KEY, orders)
+// utilService.saveToStorage(STORAGE_KEY, ordersDB)
+ 
+//   // TEST DATA
+  ;(async ()=>{
+      await utilService.saveToStorage(STORAGE_KEY, ordersDB)
+  })()
+
+
+  console.log('llll');
