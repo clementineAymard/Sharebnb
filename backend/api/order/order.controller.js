@@ -49,8 +49,8 @@ async function updateOrder(req, res) {
     try {
         const order = req.body
         const updatedOrder = await orderService.update(order)
-        console.log('updatedOrder',updatedOrder)
-        // socketService.emitToUser({ type: 'your-order-updated', data: order, userId: order.buyerId })
+        console.log('updatedOrder', updatedOrder)
+        socketService.emitToUser({ type: 'your-order-updated', data: order, userId: order.buyerId })
 
         res.json(updatedOrder)
     } catch (err) {

@@ -107,8 +107,9 @@ async function update(order) {
     try {
         // savedOrder = await httpService.put('order', order)
         const collection = await dbService.getCollection('order')
-        // console.log('got collection order')
-        await collection.updateOne({ _id: order._id }, { $set: { status: order.status } })
+        console.log('got collection order')
+        await collection.updateOne({ _id: new ObjectId(order._id) }, { $set: { status: order.status } })
+        console.log('updated order')
         savedOrder = order
         return savedOrder
     } catch (err) {

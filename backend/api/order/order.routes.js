@@ -8,7 +8,7 @@ const router = express.Router()
 // router.use(requireAuth)
 
 router.get('/', log, getOrders)
-router.post('/',  log, addOrder)
+router.post('/',  log, requireAuth, addOrder)
 router.put('/',  requireAuth, updateOrder)
 router.delete('/:id',  requireAuth, deleteOrder)
 
