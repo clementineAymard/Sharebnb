@@ -25,8 +25,8 @@ window.userService = userService
 
 
 function getUsers() {
-    return storageService.query(STORAGE_KEY_USER)
-    // return httpService.get(`user`)
+    // return storageService.query(STORAGE_KEY_USER)
+    return httpService.get(`user`)
 }
 
 // function onUserUpdate(user) {
@@ -35,8 +35,8 @@ function getUsers() {
 // }
 
 async function getById(userId) {
-    const user = await storageService.get(STORAGE_KEY_USER, userId)
-    // const user = await httpService.get(`user/${userId}`)
+    // const user = await storageService.get(STORAGE_KEY_USER, userId)
+    const user = await httpService.get(`user/${userId}`)
 
     // socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
     // socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
@@ -45,61 +45,59 @@ async function getById(userId) {
     return user
 }
 function remove(userId) {
-    return storageService.remove(STORAGE_KEY_USER, userId)
-    // return httpService.delete(`user/${userId}`)
+    // return storageService.remove(STORAGE_KEY_USER, userId)
+    return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score }) {
-    const user = await storageService.get(STORAGE_KEY_USER, _id)
-    // let user = getById(_id)
-    // user.score = score
-    await storageService.put(STORAGE_KEY_USER, user)
+async function update(user) {
+    // const user = await storageService.put(STORAGE_KEY_USER, user)
 
-    // user = await httpService.put(`user/${user._id}`, user)
+    const userUpdated = await httpService.put(`user/${user._id}`, user)
+
     // Handle case in which admin updates other user's details
     // if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-    return user
+    return userUpdated
 }
 
 
 async function login(userCred) {
-    const users = await storageService.query(STORAGE_KEY_USER)
-    // try{
-    // const user = await httpService.post('auth/login', userCred)
-    const user = users.find(user => user.username === userCred.username)
-    // } catch (err) {
-    // console.log('User service could not login.')
-    // throw err
-    // }
-    if (user) {
-        socketService.login(user._id)
-        return saveLocalUser(user)
+    // const users = await storageService.query(STORAGE_KEY_USER)
+    // const user = users.find(user => user.username === userCred.username)
+    try {
+        const user = await httpService.post('auth/login', userCred)
+        if (user) {
+            socketService.login(user._id)
+            return saveLocalUser(user)
+        }
+    } catch (err) {
+        console.log('User service could not login.')
+        throw err
     }
 }
 async function signup(userCred) {
-    // userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    const user = await storageService.post(STORAGE_KEY_USER, userCred)
+    // const user = await storageService.post(STORAGE_KEY_USER, userCred)
 
-    // try{
-    // const user = await httpService.post('auth/signup', userCred)
-    socketService.login(user._id)
-    return saveLocalUser(user)
-    // } catch (err) {
-    // console.log('User service could not signup.')
-    // throw err
-    // }
+    try {
+        const user = await httpService.post('auth/signup', userCred)
+        socketService.login(user._id)
+        return saveLocalUser(user)
+    } catch (err) {
+        console.log('User service could not signup.')
+        throw err
+    }
 }
 async function logout() {
     // session storage update stays even when backend is connected !
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // try {
-    // return await httpService.post('auth/logout')
-    socketService.logout()
-    // } catch (err) {
-    // console.log('User service could not logout.')
-    // throw err
-    // }
+    try {
+        const user = await httpService.post('auth/logout')
+        socketService.logout()
+        return user
+    } catch (err) {
+        console.log('User service could not logout.')
+        throw err
+    }
 }
 
 // async function changeScore(by) {

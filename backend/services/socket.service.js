@@ -42,6 +42,14 @@ function setupSocketAPI(http) {
             logger.info(`Removing socket.userId for socket [id: ${socket.id}]`)
             delete socket.userId
         })
+        socket.on('your-order-updated', (order) => {
+            logger.info(`Order update from socket [id: ${socket.id}]`)
+            gIo.emitToUser('your-order-updated', order, order.buyerId)
+        })
+        socket.on('order-for-you', (order) => {
+            logger.info(`Order update from socket [id: ${socket.id}]`)
+            gIo.emitToUser('order-for-you', order, order.hostId)
+        })
 
     })
 }

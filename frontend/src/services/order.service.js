@@ -43,13 +43,18 @@ export const orderService = {
 // FOR TRIPSLIST orderService.query({buyerId : loggedinUser._id})
 
 async function query(filterBy = {}) {
-    // var orders = httpService.get('order', filterBy)
-    var orders = await storageService.query(STORAGE_KEY)
+    try {
+        // var orders = await storageService.query(STORAGE_KEY)
+        var orders = await httpService.get('order', filterBy)
+        if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
+        if (filterBy.buyerId) orders = orders.filter(order => order.buyerId === filterBy.buyerId)
 
-    if (filterBy.hostId) orders = orders.filter(order => order.hostId === filterBy.hostId)
-    if (filterBy.buyerId) orders = orders.filter(order => order.buyerId === filterBy.buyerId)
+        return orders
+    } catch (err) {
+        console.log('Order service : Error while getting orders')
+        throw err
+    }
 
-    return orders
 }
 
 // function getById(orderId) {
@@ -57,18 +62,18 @@ async function query(filterBy = {}) {
 // }
 
 async function remove(orderId) {
-    await storageService.remove(STORAGE_KEY, orderId)
-    // await httpService.delete(`order/${prderId}`)
+    // await storageService.remove(STORAGE_KEY, orderId)
+    await httpService.delete(`order/${prderId}`)
 }
 
 async function add(newOrder) {
     newOrder.status = 'pending'
     try {
-        const addedOrder = await storageService.post(STORAGE_KEY, { ...newOrder })
-        // const addedOrder = await httpService.post('order', {...newOrder})
-        console.log('addedOrder:', addedOrder)
+        // const addedOrder = await storageService.post(STORAGE_KEY, { ...newOrder })
+        const addedOrder = await httpService.post('order', { ...newOrder })
+        // console.log('addedOrder:', addedOrder)
 
-        socketService.emit(SOCKET_EVENT_ORDER_FOR_YOU, addedOrder)
+        // socketService.emit(SOCKET_EVENT_ORDER_FOR_YOU, addedOrder)
         return addedOrder
     } catch (err) {
         console.log('Could not add order')
@@ -79,10 +84,10 @@ async function add(newOrder) {
 async function save(order) {
     var savedOrder
     try {
-        // savedOrder = await httpService.put('order', order)
-        savedOrder = await storageService.put(STORAGE_KEY, order)
+        savedOrder = await httpService.put('order', order)
+        // savedOrder = await storageService.put(STORAGE_KEY, order)
 
-        socketService.emit(SOCKET_EVENT_YOUR_ORDER_UPDATED, savedOrder)
+        // socketService.emit(SOCKET_EVENT_YOUR_ORDER_UPDATED, savedOrder)
         return savedOrder
     } catch (err) {
         console.log('Order service could not save order')

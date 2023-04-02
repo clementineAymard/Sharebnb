@@ -522,7 +522,7 @@
 
 
 <script>
-import { stayService } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 import { orderService } from '../services/order.service.js'
 import DatePickerSmall from '../cmps/DatePickerSmall.vue'
 import GuestPicker from '../cmps/GuestsPicker.vue'

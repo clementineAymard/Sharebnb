@@ -1,5 +1,5 @@
 import { filter } from 'lodash'
-import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 import { utilService } from '../services/util.service'
 
 export function getActionRemoveStay(stayId) {
