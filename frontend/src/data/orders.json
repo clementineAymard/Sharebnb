@@ -1,189 +1,270 @@
 [
     {
-        "_id": "o1225",
         "buyerId": "64259dd4eaedf344bcf680ff",
         "buyerFullname": "Jack",
         "buyerImg": "https://a0.muscache.com/im/users/7384159/profile_pic/1376615136/original.jpg?aki_policy=profile_large",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
-        "totalPrice": 1260,
+        "totalPrice": {
+            "$numberInt": "1260"
+        },
         "startDate": "2022/10/15",
         "endDate": "2022/10/17",
-        "adults": 6,
-        "children": 0,
-        "infants": 0,
+        "adults": {
+            "$numberInt": "6"
+        },
+        "children": {
+            "$numberInt": "0"
+        },
+        "infants": {
+            "$numberInt": "0"
+        },
         "stayId": "64259dd9eaedf344bcf69628",
         "stayName": "Westin Kaanapali KORVN 2BR",
-        "stayPrice": 595,
+        "stayPrice": {
+            "$numberInt": "595"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
         "msgs": [],
         "status": "approved"
     },
     {
-        "_id": "o1235",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
         "buyerId": "64259dd4eaedf344bcf680ed",
         "buyerFullname": "Francine",
         "buyerImg": "https://a0.muscache.com/im/pictures/user/f04aeef5-5480-4157-ae48-18fd669edcf3.jpg?aki_policy=profile_large",
-        "totalPrice": 700,
+        "totalPrice": {
+            "$numberInt": "700"
+        },
         "startDate": "2022/11/25",
         "endDate": "2022/11/27",
-        "adults": 2,
-        "children": 0,
-        "infants": 0,
+        "adults": {
+            "$numberInt": "2"
+        },
+        "children": {
+            "$numberInt": "0"
+        },
+        "infants": {
+            "$numberInt": "0"
+        },
         "stayId": "64259dd9eaedf344bcf69629",
         "stayName": "Belle chambre à côté Metro Papineau",
-        "stayPrice": 300,
+        "stayPrice": {
+            "$numberInt": "300"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
         "msgs": [],
         "status": "approved"
     },
     {
-        "_id": "o8225",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
-        "buyerId": "u102",
+        "buyerId": "6425a7ab93079b3be0dc6841",
         "buyerFullname": "Shira",
         "buyerImg": "https://cdn.sanity.io/images/xmpcmhrn/production/f363771ad3c072ec71f1ea5e8f3868d18de231a6-1200x800.jpg",
-        "totalPrice": 1023,
+        "totalPrice": {
+            "$numberInt": "1023"
+        },
         "startDate": "2022/10/10",
         "endDate": "2022/10/13",
-        "adults": 2,
-        "children": 0,
-        "infants": 0,
+        "adults": {
+            "$numberInt": "2"
+        },
+        "children": {
+            "$numberInt": "0"
+        },
+        "infants": {
+            "$numberInt": "0"
+        },
         "stayId": "64259dd9eaedf344bcf69629",
         "stayName": "Belle chambre à côté Metro Papineau",
-        "stayPrice": 300,
+        "stayPrice": {
+            "$numberInt": "300"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
         "msgs": [],
         "status": "approved"
     },
     {
-        "_id": "o1295",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
-        "buyerId": "u102",
+        "buyerId": "6425a7ab93079b3be0dc6841",
         "buyerFullname": "Shira",
         "buyerImg": "https://cdn.sanity.io/images/xmpcmhrn/production/f363771ad3c072ec71f1ea5e8f3868d18de231a6-1200x800.jpg",
-        "totalPrice": 1321,
+        "totalPrice": {
+            "$numberInt": "1321"
+        },
         "startDate": "2022/10/15",
         "endDate": "2022/10/17",
-        "adults": 1,
-        "kids": 5,
-        "infants": 0,
+        "adults": {
+            "$numberInt": "1"
+        },
+        "kids": {
+            "$numberInt": "5"
+        },
+        "infants": {
+            "$numberInt": "0"
+        },
         "stayId": "64259dd9eaedf344bcf69628",
         "stayName": "Westin Kaanapali KORVN 2BR",
-        "stayPrice": 595,
+        "stayPrice": {
+            "$numberInt": "595"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
         "msgs": [],
         "status": "rejected"
     },
     {
-        "_id": "o1125",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
         "buyerId": "6425a83393079b3be0ddc466",
         "buyerFullname": "Tal",
         "buyerImg": "https://images.unsplash.com/photo-1597248374161-426f0d6d2fc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmVhdXRpZnVsJTIwd29tYW58ZW58MHx8MHx8&w=1000&q=80",
-        "totalPrice": 650,
+        "totalPrice": {
+            "$numberInt": "650"
+        },
         "startDate": "2022/01/11",
         "endDate": "2021/12/31",
-        "adults": 2,
-        "children": 1,
-        "infants": 1,
+        "adults": {
+            "$numberInt": "2"
+        },
+        "children": {
+            "$numberInt": "1"
+        },
+        "infants": {
+            "$numberInt": "1"
+        },
         "stayId": "64259dd9eaedf344bcf6962a",
         "stayName": "M&M Space MM2  Apartamento no centro da cidade",
-        "stayPrice": 65,
+        "stayPrice": {
+            "$numberInt": "65"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436861/xrxhgsif3ekhxgn8irlm.jpg",
         "msgs": [],
         "status": "approved"
     },
     {
-        "_id": "o1265",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
         "buyerId": "6425a50393079b3be0d59dec",
         "buyerFullname": "Guy",
         "buyerImg": "https://res.cloudinary.com/deayegq6w/image/upload/v1679227648/samples/people/smiling-man.jpg",
-        "totalPrice": 861,
+        "totalPrice": {
+            "$numberInt": "861"
+        },
         "startDate": "2022/03/17",
         "endDate": "2022/03/23",
-        "adults": 3,
-        "kids": 0,
-        "infants": 1,
+        "adults": {
+            "$numberInt": "3"
+        },
+        "kids": {
+            "$numberInt": "0"
+        },
+        "infants": {
+            "$numberInt": "1"
+        },
         "stayId": "64259dd9eaedf344bcf69737",
         "stayName": "Cozy Comfy Suite of Rockaway Beach",
-        "stayPrice": 125,
+        "stayPrice": {
+            "$numberInt": "125"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436525/wdod0zfzsipkigajueda.jpg",
         "msgs": [],
         "status": "approved"
     },
     {
-        "_id": "o4225",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
         "buyerId": "64259dd4eaedf344bcf680ea",
         "buyerFullname": "Edgar",
-        "buyerImg": "https://a0.muscache.com/im/pictures/d17abb7c-beb0-4dbe-976e-fc633de18b4b.jpg?aki_policy=profile_small",
-        "totalPrice": 350,
+        "buyerImg": "https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/40.jpg",
+        "totalPrice": {
+            "$numberInt": "350"
+        },
         "startDate": "2022/04/02",
         "endDate": "2022/04/05",
-        "adults": 2,
-        "children": 1,
-        "infants": 1,
+        "adults": {
+            "$numberInt": "2"
+        },
+        "children": {
+            "$numberInt": "1"
+        },
+        "infants": {
+            "$numberInt": "1"
+        },
         "stayId": "64259dd9eaedf344bcf6962e",
         "stayName": "Home, Sweet, Harlem. Welcome!",
-        "stayPrice": 110,
+        "stayPrice": {
+            "$numberInt": "110"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg",
         "msgs": [],
-        "status": "pending"
+        "status": "rejected"
     },
     {
-        "_id": "o2225",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
         "buyerId": "6425a89b93079b3be0dec499",
         "buyerFullname": "Inbar",
         "buyerImg": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "totalPrice": 346,
+        "totalPrice": {
+            "$numberInt": "346"
+        },
         "startDate": "2022/05/07",
         "endDate": "2022/05/10",
-        "adults": 3,
-        "children": 0,
-        "infants": 0,
+        "adults": {
+            "$numberInt": "3"
+        },
+        "children": {
+            "$numberInt": "0"
+        },
+        "infants": {
+            "$numberInt": "0"
+        },
         "stayId": "64259dd9eaedf344bcf6962e",
         "stayName": "Home, Sweet, Harlem. Welcome",
-        "stayPrice": 110,
+        "stayPrice": {
+            "$numberInt": "110"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg",
         "msgs": [],
         "status": "approved"
     },
     {
-        "_id": "o1725",
         "hostId": "6425a70493079b3be0dab9c4",
         "hostFullname": "Clem",
         "hostImgUrl": "https://img.freepik.com/free-photo/real-professional-smiling-businesswoman-looking-confident-determined-face-expression-standing-suit-white-background_1258-122910.jpg?w=1380&t=st=1680181859~exp=1680182459~hmac=38035667a19d20d04fbd3dfb34be02fc7a1339a2ee85cc27a4e1648e5c382628",
         "buyerId": "64259dd4eaedf344bcf680eb",
         "buyerFullname": "Leo",
         "buyerImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/330px-Outdoors-man-portrait_%28cropped%29.jpg",
-        "totalPrice": 1300,
+        "totalPrice": {
+            "$numberInt": "1300"
+        },
         "startDate": "2022/06/25",
         "endDate": "2022/06/26",
-        "adults": 2,
-        "children": 1,
-        "infants": 1,
+        "adults": {
+            "$numberInt": "2"
+        },
+        "children": {
+            "$numberInt": "1"
+        },
+        "infants": {
+            "$numberInt": "1"
+        },
         "stayId": "64259dd9eaedf344bcf69737",
         "stayName": "Cozy Comfy Suite of Rockaway Beach",
-        "stayPrice": 125,
+        "stayPrice": {
+            "$numberInt": "125"
+        },
         "stayImg": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436525/wdod0zfzsipkigajueda.jpg",
         "msgs": [],
         "status": "approved"

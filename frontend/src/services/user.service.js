@@ -133,7 +133,7 @@ const users = [
         "wishList": []
     },
     {
-        "_id": "u102",
+        "_id": "6425a7ab93079b3be0dc6841",
         "fullname": "Shira",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "shira",
@@ -144,7 +144,7 @@ const users = [
         "wishList": []
     },
     {
-        "_id": "u103",
+        "_id": "6425a66193079b3be0d9106d",
         "fullname": "Kamal",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "kamal",
@@ -155,7 +155,7 @@ const users = [
         "wishList": []
     },
     {
-        "_id": "u104",
+        "_id": "6425a89b93079b3be0dec499",
         "fullname": "Inbar",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "inbar",
@@ -166,7 +166,7 @@ const users = [
         "wishList": []
     },
     {
-        "_id": "u105",
+        "_id": "6425a50393079b3be0d59dec",
         "fullname": "Guy",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "guyy",
@@ -177,7 +177,7 @@ const users = [
         "wishList": []
     },
     {
-        "_id": "u106",
+        "_id": "6425a83393079b3be0ddc466",
         "fullname": "Tal",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "talll",
@@ -189,6 +189,6 @@ const users = [
     },
 ]
 
-// utilService.saveToStorage(STORAGE_KEY_USER, users)
+utilService.saveToStorage(STORAGE_KEY_USER, users)
 
 

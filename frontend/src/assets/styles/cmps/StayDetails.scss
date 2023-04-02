@@ -52,7 +52,6 @@ h1 {
 .stay-details1 .font-md {
     font-family: airbnb_medium;
     font-size: em(14px);
-    // position: relative;
 }
 
 section {
@@ -103,7 +102,6 @@ element.style {
 .stay-details1 .save-stay {
     align-items: center;
     gap: 7px;
-    // padding: 8px;
     border-radius: 8px;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     font-size: rem(14px);
@@ -114,7 +112,6 @@ element.style {
 .btn {
     cursor: pointer;
 }
-
 
 element.style {
     display: block;
@@ -158,11 +155,10 @@ element.style {
 img {
     overflow-clip-margin: content-box;
     overflow: clip;
+    object-fit: cover;
 }
 
 .stay-details1 .mid-section {
-    // display: grid;
-    // grid-template-columns: 2fr 1fr;
     display: flex;
     gap: 5em;
 }
@@ -183,7 +179,6 @@ img {
 
 h2 {
     display: block;
-    // margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -218,7 +213,6 @@ h2 {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #ddd;
-    // padding-top:32px;
 }
 
 .stay-details1 .more-details .divider {
@@ -241,8 +235,6 @@ element.style {
 
 h4 {
     display: block;
-    // margin-block-start: 1.33em;
-    // margin-block-end: 1.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
@@ -257,7 +249,6 @@ h4 {
 
 .stay-details1 .subtitle {
     color: #717171;
-    // font-family: cereal-light;
 }
 
 .stay-details1 .more-details .amenities-container {
@@ -275,10 +266,6 @@ li {
 .stay-details1 .more-details .amenities-container .amenity {
     gap: 0.7rem;
 }
-
-// section {
-//     padding: 5px;
-// }
 
 li {
     display: list-item;
@@ -300,7 +287,6 @@ li {
     padding: 24px;
     box-shadow: #0000001f 0 6px 16px;
     min-width: fit-content;
-    // max-width: 330px;
 }
 
 .stay-details1 .font-thin {
@@ -353,12 +339,6 @@ p {
     color: #717171;
 }
 
-// .stay-details1 .reservation .reservation-container .reservation-data {
-//     border: 1px solid rgba(0, 0, 0, .3137254902);
-//     border-radius: 13px;
-//     margin-bottom: 15px;
-// }
-
 .stay-details1 .reservation .reservation-container .date-picker-container {
     display: flex;
     justify-content: space-between;
@@ -368,14 +348,6 @@ p {
         font-family: airbnb_bold;
     }
 }
-
-// .stay-details1 .reservation .reservation-container .date-input {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 5px;
-//     padding: 7px 12px;
-//     width: 50%;
-// }
 
 .stay-details1 .reservation .reservation-container label {
     font-family: cereal-bold;
@@ -414,24 +386,6 @@ label {
     border-left: none;
 }
 
-// input {
-//     writing-mode: horizontal-tb;
-//     text-rendering: auto;
-//     letter-spacing: normal;
-//     word-spacing: normal;
-//     line-height: normal;
-//     text-transform: none;
-//     text-indent: 0px;
-//     text-shadow: none;
-//     display: inline-block;
-//     text-align: start;
-//     appearance: auto;
-//     -webkit-rtl-ordering: logical;
-//     cursor: text;
-//     background-color: field;
-//     margin: 0em;
-// }
-
 .stay-details1 .reservation .reservation-container .guest-input {
     position: relative;
     display: flex;
@@ -446,25 +400,6 @@ label {
         font-size: 10px;
     }
 }
-
-// input {
-//     writing-mode: horizontal-tb;
-//     text-rendering: auto;
-//     color: fieldtext;
-//     letter-spacing: normal;
-//     word-spacing: normal;
-//     line-height: normal;
-//     text-transform: none;
-//     text-indent: 0px;
-//     text-shadow: none;
-//     display: inline-block;
-//     text-align: start;
-//     appearance: auto;
-//     -webkit-rtl-ordering: logical;
-//     cursor: text;
-//     background-color: field;
-//     margin: 0em;
-// }
 
 .stay-details1 .reservation .reservation-container .guest-input>div {
     >input {
@@ -519,11 +454,7 @@ label {
 }
 
 button {
-    // border: 0;
-    // background-color: #ce2e6c;
     color: #f5f5f5;
-    // padding: 5px 10px;
-    // margin: 5px;
 }
 
 .action-btn div {
@@ -554,7 +485,6 @@ button {
 
 .stay-details1 .reviews-and-map>*:not(.divider) {
     padding: 48px 0;
-    // margin-top: 50px;
 }
 
 .stay-details1 .reviews h1 {
@@ -617,12 +547,6 @@ button {
     margin-bottom: 40px;
 }
 
-// reviews-and-map
-// section, main, footer {
-//     padding: 5px;
-// }
-
-
 .stay-details1 .reviews .reviews-container .show-all-btn {
     border-radius: 8px;
     border-width: 1px;
@@ -642,7 +566,6 @@ button {
 }
 
 .stay-details .reservation {
-    // justify-content: center;
     position: sticky;
     top: 50px;
 }
@@ -673,9 +596,7 @@ p {
     padding-bottom: 8px;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
-
 
 .stay-details1 .guests-picker {
     position: absolute;
@@ -721,86 +642,17 @@ p {
 
 ///////////////////////////////////////////////////////////////
 
-.stay-details1 .reservation .reservation-container {
-    // width: 91%;
-    // max-width: unset;
-}
-
-// .stay-details .reservation .reservation-container .reservation-form-header {
-//     display: -webkit-inline-box;
-//     gap: 20px;
-//     font-weight: 600;
-//     align-items: center;
-//     justify-content: space-between;
-//     margin-bottom: 24px;
-//     width: 100%;
-// }
-
-// .stay-details1 .reservation .reservation-container .reservation-data {
-//     // color: rgb(34, 34, 34);
-//     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-//     // font-weight: 400;
-//     // font-size: 16px;
-//     line-height: 12px;
-// }
-
-
-
 .stay-details1 .reservation-data {
-    // background-color: #fff;
-    // border-radius: 50px;
     margin: -1px;
-    // padding: 14px 24px;
-    // padding-block: 14px;
-    // color: #222222;
     cursor: pointer;
-    // box-sizing: border-box;
-    // box-shadow: 0 6px 20px #c5c5c5;
-    // z-index: 1;
-    // position: relative;
-    //     left: 0px;
-    //     top: 34%;
-    //     width: 100%;
-    //     padding: 0;
-    //     flex-wrap: wrap;
-    //     z-index: 5;
-    //     border: none;
-    //     transition: all ease-in-out 0.3s;
-    // background-color: #fff;
-    // border-radius: 100px;
-    // margin: 20px;
     box-shadow: 0 6px 20px #c5c5c5;
-    // z-index: 9;
-    // position: relative;
-    // color: rgb(34, 34, 34) ;
-    // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
-    // font-weight: 400 ;
-    // font-size: 16px ;
-    // line-height: 20px ;
 }
 
-// .stay-details1 .data-picker.flex {
-// }
-
-// .stay-details1 .main-address link 
 .address link .font-md {
-    // line-height: 20px ;
-    // overflow: hidden ;
-    // text-overflow: ellipsis ;
-    // display: -webkit-box ;
-    // -webkit-line-clamp: 1 ;
-    // -webkit-box-orient: vertical ;
-    // color: rgb(34, 34, 34) ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    // font-size: 14px ;
-    // position: relative ;
-    // font-weight: 600 ;
-    // text-decoration: underline ;
 }
 
 /////////////////////////////////////////////////////
-
-// ***review-head-lins*** //
 
 .reviews-and-map .review-head-lins {
     display: grid;
@@ -809,7 +661,6 @@ p {
     align-items: center;
 
     margin-bottom: 1.875em;
-    // color: #222;
 }
 
 .reviews-and-map .review-head-lins {
@@ -817,7 +668,6 @@ p {
         align-items: center;
         border-radius: 1.875em;
         display: flex;
-        // font-size: 1.125em;
         color: black;
     }
     
@@ -830,14 +680,11 @@ p {
 }
 
 .reviews-and-map .review-head-lins .progress-container progress {
-    // height: 0.800em;
     margin-inline-end: 0.625em;
 }
 
 progress {
     -webkit-margin-end: 0.625em;
-    // background-color: #000;
-    // border-radius: 2.5em;
     font-size: 1.5em;
     height: 0.375em;
     margin-inline-end: 0.625em;
@@ -858,3 +705,4 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
     background-color: $clr2;
 }
+
