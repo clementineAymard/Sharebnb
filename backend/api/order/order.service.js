@@ -4,6 +4,7 @@ const ObjectId = require('mongodb').ObjectId
 const asyncLocalStorage = require('../../services/als.service')
 
 async function query(filterBy = {}) {
+    console.log('filterBy query: ', filterBy)
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('order')
@@ -44,7 +45,7 @@ async function query(filterBy = {}) {
         //     delete review.aboutUserId
         // return review
         // })
-
+        // console.log('orders:', orders)
         return orders
     } catch (err) {
         logger.error('cannot find orders', err)
@@ -72,38 +73,45 @@ async function remove(orderId) {
 async function add(order) {
     try {
         const orderToAdd = {
-            buyer: {
-                _id: new ObjectId(order.buyer._id),
-                fullname: order.buyer.fullname,
-                imgUrl: order.buyer.imgUrl
-            },
-            host: {
-                _id: new ObjectId(order.host._id),
-                fullname: order.host.fullname,
-                imgUrl: order.host.imgUrl
-            },
+            buyerId: order.buyerId,
+            buyerFullname: order.buyerFullname,
+            buyerImg: order.buyerImg,
+            hostId: order.hostId,
+            hostFullname: order.hostFullname,
+            imgUrl: order.hostImgUrl,
             totalPrice: order.totalPrice,
             startDate: order.startDate,
             endDate: order.endDate,
-            guests: {
-                adults: order.adults,
-                children: order.children,
-                infants: order.infants
-            },
-            stay: {
-                _id: new ObjectId(order.stay._id),
-                name: order.stay.name,
-                price: 0,
-                imgUrl: order.stay.imgUrls[0]
-            },
+            adults: order.adults,
+            children: order.children,
+            infants: order.infants,
+            stayId: order.stayId,
+            stayName: order.stayName,
+            stayPrice: order.stayPrice,
+            stayImg: order.stayImg,
             msgs: [],
             status: 'pending'
         }
+        // console.log('orderToAdd:', orderToAdd)
         const collection = await dbService.getCollection('order')
         await collection.insertOne(orderToAdd)
         return orderToAdd
     } catch (err) {
         logger.error('cannot insert order (ORDER.SERVICE L.106)', err)
+        throw err
+    }
+}
+
+async function update(order) {
+    var savedOrder
+    try {
+        // savedOrder = await httpService.put('order', order)
+        const collection = await dbService.getCollection('order')
+        await collection.updateOne({ _id: new ObjectId(order._id) }, { $set: { status: order.status } })
+
+        return savedOrder
+    } catch (err) {
+        console.log('Order service could not save order')
         throw err
     }
 }
@@ -118,7 +126,8 @@ function _buildCriteria(filterBy) {
 module.exports = {
     query,
     remove,
-    add
+    add,
+    update
 }
 
 
