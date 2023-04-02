@@ -110,8 +110,8 @@ async function add(order) {
 
 function _buildCriteria(filterBy) {
     const criteria = {}
-    if (filterBy.buyerId) criteria.buyerId = { $elemMatch: { "buyer._id": filterBy.buyerId } }
-    if (filterBy.hostId) criteria.hostId = { $elemMatch: { "host._id": filterBy.hostId } }
+    if (filterBy.buyerId) criteria.buyerId = filterBy.buyerId
+    if (filterBy.hostId) criteria.hostId = filterBy.hostId
     return criteria
 }
 

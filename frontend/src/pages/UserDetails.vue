@@ -2,9 +2,9 @@
     <section class="user-profile">
         <nav>
             <ul class="user-menu">
-                <a @click="this.$router.push('user/' + user._id + '/staywishlist')">WishList</a>
-                <a @click="this.$router.push('user/' + user._id + '/trips')">Trips</a> <!-- stays where user is guest -->
-                <a @click="this.$router.push('user/' + user._id + '/orders')">Orders</a> <!-- stays where user is host -->
+                <a @click="this.$router.push(user._id + '/staywishlist')">WishList</a>
+                <a @click="this.$router.push(user._id + '/trips')">Trips</a> <!-- stays where user is guest -->
+                <a @click="this.$router.push(user._id + '/orders')">Orders</a> <!-- stays where user is host -->
             </ul>
         </nav>
         <h2 v-if="isMe">My Profile</h2>

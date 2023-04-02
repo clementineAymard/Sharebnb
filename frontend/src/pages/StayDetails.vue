@@ -269,7 +269,7 @@
                                         </div>
                                     </div>
                                     <DatePickerSmall @setDates="onSetDate" />
-                                    <div class="guest-input" >
+                                    <div class="guest-input">
                                         <label class="bold-font">GUESTS</label>
                                         <div @click="toggleGuestPicker">
                                             <input class="font-thin" v-model="guestsForDisplay" placeholder="1 Adult"
@@ -523,13 +523,13 @@
 
 <script>
 import { stayService } from '../services/stay.service.local.js'
-import { orderService } from '../services/order.service.local.js'
+import { orderService } from '../services/order.service.js'
 import DatePickerSmall from '../cmps/DatePickerSmall.vue'
 import GuestPicker from '../cmps/GuestsPicker.vue'
 import AppFooter from '../cmps/AppFooter.vue'
 
 export default {
-    name: 'stay-detail',
+    name: 'StayDetails',
     data() {
         return {
             stay: null,
@@ -541,29 +541,34 @@ export default {
         }
     },
     async created() {
-        const { stayId } = this.$route.params
-        const stay = await stayService.getById(stayId)
-        this.stay = stay
-        // console.log(stay)
-        this.startDate = this.$route.query.from
-        this.endDate = this.$route.query.to
-        this.guests = {
-            adults: this.$route.query.adults,
-            children: this.$route.query.children,
-            infants: this.$route.query.infants
+        try {
+            await this.loadStay()
+            // Fill the fields if we have the values from previous search
+            this.startDate = this.$route.query.startDate
+            this.endDate = this.$route.query.endDate
+            this.guests = {
+                adults: parseInt(this.$route.query.adults),
+                children: parseInt(this.$route.query.children),
+                infants: parseInt(this.$route.query.infants)
+            }
+            // fill the guests field according to the sum of query values
+            this.calcGuestsTotal()
+        } catch (err) {
+            console.error(err)
         }
-        console.log(this.startDate, this.endDate, this.guests)
-
-        if (this.guests.adults)
-            this.guestsForDisplay = this.guests.adults
-        if (this.guests.children && this.guests.adults)
-            this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children)
-        if (this.guests.infants && this.guests.adults)
-            this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children)
-        if (this.guests.children && this.guests.adults && this.guests.infants)
-            this.guestsForDisplay = parseInt(this.guests.adults) + parseInt(this.guests.children) + parseInt(this.$route.query.infants)
     },
     methods: {
+        async loadStay() {
+            const { stayId } = this.$route.params
+            try {
+                const stay = await stayService.getById(stayId)
+                this.stay = stay
+                // console.log(stay) 
+            } catch (err) {
+                console.log('Could not get stay in Stay Details created')
+                throw err
+            }
+        },
         toggleGuestPicker() {
             this.isGuestPickerOpen = !this.isGuestPickerOpen
         },
@@ -572,50 +577,69 @@ export default {
         },
         async onReserve() {
             console.log('onReserve .....................')
-            if (!loggedinUser) {
+
+            if (!this.loggedinUser) {
                 console.log('You need to login first then try again');
                 return
             }
-
-            const order = orderService.getEmptyOrder()
-            order.buyer.fullname = this.$store.getters.loggedinUser.fullname
-            order.buyer._id = this.$store.getters.loggedinUser._id
+            
+            const order = {}
+            // from store 
+            order.buyerFullname = this.$store.getters.loggedinUser.fullname
+            order.buyerId = this.$store.getters.loggedinUser._id
+            order.buyerImg = this.$store.getters.loggedinUser.imgUrl
+           // from stay
             order.hostId = this.stay.host._id
-            // order.host._id = this.stay.host._id
-            // order.host.fullname = this.stay.host.fullname
-            // order.host.imgUrl = this.stay.host.thumbnailUrl
+            order.hostFullname = this.stay.host.fullname
+            order.hostImgUrl = this.stay.host.thumbnailUrl
+            order.stayId = this.stay._id
+            order.stayName = this.stay.name
+            order.stayImg = this.stay.imgUrls[0]
+            order.stayPrice = this.stay.price
             order.totalPrice = parseInt(this.stay.price) * (new Date(this.endDate) - new Date(this.startDate)) / 86400000
-            console.log('TOTAL PRICE', order.totalPrice)
+            // from query or input
             order.startDate = this.startDate
             order.endDate = this.endDate
-            order.guests.adults = this.$route.query.adults
-            order.guests.children = this.$route.query.children
-            order.guests.kids = this.$route.query.infants
-            order.stay._id = this.stay._id
-            order.stay.name = this.stay.name
-            order.stay.price = this.stay.price
-
-            console.log('order', order)
+            order.adults = this.guests.adults
+            order.children = this.guests.children
+            order.infants = this.guests.infants
+            
+            console.log('order to send :', order)
             try {
                 await this.$store.dispatch({ type: 'addOrder', order })
-                console.log('this.$store.getters.currOrder._id', this.$store.getters.currOrder._id)
-                const orderId = this.$store.getters.currOrder._id
-                this.$router.push('/order/' + orderId)
+                
+                this.$router.push({
+                    path:'/order',
+                    query: order
+                })
             }
             catch {
                 console.log('Error on details');
             }
 
         },
-        onSetDate(Date) {
-            this.startDate = new Intl.DateTimeFormat('en-US').format(Date[0])
-            this.endDate = new Intl.DateTimeFormat('en-US').format(Date[1])
+        onSetDate(dates) {
+            this.startDate = new Intl.DateTimeFormat('en-US').format(dates[0])
+            this.endDate = new Intl.DateTimeFormat('en-US').format(dates[1])
         },
         onSetGuest(guests) {
             this.guests = guests
+        },
+        calcGuestsTotal(){
+            if (this.guests.children && this.guests.adults && this.guests.infants)
+                this.guestsForDisplay = this.guests.adults + this.guests.children + this.$route.query.infants
+            if (this.guests.infants && this.guests.adults)
+                this.guestsForDisplay = this.guests.adults + this.guests.infants
+            if (this.guests.children && this.guests.adults)
+                this.guestsForDisplay = this.guests.adults + this.guests.children
+            if (this.guests.adults)
+                this.guestsForDisplay = this.guests.adults
         }
     },
     computed: {
+        loggedinUser() {
+            return this.$store.getters.loggedinUser
+        },
         formattedDate() {
             return new Date(this.stay.createdAt).toLocaleDateString()
         },
@@ -625,6 +649,11 @@ export default {
         forReviews() {
             return this.stay.reviews.slice(0, 4)
         }
+    },
+    watch:{
+        guests(){
+           return this.calcGuestsTotal()
+        },
     },
     components: {
         DatePickerSmall,

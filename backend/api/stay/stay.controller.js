@@ -10,8 +10,8 @@ async function getStays(req, res) {
             adults: req.query.adults || '',
             children: req.query.children || '',
             infants: req.query.infants || '',
-            from: req.query.from || '',
-            to: req.query.to || '',
+            startDate: req.query.startDate || '',
+            endDate: req.query.endDate || '',
             category: req.query.category || ''
         }
         const stays = await stayService.query(filterBy)

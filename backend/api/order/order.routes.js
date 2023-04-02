@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.get('/', log, getOrders)
 router.post('/',  log, requireAuth, addOrder)
-router.put('/:id',  requireAuth, updateOrder)
+router.put('/',  requireAuth, updateOrder)
 router.delete('/:id',  requireAuth, deleteOrder)
 
 module.exports = router

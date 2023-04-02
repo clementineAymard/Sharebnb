@@ -4,8 +4,8 @@
 
 
         <div class="order-stay">
-            <img :src="order.stay.imgUrl" alt="">
-            {{ order.stay.name }}
+            <img :src="imgStay" alt="">
+            {{ order.stayName }}
         </div>
         <div>{{ hostName }}</div>
         <div> {{ order.startDate }}</div>
@@ -16,7 +16,7 @@
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
                 <div @click=" this.$router.push({ name: 'order-edit', params: { name: order.name } })">
-                                <font-awesome-icon icon="fa-edit" /> -->
+                                    <font-awesome-icon icon="fa-edit" /> -->
 
 
     </section>
@@ -29,20 +29,13 @@ export default {
     data() {
         return {
             status: '',
-            
+
         }
     },
     methods: {
-        onSelectStatus() {
-            this.$emit('updateOrder', this.status)
-        },
-        imgStay(){
-           return  "order.stay.imgUrl" 
-        }
-
     },
-     computed: {
-        users(){
+    computed: {
+        users() {
             return this.$store.getters.users
         },
         hostName() {
@@ -50,6 +43,9 @@ export default {
             console.log('host', host)
 
             return host?.fullname || 'Inbar'
+        },
+        imgStay() {
+            return this.order.stayImg
         }
     },
     created() {
@@ -58,7 +54,7 @@ export default {
     components: {
 
     },
-    watch:{
+    watch: {
         // hostName() {
 
         // }

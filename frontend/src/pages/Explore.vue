@@ -20,8 +20,8 @@ export default {
         return {
             filterBy: {
                 loc: '',
-                from: '',
-                to: '',
+                startDate: '',
+                endDate: '',
                 adults: 0,
                 children: 0,
                 infants: 0,
@@ -48,8 +48,8 @@ export default {
     },
     created() {
         this.filterBy.loc = this.$route.query.loc
-        this.filterBy.from = this.$route.query.from
-        this.filterBy.to = this.$route.query.to
+        this.filterBy.startDate = this.$route.query.startDate
+        this.filterBy.endDate = this.$route.query.endDate
         this.filterBy.adults = this.$route.query.adults
         this.filterBy.children = this.$route.query.children
         this.filterBy.infants = this.$route.query.infants
@@ -57,10 +57,10 @@ export default {
 
         console.log('EXPLORE this.filterBy', this.filterBy)
 
-        delete this.filterBy.from
-        delete this.filterBy.to
+        delete this.filterBy.startDate
+        delete this.filterBy.endDate
 
-        console.log('this.filterBy after del from to', this.filterBy)
+        console.log('this.filterBy after del startDate endDate', this.filterBy)
 
         this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
     },

@@ -6,9 +6,10 @@ export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
 export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
-export const SOCKET_EVENT_REVIEW_ADDED = 'order-added'
-export const SOCKET_EVENT_REVIEW_UPDATED = 'your-order-updated'
-export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'order-for-you'
+export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
+
+export const SOCKET_EVENT_YOUR_ORDER_UPDATED = 'your-order-updated'
+export const SOCKET_EVENT_ORDER_FOR_YOU = 'order-for-you'
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
@@ -85,6 +86,7 @@ function createDummySocketService() {
       else listenersMap[eventName] = listenersMap[eventName].filter(l => l !== cb)
     },
     emit(eventName, data) {
+    console.log('socket service : emit :', eventName, data)
       var listeners = listenersMap[eventName]
       if (eventName === SOCKET_EMIT_SEND_MSG) {
         listeners = listenersMap[SOCKET_EVENT_ADD_MSG]

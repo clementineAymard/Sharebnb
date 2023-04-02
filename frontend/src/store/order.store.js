@@ -1,5 +1,4 @@
-import { filter } from 'lodash'
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/order.service'
 
 export function getActionRemoveOrder(orderId) {
     return {
@@ -41,7 +40,7 @@ export const orderStore = {
             state.orders = orders
         },
         addOrder(state, { order }) {
-            state.orders.push(order)
+            state.orders.unshift(order)
             state.currOrder = order
         },
         updateOrder(state, { order }) {
@@ -55,7 +54,7 @@ export const orderStore = {
     actions: {
         async loadOrders(context, { filterBy }) {
             try {
-                const orders = await orderService.query(JSON.parse(JSON.stringify(filterBy)))
+                const orders = await orderService.query({...filterBy})
                 context.commit({ type: 'setOrders', orders })
             } catch (err) {
                 console.log('orderStore: Error in loadOrders', err)
@@ -64,7 +63,7 @@ export const orderStore = {
         },
         async addOrder(context, { order }) {
             try {
-                order = await orderService.save(order)
+                order = await orderService.add(order)
                 context.commit(getActionAddOrder(order))
                 return order
             } catch (err) {
@@ -91,15 +90,6 @@ export const orderStore = {
                 throw err
             }
         },
-        // async addOrderMsg(context, { orderId, txt }) {
-        //     try {
-        //         const msg = await orderService.addOrderMsg(orderId, txt)
-        //         context.commit({type: 'addOrderMsg', orderId, msg })
-        //     } catch (err) {
-        //         console.log('orderStore: Error in addOrderMsg', err)
-        //         throw err
-        //     }
-        // },
 
     }
 }

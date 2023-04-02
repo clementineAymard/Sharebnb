@@ -126,6 +126,7 @@
         margin: 0.5em;
         font-weight: bold;
         transition: all 0.5s;
+        background-clip: text;
         -webkit-background-clip: text;
         border: none;
         background: linear-gradient(45deg, rgba(255, 193, 7, 1) 0%, rgba(255, 87, 34, 1) 100%);
@@ -134,5 +135,8 @@
         &:hover {
             cursor: pointer;
         }
+    }
+    >h3 {
+        margin-block: 2rem;
     }
 }

@@ -2,6 +2,7 @@
     display: grid;
     // grid-template-rows: auto 1fr;
     grid-template-columns: 40px 1fr 40px;
+    margin-block-end: 1rem;
 
     >* {
         grid-column: 2;

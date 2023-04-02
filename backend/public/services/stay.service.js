@@ -15,7 +15,7 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { adults: 0, children: 0, infants: 0, from: '', to: '', category: '' }) {
+async function query(filterBy = { adults: 0, children: 0, infants: 0, startdate: '', endDate: '', category: '' }) {
     return httpService.get('stay', filterBy)
 }
 function getById(stayId) {

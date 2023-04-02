@@ -64,10 +64,15 @@ async function update({ _id, score }) {
 
 async function login(userCred) {
     const users = await storageService.query(STORAGE_KEY_USER)
-    const user = users.find(user => user.username === userCred.username)
+    // try{
     // const user = await httpService.post('auth/login', userCred)
+    const user = users.find(user => user.username === userCred.username)
+    // } catch (err) {
+    // console.log('User service could not login.')
+    // throw err
+    // }
     if (user) {
-        // socketService.login(user._id)
+        socketService.login(user._id)
         return saveLocalUser(user)
     }
 }
@@ -75,14 +80,26 @@ async function signup(userCred) {
     // userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post(STORAGE_KEY_USER, userCred)
+
+    // try{
     // const user = await httpService.post('auth/signup', userCred)
-    // socketService.login(user._id)
+    socketService.login(user._id)
     return saveLocalUser(user)
+    // } catch (err) {
+    // console.log('User service could not signup.')
+    // throw err
+    // }
 }
 async function logout() {
+    // session storage update stays even when backend is connected !
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.logout()
+    // try {
     // return await httpService.post('auth/logout')
+    socketService.logout()
+    // } catch (err) {
+    // console.log('User service could not logout.')
+    // throw err
+    // }
 }
 
 // async function changeScore(by) {
@@ -96,7 +113,7 @@ async function logout() {
 
 function saveLocalUser(user) {
     console.log('saving logged in user')
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, isAdmin: user.isAdmin , wishList: user.wishList}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, isAdmin: user.isAdmin, wishList: user.wishList }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -107,9 +124,9 @@ function getLoggedinUser() {
 
 const users = [
     {
-        "_id": "u101",
+        "_id": "6425a70493079b3be0dab9c4",
         "fullname": "Clem",
-        "imgUrl": "./userfemale.png",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "cleme",
         "password": "secret",
         "visitedStays": [],
@@ -120,7 +137,7 @@ const users = [
     {
         "_id": "u102",
         "fullname": "Shira",
-        "imgUrl": "/imgs/userfemale.png",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "shira",
         "password": "secret",
         "visitedStays": [],
@@ -142,7 +159,7 @@ const users = [
     {
         "_id": "u104",
         "fullname": "Inbar",
-        "imgUrl": "/imgs/userfemale.png",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "inbar",
         "password": "secret",
         "visitedStays": [],
@@ -153,7 +170,7 @@ const users = [
     {
         "_id": "u105",
         "fullname": "Guy",
-        "imgUrl": "/imgs/userfemale.png",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "guyy",
         "password": "secret",
         "visitedStays": [],
@@ -164,7 +181,7 @@ const users = [
     {
         "_id": "u106",
         "fullname": "Tal",
-        "imgUrl": "/imgs/userfemale.png",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         "username": "talll",
         "password": "secret",
         "visitedStays": [],
