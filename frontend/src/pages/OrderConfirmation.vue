@@ -101,7 +101,7 @@ export default {
             return ((this.order.totalPrice * 1.08).toFixed(2))
         },
         nightsCount() {
-            return (new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000
+            return ((new Date(this.order.endDate) - new Date(this.order.startDate)) / 86400000).toFixed(2)
         },
         guestsCount() {
             return parseInt(this.order.adults) + parseInt(this.order.children) + parseInt(this.order.infants)
