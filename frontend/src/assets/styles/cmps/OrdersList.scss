@@ -174,10 +174,10 @@
     
 
     .header-order {
-      margin-left: -10px;
+      // margin-left: -10px;
       flex-direction: row;
-      justify-content: space-between
-     
+      // justify-content: space-between
+      width: max-content;
       
     }
     .stay-name{
@@ -312,10 +312,12 @@ border-top: 3px solid $clr4;
     grid-template-columns: 1fr;
     // grid-template-rows: repeat(3, 1fr);
     justify-items: center;
-
+    
     // height: 1000px;
-
-    // justify-items: center;
+    .header-order {
+      width: max-content;
+   align-items: center;
+    }
     .chart {
 
       &.doughnut {

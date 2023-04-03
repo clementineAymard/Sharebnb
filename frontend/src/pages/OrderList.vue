@@ -12,20 +12,19 @@
     <div class="list">
         <ul v-if="orders">
             <div class="order-preview header-order">
-                <span @click="setSortBy('guest')" class="header-sort first-colum"><font-awesome-icon
-                        icon="fa-solid fa-sort" />
+                <span @click="setSortBy('guest')" class="header-sort first-colum">
                     Guest</span>
-                <!-- <span @click="setSortBy('name')" class="header-sort name"><font-awesome-icon icon="fa-solid fa-sort" />
+                <!-- <span @click="setSortBy('name')" class="header-sort name">
                     Stay Name</span> -->
-                <span @click="setSortBy('startDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check
+                <span @click="setSortBy('startDate')" class="header-sort">Check
                     in
                 </span>
-                <span @click="setSortBy('endDate')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />Check
+                <span @click="setSortBy('endDate')" class="header-sort">Check
                     out
                 </span>
-                <span @click="setSortBy('totalPrice')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />
+                <span @click="setSortBy('totalPrice')" class="header-sort">
                     Total price</span>
-                <span @click="setSortBy('status')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />
+                <span @click="setSortBy('status')" class="header-sort">
                     Status</span>
                 <span class="header-sort"></span>
             </div>
