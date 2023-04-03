@@ -1,5 +1,6 @@
 
 <template>
+    <div class="order-pre stay-name medium-font">{{ order.stayName }}</div>
     <section class="order-preview">
 
         <div class="order-pre buyer-name first-colum">
@@ -7,7 +8,6 @@
 
             {{ order.buyerFullname }}
         </div>
-        <div class="order-pre stay-name">{{ order.stayName }}</div>
         <div class="order-pre startDate"> {{ startDate }}</div>
         <div class="order-pre endDate"> {{ endDate }}</div>
         <div class="order-pre totalPrice"> {{ order.totalPrice }}$ </div>

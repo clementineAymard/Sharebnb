@@ -1,5 +1,6 @@
 .head-order {
   margin-top: 30px;
+
 }
 
 .order-preview {
@@ -168,15 +169,21 @@
   @include for-mobile-layout-list {
     margin-top: -100px;
     overflow-x: scroll;
-    font-size: 14px;
+    font-size: 16px;
+    // width: 380px;
+    
 
     .header-order {
       margin-left: -10px;
       flex-direction: row;
-      gap: 33px;
+      justify-content: space-between
+     
       
     }
-    
+    .stay-name{
+      align-items: center;
+     
+    }
   }
 .order-preview{
 border-top: 3px solid $clr4;
@@ -264,6 +271,7 @@ border-top: 3px solid $clr4;
   display: grid;
   grid-template-columns: 0.8fr 1.7fr 0.5fr;
   justify-items: center;
+  gap: 10px;
 
   @media (min-width:1130px) {
     // grid-template-columns: 1fr 3fr 1fr;
