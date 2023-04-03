@@ -2,18 +2,13 @@
     <div class="list-trip">
         <ul v-if="orders.length">
             <div class="trip-preview header-trip">
-                <span @click="setSortBy('name')" class="header-sort-trip"><font-awesome-icon icon="fa-solid fa-sort" />Stay
+                <span @click="setSortBy('name')" class="header-sort-trip">Stay
                     Name</span>
-                <span @click="setSortBy('host')" class="header-sort-trip"><font-awesome-icon
-                        icon="fa-solid fa-sort" />Host</span>
-                <span @click="setSortBy('startDate')" class="header-sort-trip"><font-awesome-icon
-                        icon="fa-solid fa-sort" />Check in</span>
-                <span @click="setSortBy('endDate')" class="header-sort-trip"><font-awesome-icon
-                        icon="fa-solid fa-sort" />Check out</span>
-                <span @click="setSortBy('totalPrice')" class="header-sort-trip"><font-awesome-icon
-                        icon="fa-solid fa-sort" />Total price</span>
-                <span @click="setSortBy('status')" class="header-sort-trip"><font-awesome-icon
-                        icon="fa-solid fa-sort" />Status</span>
+                <span @click="setSortBy('host')" class="header-sort-trip">Host</span>
+                <span @click="setSortBy('startDate')" class="header-sort-trip">Check in</span>
+                <span @click="setSortBy('endDate')" class="header-sort-trip">Check out</span>
+                <span @click="setSortBy('totalPrice')" class="header-sort-trip">Total price</span>
+                <span @click="setSortBy('status')" class="header-sort-trip">Status</span>
             </div>
             <li v-for="order in orders" :key="order.name">
                 <TripPreview :order="order"></TripPreview>
