@@ -66,7 +66,7 @@ async function login(userCred) {
     try {
         const user = await httpService.post('auth/login', userCred)
         // if (user) {
-        //     // socketService.login(user._id)
+            socketService.login(user._id)
             return saveLocalUser(user)
         // }
     } catch (err) {

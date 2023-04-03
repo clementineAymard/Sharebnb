@@ -56,6 +56,20 @@ nav {
             width: 2rem;
             object-fit: contain;
         }
+
+
+    }
+
+    &.narrow {
+
+        @include for-mobile-layout-list {
+            .loggedin-user {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+            }
+
+        }
     }
 
     .mini-menu {

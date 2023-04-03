@@ -42,14 +42,15 @@ function setupSocketAPI(http) {
             logger.info(`Removing socket.userId for socket [id: ${socket.id}]`)
             delete socket.userId
         })
-        socket.on('your-order-updated', (order) => {
-            logger.info(`Order update from socket [id: ${socket.id}]`)
-            gIo.emitToUser('your-order-updated', order, order.buyerId)
-        })
-        socket.on('order-for-you', (order) => {
-            logger.info(`Order update from socket [id: ${socket.id}]`)
-            gIo.emitToUser('order-for-you', order, order.hostId)
-        })
+        // socket.on('your-order-updated', (order) => {
+        //     logger.info(`Order update from socket [id: ${socket.id}]`)
+        //     // gIo.to(socket.myTopic).emit('your-order-updated', order)
+        // })
+        // socket.on('order-for-you', (order) => {
+        //     logger.info(`Order update from socket [id: ${socket.id}]`)
+        //     // gIo.to(socket.myTopic).emit('order-for-you', order)
+        //       emitTo('order-for-you', order)
+        // })
 
     })
 }
@@ -60,6 +61,7 @@ function emitTo({ type, data, label }) {
 }
 
 async function emitToUser({ type, data, userId }) {
+    console.log('emitting to user: ', userId)
     userId = userId.toString()
     const socket = await _getUserSocket(userId)
 
@@ -92,7 +94,7 @@ async function broadcast({ type, data, room = null, userId }) {
         logger.info(`Emit to all`)
         gIo.emit(type, data)
     }
-}
+} 
 
 async function _getUserSocket(userId) {
     const sockets = await _getAllSockets()

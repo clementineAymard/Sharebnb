@@ -44,6 +44,7 @@ import PieChart from '../cmps/PieChart.vue'
 import BarChart from '../cmps/BarChart.vue'
 import TableOrder from '../cmps/TableOrder.vue'
 import StatisticOrder from '../cmps/StatisticOrder.vue'
+import { showSuccessMsg } from '../services/event-bus.service'
 
 export default {
     name: '',
@@ -54,9 +55,14 @@ export default {
         async updateOrder(order) {
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order: order })
+                // socketService.emit('your-order-updated', order)
             } catch (err) {
                 throw err
             }
+        },
+        addOrder(order) {
+            // this.orders.unshift(order)
+            showSuccessMsg('Notification: New order.')
         }
     },
     computed: {
@@ -70,20 +76,17 @@ export default {
         }
     },
     async created() {
+        socketService.on('order-for-you', this.addOrder)
         try {
             await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
-            socketService.on('order-for-you', (order) => {
-                console.log('GOT from socket', order)
-                var loggedinUser = store.getters.loggedinUser
-                console.log('loggedinUser (socket on.)', loggedinUser)
-                if (order.hostId === loggedinUser)
-                    showSuccessMsg(`You've just received a new order.`)
-            })
         }
         catch (err) {
             console.log(err, 'cannot load orders');
         }
 
+    },
+    unmounted() {
+        socketService.off('order-for-you')
     },
     components: {
         OrderPreview,
@@ -92,9 +95,6 @@ export default {
         TableOrder,
         StatisticOrder
     },
-    unmounted() {
-        socketService.off('order-for-you')
-    }
 }
 
 </script>

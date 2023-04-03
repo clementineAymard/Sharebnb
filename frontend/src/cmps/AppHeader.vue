@@ -86,7 +86,7 @@
                 </section>
             </div>
 
-            <NavBar />
+            <NavBar :class="isDetailsClass"/>
         </header>
     </section>
 </template>

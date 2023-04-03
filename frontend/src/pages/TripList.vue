@@ -28,6 +28,7 @@
   
 <script>
 import TripPreview from './../cmps/TripPreview.vue'
+import { showSuccessMsg } from '../services/event-bus.service'
 
 export default {
     name: '',
@@ -40,11 +41,16 @@ export default {
         }
     },
     methods: {
-
+        changeTripStatus(trip) {
+            // const orderToChange = this.orders.find((o) => o._id === trip._id)
+            // if (orderToChange) orderToChange.status = trip.status
+            console.log('got notification from socket')
+            showSuccessMsg('Your trip status was updated !')
+        },
     },
     computed: {
         orders() {
-            console.log('trips: ', this.$store.getters.orders)
+            // console.log('trips: ', this.$store.getters.orders)
             return this.$store.getters.orders
         },
         loggedinUser() {
@@ -53,12 +59,16 @@ export default {
         }
     },
     async created() {
+        socketService.on('your-order-updated', this.changeTripStatus)
         try {
             await this.$store.dispatch({ type: 'loadOrders', filterBy: { buyerId: this.loggedinUser._id } })
         }
         catch (err) {
             console.log(err, 'cannot load trips');
         }
+    },
+    unmounted() {
+        socketService.off('your-order-updated')
     },
     components: {
         TripPreview

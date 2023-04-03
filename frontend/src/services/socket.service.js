@@ -48,9 +48,7 @@ const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 //       data = JSON.parse(JSON.stringify(data))
 //       socket.emit(eventName, data)
 //     },
-//     login(userId) {
-//       socket.emit(SOCKET_EMIT_LOGIN, userId)
-//     },
+
 //     logout() {
 //       socket.emit(SOCKET_EMIT_LOGOUT)
 //     },
@@ -136,9 +134,9 @@ function createSocketService() {
             socket = io(baseUrl);
         },
         on(eventName, cb) {
-            console.log('got socket event: ', eventName)
-            if (eventName === 'order-for-you') showSuccessMsg('New order!')
-            if (!socket) socketService.setup();
+            // console.log('got socket event: ', eventName)
+            // if (eventName === 'order-for-you') showSuccessMsg('New order!')
+            // if (!socket) socketService.setup();
             console.log('socket', socket)
             socket.on(eventName, cb);
         },
@@ -154,6 +152,9 @@ function createSocketService() {
         },
         terminate() {
             socket = null;
+        },
+        login(userId) {
+            socket.emit(SOCKET_EMIT_LOGIN, userId)
         },
     };
     return socketService;
