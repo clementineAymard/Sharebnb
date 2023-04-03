@@ -54,7 +54,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :span="8">
+    <!-- <el-col :span="8">
       <div class="statistic-card">
         <el-statistic :value="7" title="New transactions today" class="seven">
           <template #title>
@@ -76,7 +76,7 @@
 
         </div>
       </div>
-    </el-col>
+    </el-col> -->
   </el-row>
 </template>
   
