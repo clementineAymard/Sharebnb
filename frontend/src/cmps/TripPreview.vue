@@ -10,7 +10,7 @@
         <div>{{ order.hostFullname }}</div>
         <div> {{ order.startDate }}</div>
         <div> {{ order.endDate }}</div>
-        <div> {{ order.totalPrice }}</div>
+        <div> {{ order.totalPrice }}$</div>
         <div class="status medium-font"> {{ order.status }}</div>
 
     <!-- < div class=" buttons" v-if="buttons">
