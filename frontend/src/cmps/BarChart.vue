@@ -1,5 +1,5 @@
 <template>
-  <BarChart :chartData="testData" :options="chartOptions" class="chart bar" />
+  <BarChart :chartData="testData" :options="chartOptions" class="bar" />
 </template>
 
 <script lang="ts">
@@ -27,7 +27,7 @@ export default defineComponent({
           //   backgroundColor:['#97B0C4'],
           // },
           {
-            label: 'This year',
+            label: `Monthly income`,
             data: [3065, 2348, 2758],
             backgroundColor: ['#FFBFA9', '#97B0C4','#FBFFB1'],
 

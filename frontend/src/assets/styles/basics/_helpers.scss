@@ -56,8 +56,9 @@
     &.justify-between {
         justify-content: space-between;
     }
-    &.gap1rem{
-        gap:1rem;
+
+    &.gap1rem {
+        gap: 1rem;
     }
 }
 
@@ -72,12 +73,21 @@
 .medium-font {
     font-family: airbnb_medium
 }
-.grey{
+
+.grey {
     color: $clr3
 }
 
 .black {
     color: $clr2;
+}
+
+.green {
+    color: rgb(62, 207, 54);
+}
+
+.red {
+    color: red;
 }
 
 // Media helpers

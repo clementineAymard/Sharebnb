@@ -1,40 +1,37 @@
 <template>
-    <h1 class="head-order">My reservations</h1>
-    <div class="charts-container">
-
-        <PieChart :orders="orders" />
-        <div class="table-order">
-            <!-- <TableOrder></TableOrder> -->
+    <section>
+        <h1 class="head-order">My reservations</h1>
+        <div class="charts-container">
+            <PieChart :orders="orders" />
             <StatisticOrder />
+            <BarChart />
         </div>
-        <BarChart />
-    </div>
-    <div class="list">
-        <ul v-if="orders">
-            <div class="order-preview header-order">
-                <span @click="setSortBy('guest')" class="header-sort first-colum">
-                    Guest</span>
-                <!-- <span @click="setSortBy('name')" class="header-sort name">
-                    Stay Name</span> -->
-                <span @click="setSortBy('startDate')" class="header-sort">Check
-                    in
-                </span>
-                <span @click="setSortBy('endDate')" class="header-sort">Check
-                    out
-                </span>
-                <span @click="setSortBy('totalPrice')" class="header-sort">
-                    Total price</span>
-                <span @click="setSortBy('status')" class="header-sort">
-                    Status</span>
-                <span class="header-sort"></span>
-            </div>
-            <li v-for="order in orders" :key="order.name">
-                <OrderPreview :order="order" @updateOrder="updateOrder"></OrderPreview>
-            </li>
-        </ul>
 
-        <h3 v-else>No orders yet.</h3>
-    </div>
+        <div class="list">
+            <ul v-if="orders">
+                <div class="order-list-header">
+                    <div @click="setSortBy('guest')" class="header-title first-colum">
+                        Guest</div>
+                    <!-- <div @click="setSortBy('name')" class="header-title name">
+                    Stay Name</div> -->
+                    <div @click="setSortBy('startDate')" class="header-title">Check in
+                    </div>
+                    <div @click="setSortBy('endDate')" class="header-title">Check out
+                    </div>
+                    <div @click="setSortBy('totalPrice')" class="header-title">
+                        Total price</div>
+                    <div @click="setSortBy('status')" class="header-title">
+                        Status</div>
+                    <!-- <div class="header-title"></div> -->
+                </div>
+                <li v-for="order in orders" :key="order.name">
+                    <OrderPreview :order="order" @updateOrder="updateOrder"></OrderPreview>
+                </li>
+            </ul>
+
+            <h3 v-else>No orders yet.</h3>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -42,7 +39,6 @@ import { socketService } from '../services/socket.service'
 import OrderPreview from '../cmps/OrderPreview.vue'
 import PieChart from '../cmps/PieChart.vue'
 import BarChart from '../cmps/BarChart.vue'
-import TableOrder from '../cmps/TableOrder.vue'
 import StatisticOrder from '../cmps/StatisticOrder.vue'
 import { showSuccessMsg } from '../services/event-bus.service'
 
@@ -56,8 +52,6 @@ export default {
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order: order })
                 this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
-
-                // socketService.emit('your-order-updated', order)
             } catch (err) {
                 throw err
             }
@@ -65,11 +59,10 @@ export default {
         addOrder(order) {
             showSuccessMsg('Notification: New order.')
             this.loadOrders()
-            // this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
-        loadOrders() {
+        async loadOrders() {
             console.log('LOAD ORDERS')
-            this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
+            await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
         }
     },
     computed: {
@@ -85,7 +78,7 @@ export default {
     async created() {
         socketService.on('order-for-you', this.addOrder)
         try {
-            await this.loadOrders()
+            this.loadOrders()
         }
         catch (err) {
             console.log(err, 'cannot load orders');
@@ -99,7 +92,6 @@ export default {
         OrderPreview,
         PieChart,
         BarChart,
-        TableOrder,
         StatisticOrder
     },
 }

@@ -1,33 +1,39 @@
 
 <template>
-    <div class="order-pre stay-name medium-font">{{ order.stayName }}</div>
-    <section class="order-preview">
+    <section class="order-preview-wrapper flex column">
+        <div class="order-pre stay-name medium-font">{{ order.stayName }}</div>
+        <section class="order-preview">
 
-        <div class="order-pre buyer-name first-colum">
-            <img :src="order.buyerImg" alt="">
+            <div class="order-pre buyer-name first-column flex column">
+                <img :src="order.buyerImg" alt="">
+                <span>{{ order.buyerFullname }}</span>
+            </div>
+            <div class="order-pre startDate"> {{ startDate }}</div>
+            <div class="order-pre endDate"> {{ endDate }}</div>
+            <div class="order-pre totalPrice"> {{ order.totalPrice }}$ </div>
+            <div class="order-pre status medium-font" :class="statusClass"> {{ status }}
+            </div>
+        </section>
 
-            {{ order.buyerFullname }}
-        </div>
-        <div class="order-pre startDate"> {{ startDate }}</div>
-        <div class="order-pre endDate"> {{ endDate }}</div>
-        <div class="order-pre totalPrice"> {{ order.totalPrice }}$ </div>
-        <div class="order-pre status medium-font" :class="statusClass"> {{ status }}
-        </div>
-    <!-- < div class=" buttons" v-if="buttons">
-                        <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
-                <div @click=" this.$router.push({ name: 'order-edit', params: { name: order.name } })">
-                                        <font-awesome-icon icon="fa-edit" /> -->
-
-
-    </section>
-    <div class="order-pre select ">
-        <!-- <option value="" disabled>Select status</option> -->
-        <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
+        <div class="order-pre select flex" v-if="status === 'pending'" >
+            <label for="approval">
+                <input type="radio"  v-model="status" value="approved" id="approval" hidden @input="onSelectStatus">
+                <span class="approval">Approve</span>
+            </label>
+            <label for="rejection">
+                <input type="radio"   v-model="status" value="rejected" id="rejection" hidden @input="onSelectStatus">
+                <span class="reject">Reject</span>
+            </label>
+            
+            
+            <!-- <option value="" disabled>Select status</option> -->
+        <!-- <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
             <el-option value="" label="Select" selected />
             <el-option value="approved" label="Approve" />
             <el-option value="rejected" label="Reject" />
-        </el-select>
-    </div>
+                    </el-select> -->
+        </div>
+    </section>
 </template>
 
 <script>
@@ -58,12 +64,12 @@ export default {
             else return 'black'
         },
         startDate() {
-            return new Intl.DateTimeFormat('en-GB', {
+            return new Intl.DateTimeFormat('en', {
                 dateStyle: "short"
             }).format(new Date(this.order.startDate))
         },
         endDate() {
-            var shortDate = new Intl.DateTimeFormat('en-GB', {
+            var shortDate = new Intl.DateTimeFormat('en', {
                 dateStyle: "short"
             })
             return shortDate.format(new Date(this.order.endDate))
