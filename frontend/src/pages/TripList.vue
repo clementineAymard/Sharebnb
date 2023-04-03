@@ -36,16 +36,17 @@ export default {
         }
     },
     methods: {
-        changeTripStatus(trip) {
+        changeTripStatus() {
             // const orderToChange = this.orders.find((o) => o._id === trip._id)
             // if (orderToChange) orderToChange.status = trip.status
             console.log('got notification from socket')
             showSuccessMsg('Your trip status was updated !')
+            this.$store.dispatch({ type: 'loadOrders', filterBy: { buyerId: this.loggedinUser._id } })
         },
     },
     computed: {
         orders() {
-            // console.log('trips: ', this.$store.getters.orders)
+            console.log('trips: ', this.$store.getters.orders)
             return JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
         loggedinUser() {

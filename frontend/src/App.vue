@@ -26,11 +26,18 @@ export default {
         const user = userService.getLoggedinUser()
         if (user) store.commit({ type: 'setLoggedinUser', user })
 
-        
+        socketService.on('your-order-updated', this.changeTripStatus)
+        socketService.on('order-for-you', this.addOrder)
     },
     methods: {
-        onCloseHeader() {
-            closeHeader()
+        changeTripStatus(){
+            console.log('got notification from socket')
+            showSuccessMsg('Your trip status was updated !')
+            this.$store.dispatch({ type: 'loadOrders', filterBy: { buyerId: this.loggedinUser._id } })
+        },
+        addOrder() {
+            showSuccessMsg('Notification: New order.')
+            this.$store.dispatch({ type: 'loadOrders', filterBy: { buyerId: this.loggedinUser._id } })
         },
     },
     computed: {

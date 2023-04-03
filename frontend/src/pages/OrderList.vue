@@ -68,12 +68,13 @@ export default {
             // this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
         loadOrders() {
+            console.log('LOAD ORDERS')
             this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
         }
     },
     computed: {
         orders() {
-            // console.log(this.$store.getters.orders)
+            console.log('GETTERS:', this.$store.getters.orders)
             return JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
         loggedinUser() {
