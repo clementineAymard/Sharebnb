@@ -16,6 +16,10 @@
             box-shadow: 0px 1px 3px 1px $clr4;
         }
 
+        @include for-mobile-layout-list {
+            margin: 0;
+        }
+
         >button {
             background-color: transparent;
             color: $clr2;
@@ -103,7 +107,7 @@
 
 
     &.open {
-        
+
         width: 100%;
         height: em(70px);
         position: absolute;
@@ -112,7 +116,7 @@
         z-index: 4;
         display: flex;
         justify-content: center;
-        
+
         .search {
             animation: animate__zoomIn;
             background-color: lighten($clr4, 5%);
@@ -202,7 +206,7 @@
                     .to {
                         padding-inline-end: 0;
                     }
-                    
+
                     &.active-dates {
                         @include filter-focus;
 
@@ -322,6 +326,10 @@
                 position: relative;
             }
         }
+
+        @include for-mobile-layout-list {
+            width: 200px
+        }
     }
 
     .search-user-page {
@@ -335,6 +343,10 @@
         box-shadow: 0px 1px 2px 0px $clr4;
         transition: box-shadow ease-in-out 250ms;
 
+        @include for-mobile-layout-list {
+            width: 220px
+        }
+
         &:hover {
             box-shadow: 0px 1px 3px 1px $clr4;
         }
@@ -346,6 +358,10 @@
             font-family: airbnb_bold;
             color: $clr2;
             margin-inline-start: 10px;
+
+            @include for-mobile-layout-list {
+                width: 150px
+            }
         }
 
         .glass {
@@ -366,17 +382,4 @@
             }
         }
     }
-
-    @include for-mobile-layout {
-        // TODO: search bar - 100% width - Anywhere etc.. 
-        // on click opens modal with different filters one after the other
-    
-        // menu appears at bottom with :
-        // Explore - Wishlists - Login
-        // and when logged in : 
-        // Explore - Wishlists - Trips - Inbox - Profile
-        // this menu disappears when starting to scroll ~150px
-    }
-
-
 }

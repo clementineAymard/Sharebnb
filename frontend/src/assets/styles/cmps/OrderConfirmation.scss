@@ -2,7 +2,6 @@
     display: grid;
     // grid-template-rows: auto 1fr;
     grid-template-columns: 40px 1fr 40px;
-    margin-block-end: 1rem;
 
     >* {
         grid-column: 2;
@@ -41,12 +40,13 @@
 
     .CheckoutBtn {
         background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-        padding: rem(24px) rem(46px);
+        padding: 1.5rem 2.5rem;
         width: fit-content;
         border-radius: 20px;
         color: $clr6;
         font-size: rem(16px);
-        margin-top: 30px;
+        font-family: airbnb_medium;
+        margin-top: rem(12px);
     }
 
     .list-on-order li {

@@ -7,7 +7,7 @@
             <BrandLogo @resetFields="onResetFields" />
 
             <div class="search-container flex align-center " :class="isSearchOpenClass">
-                <section class="search  animate__animated " v-if="!isDetails && !isUserPage">
+                <section class="search  animate__animated " v-if="!isDetails && !isUserPage && !isOrderPage">
 
                     <button class="location " @click="onOpenSearch('locations')" :class="isActiveClass">
                         <div v-if="isSearchOpen" class="mode flex column" :class="isActiveClass">
@@ -84,9 +84,20 @@
                         <span v-if="isSearchOpen">Search</span>
                     </button>
                 </section>
+
+                <section v-if="isUserPage" class="search-user-page flex align-center justify-between">
+                    <input type="text" v-model="detailsSearchBar">
+                    <button class="glass  flex align-center justify-between"
+                        :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
+                        @click="onSetFilter">
+                        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
+                        <span v-if="isSearchOpen">Search</span>
+                    </button>
+                </section>
+
             </div>
 
-            <NavBar :class="isDetailsClass"/>
+            <NavBar :class="isDetailsClass" />
         </header>
     </section>
 </template>
@@ -121,6 +132,7 @@ export default {
             selectedFilterKey: 'locations',
             isDetails: false,
             isUserPage: false,
+            isOrderPage: false,
             offset: {
                 x: 0,
                 y: 0
@@ -158,6 +170,9 @@ export default {
         },
         routeQuery() {
             return this.$route.query
+        },
+        routePath() {
+            return this.$route.path
         }
     },
     methods: {
@@ -274,10 +289,13 @@ export default {
         },
         userId() {
             this.isUserPage = this.$route.params.userId ? true : false
-            console.log('isUserPage:', this.isUserPage);
+        },
+        routePath() {
+            this.isOrderPage = (this.$route.path === '/order') ? true : false
         },
         routeQuery() {
-            console.log('route query change', this.$route.query)
+            console.log('ROUTE:', this.$route);
+            // console.log('route query change', this.$route.query)
             this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
 
             if (this.$route.query.adults)

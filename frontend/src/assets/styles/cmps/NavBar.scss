@@ -57,6 +57,12 @@ nav {
             object-fit: contain;
         }
 
+        @include for-mobile-layout-list {
+                position: sticky;
+                bottom: 1rem;
+                right: 1rem;
+                background-color: $clr6;
+        }
 
     }
 
@@ -64,9 +70,10 @@ nav {
 
         @include for-mobile-layout-list {
             .loggedin-user {
-                position: fixed;
-                top: 1rem;
+                position: sticky;
+                bottom: 1rem;
                 right: 1rem;
+                background-color: $clr6;
             }
 
         }
