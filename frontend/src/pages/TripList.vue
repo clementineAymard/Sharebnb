@@ -50,7 +50,7 @@ export default {
     },
     computed: {
         orders() {
-            // console.log('trips: ', this.$store.getters.orders)
+            console.log('trips: ', this.$store.getters.orders)
             return JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
         loggedinUser() {

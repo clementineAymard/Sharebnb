@@ -40,6 +40,7 @@ export const orderStore = {
             state.orders = orders
         },
         addOrder(state, { order }) {
+            console.log('addOrder in commit')
             state.orders.unshift(order)
             state.currOrder = order
         },
