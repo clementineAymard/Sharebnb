@@ -35,6 +35,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/api/stay', stayRoutes)
+
 setupSocketAPI(http)
 
 // Make every server-side-route to match the index.html
