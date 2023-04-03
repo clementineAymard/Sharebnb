@@ -12,7 +12,7 @@
   gap: 0px 15px;
   border-bottom: 1px solid #EBEEF2;
   align-items: center;
-  border-radius: 8px 8px 0 0;
+  // border-radius: 8px 8px 0 0;
   padding: 20px;
   justify-items: center;
 
@@ -158,22 +158,84 @@
 .list {
   margin-bottom: 2em;
 
+
   >ul {
     padding: 0;
   }
+
   @include for-mobile-layout-list {
     margin-top: -100px;
+    overflow-x: scroll;
     font-size: 14px;
-    .buyer-name{
+
+    .header-order {
+      margin-left: -10px;
+      flex-direction: row;
+      gap: 33px;
+      
+    }
+    
+  }
+.order-preview{
+border-top: 3px solid $clr4;
+}
+    
+    div {
       display: flex;
       flex-direction: column;
      
+      
+     
+      // overflow-y: visible;
+      // padding: 8px 0;
+      // min-width: min-content;
+      // box-sizing: border-box;
+      // text-overflow: ellipsis;
+      // vertical-align: middle;
+      // position: relative;
+      // text-align: left;
+      // z-index: 1;
+      font-size: 12px;
+
+      &.buyer-name {
+        // display: flex;
+        // flex-direction: column;
+        // left: 0;
+        // position: sticky !important;
+        // z-index: 2;
+        margin-left: -15px;
+        img{
+          width: 40px;
+          height: 40px;
+        
+        }
+      &.order-pre{
+        
+        // margin-left: -5px;
+        
+      }
+
+      &:not(.buyer-name) {
+        
+        // z-index: 1;
+        // overflow-x: scroll;
+        // overflow-y: visible;
+        // padding: 8px 0;
+        //   min-width: 0;
+        //   box-sizing: border-box;
+        // text-overflow: ellipsis;
+        //   vertical-align: middle;
+        //   position: relative;
+        //   text-align: left;
+        //   z-index: 1;
+      }
     }
-    order-pre:not(.first-colum) {
-      overflow: hidden;
-      background-color: palevioletred;
-  }
-    
+
+    //   order-pre:not(.first-colum) {
+    //     overflow: hidden;
+    //     background-color: palevioletred;
+    // }
+
 
 
   }
@@ -239,6 +301,7 @@
     grid-template-columns: 1fr;
     // grid-template-rows: repeat(3, 1fr);
     justify-items: start;
+
     // height: 1000px;
 
     // justify-items: center;
@@ -279,9 +342,7 @@
       }
     }
 
-    .list {
-      margin-top: -100px;
-    }
   }
+
 
 }

@@ -3,30 +3,31 @@
     <section class="order-preview">
 
         <div class="order-pre buyer-name first-colum">
-            <img :src=" order.buyerImg  " alt="">
-            
-             {{ order.buyerFullname }}</div>
+            <img :src="order.buyerImg" alt="">
+
+            {{ order.buyerFullname }}
+        </div>
         <div class="order-pre stay-name">{{ order.stayName }}</div>
         <div class="order-pre startDate"> {{ startDate }}</div>
         <div class="order-pre endDate"> {{ endDate }}</div>
-        <div class="order-pre totalPrice"> $ {{ order.totalPrice }}</div>
+        <div class="order-pre totalPrice"> {{ order.totalPrice }}$ </div>
         <div class="order-pre status medium-font" :class="statusClass"> {{ status }}
-        </div>
-        <div class="order-pre select ">
-            <!-- <option value="" disabled>Select status</option> -->
-            <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
-                <el-option value=""  label="Select" selected/>
-                <el-option value="approved" label="Approve"/>
-                <el-option value="rejected" label="Reject"/>
-            </el-select>
         </div>
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
                 <div @click=" this.$router.push({ name: 'order-edit', params: { name: order.name } })">
-                                    <font-awesome-icon icon="fa-edit" /> -->
+                                        <font-awesome-icon icon="fa-edit" /> -->
 
 
     </section>
+    <div class="order-pre select ">
+        <!-- <option value="" disabled>Select status</option> -->
+        <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
+            <el-option value="" label="Select" selected />
+            <el-option value="approved" label="Approve" />
+            <el-option value="rejected" label="Reject" />
+        </el-select>
+    </div>
 </template>
 
 <script>
@@ -56,14 +57,19 @@ export default {
                 return 'red'
             else return 'black'
         },
-        startDate(){
-            return new Intl.DateTimeFormat('en-GB').format(new Date(this.order.startDate))
+        startDate() {
+            return new Intl.DateTimeFormat('en-GB', {
+                dateStyle: "short"
+            }).format(new Date(this.order.startDate))
         },
-        endDate(){
-            return new Intl.DateTimeFormat('en-GB').format(new Date(this.order.endDate))
+        endDate() {
+            var shortDate = new Intl.DateTimeFormat('en-GB', {
+                dateStyle: "short"
+            })
+            return shortDate.format(Date.now(this.order.endDate))
         }
     },
-    created() {},
+    created() { },
     components: {}
 }
 </script>

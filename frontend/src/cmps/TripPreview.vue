@@ -40,7 +40,8 @@ export default {
         },
         imgStay() {
             return this.order.stayImg
-        }
+        },
+        
     },
     created() {
         this.$store.dispatch({ type: 'loadUsers' })
