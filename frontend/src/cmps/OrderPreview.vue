@@ -15,23 +15,23 @@
             </div>
         </section>
 
-        <div class="order-pre select flex" v-if="status === 'pending'" >
+        <div class="order-pre select flex" v-if="status === 'pending'">
             <label for="approval">
-                <input type="radio"  v-model="status" value="approved" id="approval" hidden @input="onSelectStatus">
+                <input type="radio" v-model="status" value="approved" id="approval" hidden @input="onSelectStatus">
                 <span class="approval">Approve</span>
             </label>
             <label for="rejection">
-                <input type="radio"   v-model="status" value="rejected" id="rejection" hidden @input="onSelectStatus">
+                <input type="radio" v-model="status" value="rejected" id="rejection" hidden @input="onSelectStatus">
                 <span class="reject">Reject</span>
             </label>
-            
-            
+
+
             <!-- <option value="" disabled>Select status</option> -->
         <!-- <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
             <el-option value="" label="Select" selected />
             <el-option value="approved" label="Approve" />
             <el-option value="rejected" label="Reject" />
-                    </el-select> -->
+                        </el-select> -->
         </div>
     </section>
 </template>
@@ -64,14 +64,10 @@ export default {
             else return 'black'
         },
         startDate() {
-            return new Intl.DateTimeFormat('en', {
-                dateStyle: "short"
-            }).format(new Date(this.order.startDate))
+            return new Intl.DateTimeFormat('en', { dateStyle: "short" }).format(new Date(this.order.startDate))
         },
         endDate() {
-            var shortDate = new Intl.DateTimeFormat('en', {
-                dateStyle: "short"
-            })
+            var shortDate = new Intl.DateTimeFormat('en', { dateStyle: "short" })
             return shortDate.format(new Date(this.order.endDate))
         }
     },

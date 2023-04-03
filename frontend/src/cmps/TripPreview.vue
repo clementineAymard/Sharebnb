@@ -11,12 +11,12 @@
         <div> {{ order.startDate }}</div>
         <div> {{ order.endDate }}</div>
         <div> {{ order.totalPrice }}$</div>
-        <div class="status medium-font"> {{ order.status }}</div>
+        <div class="status medium-font capitalize" :class="statusClass"> {{ order.status }}</div>
 
     <!-- < div class=" buttons" v-if="buttons">
                         <div @click=" deleteOrder(order.name)"><font-awesome-icon icon="fa-solid fa-trash" /></div>
                 <div @click=" this.$router.push({ name: 'order-edit', params: { name: order.name } })">
-                                        <font-awesome-icon icon="fa-edit" /> -->
+                                            <font-awesome-icon icon="fa-edit" /> -->
 
 
     </section>
@@ -41,7 +41,14 @@ export default {
         imgStay() {
             return this.order.stayImg
         },
-        
+        statusClass() {
+            if (this.order.status === 'approved')
+                return 'green'
+            else if (this.order.status === 'rejected')
+                return 'red'
+            else return 'black'
+        }
+
     },
     created() {
         this.$store.dispatch({ type: 'loadUsers' })
