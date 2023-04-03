@@ -204,7 +204,7 @@ border-top: 3px solid $clr4;
       // position: relative;
       // text-align: left;
       // z-index: 1;
-      font-size: 12px;
+      font-size: 15px;
 
       &.buyer-name {
         // display: flex;
@@ -304,13 +304,14 @@ border-top: 3px solid $clr4;
 
     .statistic-card {
       min-width: 190px;
+      margin-left: -60px;
     }
   }
 
   @include for-mobile-layout-list {
     grid-template-columns: 1fr;
     // grid-template-rows: repeat(3, 1fr);
-    justify-items: start;
+    justify-items: center;
 
     // height: 1000px;
 
@@ -345,6 +346,7 @@ border-top: 3px solid $clr4;
       .el-row {
         flex-direction: column;
         gap: 5px;
+        align-items: center;
 
         .el-col-8 {
           width: 400px;
