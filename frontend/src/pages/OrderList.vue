@@ -12,7 +12,8 @@
     <div class="list">
         <ul v-if="orders">
             <div class="order-preview header-order">
-                <span @click="setSortBy('guest')" class="header-sort first-colum"><font-awesome-icon icon="fa-solid fa-sort" />
+                <span @click="setSortBy('guest')" class="header-sort first-colum"><font-awesome-icon
+                        icon="fa-solid fa-sort" />
                     Guest</span>
                 <span @click="setSortBy('name')" class="header-sort name"><font-awesome-icon icon="fa-solid fa-sort" />
                     Stay Name</span>
@@ -55,14 +56,20 @@ export default {
         async updateOrder(order) {
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order: order })
+                this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
+
                 // socketService.emit('your-order-updated', order)
             } catch (err) {
                 throw err
             }
         },
         addOrder(order) {
-            // this.orders.unshift(order)
             showSuccessMsg('Notification: New order.')
+            this.loadOrders()
+            // this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
+        },
+        loadOrders() {
+            this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
         }
     },
     computed: {
@@ -78,7 +85,7 @@ export default {
     async created() {
         socketService.on('order-for-you', this.addOrder)
         try {
-            await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
+            await this.loadOrders()
         }
         catch (err) {
             console.log(err, 'cannot load orders');
