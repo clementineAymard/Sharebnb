@@ -26,8 +26,13 @@ export default {
         const user = userService.getLoggedinUser()
         if (user) store.commit({ type: 'setLoggedinUser', user })
 
-        socketService.on('your-order-updated', this.changeTripStatus)
-        socketService.on('order-for-you', this.addOrder)
+        socketService.on('order-status-changed', ()=>{
+            showSuccessMsg('You order is approved')
+            alert('hi')
+        })
+        socketService.on('receive-order',()=> {
+            showSuccessMsg('You have a new order')
+        })
     },
     methods: {
         changeTripStatus(){

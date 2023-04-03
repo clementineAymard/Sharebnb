@@ -57,7 +57,7 @@ export default {
                 await this.$store.dispatch({ type: 'updateOrder', order: order })
                 this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
 
-                // socketService.emit('your-order-updated', order)
+                socketService.emit('change-order-status', order)
             } catch (err) {
                 throw err
             }
@@ -83,7 +83,10 @@ export default {
         }
     },
     async created() {
-        socketService.on('order-for-you', this.addOrder)
+        socketService.on('order-for-you',() =>{
+            console.log('eran')
+            this.addOrder()
+        })
         try {
             await this.loadOrders()
         }

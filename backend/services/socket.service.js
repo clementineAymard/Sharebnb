@@ -42,15 +42,30 @@ function setupSocketAPI(http) {
             logger.info(`Removing socket.userId for socket [id: ${socket.id}]`)
             delete socket.userId
         })
-        // socket.on('your-order-updated', (order) => {
-        //     logger.info(`Order update from socket [id: ${socket.id}]`)
-        //     // gIo.to(socket.myTopic).emit('your-order-updated', order)
-        // })
-        // socket.on('order-for-you', (order) => {
-        //     logger.info(`Order update from socket [id: ${socket.id}]`)
-        //     // gIo.to(socket.myTopic).emit('order-for-you', order)
-        //       emitTo('order-for-you', order)
-        // })
+        socket.on('change-order-status',async (order) => {
+            // const buyerSocket= await _getUserSocket(order.buyerId)
+            console.log(order,'socketservice');
+            emitToUser({
+                type:'order-status-changed',
+                data: order,
+                userId: order.buyerId
+            })
+            // buyerSocket.emit('order-status-changed')
+            logger.info(`Order update from socket [id: ${socket.id}]`)
+            // gIo.to(socket.myTopic).emit('your-order-updated', order)
+        })
+        socket.on('order-for-you',async (order) => {
+            logger.info(`Order update from socket [id: ${socket.id}]`)
+            // gIo.to(socket.myTopic).emit('order-for-you', order)
+            emitToUser({
+                type:'receive-order',
+                data: order,
+                userId: order.hostId
+            })
+            // const hostSocket = await _getUserSocket(order.hostId)
+            // hostSocket.emit('receive-order')
+            //   emitTo('order-for-you', order)
+        })
 
     })
 }
@@ -59,7 +74,6 @@ function emitTo({ type, data, label }) {
     if (label) gIo.to('watching:' + label.toString()).emit(type, data)
     else gIo.emit(type, data)
 }
-
 async function emitToUser({ type, data, userId }) {
     console.log('emitting to user: ', userId)
     userId = userId.toString()
