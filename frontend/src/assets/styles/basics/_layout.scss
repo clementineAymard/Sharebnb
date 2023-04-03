@@ -63,7 +63,7 @@
         }
 
         @include for-mobile-layout-min {
-            @include layoutGTC($break-mobile, $medium_padding-inline);
+            @include layoutGTC($break-medium, $medium_padding-inline);
         }
 
         @include for-medium-layout {
