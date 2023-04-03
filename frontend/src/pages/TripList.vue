@@ -51,7 +51,7 @@ export default {
     computed: {
         orders() {
             // console.log('trips: ', this.$store.getters.orders)
-            return this.$store.getters.orders.reverse()
+            return JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
         loggedinUser() {
             console.log('loggedinUser : ', this.$store.getters.loggedinUser)
