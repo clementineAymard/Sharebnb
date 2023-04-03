@@ -12,7 +12,7 @@
     <div class="list">
         <ul v-if="orders">
             <div class="order-preview header-order">
-                <span @click="setSortBy('guest')" class="header-sort"><font-awesome-icon icon="fa-solid fa-sort" />
+                <span @click="setSortBy('guest')" class="header-sort first-colum"><font-awesome-icon icon="fa-solid fa-sort" />
                     Guest</span>
                 <span @click="setSortBy('name')" class="header-sort name"><font-awesome-icon icon="fa-solid fa-sort" />
                     Stay Name</span>

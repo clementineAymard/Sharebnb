@@ -25,7 +25,7 @@
             },
           ],
           options:{
-            
+       
           }
         },
       }
@@ -33,6 +33,26 @@
     created() {
       this.setData()
     },
+    mounted() {
+    datasets: [
+      {
+        data: this.testData.datasets[0].data[0] = this.orders.reduce((acc,order)=>{
+        if(order.status === 'approved')  acc++
+        return acc
+      },0),
+        data1: this.testData.datasets[0].data[1] = this.orders.reduce((acc,order)=>{
+        if(order.status === 'rejected')  acc++
+        return acc
+      },0),
+        data2: this.testData.datasets[0].data[2] = this.orders.reduce((acc,order)=>{
+        if(order.status === 'pending')  acc++
+        return acc
+      },0),
+      },
+    ]
+  
+},
+
     methods: {
       setData() {
        var appCount = this.orders.reduce((acc,order)=>{
@@ -52,6 +72,7 @@
         return acc
       },0)
       this.testData.datasets[0].data[2]=penCount
+
         // const toys = this.getAllToys
         // console.log('this.getAllToys', this.$store.getters.getAllToys)
         // const labelsMap = toys.reduce((acc, toy) => {
@@ -71,7 +92,6 @@
     },
     computed: {
       approvedNum(){
-      return 3
         this.orders.reduce((acc,order)=>{
         if(order.status === 'approved')  acc++
         return acc
