@@ -66,7 +66,7 @@ export default {
             var shortDate = new Intl.DateTimeFormat('en-GB', {
                 dateStyle: "short"
             })
-            return shortDate.format(Date.now(this.order.endDate))
+            return shortDate.format(new Date(this.order.endDate))
         }
     },
     created() { },
