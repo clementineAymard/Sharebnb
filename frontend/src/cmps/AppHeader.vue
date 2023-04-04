@@ -294,8 +294,6 @@ export default {
             this.isOrderPage = (this.$route.path === '/order') ? true : false
         },
         routeQuery() {
-            console.log('ROUTE:', this.$route);
-            // console.log('route query change', this.$route.query)
             this.locForDisplayTitle = this.$route.query.loc || 'Anywhere'
 
             if (this.$route.query.adults)

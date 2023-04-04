@@ -69,11 +69,11 @@ export default {
     },
     computed: {
         orders() {
-            console.log('GETTERS:', this.$store.getters.orders)
+            // console.log('GETTERS:', this.$store.getters.orders)
             return JSON.parse(JSON.stringify(this.$store.getters.orders)).reverse()
         },
         loggedinUser() {
-            console.log(this.$store.getters.loggedinUser);
+            // console.log(this.$store.getters.loggedinUser);
             return this.$store.getters.loggedinUser
         }
     },

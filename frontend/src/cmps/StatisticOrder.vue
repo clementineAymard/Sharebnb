@@ -97,7 +97,7 @@
                 {{ data.income.title }}:
             </span>
             <span :class="incomeClass">
-                 ${{ data.income.value }} ↗
+                 ${{ data.income.value }} ↘
             </span>
         </div>
         <div class="stat flex align-center">
