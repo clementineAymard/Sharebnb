@@ -79,7 +79,6 @@ export default {
     },
     async created() {
         socketService.on('order-for-you',() =>{
-            console.log('eran')
             this.addOrder()
         })
         try {

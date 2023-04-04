@@ -27,18 +27,20 @@ export default {
         if (user) store.commit({ type: 'setLoggedinUser', user })
 
         socketService.on('order-status-changed', ()=>{
-            showSuccessMsg('You order is approved')
-            alert('hi')
+            this.changeTripStatus()
+            // showSuccessMsg('You order was approved by the host')
+          
         })
         socketService.on('receive-order',()=> {
-            showSuccessMsg('You have a new order')
+            this.addOrder()
+            // showSuccessMsg('You have a new order')
         })
     },
     methods: {
         changeTripStatus(){
             console.log('got notification from socket')
             showSuccessMsg('Your trip status was updated !')
-            this.$store.dispatch({ type: 'loadOrders', filterBy: { buyerId: this.loggedinUser._id } })
+            this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
         },
         addOrder() {
             showSuccessMsg('Notification: New order.')
