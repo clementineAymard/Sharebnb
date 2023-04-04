@@ -58,9 +58,10 @@ export default {
                 throw err
             }
         },
-        addOrder(order) {
+        async addOrder(order) {
             showSuccessMsg('Notification: New order.')
-            this.loadOrders()
+            // this.loadOrders()
+            await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
         },
         async loadOrders() {
             console.log('LOAD ORDERS')
