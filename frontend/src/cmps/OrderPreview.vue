@@ -17,11 +17,11 @@
 
         <div class="order-pre select flex" v-if="status === 'pending'">
             <label for="approval">
-                <input type="radio" v-model="status" value="approved" id="approval" hidden @input="onSelectStatus">
+                <input type="radio" v-model="status" value="approved" id="approval" hidden @input="onSelectStatus('approved')">
                 <span class="approval">Approve</span>
             </label>
             <label for="rejection">
-                <input type="radio" v-model="status" value="rejected" id="rejection" hidden @input="onSelectStatus">
+                <input type="radio" v-model="status" value="rejected" id="rejection" hidden @input="onSelectStatus('rejected')">
                 <span class="reject">Reject</span>
             </label>
 
@@ -47,11 +47,11 @@ export default {
         }
     },
     methods: {
-        onSelectStatus() {
-            // console.log('onSelectStatus', this.order.status, this.status)
-            this.order.status = this.status
+        onSelectStatus(newStatus) {
+            console.log('onSelectStatus', this.order.status, newStatus)
+            this.order.status = newStatus
 
-            // console.log('this.order',this.order)
+            console.log('this.order',this.order)
             this.$emit('updateOrder', this.order)
         }
     },
