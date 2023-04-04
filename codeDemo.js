@@ -12,18 +12,23 @@ function _buildCriteria(filterBy) {
             }
         ]
     }
-    if (filterBy.adults && filterBy.children && filterBy.infants) {
-        const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.children) + parseInt(filterBy.infants)
+    if (filterBy.adults || filterBy.children || filterBy.infants) {
+        const capacityCriteria = parseInt(filterBy?.adults) + parseInt(filterBy?.children) + parseInt(filterBy?.infants)
         criteria.capacity = { $gte: capacityCriteria }
     }
-    if (filterBy.adults && filterBy.children && !filterBy.infants) {
-        const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.children)
-        criteria.capacity = { $gte: capacityCriteria }
-    }
-    if (filterBy.adults && filterBy.infants && !filterBy.children) {
-        const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.infants)
-        criteria.capacity = { $gte: capacityCriteria }
-    }
+
+    // if (filterBy.adults && filterBy.children && filterBy.infants) {
+    //     const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.children) + parseInt(filterBy.infants)
+    //     criteria.capacity = { $gte: capacityCriteria }
+    // }
+    // if (filterBy.adults && filterBy.children && !filterBy.infants) {
+    //     const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.children)
+    //     criteria.capacity = { $gte: capacityCriteria }
+    // }
+    // if (filterBy.adults && filterBy.infants && !filterBy.children) {
+    //     const capacityCriteria = parseInt(filterBy.adults) + parseInt(filterBy.infants)
+    //     criteria.capacity = { $gte: capacityCriteria }
+    // }
     if (filterBy.category) {
         criteria.labels = filterBy.category
     }
