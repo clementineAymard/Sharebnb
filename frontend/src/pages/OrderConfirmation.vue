@@ -1,8 +1,8 @@
 <template>
     <section class="order-confirm">
-        <header class="header-order1">
-            <p class="medium-font first-line">Your order has been sent to host</p>
-        </header>
+        <div class="header-order1 medium-font">
+            Your order has been sent to the host
+        </div>
 
         <div class="order-container flex justify-between">
             <div class="order-text">
@@ -20,10 +20,6 @@
                     <li> Follow the house rules</li>
                     <li>Treat your Host's home like your own </li>
                 </ul>
-                <button @click="goToTrips" class="CheckoutBtn flex align-center justify-between"
-                    :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverCheckoutBtn">
-                    <span>Check your orders</span>
-                </button>
             </div>
 
             <div class="order-sticky">
@@ -35,8 +31,6 @@
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <p>4.74 </p>
                             <p class="under-line">21 reviews</p>
-
-
                         </div>
                     </div>
                     <div class="protected">
@@ -61,6 +55,11 @@
                 </div>
             </div>
         </div>
+
+        <button @click="goToTrips" class="CheckoutBtn flex align-center justify-between"
+            :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverCheckoutBtn">
+            <span>Check your orders</span>
+        </button>
     </section>
 </template>
 
@@ -74,7 +73,6 @@ export default {
                 x: 0,
                 y: 0
             },
-            // stays: this.$store.getters.stays
         }
     },
     methods: {
@@ -89,7 +87,6 @@ export default {
     computed: {
         order() {
             return this.$route.query
-            // return this.$store.getters.currOrder
         },
         nights() {
             return this.order.endDate - this.order.startDate
