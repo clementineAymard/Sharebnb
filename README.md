@@ -1,1 +1,1 @@
-# Our final project in Coding Academy
+# Our final project at Coding Academy
