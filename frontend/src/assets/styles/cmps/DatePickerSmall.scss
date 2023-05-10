@@ -1,16 +1,15 @@
-.stay-details1 {
+.stay-details {
     .date-picker-small {
         position: absolute;
         left: 28px;
         top: 34%;
         display: flex;
+        flex-wrap: wrap;
         width: 80%;
         padding: 0;
-        flex-wrap: wrap;
         z-index: 5;
         border: none;
         transition: all ease-in-out 0.3s;
-        // opacity: 0;
     }
 }
 
@@ -127,11 +126,6 @@ div.el-date-table-cell {
     margin-block-end: 1rem;
 }
 
-.el-date-table td.today .el-date-table-cell__text {
-    color: $clr1;
-    background-color: $clr5;
-}
-
 .el-date-table__row {
     height: fit-content;
 }
@@ -140,6 +134,11 @@ div.el-date-table-cell {
     height: 45px;
     width: 45px;
     margin-block: 2px;
+
+    &.today .el-date-table-cell__text {
+        color: $clr1;
+        background-color: $clr5;
+    }
 
     div.el-date-table-cell {
         display: flex;

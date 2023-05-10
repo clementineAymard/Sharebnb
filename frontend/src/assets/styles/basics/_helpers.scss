@@ -7,6 +7,10 @@
     font-size: rem(14px);
 }
 
+.fs16 {
+    font-size: 1rem;
+}
+
 .fs18 {
     font-size: rem(18px);
 }
@@ -74,6 +78,10 @@
     font-family: airbnb_medium
 }
 
+.font-thin {
+    font-family: cereal;
+}
+
 .grey {
     color: $clr3
 }
@@ -90,9 +98,10 @@
     color: red;
 }
 
-.capitalize{
+.capitalize {
     text-transform: capitalize;
 }
+
 // Media helpers
 
 .square-ratio {
@@ -109,4 +118,17 @@
 
 .central-el:not(.stay-details) {
     overflow: hidden;
+}
+
+.font-md {
+    font-family: airbnb_medium;
+    font-size: em(14px);
+}
+
+.padinline8px {
+    padding-inline: 0.5rem;
+}
+
+.btn {
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
 <template>
     <section class="my-layout" :class="isDetailsClass">
         <AppHeader />
-        <RouterView class="central-el"/> <!--@wheel="onCloseHeader"-->
+        <RouterView class="central-el"/>
         <AppFooter  v-if="isOpen" :class="isDetailsClass"/>
         <UserMsg />
     </section>
@@ -9,10 +9,9 @@
 
 <script>
 
-// import {socketService} from './services/socket.service'
 import { userService } from './services/user.service'
 import { store } from './store/store'
-import { closeHeader, showSuccessMsg } from "./services/event-bus.service.js"
+import { showSuccessMsg } from "./services/event-bus.service.js"
 
 import AppHeader from './cmps/AppHeader.vue'
 import AppFooter from './cmps/AppFooter.vue'
@@ -27,13 +26,10 @@ export default {
         if (user) store.commit({ type: 'setLoggedinUser', user })
 
         socketService.on('order-status-changed', ()=>{
-            this.changeTripStatus()
-            // showSuccessMsg('You order was approved by the host')
-          
+            this.changeTripStatus()       
         })
         socketService.on('receive-order',()=> {
             this.addOrder()
-            // showSuccessMsg('You have a new order')
         })
     },
     methods: {

@@ -1,7 +1,8 @@
 .main-header {
-    position: relative;
-    // position: fixed;
-    
+    position: sticky;
+    top: 0;
+    background-color: $clr6;
+    z-index: 2;
 
     .header-background {
         background-color: $clr6;
@@ -41,4 +42,4 @@
 :root {
     --animate-duration: 800ms;
     --animate-delay: 2000ms;
-  }
+}

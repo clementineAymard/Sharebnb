@@ -1,8 +1,8 @@
 <template>
-    <div class="container-home">
-        <FilterCategory @filterBy="filterBy"></FilterCategory>
+    <div>
+        <FilterCategory @filterBy="filterBy"/>
 
-        <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"></StayList>
+        <StayList :stays="stays" @removeStay="removeStay" @updateStay="updateStay"/>
     </div>
 </template>
 

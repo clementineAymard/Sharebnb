@@ -2,8 +2,7 @@
     <li class="stay-preview flex column" @click="handleViews">
 
         <div class="img-container">
-            <i class="fa-solid fa-heart" @click.stop="addToFavorite(stay)" :class="(isFavorite)? 'red' : 'black'"></i>
-            <!-- <button v-if="user && user.isAdmin" class="remove-stay" @click.stop="removeStay(stay._id)">X</button> -->
+            <i class="fa-solid fa-heart" @click.stop="addToFavorite(stay)" :class="(isFavorite) ? 'red' : 'black'"></i>
             <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
                 <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
                     <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
@@ -12,18 +11,15 @@
         </div>
 
         <div class="preview-txt">
-            <!-- <button v-if="user && user.isAdmin" class="update-btn" @click.stop="updateStay(stay._id)">update</button> -->
             <p class="bold-font address">
                 {{ stay.loc.city }} , {{ stay.loc.country }}
             </p>
             <p class="rating regular-font">
                 <i class="fa-sharp fa-solid fa-star"></i>
                 {{ stay.rate }}
-                <!-- ({{ stay.reviews.length }}) -->
             </p>
             <p class="regular-font grey stayName">
                 {{ stay.name }}
-                <!-- {{ stayName }} -->
             </p>
             <div class="beds">
 
@@ -83,7 +79,7 @@ export default {
         addToFavorite() {
             if (this.loggedinUser) {
                 this.isFavorite = !this.isFavorite
-                this.$store.dispatch({ type: 'addToWishList' , user: this.loggedinUser , stay:this.stay })
+                this.$store.dispatch({ type: 'addToWishList', user: this.loggedinUser, stay: this.stay })
             } else {
                 showErrorMsg('Login to save to wishlist.')
             }
