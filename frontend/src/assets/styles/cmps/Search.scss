@@ -95,6 +95,7 @@
             margin: auto auto;
             margin-inline-end: 10px;
             font-family: airbnb_medium;
+            cursor: pointer;
 
             img {
                 width: 12px;
@@ -250,30 +251,32 @@
                         border-left: solid 1px $clr4;
                     }
 
-                    .glass {
-                        padding: 24px 16px;
-                        width: fit-content;
-                        border-radius: 30px;
-                        color: $clr6;
-                        font-size: rem(16px);
-                        background: radial-gradient(circle at -50%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-                        background-size: 200% 200%;
-                        transition: opacity 1.25s;
+                }
 
-                        &:hover {
-                            background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-                            --mouse-x: 1.87891;
-                            --mouse-y: 85.4167;
-                        }
+            }
 
-                        img {
-                            width: 16px;
-                        }
+            .glass {
+                padding: 24px 16px;
+                width: fit-content;
+                border-radius: 30px;
+                color: $clr6;
+                font-size: rem(16px);
+                background: radial-gradient(circle at -55%, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+                background-size: 200% 200%;
+                transition: opacity 1.25s;
 
-                        span {
-                            padding-inline: 8px 4px;
-                        }
-                    }
+                &:hover {
+                    background-position: calc((110 - max(var(--mouse-x, 0), 10)) * 1%) calc((110 - var(--mouse-y, 0)) * 1%);
+                    --mouse-x: 1.87891;
+                    --mouse-y: 85.4167;
+                }
+
+                img {
+                    width: 16px;
+                }
+
+                span {
+                    padding-inline: 8px 4px;
                 }
             }
 

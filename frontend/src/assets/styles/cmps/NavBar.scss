@@ -4,7 +4,13 @@ nav {
     position: relative;
     z-index: 3;
 
+    @include for-mobile-layout-list {
+        display: none;
+    }
 
+    @include for-mobile-layout-list-min {
+        display: flex;
+    }
 
     @include for-extra-wide-layout {
         flex-grow: 1;
@@ -58,10 +64,10 @@ nav {
         }
 
         @include for-mobile-layout-list {
-                position: sticky;
-                bottom: 1rem;
-                right: 1rem;
-                background-color: $clr6;
+            position: sticky;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: $clr6;
         }
 
     }

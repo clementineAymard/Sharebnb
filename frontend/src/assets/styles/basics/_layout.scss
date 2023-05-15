@@ -54,13 +54,14 @@
     }
 
     &.narrow {
-        @include for-mobile-layout-list {
-            @include layoutGTC($break-mobile-list, $small_padding-inline);
-        }
-
         @include for-mobile-layout {
             @include layoutGTC($break-mobile, $medium_padding-inline);
         }
+
+        @include for-mobile-layout-list {
+                @include layoutGTC($break-mobile-list, $small_padding-inline);
+        }
+
 
         @include for-mobile-layout-min {
             @include layoutGTC($break-medium, $medium_padding-inline);

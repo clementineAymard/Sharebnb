@@ -8,6 +8,10 @@ body {
     letter-spacing: .007em;
     margin-inline: auto;
 
+    @include for-mobile-layout-list {
+        overflow: hidden;
+    }
+
     .name-title {
         font-size: 1.625rem;
         padding-block-start: 1.5rem;
@@ -56,6 +60,10 @@ body {
     }
 
     .images-container {
+        @include for-mobile-layout-list {
+            display: none;
+        }
+
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 50% 50%;
@@ -75,6 +83,51 @@ body {
             width: 100%;
             height: 100%;
         }
+    }
+
+    .image-carousel {
+        @include for-mobile-layout-list {
+            display: block;
+            position: relative;
+            margin-block-start: 12px;
+            border-radius: em(10px);
+
+            @include aspect-ratio(1, 1);
+
+            &:hover .el-carousel__arrow {
+                background-color: $clr4;
+                color: $clr2;
+            }
+
+            .el-carousel {
+                overflow: hidden;
+            }
+
+            img.stay-img {
+                top: 0;
+                left: 0;
+                border-radius: 10px;
+                width: 100%;
+                height: 100%;
+                display: block;
+                z-index: -1;
+                object-fit: cover;
+            }
+
+            .el-carousel__container {
+                position: relative;
+                height: 100%;
+            }
+
+            .el-carousel__button {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+            }
+
+        }
+
+        display: none;
     }
 
     .mid-section {
@@ -98,8 +151,12 @@ body {
 
         .more-details {
             >*:not(.divider) {
-                padding-top: 39px;
-                padding-bottom: 8px;
+                @include for-mobile-layout-list {
+                    padding-block-start: 2rem;
+                }
+
+                padding-block-start: 39px;
+                padding-block-end: 8px;
             }
 
             .heading {
@@ -113,6 +170,16 @@ body {
                 .txt {
                     .capacity-details {
                         gap: 3px;
+
+                        span {
+                            @include for-mobile-layout-list {
+                                font-size: rem(13px);
+                            }
+
+                            @include for-mobile-layout-list-min {
+                                font-size: 1rem;
+                            }
+                        }
                     }
                 }
 

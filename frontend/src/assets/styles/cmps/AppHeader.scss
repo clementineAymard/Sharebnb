@@ -5,6 +5,14 @@
     z-index: 2;
 
     .header-background {
+        @include for-mobile-layout-list {
+            display: none;
+        }
+
+        @include for-mobile-layout-list-min {
+            display: block;
+        }
+
         background-color: $clr6;
         border-bottom: solid 1px $clr4;
         height: em(80px);
@@ -21,11 +29,47 @@
     }
 
     .header {
-        height: em(80px);
-        position: relative;
-        z-index: 4;
-        width: 100%;
-        margin: auto;
+        @include for-mobile-layout-list {
+            display: none;
+        }
+
+        @include for-mobile-layout-list-min {
+            display: flex;
+            height: em(80px);
+            position: relative;
+            z-index: 4;
+            width: 100%;
+            margin: auto;
+        }
+    }
+
+    .header-mobile {
+        @include for-mobile-layout-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-inline: 24px;
+            height: 4rem;
+
+            border-block-start: solid 1px $clr4;
+            background-color: $clr6;
+            // width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        @include for-mobile-layout-list-min {
+            display: none;
+        }
+
+        img {
+            width: 2rem;
+            object-fit: contain;
+        }
+
+        .logo span {
+            display: none;
+        }
     }
 
     .backdrop {
@@ -37,6 +81,8 @@
         width: 100%;
         height: 100%;
     }
+
+
 }
 
 :root {

@@ -1,52 +1,55 @@
-.logo {
-    gap: 5px;
-    flex: 0.39;
-    position: relative;
-    z-index: 3;
+.header {
 
-    @include for-mobile-layout {
-        display: none;
-    }
-
-    @include for-narrow-layout {
-        flex-grow: 1.51;
-    }
-
-    @include for-wide-layout {
-        flex-grow: 1.15;
-    }
-
-    @include for-extra-wide-layout {
-        flex-grow: 1.29;
-    }
-
-    img {
-        object-fit: contain;
-        height: em(32px);
+    .logo {
+        gap: 5px;
+        flex: 0.39;
+        position: relative;
+        z-index: 3;
 
         @include for-mobile-layout {
-            width: 0;
-            height: 0;
-        }
-    }
-
-    span {
-        font-size: rem(20px);
-        font-family: airbnb_bold;
-        letter-spacing: 0.9;
-        color: $clr1;
-
-        @include for-mobile-layout-min {
             display: none;
         }
 
-        @include for-medium-layout {
-            display: block;
+        @include for-narrow-layout {
+            flex-grow: 1.51;
         }
 
-    }
+        @include for-wide-layout {
+            flex-grow: 1.15;
+        }
 
-    &:hover {
-        text-decoration: none;
+        @include for-extra-wide-layout {
+            flex-grow: 1.29;
+        }
+
+        img {
+            object-fit: contain;
+            height: em(32px);
+
+            @include for-mobile-layout {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        span {
+            font-size: rem(20px);
+            font-family: airbnb_bold;
+            letter-spacing: 0.9;
+            color: $clr1;
+
+            @include for-mobile-layout-min {
+                display: none;
+            }
+
+            @include for-medium-layout {
+                display: block;
+            }
+
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }

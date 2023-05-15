@@ -6,7 +6,7 @@
 
             <BrandLogo @resetFields="onResetFields" />
 
-            <div class="search-container flex align-center " :class="isSearchOpenClass">
+            <div class="search-container align-center " :class="isSearchOpenClass">
                 <section class="search  animate__animated " v-if="!isDetails && !isUserPage && !isOrderPage">
 
                     <button class="location " @click="onOpenSearch('locations')" :class="isActiveClass">
@@ -64,14 +64,14 @@
                             <span v-else>Add guests</span>
                         </div>
 
-
-                        <button class="glass  flex align-center justify-between"
-                            :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mouseover="onHoverSearchBtn"
-                            @click.stop="onSetFilter">
-                            <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
-                            <span v-if="isSearchOpen">Search</span>
-                        </button>
                     </button>
+                    <div class="glass  flex align-center justify-between"
+                        :style="`--mouse-x:${offset.x}; --mouse-y:${offset.y}`" @mousemove="onHoverSearchBtn"
+                        @click.stop="onSetFilter">
+                        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/search_mnrvky.png">
+                        <span v-if="isSearchOpen">Search</span>
+                    </div>
+
 
                 </section>
 
@@ -98,6 +98,13 @@
             </div>
 
             <NavBar :class="isDetailsClass" />
+        </header>
+        
+
+        <header class="header-mobile align-center justify-between" >
+            <BrandLogo @resetFields="onResetFields" />
+            <img class="search" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684144299/magnifying-glass_shtw8h.png">
+            <img  class="user" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png">
         </header>
     </section>
 </template>

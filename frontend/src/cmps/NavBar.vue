@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex align-center">
+    <nav class="align-center">
         <div class="links flex align-center">
             <RouterLink class="link-add-stay" to="/stay/edit">Sharebnb your home</RouterLink>
         </div>

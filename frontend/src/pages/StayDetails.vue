@@ -33,6 +33,16 @@
         <div class="images-container">
             <img class="stay-img" v-for="imgUrl in this.stay.imgUrls" :src="imgUrl" alt="stay">
         </div>
+
+        <div class="image-carousel">
+            <i class="fa-solid fa-heart" @click.stop="addToFavorite(stay)" :class="(isFavorite) ? 'red' : 'black'"></i>
+            <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
+                <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
+                    <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
+                </el-carousel-item>
+            </el-carousel>
+        </div>
+
         <div class="mid-section flex">
             <div class="more-details">
                 <div class="heading flex justify-between">
