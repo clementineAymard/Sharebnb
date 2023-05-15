@@ -12,12 +12,63 @@ body {
         overflow: hidden;
     }
 
+    .image-carousel {
+        @include for-mobile-layout-list {
+            display: block;
+            position: relative;
+            margin-block-start: 1.5rem;
+            border-radius: em(10px);
+
+            @include aspect-ratio(1, 1);
+
+            &:hover .el-carousel__arrow {
+                background-color: $clr4;
+                color: $clr2;
+            }
+
+            .el-carousel {
+                overflow: hidden;
+            }
+
+            img.stay-img {
+                top: 0;
+                left: 0;
+                border-radius: 10px;
+                width: 100%;
+                height: 100%;
+                display: block;
+                z-index: -1;
+                object-fit: cover;
+            }
+
+            .el-carousel__container {
+                position: relative;
+                height: 100%;
+            }
+
+            .el-carousel__button {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+            }
+
+        }
+
+        display: none;
+    }
+
     .name-title {
         font-size: 1.625rem;
-        padding-block-start: 1.5rem;
+        padding-block-start: 1rem;
     }
 
     .details {
+        @include for-mobile-layout-list {
+            padding-block-end: 1rem;
+        }
+
+        padding-block-end:0;
+
         .name-subtitle {
 
             .rating-review {
@@ -85,50 +136,6 @@ body {
         }
     }
 
-    .image-carousel {
-        @include for-mobile-layout-list {
-            display: block;
-            position: relative;
-            margin-block-start: 12px;
-            border-radius: em(10px);
-
-            @include aspect-ratio(1, 1);
-
-            &:hover .el-carousel__arrow {
-                background-color: $clr4;
-                color: $clr2;
-            }
-
-            .el-carousel {
-                overflow: hidden;
-            }
-
-            img.stay-img {
-                top: 0;
-                left: 0;
-                border-radius: 10px;
-                width: 100%;
-                height: 100%;
-                display: block;
-                z-index: -1;
-                object-fit: cover;
-            }
-
-            .el-carousel__container {
-                position: relative;
-                height: 100%;
-            }
-
-            .el-carousel__button {
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-            }
-
-        }
-
-        display: none;
-    }
 
     .mid-section {
 
@@ -152,7 +159,7 @@ body {
         .more-details {
             >*:not(.divider) {
                 @include for-mobile-layout-list {
-                    padding-block-start: 2rem;
+                    padding-block-start: 1.5rem;
                 }
 
                 padding-block-start: 39px;
@@ -160,7 +167,12 @@ body {
             }
 
             .heading {
+                @include for-mobile-layout-list {
+                    border-block-start: solid 1px $clr4;
+                }
+
                 padding-bottom: 24px;
+                border: none;
 
                 h2 {
                     margin-bottom: 0.3em;
@@ -172,11 +184,9 @@ body {
                         gap: 3px;
 
                         span {
-                            @include for-mobile-layout-list {
-                                font-size: rem(13px);
-                            }
+                            font-size: rem(13px);
 
-                            @include for-mobile-layout-list-min {
+                            @include for-narrow-layout {
                                 font-size: 1rem;
                             }
                         }
@@ -237,177 +247,272 @@ body {
         }
 
         .reservation-section {
-            margin-top: 50px;
-            margin-bottom: 32px;
+            @include for-mobile-layout-list {
+                margin: 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                background-color: $clr6;
+                width: 100%;
+            }
+
+            margin-block-start: 50px;
+            margin-block-end: 32px;
             position: relative;
 
-            .reservation {
+            .reservation-container {
+                @include for-mobile-layout-list {
+                    box-shadow: none;
+                    border-radius: 0;
+
+                    display: grid;
+                    grid-template-rows: repeat(2, auto);
+
+                    padding: 1rem 1.5rem;
+                }
+
+                display: block;
+                border: 1px solid rgb(221, 221, 221);
+                border-radius: 12px;
+                padding: 24px;
+                box-shadow: #0000001f 0 6px 16px;
+                min-width: fit-content;
+
                 position: sticky;
                 top: 6rem;
-                justify-content: flex-end;
 
-                .reservation-container {
-                    border: 1px solid rgb(221, 221, 221);
-                    border-radius: 12px;
-                    padding: 24px;
-                    box-shadow: #0000001f 0 6px 16px;
+                .reservation-form-header {
+                    @include for-mobile-layout-list {
+                        margin: 0;
+                    }
+
+                    display: flex;
+                    align-items: start;
+                    justify-content: space-between;
+                    margin-bottom: 24px;
                     min-width: fit-content;
+                    width: 100%;
+                    flex-wrap: wrap;
 
-                    .reservation-form-header {
-                        display: flex;
-                        align-items: start;
-                        justify-content: space-between;
-                        margin-bottom: 24px;
-                        min-width: fit-content;
-                        width: 100%;
-                        flex-wrap: wrap;
-
-                        p.reservation-price {
-                            min-width: fit-content;
-                            align-self: center;
-                            margin: 0;
-
-                            span.cost {
-                                font-size: 1.3em;
-                            }
+                    p.reservation-price {
+                        @include for-mobile-layout-list {
+                            flex-direction: row;
+                            gap: rem(8px);
+                            align-items: center;
+                            font-size: rem(12px)
                         }
 
-                        .rating-review {
-                            cursor: pointer;
-                            gap: 0.3125em;
+                        min-width: fit-content;
+                        align-self: center;
+                        margin: 0;
 
-                            .avg-rating {
-                                gap: 3px;
-                            }
-
-                            .rev-count {
-                                color: #717171;
-                            }
+                        span.cost {
+                            font-size: 1.3em;
                         }
                     }
 
-                    .reservation-data {
-                        border: 1px solid rgba(0, 0, 0, 0.3137254902);
-                        box-shadow: 0 6px 20px #c5c5c5;
-                        border-radius: 10px;
-                        margin-bottom: 16px;
-                        position: relative;
-                        line-height: 12px;
+                    .rating-review {
+                        @include for-mobile-layout-list {
+                            display: none;
+                        }
+
+                        display: flex;
                         cursor: pointer;
+                        gap: 0.3125em;
+
+                        .avg-rating {
+                            gap: 3px;
+                        }
+
+                        .rev-count {
+                            color: #717171;
+                        }
+                    }
+                }
+
+                .reservation-data {
+                    @include for-mobile-layout-list {
+                        border: none;
+                        border-block-start: solid 1px $clr4;
+                        border-radius: 0;
+                        box-shadow: none;
+                        margin: 0;
+                        padding-block-start: 7px;
+                        margin-inline-end: 7px;
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 12px;
+                    }
+
+                    border: 1px solid rgba(0, 0, 0, 0.3137254902);
+                    box-shadow: 0 6px 20px #c5c5c5;
+                    border-radius: 10px;
+                    margin-bottom: 16px;
+                    position: relative;
+                    line-height: 12px;
+                    cursor: pointer;
+
+                    label {
+                        font-family: airbnb_bold;
+                        font-size: .625em;
+                        cursor: default;
+                    }
+
+                    input {
+                        border: none;
+                        padding: 0;
+                        outline: none;
+                        font-size: .875em;
+                    }
+
+                    .date-picker-container {
+                        @include for-mobile-layout-list {
+                            justify-content: start;
+                            gap: 0.8rem;
+                        }
+
+                        display: flex;
+                        justify-content: space-between;
+                        position: relative;
+
+                        .date-input {
+                            @include for-mobile-layout-list {
+                                border: none;
+                                padding: 0;
+                            }
+
+                            position: relative;
+                            padding: 0px;
+                            overflow: hidden;
+                            border-left: 1px solid rgb(176, 176, 176);
+                            padding: 1rem;
+
+                            &:first-child {
+                                border-left: none;
+                            }
+
+                            >input.subtitle {
+                                @include for-mobile-layout-list {
+                                    width: 65px;
+                                }
+
+                                display: flex;
+                                width: fit-content;
+                                padding-block-start: 5px;
+                                max-width: 135px;
+                                font-size: em(14px);
+                            }
+                        }
+
+                    }
+
+                    .guest-input {
+                        @include for-mobile-layout-list {
+                            border: none;
+                            padding: 0;
+                        }
+
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        border-top: 1px solid rgba(0, 0, 0, .3137254902);
+                        padding: 7px 12px;
+                        font-size: em(14px);
 
                         label {
                             font-family: airbnb_bold;
-                            font-size: .625em;
-                            cursor: default;
+                            font-size: 10px;
                         }
 
-                        input {
-                            border: none;
-                            padding: 0;
-                            outline: none;
-                            font-size: .875em;
-                        }
-
-                        .date-picker-container {
+                        >div {
                             display: flex;
-                            justify-content: space-between;
-                            position: relative;
+                            align-items: center;
 
-                            .date-input {
-                                position: relative;
-                                flex: 1 1 0%;
-                                padding: 0px;
-                                overflow: hidden;
-                                border-left: 1px solid rgb(176, 176, 176);
-                                padding: 1rem;
-
-                                &:first-child {
-                                    border-left: none;
-                                }
-
-                                >input.subtitle {
-                                    display: flex;
-                                    min-width: fit-content;
-                                    padding-block-start: 5px;
-                                    max-width: 135px;
-                                    font-size: em(14px);
-                                }
+                            >input {
+                                width: 12px;
                             }
 
+                            >svg {
+                                @include for-mobile-layout-list {
+                                    display: none;
+                                }
+
+                                position: absolute;
+                                height: 20px;
+                                width: 20px;
+                                top: 50%;
+                                right: 0;
+                                transform: translate(-12px) translatey(-50%);
+                            }
                         }
 
-                        .guest-input {
-                            position: relative;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 5px;
-                            border-top: 1px solid rgba(0, 0, 0, .3137254902);
-                            padding: 7px 12px;
-                            font-size: em(14px);
+                        .guests-picker {
+                            @include for-mobile-layout-list {
+                                position: fixed;
+                                right: 20px;
+                                top: 291px;
+                            }
+
+                            position: absolute;
+                            right: 0;
+                            top: 101%;
+                            z-index: 5;
+                            background-color: $clr6;
+                            border-radius: 12px;
+                            border: none;
+                            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04),
+                            0 8px 16px rgba(0, 0, 0, 0.15);
+                            width: fit-content;
+                            height: fit-content;
+                            padding: 1rem 1rem;
 
                             >div {
-                                label {
-                                    font-family: airbnb_bold;
-                                    font-size: 10px;
-                                }
-
-                                >input {
-                                    width: 10px;
-                                }
-
-                                >svg {
-                                    position: absolute;
-                                    height: 20px;
-                                    width: 20px;
-                                    top: 50%;
-                                    right: 0;
-                                    transform: translate(-12px) translatey(-50%);
-                                }
-                            }
-
-                            .guests-picker {
-                                position: absolute;
-                                right: 0;
-                                top: 101%;
-                                z-index: 5;
-                                background-color: $clr6;
-                                border-radius: 12px;
-                                border: none;
-                                box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
-                                width: fit-content;
-                                height: fit-content;
-                                padding: 1rem 1rem;
-
-                                >div {
-                                    min-width: 303px;
-                                    width: auto;
-                                }
+                                min-width: 303px;
+                                width: auto;
                             }
                         }
                     }
+                }
 
-                    button.action-btn {
+                button.action-btn {
+                    @include for-mobile-layout-list {
                         width: 100%;
-                        height: 48px;
-                        cursor: pointer;
-                        border-radius: 8px;
-                        background-image: radial-gradient(circle at calc((0 + var(--positionX, 0)) * 10%) calc((0 + var(--positionY, 0)) * 5%), rgb(241, 37, 75) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: rem(16px);
-                        line-height: 20px;
-                        color: $clr6;
+                        padding: 1rem 1.5rem;
+                        grid-column: 2;
+                        grid-row: 1 / -1;
+                        align-self: center;
+                        justify-self: end;
                     }
+
+                    width: 100%;
+                    height: 48px;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    background-image: radial-gradient(circle at calc((0 + var(--positionX, 0)) * 10%) calc((0 + var(--positionY, 0)) * 5%), rgb(241, 37, 75) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: rem(16px);
+                    line-height: 20px;
+                    color: $clr6;
                 }
             }
         }
     }
 
     .reviews-and-map {
+        @include for-mobile-layout-list {
+            margin-block-end: 6rem;
+        }
+
         margin: 0;
 
         >*:not(.divider) {
+            @include for-mobile-layout-list {
+                padding: 1.5rem 0;
+            }
+
             padding: 48px 0;
         }
 
@@ -430,6 +535,10 @@ body {
             }
 
             .review-head-lins {
+                @include for-mobile-layout-list {
+                    grid-template-columns: 2fr 1fr;
+                }
+
                 display: grid;
                 grid-template-columns: 2fr 1fr 2fr 1fr;
                 column-gap: 10px;
@@ -477,6 +586,10 @@ body {
 
             .reviews-container {
                 .reviews-list {
+                    @include for-mobile-layout-list {
+                        grid-template-columns: 1fr;
+                    }
+
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     grid-gap: 40px 1px;
@@ -505,7 +618,7 @@ body {
     .divider {
         border-bottom-width: 1px;
         border-bottom-style: solid;
-        border-bottom-color: #ddd;
+        border-bottom-color: $clr4;
         padding: 0;
         margin: 0;
     }
@@ -521,4 +634,29 @@ body {
     h6 {
         margin: 0 0 0.4em;
     }
+}
+
+.back {
+    @include for-mobile-layout-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 2rem;
+        left: 2rem;
+
+        height: 2rem;
+        width: 2rem;
+
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px 1px $clr4;
+        background-color: $clr6;
+
+        img {
+            height: 1.4rem;
+            padding: 5px;
+        }
+    }
+
+    display: none;
 }

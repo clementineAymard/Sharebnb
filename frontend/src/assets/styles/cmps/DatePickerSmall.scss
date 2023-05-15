@@ -1,5 +1,12 @@
 .stay-details {
+
     .date-picker-small {
+        @include for-mobile-layout-list {
+            left: 0;
+            top: 15%;
+            width: 65%
+        }
+
         position: absolute;
         left: 28px;
         top: 34%;
@@ -11,136 +18,130 @@
         border: none;
         transition: all ease-in-out 0.3s;
     }
-}
-
-.el-date-editor .el-range__icon {
-    width: 3em !important;
-}
-
-.stay-details1 .reservation-data .el-range-editor.el-input__wrapper {
-    opacity: 0;
-}
-
-.el-picker__popper.el-popper[data-popper-placement^=bottom] .el-popper__arrow::before {
-    display: none;
-}
 
 
+    .el-date-editor .el-range__icon {
+        width: 3em !important;
+    }
 
-//******************** DATE PICKER CALENDAR ******************** 
+    .stay-details1 .reservation-data .el-range-editor.el-input__wrapper {
+        opacity: 0;
+    }
 
-.el-date-range-picker__header {
+    .el-picker__popper.el-popper[data-popper-placement^=bottom] .el-popper__arrow::before {
+        display: none;
+    }
 
-    button.el-picker-panel__icon-btn {
 
-        &.arrow-left,
-        &.arrow-right {
-            color: $clr2;
-            scale: 1.4;
-            border-radius: 50%;
-            width: 1.5rem;
-            height: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            &:hover {
-                background-color: $clr5;
+    //******************** DATE PICKER CALENDAR ******************** 
+
+    .el-date-range-picker__header {
+
+        button.el-picker-panel__icon-btn {
+
+            &.arrow-left,
+            &.arrow-right {
+                color: $clr2;
+                scale: 1.4;
+                border-radius: 50%;
+                width: 1.5rem;
+                height: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background-color: $clr5;
+                }
+            }
+
+            &.d-arrow-left,
+            &.d-arrow-right {
+                display: none;
+                opacity: 0;
             }
         }
+    }
 
-        &.d-arrow-left,
-        &.d-arrow-right {
-            display: none;
-            opacity: 0;
+    .el-date-range-picker .el-picker-panel__body {
+        min-width: max-content;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .el-popper.is-pure {
+        padding: 20px;
+        border-radius: em(32px);
+        transform: translateY(-10%);
+        border: none;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
+
+        &.is-light.el-picker__popper.details-date-popper {
+            @include for-mobile-layout-list {
+                // scale: 0.5;
+                width: fit-content;
+                position: fixed !important;
+                left: -1.7rem !important;
+                top: 0 !important;
+                bottom: auto !important;
+                right: auto !important;
+                padding-block: 1rem;
+            }
+
+            display: block;
+            padding-block-start: 1rem;
+            padding-block-end: 3rem;
+
+            position: absolute !important;
+            top: 55px !important;
+            left: -357px !important;
+
+            scale: 0.8;
         }
     }
-}
 
-.el-date-range-picker .el-picker-panel__body {
-    min-width: max-content;
-}
 
-.el-popper.is-pure {
-    padding: 20px;
-    border-radius: em(32px);
-    transform: translateY(-10%);
-    border: none;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
 
-    &.is-light.el-picker__popper.details-date-popper {
-        display: block;
-        top: 55px !important;
-        padding-block-start: 1rem;
-        padding-block-end: 3rem;
-        position: absolute !important;
-        scale: 0.8;
-        left: -357px !important;
-
+    .el-date-range-picker .el-picker-panel__content {
         @include for-mobile-layout-list {
-            width: fit-content;
-            padding-inline: 0;
-            left: 0 !important;
-            right: 0 !important;
+            padding: 0.5rem;
+            height: 340px;
+
+            // &:first-of-type {
+            //     padding-block-end: 2rem
+            // }
         }
+
+        width: 390px;
+        height: 390px;
     }
-}
 
+    .el-date-range-picker {
+        padding: 20px;
+    }
 
+    .el-date-range-picker__content.is-left {
+        border: none;
+    }
 
-.el-date-range-picker .el-picker-panel__content {
-    width: 390px;
-    height: 390px;
-}
+    .el-picker-panel {
+        @include for-mobile-layout-list {
+            padding: 0;
+        }
 
-.el-date-range-picker {
-    padding: 20px;
-}
-
-.el-date-range-picker__content.is-left {
-    border: none;
-}
-
-.el-picker-panel {
-    padding: 20px;
-    border-radius: 32px;
-    width: fit-content;
-    height: fit-content;
-}
-
-div.el-date-table-cell {
-    display: flex;
-    width: 45px;
-    height: 45px;
-    margin: 0;
-    padding: 0;
-}
-
-.el-date-range-picker__content .el-date-range-picker__header div {
-    color: $clr2;
-    font-family: airbnb_medium;
-    font-size: 1rem;
-}
-
-.el-date-range-picker__header {
-    margin-block-end: 1rem;
-}
-
-.el-date-table__row {
-    height: fit-content;
-}
-
-.el-date-table td {
-    height: 45px;
-    width: 45px;
-    margin-block: 2px;
-
-    &.today .el-date-table-cell__text {
-        color: $clr1;
-        background-color: $clr5;
+        padding: 20px;
+        border-radius: 32px;
+        width: fit-content;
+        height: fit-content;
     }
 
     div.el-date-table-cell {
+        @include for-mobile-layout-list {
+            height: 35px;
+            width: 35px;
+        }
+
         display: flex;
         width: 45px;
         height: 45px;
@@ -148,136 +149,214 @@ div.el-date-table-cell {
         padding: 0;
     }
 
-    &.available {
-        width: 45px;
+    .el-date-range-picker__content .el-date-range-picker__header {
+        @include for-mobile-layout-list {
+            margin-block-end: 0;
+            // margin-block-start: 0.5rem;
+        }
 
-        .el-date-table-cell {
+        margin-block-end: 1rem;
+
+        div {
             color: $clr2;
-            margin: 0;
-            width: 45px;
-            height: 45px;
-            display: flex;
+            font-family: airbnb_medium;
+            font-size: 1rem;
         }
     }
 
-    &.start-date,
-    &.end-date {
-        width: 45px;
+    .el-date-table__row {
+        height: fit-content;
+    }
 
-        .el-date-table-cell {
-            background-color: transparent;
-            color: $clr2;
-            margin: 0;
-            width: 45px;
+    .el-date-table {
+        th {
+            @include for-mobile-layout-list {
+                padding: 0;
+            }
+        }
+
+        td {
+            @include for-mobile-layout-list {
+                height: 35px;
+                width: 35px;
+            }
+
             height: 45px;
-            display: flex;
+            width: 45px;
+            margin-block: 2px;
 
-            &:hover {
-                background-color: transparent;
-                color: $clr2;
+            &.today .el-date-table-cell__text {
+                color: $clr1;
+                background-color: $clr5;
+            }
 
-                .el-date-table-cell__text {
-                    background-color: $clr2;
-                    color: $clr6;
+            div.el-date-table-cell {
+                display: flex;
+                width: 45px;
+                height: 45px;
+                margin: 0;
+                padding: 0;
+            }
+
+            &.available {
+                width: 45px;
+
+                .el-date-table-cell {
+                    @include for-mobile-layout-list {
+                        height: 35px;
+                        width: 35px;
+                    }
+
+                    color: $clr2;
+                    margin: 0;
+                    width: 45px;
+                    height: 45px;
+                    display: flex;
+                }
+            }
+
+            &.start-date,
+            &.end-date {
+                width: 45px;
+
+                .el-date-table-cell {
+                    @include for-mobile-layout-list {
+                        height: 35px;
+                        width: 35px;
+                    }
+
+                    background-color: transparent;
+                    color: $clr2;
+                    margin: 0;
+                    width: 45px;
+                    height: 45px;
+                    display: flex;
 
                     &:hover {
+                        background-color: transparent;
+                        color: $clr2;
+
+                        .el-date-table-cell__text {
+                            background-color: $clr2;
+                            color: $clr6;
+
+                            &:hover {
+                                background-color: $clr2;
+                                color: $clr6;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.in-range {
+                .el-date-table-cell {
+                    @include for-mobile-layout-list {
+                        height: 35px;
+                        width: 35px;
+                    }
+
+                    background-color: transparent;
+                    margin: 0 !important;
+                    width: 45px;
+                    height: 45px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $clr5;
+
+                    &:hover {
+                        background-color: $clr5;
+                    }
+
+                    .el-date-table-cell__text {
+                        background-color: $clr5;
+                        border-radius: 0;
+                        width: 52px;
+
+                        &:hover {
+                            border-radius: 50%;
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+
+            .el-date-table-cell {
+                @include for-mobile-layout-list {
+                    height: 35px;
+                    width: 35px;
+                }
+
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                display: flex;
+
+                .el-date-table-cell__text {
+                    @include for-mobile-layout-list {
+                        height: 35px;
+                        width: 35px;
+                    }
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    border-radius: 50%;
+                    font-family: airbnb_medium;
+                    font-size: rem(14px);
+                    width: 45px;
+                    height: 45px;
+                    box-sizing: content-box;
+
+                    &:hover {
+                        color: $clr2;
+                        box-shadow: 0px 0px 0 1px inset $clr2;
+                    }
+
+                    &.today {
+                        background-color: $clr2;
+                    }
+
+                }
+            }
+
+            &.available.in-range {
+                padding: 0;
+            }
+
+            &.available.in-range.start-date,
+            &.available.in-range.end-date {
+                padding: 0;
+
+                .el-date-table-cell {
+                    @include for-mobile-layout-list {
+                        height: 35px;
+                        width: 35px;
+                    }
+
+                    margin: 0;
+                    width: 52px;
+                    height: 45px;
+                    display: flex;
+                    // width: fit-content;
+                    // background-color: $clr4;
+
+                    .el-date-table-cell__text {
                         background-color: $clr2;
                         color: $clr6;
+                        border-radius: 50%;
+                        width: 45px;
                     }
                 }
             }
         }
     }
 
-    &.in-range {
-        .el-date-table-cell {
-            background-color: transparent;
-            margin: 0 !important;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: $clr5;
-
-            &:hover {
-                background-color: $clr5;
-            }
-
-            .el-date-table-cell__text {
-                background-color: $clr5;
-                border-radius: 0;
-                width: 52px;
-
-                &:hover {
-                    border-radius: 50%;
-                    background-color: transparent;
-                }
-            }
-        }
+    .el-date-table td.end-date .el-date-table-cell__text,
+    .el-date-table td.start-date .el-date-table-cell__text {
+        background-color: $clr2;
+        color: $clr5;
     }
-
-    .el-date-table-cell {
-        // width: 45px;
-        // height: fit-content;
-        // margin:0;
-        margin: 0;
-        width: 45px;
-        height: 45px;
-        display: flex;
-
-        .el-date-table-cell__text {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-            font-family: airbnb_medium;
-            font-size: rem(14px);
-            width: 45px;
-            height: 45px;
-            box-sizing: content-box;
-
-            &:hover {
-                color: $clr2;
-                box-shadow: 0px 0px 0 1px inset $clr2;
-            }
-
-            &.today {
-                background-color: $clr2;
-            }
-
-        }
-    }
-
-    &.available.in-range {
-        padding: 0;
-    }
-
-    &.available.in-range.start-date,
-    &.available.in-range.end-date {
-        padding: 0;
-
-        .el-date-table-cell {
-            margin: 0;
-            width: 52px;
-            height: 45px;
-            display: flex;
-            // width: fit-content;
-            // background-color: $clr4;
-
-            .el-date-table-cell__text {
-                background-color: $clr2;
-                color: $clr6;
-                border-radius: 50%;
-                width: 45px;
-            }
-        }
-    }
-}
-
-.el-date-table td.end-date .el-date-table-cell__text,
-.el-date-table td.start-date .el-date-table-cell__text {
-    background-color: $clr2;
-    color: $clr5;
 }

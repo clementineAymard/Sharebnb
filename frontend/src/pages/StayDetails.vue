@@ -1,6 +1,13 @@
 <template>
     <section class="stay-details" v-if="stay">
-
+        <div class="image-carousel">
+            <i class="fa-solid fa-heart" @click.stop="addToFavorite(stay)" :class="(isFavorite) ? 'red' : 'black'"></i>
+            <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
+                <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
+                    <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
+                </el-carousel-item>
+            </el-carousel>
+        </div>
         <h1 class="name-title">{{ stay.name }}</h1>
         <div class="details flex justify-between">
             <div class="name-subtitle flex align-center">
@@ -32,15 +39,6 @@
         </div>
         <div class="images-container">
             <img class="stay-img" v-for="imgUrl in this.stay.imgUrls" :src="imgUrl" alt="stay">
-        </div>
-
-        <div class="image-carousel">
-            <i class="fa-solid fa-heart" @click.stop="addToFavorite(stay)" :class="(isFavorite) ? 'red' : 'black'"></i>
-            <el-carousel trigger="click" arrow="hover" :interval="Number('0')" :loop="false">
-                <el-carousel-item v-for="(stay, index) in this.stay.imgUrls" :key="index">
-                    <img class="stay-img" :src="this.stay.imgUrls[index]" alt="stay">
-                </el-carousel-item>
-            </el-carousel>
         </div>
 
         <div class="mid-section flex">
@@ -200,62 +198,56 @@
                 </div>
             </div>
             <div class="reservation-section">
-                <div class="reservation flex">
-                    <div class="reservation-container font-thin">
-                        <div>
-                            <div class="reservation-form-header flex justify-between ">
-                                <p class="reservation-price flex column">
-                                    <span class="cost font-md">${{ stay.price }} </span>
-                                    <span class="font-thin">per night</span>
-                                </p>
-                                <div class="rating-review flex align-center">
-                                    <span class="avg-rating flex align-center font-md">
-                                        <svg class="icon-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
-                                            aria-hidden="true" role="presentation" focusable="false"
-                                            style="display: block; height: 12px; width: 12px; fill: currentcolor;">
-                                            <path
-                                                d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                        {{ stay.rate }}
-                                    </span>
-                                    <span>·</span>
-                                    <div class="rev-count link font-md">{{ stay.reviews.length }} reviews</div>
-                                </div>
-                            </div>
-                            <div class="reservation-data">
-                                <div class="date-picker-container">
-                                    <div class="date-input">
-                                        <label>CHECK-IN</label>
-                                        <input class="subtitle" v-model="startDate" placeholder="Add date"
-                                            fdprocessedid="b60swf">
-                                    </div>
-                                    <div class="date-input">
-                                        <label>CHECKOUT</label>
-                                        <input class="subtitle" v-model="endDate" placeholder="Add date"
-                                            fdprocessedid="l3c0t">
-                                    </div>
-                                </div>
-                                <DatePickerSmall @setDates="onSetDate" />
-                                <div class="guest-input">
-                                    <label class="bold-font">GUESTS</label>
-                                    <div @click="toggleGuestPicker">
-                                        <input class="font-thin" v-model="guestsForDisplay" placeholder="1 Adult"
-                                            fdprocessedid="xr56ac">
-                                        <span> guest<span v-if="guestsForDisplay > 1">s</span></span>
-                                        <svg viewBox="0 0 320 512" width="100" title="angle-down">
-                                            <path
-                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <GuestPicker v-if="isGuestPickerOpen" @setGuests="onSetGuest" />
-                                </div>
-                            </div>
-                            <button class="action-btn medium-font" fdprocessedid="mx0lay" @click="onReserve">
-                                Reserve</button>
+                <div class="reservation-container font-thin">
+                    <div class="reservation-form-header flex justify-between ">
+                        <p class="reservation-price flex column">
+                            <span class="cost font-md">${{ stay.price }} </span>
+                            <span class="font-thin">per night</span>
+                        </p>
+                        <div class="rating-review align-center">
+                            <span class="avg-rating flex align-center font-md">
+                                <svg class="icon-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true" role="presentation" focusable="false"
+                                    style="display: block; height: 12px; width: 12px; fill: currentcolor;">
+                                    <path
+                                        d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                                {{ stay.rate }}
+                            </span>
+                            <span>·</span>
+                            <div class="rev-count link font-md">{{ stay.reviews.length }} reviews</div>
                         </div>
                     </div>
+                    <div class="reservation-data">
+                        <div class="date-picker-container">
+                            <div class="date-input">
+                                <label>CHECK-IN</label>
+                                <input class="subtitle" v-model="startDate" placeholder="Add date" fdprocessedid="b60swf">
+                            </div>
+                            <div class="date-input">
+                                <label>CHECKOUT</label>
+                                <input class="subtitle" v-model="endDate" placeholder="Add date" fdprocessedid="l3c0t">
+                            </div>
+                        </div>
+                        <DatePickerSmall @setDates="onSetDate" />
+                        <div class="guest-input">
+                            <label class="bold-font">GUESTS</label>
+                            <div @click="toggleGuestPicker">
+                                <input class="font-thin" v-model="guestsForDisplay" placeholder="1 Adult"
+                                    fdprocessedid="xr56ac">
+                                <span> guest<span v-if="guestsForDisplay > 1">s</span></span>
+                                <svg viewBox="0 0 320 512" width="100" title="angle-down">
+                                    <path
+                                        d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <GuestPicker v-if="isGuestPickerOpen" @setGuests="onSetGuest" />
+                        </div>
+                    </div>
+                    <button class="action-btn medium-font" fdprocessedid="mx0lay" @click="onReserve">
+                        Reserve</button>
                 </div>
             </div>
         </div>
@@ -263,7 +255,7 @@
             <div class="divider"></div>
             <div class="reviews" ref="revs">
                 <h1 class="flex subheading">
-                    <div class="rating-review flex">
+                    <div class="rating-review flex align-center">
                         <span class="avg-rating flex align-center font-md">
                             <section class="icon-svg">
                                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -385,6 +377,10 @@
             </div>
         </div>
     </section>
+
+    <div class="back" @click="goBack" >
+        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684147823/back_k9lue1.png">
+    </div>
 </template>
 
 <script>
@@ -401,7 +397,7 @@ export default {
             stay: null,
             startDate: '',
             endDate: '',
-            guests: 0,
+            guests: 1,
             guestsForDisplay: 1,
             isGuestPickerOpen: false,
             isFavorite: false
@@ -453,7 +449,7 @@ export default {
             this.isGuestPickerOpen = !this.isGuestPickerOpen
         },
         goBack() {
-            this.$router.push('/stay')
+            this.$router.back()
         },
         async onReserve() {
             console.log('onReserve .....................')

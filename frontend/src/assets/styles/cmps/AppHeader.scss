@@ -70,6 +70,10 @@
         .logo span {
             display: none;
         }
+
+        &.narrow {
+            display: none;
+        }
     }
 
     .backdrop {

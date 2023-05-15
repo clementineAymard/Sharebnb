@@ -101,7 +101,7 @@
         </header>
         
 
-        <header class="header-mobile align-center justify-between" >
+        <header class="header-mobile align-center justify-between" :class="isDetailsClass" >
             <BrandLogo @resetFields="onResetFields" />
             <img class="search" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684144299/magnifying-glass_shtw8h.png">
             <img  class="user" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png">
