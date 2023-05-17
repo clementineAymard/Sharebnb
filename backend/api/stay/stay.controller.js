@@ -71,44 +71,10 @@ async function removeStay(req, res) {
     }
 }
 
-// async function addStayMsg(req, res) {
-//     const { loggedinUser } = req
-//     try {
-//         const stayId = req.params.id
-//         const msg = {
-//             txt: req.body.txt,
-//             by: loggedinUser
-//         }
-//         const savedMsg = await stayService.addStayMsg(stayId, msg)
-//         res.json(savedMsg)
-//     } catch (err) {
-//         logger.error('Failed to update stay', err)
-//         res.status(500).send({ err: 'Failed to update stay' })
-
-//     }
-// }
-
-// async function removeStayMsg(req, res) {
-//     const { loggedinUser } = req
-//     try {
-//         const stayId = req.params.id
-//         const { msgId } = req.params
-
-//         const removedId = await stayService.removeStayMsg(stayId, msgId)
-//         res.send(removedId)
-//     } catch (err) {
-//         logger.error('Failed to remove stay msg', err)
-//         res.status(500).send({ err: 'Failed to remove stay msg' })
-
-//     }
-// }
-
 module.exports = {
     getStays,
     getStayById,
     addStay,
     updateStay,
     removeStay,
-    // addStayMsg,
-    // removeStayMsg
 }

@@ -53,7 +53,6 @@
 
             border-block-start: solid 1px $clr4;
             background-color: $clr6;
-            // width: 100%;
             position: fixed;
             bottom: 0;
         }
@@ -73,6 +72,47 @@
 
         &.narrow {
             display: none;
+        }
+    }
+
+    .searchBar {
+        border-radius: 50px;
+        box-shadow: 0px 0px 10px 1px $clr4;
+        background-color: $clr6;
+        padding: rem(10px) rem(16px);
+        align-items: center;
+        justify-content: center;
+
+        position: fixed;
+        bottom: -5rem;
+        left: 1rem;
+        right: 1rem;
+
+        transition: transform 0.5s ease-in-out;
+
+        &.show {
+            transform: translateY(-10rem);
+        }
+
+        @include for-mobile-layout-list {
+            display: flex;
+        }
+
+        @include for-mobile-layout-list-min {
+            display: none;
+        }
+
+        >input {
+            border: none;
+            padding: 10px;
+            flex-grow: 1;
+            font-family: cereal;
+            font-size: 1rem;
+        }
+
+        >button>img {
+            height: 1rem;
+            object-fit: contain;
         }
     }
 

@@ -1,40 +1,41 @@
 <template>
     <section class="user-profile">
-        <nav>
-            <ul class="user-menu">
-                <a @click="this.$router.push(user._id + '/staywishlist')">WishList</a>
-                <a @click="this.$router.push(user._id + '/trips')">Trips</a> <!-- stays where user is guest -->
-                <a @click="this.$router.push(user._id + '/orders')">Orders</a> <!-- stays where user is host -->
-            </ul>
-        </nav>
         <h2 v-if="isMe">My Profile</h2>
         <h1 v-else>User Profile - {{ user.fullname }}</h1>
-        <div class="flex gap1rem">
-            <img style="max-width: 40px;" :src="user.imgUrl" />
+        <div class="user-name flex align-center gap1rem">
+            <img :src="user.imgUrl" />
             <h3>{{ user.fullname }}</h3>
         </div>
-        <!-- <h2>Reviews</h2>
-        <ul>
-            <li v-for="review in user.givenReviews" :key="review._id">
-                {{ review.txt }}
-                <RouterLink :to="`/user/${review.aboutUser._id}`">
-                    About {{ review.aboutUser.fullname }}
-                </RouterLink>
-            </li>
-        </ul> -->
+        <nav>
+            <ul class="user-menu flex column gap1rem">
+                <a @click="this.$router.push(user._id + '/staywishlist')"><span>♡</span>WishList</a>
+                <a @click="this.$router.push(user._id + '/trips')"><img class="img-map"
+                        src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684234277/map_1_f2e1f4.png">Trips</a>
+                <!-- stays where user is guest -->
+                <a @click="this.$router.push(user._id + '/orders')"><img class="img-dashboard"
+                        src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684311229/dashboard_yqznav.png">Orders</a>
+                <!-- stays where user is host -->
+            </ul>
+        </nav>
     </section>
+    <div class="back" @click="goBack" >
+        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684147823/back_k9lue1.png">
+    </div>
 </template>
 
 <script>
-// import {userService} from '../services/user.service'
 
 export default {
     data() {
         return {
-            // user: null
         }
     },
     async created() {
+    },
+    methods: {
+        goBack() {
+            this.$router.back()
+        }
     },
     watch: {
         userId: {

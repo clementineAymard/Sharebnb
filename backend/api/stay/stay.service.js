@@ -10,8 +10,6 @@ module.exports = {
     getById,
     add,
     update,
-    // addStayMsg,
-    // removeStayMsg
 }
 
 async function query(filterBy = {}) {

@@ -44,7 +44,10 @@ export default {
         stayNumber() {
             if (this.stays)
                 return new Intl.NumberFormat().format(this.stays.length)
-        }
+        },
+        routeQuery() {
+            return this.$route.query
+        },
     },
     created() {
         this.filterBy.loc = this.$route.query.loc
@@ -55,14 +58,28 @@ export default {
         this.filterBy.infants = this.$route.query.infants
         this.filterBy.category = this.$route.query.category
 
-        console.log('EXPLORE this.filterBy', this.filterBy)
+        // console.log('EXPLORE this.filterBy', this.filterBy)
 
         delete this.filterBy.startDate
         delete this.filterBy.endDate
 
-        console.log('this.filterBy after del startDate endDate', this.filterBy)
+        // console.log('this.filterBy after del startDate endDate', this.filterBy)
 
         this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
+    },
+    watch: {
+        routeQuery() {
+            this.filterBy.loc = this.$route.query.loc
+            this.filterBy.startDate = this.$route.query.startDate
+            this.filterBy.endDate = this.$route.query.endDate
+            this.filterBy.adults = this.$route.query.adults
+            this.filterBy.children = this.$route.query.children
+            this.filterBy.infants = this.$route.query.infants
+            this.filterBy.category = this.$route.query.category
+            delete this.filterBy.startDate
+            delete this.filterBy.endDate
+            this.$store.dispatch({ type: 'loadStays', filterBy: this.filterBy })
+        }
     },
     components: {
         FilterCategory,

@@ -24,14 +24,6 @@
                 <input type="radio" v-model="status" value="rejected" id="rejection" hidden @input="onSelectStatus('rejected')">
                 <span class="reject">Reject</span>
             </label>
-
-
-            <!-- <option value="" disabled>Select status</option> -->
-        <!-- <el-select v-if="status === 'pending'" v-model="status" @change="onSelectStatus" placeholder="Select">
-            <el-option value="" label="Select" selected />
-            <el-option value="approved" label="Approve" />
-            <el-option value="rejected" label="Reject" />
-                        </el-select> -->
         </div>
     </section>
 </template>

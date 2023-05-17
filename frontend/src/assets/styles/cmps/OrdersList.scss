@@ -110,10 +110,11 @@
 
     @include for-mobile-layout-list {
         font-size: 16px;
+        margin-block-end: 5rem;
+    }
 
-        .header-order {
-            flex-direction: row;
-        }
+    >ul {
+        padding: 0;
     }
 
     .order-list-header {
@@ -135,22 +136,11 @@
         }
     }
 
-    >ul {
-        padding: 0;
-    }
-
-
-    .order-list {
-        border-top: 3px solid $clr4;
-    }
-
     div {
         display: flex;
-        // flex-direction: column;
         font-size: 15px;
 
         &.buyer-name {
-            // margin-left: -15px;
 
             img {
                 width: 40px;

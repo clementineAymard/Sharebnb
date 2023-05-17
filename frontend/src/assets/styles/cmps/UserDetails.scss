@@ -1,22 +1,73 @@
 .user-profile {
+    margin-block-start: 2rem;
 
-    nav ul.user-menu {
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        align-content: center;
-        margin-block: em(10px);
-        box-shadow: 0px 0px -2px 0px $clr4;
-        
-        >a {
-            display: block;
-            width: 100%;
-            text-align: center;
+    h2 {
+        margin-block-start: 1rem;
 
-            &:not(:last-child) {
-                border-right: solid 1px $clr4;
-            }
+        @include for-mobile-layout-list {
+            margin-block-start: 2rem;
         }
     }
 
+    .user-name {
+        img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    nav {
+        ul.user-menu {
+            padding-inline-start: 1.5rem;
+            margin-block: em(10px);
+
+            a {
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+            }
+
+            img {
+                height: 28px;
+                margin-inline-end: 7px;
+                object-fit: contain;
+            }
+
+            span {
+                margin-inline-end: 7px;
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+.back {
+    @include for-mobile-layout-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+
+        height: 2rem;
+        width: 2rem;
+
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px 1px $clr4;
+        background-color: $clr6;
+
+        img {
+            height: 1.4rem;
+            padding: 5px;
+        }
+    }
+
+    display: none;
 }

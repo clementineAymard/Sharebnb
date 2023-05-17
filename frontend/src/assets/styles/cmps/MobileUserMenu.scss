@@ -1,0 +1,63 @@
+.mobile-user-menu {
+    padding: 2rem;
+    background-color: $clr6;
+
+    >span {
+        gap: 1rem;
+        padding: 1rem;
+        margin-inline-start: -1rem;
+
+        >span {
+            color: $clr3;
+            font-size: rem(20px);
+        }
+
+        >h1 {
+            margin: 0
+        }
+    }
+
+    >a {
+        font-size: rem(16px);
+        font-family: airbnb_book;
+        color: $clr2;
+        margin: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .guest-options,
+    .host-options {
+
+        border-bottom: 1px solid $clr4;
+
+        a {
+            font-family: airbnb_book;
+            font-size: rem(17px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 17px;
+
+            span {
+                font-size: rem(22px);
+                margin-inline-end: 10px;
+            }
+        }
+    }
+
+    .img-map {
+        height: 28px;
+        margin-inline-start: -5px;
+    }
+    .img-dashboard{
+        height: 26px;
+        margin-inline-start: -4px;
+    }
+
+    img {
+        height: 18px;
+        object-fit: contain;
+    }
+}

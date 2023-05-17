@@ -1,5 +1,5 @@
 <template>
-    <nav class="align-center">
+    <nav class="header-nav-bar align-center">
         <div class="links flex align-center">
             <RouterLink class="link-add-stay" to="/stay/edit">Sharebnb your home</RouterLink>
         </div>
@@ -8,6 +8,7 @@
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/hamburger_vuqyb2.png" class="ham">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
         </a>
+        
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
             <div class="guest-options">
                 <a @click="goToPage('/staywishlist')">WishList</a>
@@ -19,6 +20,7 @@
             </div>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>
+
         <div v-if="isMiniMenuOpen && !loggedinUser" class="mini-menu flex column">
             <a @click="openModal" class="bold">Login</a>
             <a @click="openModal" class="bold">Signup</a>

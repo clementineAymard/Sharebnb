@@ -5,13 +5,12 @@ import Chat from './pages/Chat.vue'
 import StayDetails from './pages/StayDetails.vue'
 import StayEdit from './pages/StayEdit.vue'
 import Explore from './pages/Explore.vue'
-import ReviewIndex from './pages/ReviewIndex.vue'
-import LoginSignup from './cmps/LoginSignup.vue'
 import UserDetails from './pages/UserDetails.vue'
 import OrderConfirmation from './pages/OrderConfirmation.vue'
 import WishList from './pages/WishList.vue'
 import OrderList from './pages/OrderList.vue'
 import TripList from './pages/TripList.vue'
+import MobileUserMenu from './pages/MobileUserMenu.vue'
 
 const routes = [
     {
@@ -54,11 +53,11 @@ const routes = [
         name: 'TripList',
         component: TripList
     },
-    //   {
-    //     path: '/chat',
-    //     name: 'Chat',
-    //     component: Chat
-    //   },
+      {
+        path: '/user/menu',
+        name: 'MobileUserMenu',
+        component: MobileUserMenu
+      },
     {
         path: '/stay/edit/:stayId?',
         name: 'StayEdit',

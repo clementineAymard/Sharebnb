@@ -24,14 +24,14 @@
                         alt="stay">
                 </div>
                 <div class="wish-list-name">
+                    <h3>My Wish List 💓</h3>
                 </div>
-
-            </div>
-            <!-- <pre> {{ user }}</pre> -->
-           
-            <h3>My Wish List 💓</h3>
+            </div>           
         </div>
     </section>
+    <div class="back" @click="goBack" >
+        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684147823/back_k9lue1.png">
+    </div>
 </template>
 
 <script>
@@ -44,10 +44,9 @@ export default {
         }
     },
     methods: {
-        onOpenWishList() {
-           
-           
-           
+        // onOpenWishList() {},
+        goBack() {
+            this.$router.back()
         }
     },
     computed: {
