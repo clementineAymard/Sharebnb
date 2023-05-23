@@ -1,6 +1,6 @@
 <template>
     <section class="stays-loader">
-        <ul class="stays-list">
+        <ul class="stay-list">
             <li v-for="index in 12" :key="index" class="stay-preview">
                 <div class="img-container"></div>
                 <div class="preview-txt">

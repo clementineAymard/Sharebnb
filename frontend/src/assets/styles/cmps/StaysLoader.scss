@@ -1,5 +1,5 @@
 .stays-loader {
-    .stays-list {
+    .stay-list {
         list-style: none;
         padding: 0;
 
@@ -7,23 +7,23 @@
             margin-block-end: 2.5rem;
 
             .img-container {
+                @include aspect-ratio(1, 1);
                 border-radius: 1rem;
 
-                background: linear-gradient(90deg, $clr4, $clr5, $clr4);
+                background: linear-gradient(90deg, darken($clr4, 10%),  $clr5, darken($clr4, 10%));
                 background-size: 300% 100%;
-                animation: gradient 5s linear infinite;
+                animation: gradient 3s linear infinite;
 
                 @keyframes gradient {
                     0% {
-                        background-position: 0% 0%;
-                    }
-
-                    50% {
                         background-position: 100% 100%;
+                    }
+                    50% {
+                        background-position: 0% 0%;
                     }
 
                     100% {
-                        background-position: 0% 0%;
+                        background-position: 100% 100%;
                     }
                 }
             }
