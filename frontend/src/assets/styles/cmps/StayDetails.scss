@@ -534,7 +534,7 @@ body {
                 }
             }
 
-            .review-head-lins {
+            .reviews-head {
                 @include for-mobile-layout-list {
                     grid-template-columns: 2fr 1fr;
                 }

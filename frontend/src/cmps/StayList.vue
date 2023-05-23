@@ -1,5 +1,8 @@
 <template>
-    <section className="stay-list"> <!-- @scroll="onCloseHeader"-->
+    <StaysLoader v-if="stays.length === 0" />
+    
+    <section v-else className="stay-list"> 
+    <!-- <section className="stay-list"> @scroll="onCloseHeader" -->
 
         <StayPreview v-for="stay in stays" :key="stay._id" :stay="stay" @removeStay="$emit('removeStay', stay._id)"
             @updateStay="$emit('updateStay', stay)" @click="onOpenDetails(stay._id)">
@@ -9,9 +12,9 @@
 </template>
 
 <script>
-import { buildSlots } from '@vue/compiler-core';
-import { closeHeader } from "../services/event-bus.service.js"
+
 import StayPreview from './StayPreview.vue';
+import StaysLoader from './StaysLoader.vue';
 
 export default {
     name: 'StayList',
@@ -24,11 +27,11 @@ export default {
         }
     },
     methods: {
-        onOpenDetails(stayId){
+        onOpenDetails(stayId) {
             var queryStr = this.$route.query
             // console.log(queryStr)
             this.$router.replace({
-                path:`/stay/${stayId}`,
+                path: `/stay/${stayId}`,
                 query: queryStr,
             })
         },
@@ -45,7 +48,8 @@ export default {
     created() {
     },
     components: {
-        StayPreview
+        StayPreview,
+        StaysLoader
     },
 }
 </script>

@@ -1,11 +1,14 @@
 <template>
-    <section>
-        <h1 class="head-order">My reservations</h1>
-        <div class="charts-container">
-            <PieChart :orders="orders" />
-            <StatisticOrder />
-            <BarChart />
-        </div>
+    <section class="order-list-wrapper">
+        <h1 class="title">My Reservations</h1>
+        <details>
+            <summary>Dashboard</summary>
+            <div class="charts-container">
+                <PieChart :orders="orders" />
+                <StatisticOrder />
+                <BarChart />
+            </div>
+        </details>
 
         <div class="list">
             <ul v-if="orders">
@@ -32,6 +35,10 @@
             <h3 v-else>No orders yet.</h3>
         </div>
     </section>
+
+    <div class="back" @click="goBack">
+        <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684147823/back_k9lue1.png">
+    </div>
 </template>
 
 <script>
@@ -66,6 +73,9 @@ export default {
         async loadOrders() {
             console.log('LOAD ORDERS')
             await this.$store.dispatch({ type: 'loadOrders', filterBy: { hostId: this.loggedinUser._id } })
+        },
+        goBack() {
+            this.$router.back()
         }
     },
     computed: {
@@ -79,7 +89,7 @@ export default {
         }
     },
     async created() {
-        socketService.on('order-for-you',() =>{
+        socketService.on('order-for-you', () => {
             this.addOrder()
         })
         try {

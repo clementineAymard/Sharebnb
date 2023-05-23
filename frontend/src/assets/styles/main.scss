@@ -3,6 +3,7 @@
 @import "setup/functions";
 @import "setup/mixins";
 @import "setup/typography";
+@import "setup/keyframes";
 
 // Basics
 @import "basics/helpers";
@@ -27,6 +28,7 @@
 @import "cmps/FilterCategory.scss";
 @import "cmps/WishList.scss";
 @import "cmps/OrdersList.scss";
+@import "cmps/OrdersPreview.scss";
 @import "cmps/TripList.scss";
 
 @import "cmps/LocationPicker.scss";
@@ -38,7 +40,6 @@
 @import "cmps/UserDetails.scss";
 @import "cmps/Explore.scss";
 @import "cmps/OrderConfirmation.scss";
-@import "cmps/MobileUserMenu.scss"
-
-
-
+@import "cmps/MobileUserMenu.scss";
+@import "cmps/StaysLoader.scss";
+@import "cmps/CircleLoader.scss";

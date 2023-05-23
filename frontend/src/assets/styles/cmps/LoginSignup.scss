@@ -2,12 +2,18 @@
     padding: 1rem 2rem;
     border-radius: 2rem;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
-    position: absolute;
-    z-index: 20;
-    top: 70%;
+    position: fixed;
+    z-index: 3;
+    top: 15%;
     left: 50vw;
     transform: translateX(-50%);
     background-color: $clr6;
+
+    .close-login-modal {
+        position: absolute;
+        top: rem(13px);
+        right: 1.3rem;
+    }
 
     >form {
         display: flex;
@@ -16,6 +22,7 @@
 
         h2 {
             width: fit-content;
+            margin-block: 1rem;
         }
 
         >select>option,
@@ -54,11 +61,26 @@
         >button {
             width: 400px;
             font-size: 1rem;
-            // color: $clr2;
             font-family: airbnb_medium;
             background-color: $clr1;
             border-radius: 7px;
             padding: em(8px);
+            margin-block-start: 1rem;
+        }
+
+        &:last-child button {
+            margin-block-end: 1rem;
+        }
+
+        .btn-demo {
+            color: $clr6;
+        }
+
+        >p {
+            align-self: start;
+            margin: 0;
+            padding-block: 10px;
+            color: darken($clr1, 20%)
         }
     }
 }

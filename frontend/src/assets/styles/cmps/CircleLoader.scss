@@ -1,0 +1,24 @@
+.spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+
+    border: solid 4px $clr2;
+    border-bottom-color: $clr4;
+
+    animation: spinner 0.8s linear infinite;
+
+    @keyframes spinner {
+        0% {
+            transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        }
+
+        100% {
+            transform: translate3d(-50%, -50%, 0) rotate(360deg);
+        }
+    }
+}

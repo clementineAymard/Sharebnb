@@ -70,51 +70,60 @@
             display: none;
         }
 
+        .user .sparkle {
+            width: 1.3rem;
+            position: relative;
+            left: -2.5rem;
+            top: -1rem;
+            animation: linear infinite 2s flash;
+        }
+
         &.narrow {
             display: none;
         }
+
+        .search-bar {
+            border-radius: 50px;
+            box-shadow: 0px 0px 10px 1px $clr4;
+            background-color: $clr6;
+            padding: rem(10px) rem(16px);
+            align-items: center;
+            justify-content: center;
+
+            position: fixed;
+            bottom: -5rem;
+            left: 1rem;
+            right: 1rem;
+
+            transition: transform 0.5s ease-in-out;
+
+            &.show {
+                transform: translateY(-10rem);
+            }
+
+            @include for-mobile-layout-list {
+                display: flex;
+            }
+
+            @include for-mobile-layout-list-min {
+                display: none;
+            }
+
+            >input {
+                border: none;
+                padding: 10px;
+                flex-grow: 1;
+                font-family: cereal;
+                font-size: 1rem;
+            }
+
+            >button>img {
+                height: 1rem;
+                object-fit: contain;
+            }
+        }
     }
 
-    .searchBar {
-        border-radius: 50px;
-        box-shadow: 0px 0px 10px 1px $clr4;
-        background-color: $clr6;
-        padding: rem(10px) rem(16px);
-        align-items: center;
-        justify-content: center;
-
-        position: fixed;
-        bottom: -5rem;
-        left: 1rem;
-        right: 1rem;
-
-        transition: transform 0.5s ease-in-out;
-
-        &.show {
-            transform: translateY(-10rem);
-        }
-
-        @include for-mobile-layout-list {
-            display: flex;
-        }
-
-        @include for-mobile-layout-list-min {
-            display: none;
-        }
-
-        >input {
-            border: none;
-            padding: 10px;
-            flex-grow: 1;
-            font-family: cereal;
-            font-size: 1rem;
-        }
-
-        >button>img {
-            height: 1rem;
-            object-fit: contain;
-        }
-    }
 
     .backdrop {
         background-color: rgba($clr3, 0.5);

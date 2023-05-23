@@ -1,12 +1,13 @@
 <template>
     <nav class="header-nav-bar align-center">
         <div class="links flex align-center">
-            <RouterLink class="link-add-stay" to="/stay/edit">Sharebnb your home</RouterLink>
+            <RouterLink  class="link-add-stay" to="/stay/edit">Sharebnb your home</RouterLink>
         </div>
 
-        <a @click="toggleMiniMenu" class="loggedin-user flex justify-between align-center">
+        <a @click="toggleMiniMenu" class="user-menu flex justify-between align-center">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/hamburger_vuqyb2.png" class="ham">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
+            <img v-if="!isMiniMenuOpen" class="sparkle" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684666318/sparkles_pkxixo.png">
         </a>
         
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
@@ -16,7 +17,7 @@
             </div>
             <div class="host-options">
                 <a @click="goToPage('')">My Profile</a>
-                <a @click="goToPage('/orders')">Orders</a>
+                <a @click="goToPage('/orders')">Reservations</a>
             </div>
             <RouterLink to="/" @click="doLogout">Logout</RouterLink>
         </div>

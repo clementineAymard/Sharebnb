@@ -273,7 +273,7 @@
                     </div>
                 </h1>
 
-                <div class="review-head-lins">
+                <div class="reviews-head">
                     <p>Cleanliness</p>
                     <span class="progress-container">
                         <progress max="5" value="4.8"></progress>

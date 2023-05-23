@@ -105,10 +105,12 @@
             <BrandLogo @resetFields="onResetFields" />
             <img class="search" @click="toggleSearchBar"
                 src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684144299/magnifying-glass_shtw8h.png">
-            <img class="user" @click="this.$router.push('/user/menu')"
-                src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png">
-
-            <form class="searchBar" @submit="onSetFilter" :class="searchBarIsShown ? 'show' : ''">
+            <div class="user">
+                <img @click="this.$router.push('/user/menu')"
+                    src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png">
+                <img class="sparkle" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684666318/sparkles_pkxixo.png">
+            </div>
+            <form class="search-bar" @submit="onSetFilter" :class="searchBarIsShown ? 'show' : ''">
                 <input type="search" placeholder="Search by destination" v-model="filterBy.loc" />
                 <button>
                     <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684225823/loupe_yleteh.png" />
@@ -128,7 +130,6 @@ import LocationPicker from './LocationPicker.vue'
 import DatePicker from './DatePicker.vue'
 import GuestsPicker from './GuestsPicker.vue'
 import NavBar from './NavBar.vue'
-import { utilService } from "../services/util.service"
 
 export default {
     created() {
