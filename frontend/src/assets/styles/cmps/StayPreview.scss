@@ -17,6 +17,7 @@
         &:hover .el-carousel__arrow {
             background-color: $clr4;
             color: $clr2;
+            z-index: 1;
         }
 
         .el-carousel {
@@ -80,7 +81,6 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-
         }
     }
 

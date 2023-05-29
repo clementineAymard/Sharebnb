@@ -4,8 +4,7 @@
     <section v-else className="stay-list"> 
     <!-- <section className="stay-list"> @scroll="onCloseHeader" -->
 
-        <StayPreview v-for="stay in stays" :key="stay._id" :stay="stay" @removeStay="$emit('removeStay', stay._id)"
-            @updateStay="$emit('updateStay', stay)" @click="onOpenDetails(stay._id)">
+        <StayPreview v-for="stay in stays" :key="stay._id" :stay="stay" @click="onOpenDetails(stay._id)">
         </StayPreview>
 
     </section>
@@ -29,8 +28,7 @@ export default {
     methods: {
         onOpenDetails(stayId) {
             var queryStr = this.$route.query
-            // console.log(queryStr)
-            this.$router.replace({
+            this.$router.push({
                 path: `/stay/${stayId}`,
                 query: queryStr,
             })

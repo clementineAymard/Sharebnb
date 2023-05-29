@@ -7,7 +7,7 @@
         <a @click="toggleMiniMenu" class="user-menu flex justify-between align-center">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/hamburger_vuqyb2.png" class="ham">
             <img src="https://res.cloudinary.com/didkfd9kx/image/upload/v1679577070/user_hyytwy.png" class="user">
-            <img v-if="!isMiniMenuOpen" class="sparkle" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684666318/sparkles_pkxixo.png">
+            <img v-if="!isMiniMenuOpen || loggedinUser" class="sparkle" src="https://res.cloudinary.com/didkfd9kx/image/upload/v1684666318/sparkles_pkxixo.png">
         </a>
         
         <div v-if="isMiniMenuOpen && loggedinUser" class="mini-menu flex column">
