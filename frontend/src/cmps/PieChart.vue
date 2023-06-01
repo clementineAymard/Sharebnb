@@ -1,9 +1,8 @@
 <template>
-    <DoughnutChart :chartData="testData" class="doughnut" />
+    <DoughnutChart :options="chartOptions" :chartData="chartData" class="doughnut" />
 </template>
   
 <script lang="ts">
-import { defineComponent } from 'vue'
 import { DoughnutChart } from 'vue-chart-3'
 import { Chart, registerables } from 'chart.js'
 
@@ -15,55 +14,53 @@ export default {
     components: { DoughnutChart },
     data() {
         return {
-            testData: {
+            chartData: {
                 labels: ['Approved', 'Rejected', 'Pending'],
                 datasets: [
                     {
-                        data: [7, 4, 1],
-                        backgroundColor: ['#a5e8c1', '#e8b8a5', '#a5a5e8', '#97B0C4', '#FBFFB1'],
+                        data: [9, 1, 1],
+                        backgroundColor: ['#a5e8c1', '#e8b8a5', '#a5a5e8'],
                     },
                 ],
                 options: {
 
                 }
             },
+            chartOptions: {
+                responsive: true,
+                pieceLabel: {
+                    mode: 'percentage',
+                    precision: 1
+                }
+            }
         }
     },
     created() {
-        // this.setData()
     },
     mounted() {
-
+        // this.setData()
     },
-
     methods: {
-        // setData() {
-        //  var appCount = this.orders.reduce((acc,order)=>{
-        //   if(order.status === 'approved')  acc++
-        //   return acc
-        // },0)
-        // this.testData.datasets[0].data[0]=appCount
+        setData() {
+            var approvedCount = this.orders.reduce((acc, order) => {
+                if (order.status === 'approved') acc++
+                return acc
+            }, 0)
+            this.testData.datasets[0].data[0] = approvedCount
 
-        //  var rejCount = this.orders.reduce((acc,order)=>{
-        //   if(order.status === 'rejected')  acc++
-        //   return acc
-        // },0)
-        // this.testData.datasets[0].data[1]=rejCount
+            var rejectedCount = this.orders.reduce((acc, order) => {
+                if (order.status === 'rejected') acc++
+                return acc
+            }, 0)
+            this.testData.datasets[0].data[1] = rejectedCount
 
-        //  var penCount = this.orders.reduce((acc,order)=>{
-        //   if(order.status === 'pending')  acc++
-        //   return acc
-        // },0)
-        // this.testData.datasets[0].data[2]=penCount
-
+            var pendingCount = this.orders.reduce((acc, order) => {
+                if (order.status === 'pending') acc++
+                return acc
+            }, 0)
+            this.testData.datasets[0].data[2] = pendingCount
+        }
     },
-    computed: {
-        //   approvedNum(){
-        //     this.orders.reduce((acc,order)=>{
-        //     if(order.status === 'approved')  acc++
-        //     return acc
-        //   },0)
-        //  }
-    },
+    computed: {},
 }
 </script>

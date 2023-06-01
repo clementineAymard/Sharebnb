@@ -1,18 +1,18 @@
 <template>
     <section class="order-list-wrapper">
         <h1 class="title">My Reservations</h1>
-        <details>
+        <details open>
             <summary>Dashboard</summary>
             <div class="charts-container">
                 <PieChart :orders="orders" />
-                <StatisticOrder />
+                <OrderStatistic />
                 <BarChart />
             </div>
         </details>
 
         <div class="list">
             <ul v-if="orders">
-                <div class="order-list-header">
+                <div class="order-list-header order-list-layout">
                     <div @click="setSortBy('guest')" class="header-title first-colum">
                         Guest</div>
                     <!-- <div @click="setSortBy('name')" class="header-title name">
@@ -46,7 +46,7 @@ import { socketService } from '../services/socket.service'
 import OrderPreview from '../cmps/OrderPreview.vue'
 import PieChart from '../cmps/PieChart.vue'
 import BarChart from '../cmps/BarChart.vue'
-import StatisticOrder from '../cmps/StatisticOrder.vue'
+import OrderStatistic from '../cmps/OrderStatistic.vue'
 import { showSuccessMsg } from '../services/event-bus.service'
 
 export default {
@@ -107,7 +107,7 @@ export default {
         OrderPreview,
         PieChart,
         BarChart,
-        StatisticOrder
+        OrderStatistic
     },
 }
 

@@ -1,21 +1,23 @@
 
 <template>
     <section class="order-preview-wrapper flex column">
-        <div class="order-pre stay-name medium-font">{{ order.stayName }}</div>
-        <section class="order-preview">
-
-            <div class="order-pre buyer-name first-column flex column">
+        <div class=" stay-name medium-font flex align-center">
+            <span>Location : </span>
+            {{ order.stayName }}
+        </div>
+        <section class="order-preview order-list-layout">
+            <div class=" buyer-name first-column flex">
                 <img :src="order.buyerImg" alt="">
                 <span>{{ order.buyerFullname }}</span>
             </div>
-            <div class="order-pre startDate"> {{ startDate }}</div>
-            <div class="order-pre endDate"> {{ endDate }}</div>
-            <div class="order-pre totalPrice"> {{ order.totalPrice }}$ </div>
-            <div class="order-pre status medium-font" :class="statusClass"> {{ status }}
+            <div class=" startDate"> {{ startDate }}</div>
+            <div class=" endDate"> {{ endDate }}</div>
+            <div class=" totalPrice"> {{ order.totalPrice }}$ </div>
+            <div class=" status medium-font" :class="statusClass"> {{ status }}
             </div>
         </section>
 
-        <div class="order-pre select flex" v-if="status === 'pending'">
+        <div class=" select flex" v-if="status === 'pending'">
             <label for="approval">
                 <input type="radio" v-model="status" value="approved" id="approval" hidden @input="onSelectStatus('approved')">
                 <span class="approval">Approve</span>

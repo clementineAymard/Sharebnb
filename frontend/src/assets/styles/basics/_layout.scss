@@ -59,7 +59,7 @@
         }
 
         @include for-mobile-layout-list {
-                @include layoutGTC($break-mobile-list, $small_padding-inline);
+            @include layoutGTC($break-mobile-list, $small_padding-inline);
         }
 
 
@@ -76,4 +76,19 @@
         }
     }
 
+}
+
+.order-list-layout {
+    display: grid;
+    grid-template-columns: 3.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    @include for-mobile-layout-list {
+        grid-template-columns: repeat(4, 1fr) 0.8fr;
+    }
+
+    >*:not(:first-child) {
+        justify-self: center;
+    }
 }
